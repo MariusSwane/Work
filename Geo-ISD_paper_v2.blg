@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2020/Arch Linux)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: Geo-ISD_paper_v2.aux
+The style file: agsm.bst
+Database file #1: lib.bib
+You've used 4 entries,
+            2909 wiz_defined-function locations,
+            668 strings with 5461 characters,
+and the built_in function-call counts, 9831 in all, are:
+= -- 1535
+> -- 119
+< -- 1
++ -- 673
+- -- 35
+* -- 802
+:= -- 2103
+add.period$ -- 4
+call.type$ -- 4
+change.case$ -- 56
+chr.to.int$ -- 4
+cite$ -- 4
+duplicate$ -- 60
+empty$ -- 131
+format.name$ -- 47
+if$ -- 1736
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 3
+newline$ -- 15
+num.names$ -- 40
+pop$ -- 13
+preamble$ -- 1
+purify$ -- 60
+quote$ -- 0
+skip$ -- 50
+stack$ -- 0
+substring$ -- 2106
+swap$ -- 10
+text.length$ -- 57
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 0
+while$ -- 90
+width$ -- 0
+write$ -- 51

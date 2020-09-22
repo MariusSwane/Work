@@ -1,0 +1,11 @@
+digraph G {
+	"Topography" -> "State centralization in 19th century"
+	"Previous wars (in the West)" -> "State centralization in 19th century"
+	"Population density (in 1500)" -> "State centralization in 19th century"
+	"State centralization in 19th century" -> "State capacity to provide public goods"
+	"State centralization in 19th century" -> "Linguistic homogeneity"
+	"Density of voluntary organizations" -> "Ethnopolitical inclusion"
+	"State capacity to provide public goods" -> "Ethnopolitical inclusion"
+	"Linguistic homogeneity" -> "Ethnopolitical inclusion"
+	"Ethnopolitical inclusion" -> "National identification"
+}

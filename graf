@@ -1,0 +1,18 @@
+
+digraph G {
+	rankdir="Lr";
+	"Historical states" -> "Ethnic power relations";
+	"Historical states" -> "Colonialism, democracy and weak statehood";
+	"Historical states" -> Symbols;
+	"Historical states" -> "Mobilization networks";
+	Symbols -> Conflict;
+	"Colonialism, democracy and weak statehood" -> Conflict;
+	"Ethnic power relations" -> Conflict;
+	"Mobilization networks" -> Conflict;
+	"Historical states" [group=1 style=filled colorscheme=set33 color=1 shape=box];
+	Conflict [group=3 shape=box style=filled colorscheme=set33 color=3];
+	"Ethnic power relations" [group=2 colorscheme=set33 color=2 style=filled];
+	"Colonialism, democracy and weak statehood" [group=2 colorscheme=set33 color=2 style=filled];
+	Symbols [group=2 colorscheme=set33 color=2 style=filled];
+	"Mobilization networks" [group=2 colorscheme=set33 color=2 style=filled];
+}

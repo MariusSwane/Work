@@ -1,0 +1,138 @@
+
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{rotating}
+\usepackage[british]{datetime2}
+
+
+\renewcommand\Affilfont{\itshape\small}
+
+\title{Mapping African States}
+\author[1]{Marius Swane Wishman}
+\affil[1]{Department of Sociology and Political Science, NTNU}
+
+\date{\today}
+
+\providecommand{\keywords}[1]
+{
+	\small	
+	\textbf{\textit{Keywords---}} #1
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+\end{abstract}
+
+\keywords{}
+
+\pagebreak
+
+%tableofcontents
+%\pagebreak
+
+\onehalfspacing
+
+\section{Introduction}
+\subsection{What has been done}
+\subsection{Contribution}
+A dynamic measure of historical state presence in Africa.
+Records changes of borders over time, in a period before modern, more or less static, boundaries.
+Records the \emph{extent} and \emph{penetration/deapth} of state presence.
+Identifies zones of overlapping sovereignty.
+
+This allows testing of a number of existing theories and hypotheses.
+\subsection{Strengths and weaknesses}
+
+\section{Procedure and technicalities}
+\subsection{Why David Rumsey?}
+\subsection{Georeferencing}
+Most maps were already georeference, however we found that they were usually  done so too roughly for our purposes. 
+Most maps were above 100 kilometers off in one place or another. 
+We therefor elected to georeference all maps ourselves. 
+This work was done in QGIS using the Georeferencer plug-in.
+
+Once georeferenced we drew polygons of the states present on the map \emph{and}
+in the ISD V2 for the year in question. 
+This means that sometimes maps would contain states that not yet, or no longer, were in the ISD.
+In some instances this probably reflected lags in the transmission of knowledge about the local conditions back to Western cartographers. 
+Either in cases of states not yet discovered by Westerns, or cases of states no longer existing and Western observes not yet knowing.
+While in other cases it reflects changes in the ISD, for example related to changes of de facto rule (while maps still reflect the de jure situation).
+We also only drew polygons for states that we could positively tie to the ISD.
+This means that even if a state is drawn in a map, unless it had a name that was either included in in the ISD or could be positively identified as one through some additional research.
+Examples of the latter would be when the map names a state by its ruler, or the name is not included in the ISD, but nonetheless refers to one of the states in the ISD.
+If a state was drawn, but not named at all, we did not draw a polygon for it.
+Even when there was a state in the ISD in that territory and year, however we would not able to \emph{positively} identify the state.
+We therefor adopted the conservative approach of not coding such cases.
+When states are named in maps, but do not include borders (i.e. when the map only contains the name of a state), we also did not draw any polygons.
+We could have drawn polygons based on the placement and size of the name in the map. 
+In some instances this certainly seems to be an intentional indication of where the states ruled. 
+However, the uncertainty related to this are obvious, and we considered them too sever.
+When states drawn in the maps were named in ethnic terms, we did not code them as states.
+For example, we did not code the kingdom of Jolof when the map said `Jolofs'. 
+Another example is the Sokoto Caliphate, which is often named in Western maps as Hausa. 
+
+At times part of the border would be missing.
+Usually because it would be cut off by the end of the map, or because the border would disappear into low population areas like deserts, mountains or jungles.
+In these instances we would draw the border in a straight line from where it ended in one place to where it started in the other end. 
+A very common example would be the southern borders of the North African states, where the eastern and western border would extend for some distance into the desert to the south. 
+The southern border of the coded polygon would then be a straight line between these two points.
+
+\section{Addressing potential issues}
+\subsection{Western bias}
+British maps for Britain?
+French maps for France?
+
+Lost in translation? 
+Chinese whispers?
+From explorers to cartographers to the printing press.
+
+Making maps is hard.
+How accurate are these maps really in terms of geographic spatial accuracy?
+We included a rough measure of the geographical error of the borders drawn in the maps.
+Using the measurement tool in QGIS, we measured the distance from the coastline in the map to the actual coastline.
+This distance is of course not constant across the map, or even across the border of any given polity. 
+We therefore opted to conservatively measure the distance at the point where the distance was largest.
+This was then rounded (usually down) to the closest 5km.
+Not all polities have a coastline, and inland there were far fewer points where we could easily compare points similar to a coastline.
+Cities could provide such point, but these are often difficult to locate, and were often used to georeference the map in the first place, which means the location of the city would be guaranteed to match between map and projection.
+For a measure of landlocked state entities we therefor created a measure of the average error across each map or atlas, based on the polities with a coastline.
+
+
+\subsection{These countries did not have boundaries}
+But they had \emph{borders!}
+
+\section{Historical atlases}
+A small counterweight to the historical maps from the David Rumsey project.
+These maps tend to draw the cores of states, often as circles and ellipses, prioritising conservatism over accuracy.
+These maps also frequently covers periods, implicitly assuming static borders in the range of the period.
+On the whole, these maps should be less error-prone than the historical maps, but lack comparatively in dynamism and potential accuracy.
+We suggest using the atlas maps as an alternative measure, for robustness checks. 
+To that end we included a dummy variable for weather a given polygon was drawn from a David Rumsey map, or a historical atlas.
+An alternative use of this variable, could be to weight the polygons from history atlases more than the historical maps.
+However, choosing weighs would inevitably be more or less arbitrary.
+\subsection{Advantages}
+\subsection{Disadvantages}
+Despite the aforementioned advantage of historical aggregation, there are still errors in these maps. 
+For example the \citet{Kasule1998} map of Africa c. 1830 depicts (among others) the Ibadan Empire. 
+However, this empire is not established until 1862.
+
+A number of these maps are also very inaccurate when it comes to the dating, often covering many decades, whole centuries or no dating at all. 
+This certainly overestimates the stability of state borders.
+Indeed, there are numerous examples of states not yet existing at the beginning of the period covered by the maps, while others collapse or are incorporated into other polities before the end of the period covered by the map.
+
+\pagebreak
+
+\bibliographystyle{agsm}
+\bibliography{mybib.bib}
+
+\section{Appendix}
+
+\end{document}

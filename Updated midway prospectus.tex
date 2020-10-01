@@ -31,7 +31,7 @@
 
 \keywords{Artificial states, contentious politics, civil conflict, historical 
 	states, state entities, state formation, civil war, ethnic conflict, 
-pre-colonial states, long history}
+	pre-colonial states, long history}
 
 \pagebreak
 
@@ -142,7 +142,62 @@ entities on civil conflict onsets remains across all models.
 \bigskip
 Status: Awaiting response from JPR.
 
-\section{GEO-ISD Project}
+\section{Geo-ISD Project}
+
+Together with Charles Butcher and research assistant Eirin Haugseth the project
+aimed to create geocoded information for the African historical state entities
+in the original ISD data set.  Specifically, on the locations and borders of
+these historical state entities. The resulting data provides a far clearer view
+of not just how many pre-colonial states there were in Africa, but also where
+these were and -- so we argue -- over what areas they had more or less control.
+
+The data has been collected, compiled and cleaned (mostly), and has been
+integrated not just with the original ISD, but with the PRIO-GRID system of
+geo-data as well.
+
+The resulting papers using this data (covered in the subsections below) will
+form the bulk of my thesis.
+
+\subsection{The data}
+
+To get the locations of different historical state entities we used a
+combination of maps from the time period covered by the ISD and maps found in
+historical atlases compiled by historians in our own time.  The historically
+contemporary maps were collected from the David Rumsey project at
+davidrumsey.com.  We then georeferenced the maps and traced polygons for the
+states included in both the map and the ISD.  Similarly the historical atlases
+were scanned, georeferenced and relevant state entities were traced.
+
+In the end we were left with over 3400 polygons covering the period 1800 to 1914
+for continental Africa and Madagascar. For some HSE's in the ISD we have no maps
+for any years, some are covered only for some of the years they are in the ISD,
+but a substantial number of them are covered by multiple maps for many years.
+%TODO Find exact percentages.
+% TODO Check how many unique states from the ISD is included in the Geo-ISD.
+When maps disagreed on where the various borders were in a given year, we take
+it as an indication of the ambiguity of where a given state had \emph{de facto}
+or \emph{de jure} control in that year. In some areas all the maps would overlap
+(at the very least in the immediate surroundings of the capital), while in other
+areas they would not. In the areas where all the maps agree we could be quite
+sure that the given state entity had real presence. While in areas where only
+one map indicated that the state was presence, this could either be wrong, an
+indication of \emph{de jure} as opposed to \emph{de facto} presence or some
+other form of limited presence. The coding process of looking at hundred of maps
+strengthened this initial intuition, and the resulting figures of state presence
+drawn from the complete data lends it further credence. 
+
+The data from this project can be aggregated and used in many ways and to
+produce many variables. Initially, I have opted on 14 slightly different
+measures of state presence, 3 of which are considered the main measures of three
+unique aspects of state presence, the rest are more or less conservative
+versions of these three. All of these indicators are aggregated over all years
+for individual PRIO-GRID cells in Africa. 
+
+\subsection{Historical states and civil conflict}
+
+\subsection{Historical states and communal violence}
+
+\subsection{Historical states and non-violent resistance}
 
 \section{ARC data release paper}
 
@@ -190,5 +245,5 @@ Consequences", which will be 5 ETC points if I complete that as planned.
 
 \pagebreak
 \bibliographystyle{agsm}
-\bibliography{ArtificialBorders.bib}
+\bibliography{lib.bib}
 \end{document}

@@ -24,6 +24,16 @@ Bockstette, V., Chanda, A. \harvardand\ Putterman, L.  \harvardyearleft
   {{Sub}}-{{Saharan Africa}}, Documentos de {{Trabajo}} 475, {Instituto de
   Economia. Pontificia Universidad Cat\'olica de Chile.}
 
+\harvarditem{Eaton}{2007}{Eaton_2007}
+Eaton, D.  \harvardyearleft 2007\harvardyearright , `The business of peace:
+  Raiding and peace work along the kenya uganda border (part i)', {\em African
+  Affairs} {\bf 107}(426),~89--110.
+
+\harvarditem{Eaton}{2008}{Eaton_2008}
+Eaton, D.  \harvardyearleft 2008\harvardyearright , `The business of peace:
+  Raiding and peace work along the kenya-uganda border (part {II})', {\em
+  African Affairs} {\bf 107}(427),~243--259.
+
 \harvarditem[Englebert et~al.]{Englebert, Tarango \harvardand\
   Carter}{2002}{Englebert2002}
 Englebert, P., Tarango, S. \harvardand\ Carter, M.  \harvardyearleft
@@ -31,8 +41,35 @@ Englebert, P., Tarango, S. \harvardand\ Carter, M.  \harvardyearleft
   the debate on {{African}} boundaries', {\em Comparative Political Studies}
   {\bf 35}(10),~1093--1118.
 
+\harvarditem{Fearon \harvardand\ Laitin}{1996}{Fearon_1996}
+Fearon, J.~D. \harvardand\ Laitin, D.~D.  \harvardyearleft
+  1996\harvardyearright , `Explaining interethnic cooperation', {\em American
+  Political Science Review} {\bf 90}(4),~715--735.
+
+\harvarditem{Jackson \harvardand\ Rosberg}{1982}{Jackson_1982}
+Jackson, R.~H. \harvardand\ Rosberg, C.~G.  \harvardyearleft
+  1982\harvardyearright , `Why africa{\textquotesingle}s weak states persist:
+  The empirical and the juridical in statehood', {\em World Politics} {\bf
+  35}(1),~1--24.
+
+\harvarditem{Lake \harvardand\ Rothchild}{1996}{Lake_1996}
+Lake, D.~A. \harvardand\ Rothchild, D.  \harvardyearleft 1996\harvardyearright
+  , `Containing fear: The origins and management of ethnic conflict', {\em
+  International Security} {\bf 21}(2),~41--75.
+
+\harvarditem{Logan}{2009}{Logan_2009}
+Logan, C.  \harvardyearleft 2009\harvardyearright , `Selected chiefs, elected
+  councillors and hybrid democrats: popular perspectives on the co-existence of
+  democracy and traditional authority', {\em The Journal of Modern African
+  Studies} {\bf 47}(1),~101--128.
+
 \harvarditem{Murdock}{1967}{Murdock1967}
 Murdock, G.~P.  \harvardyearleft 1967\harvardyearright , `Ethnographic atlas'.
+
+\harvarditem{Ostrom}{1990}{ostrom1990governing}
+Ostrom, E.  \harvardyearleft 1990\harvardyearright , {\em Governing the
+  commons: The evolution of institutions for collective action}, Cambridge
+  University Press, Cambridge.
 
 \harvarditem{Paine}{2019}{Paine2019}
 Paine, J.  \harvardyearleft 2019\harvardyearright , `Ethnic {{Violence}} in
@@ -48,6 +85,13 @@ Tilly, C.  \harvardyearleft 1990\harvardyearright , {\em Coercion, Capital, and
   {{European}} States, {{A}}.{{D}}. 990-1990}, Studies in Social Discontinuity,
   {Basil Blackwell}, {Cambridge, Mass}.
 
+\harvarditem[Turner et~al.]{Turner, Ayantunde, Patterson \harvardand\
+  Patterson}{2012}{Turner_2012}
+Turner, M.~D., Ayantunde, A.~A., Patterson, K.~P. \harvardand\ Patterson, E.~D.
+   \harvardyearleft 2012\harvardyearright , `Conflict management,
+  decentralization and agropastoralism in dryland west africa', {\em World
+  Development} {\bf 40}(4),~745--757.
+
 \harvarditem{Wig}{2016}{Wig2016}
 Wig, T.  \harvardyearleft 2016\harvardyearright , `Peace from the past:
   {{Pre}}-colonial political institutions and civil wars in {{Africa}}', {\em
@@ -57,5 +101,9 @@ Wig, T.  \harvardyearleft 2016\harvardyearright , `Peace from the past:
 Wig, T. \harvardand\ Kromrey, D.  \harvardyearleft 2018\harvardyearright ,
   `Which groups fight? {{Customary}} institutions and communal conflicts in
   {{Africa}}', {\em Journal of Peace Research} {\bf 55}(4),~415--429.
+
+\harvarditem{Witsenburg \harvardand\ Zaal}{2012}{Witsenburg2012}
+Witsenburg, K. \harvardand\ Zaal, F.  \harvardyearleft 2012\harvardyearright ,
+  `Spaces of insecurity: human agency in violent conflicts in kenya'.
 
 \end{thebibliography}

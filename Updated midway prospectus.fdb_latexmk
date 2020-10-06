@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex Updated midway prospectus"] 1601556654 "Updated midway prospectus.aux" "Updated midway prospectus.bbl" "Updated midway prospectus" 1601556692
+["bibtex Updated midway prospectus"] 1601902812 "Updated midway prospectus.aux" "Updated midway prospectus.bbl" "Updated midway prospectus" 1601902812
   "/usr/share/texmf-dist/bibtex/bst/harvard/agsm.bst" 1591521742 25549 e3d0f1ab4ae55e777f7352db30e2c6f7 ""
-  "Updated midway prospectus.aux" 1601556692 1759 eaf4d3e82ab93960766939d4c2e72eeb "pdflatex"
-  "lib.bib" 1600759687 201460 2c604e019cee9f2ebecdf1af53121527 ""
+  "Updated midway prospectus.aux" 1601902812 2146 0c94cd90c67f86ca34ca136a3b428476 "pdflatex"
+  "lib.bib" 1601888917 201639 c6ff4a761f05b6a958b8a1792c40ad7a ""
   (generated)
-  "Updated midway prospectus.bbl"
   "Updated midway prospectus.blg"
-["pdflatex"] 1601556691 "Updated midway prospectus.tex" "Updated midway prospectus.pdf" "Updated midway prospectus" 1601556692
+  "Updated midway prospectus.bbl"
+["pdflatex"] 1601902812 "Updated midway prospectus.tex" "Updated midway prospectus.pdf" "Updated midway prospectus" 1601902812
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1591545468 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1591545468 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1591545468 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -67,9 +67,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1591545468 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1599632653 4724469 fae8ba91363d50b5e13d5b17ff985631 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1599632649 2514043 2b04f6e097a7d52bc542d6d76d81d12d ""
-  "Updated midway prospectus.aux" 1601556692 1759 eaf4d3e82ab93960766939d4c2e72eeb "pdflatex"
-  "Updated midway prospectus.bbl" 1601556654 2155 4f69a3d06665c18b137c5c9a79432629 "bibtex Updated midway prospectus"
-  "Updated midway prospectus.tex" 1601556690 11607 1ef3f30d3c39ad6202818e473c9becd5 ""
+  "Updated midway prospectus.aux" 1601902812 2146 0c94cd90c67f86ca34ca136a3b428476 "pdflatex"
+  "Updated midway prospectus.bbl" 1601902812 2926 df07535b53240f5714af795202bbfb86 "bibtex Updated midway prospectus"
+  "Updated midway prospectus.tex" 1601902809 19360 a71ea740480261b033731b2b8465ac9b ""
   (generated)
   "Updated midway prospectus.log"
   "Updated midway prospectus.aux"

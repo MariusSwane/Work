@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: Updated midway prospectus.aux
 The style file: agsm.bst
 Database file #1: lib.bib
-You've used 8 entries,
+You've used 11 entries,
             2909 wiz_defined-function locations,
-            699 strings with 6125 characters,
-and the built_in function-call counts, 25599 in all, are:
-= -- 4106
-> -- 307
+            721 strings with 6567 characters,
+and the built_in function-call counts, 35814 in all, are:
+= -- 5742
+> -- 448
 < -- 1
-+ -- 1890
-- -- 91
-* -- 2153
-:= -- 5287
-add.period$ -- 8
-call.type$ -- 8
-change.case$ -- 111
-chr.to.int$ -- 8
-cite$ -- 8
-duplicate$ -- 123
-empty$ -- 260
-format.name$ -- 113
-if$ -- 4559
++ -- 2653
+- -- 133
+* -- 3025
+:= -- 7376
+add.period$ -- 11
+call.type$ -- 11
+change.case$ -- 152
+chr.to.int$ -- 11
+cite$ -- 11
+duplicate$ -- 171
+empty$ -- 361
+format.name$ -- 166
+if$ -- 6387
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 8
-newline$ -- 27
-num.names$ -- 82
-pop$ -- 30
+missing$ -- 12
+newline$ -- 36
+num.names$ -- 113
+pop$ -- 43
 preamble$ -- 1
-purify$ -- 120
+purify$ -- 165
 quote$ -- 0
-skip$ -- 101
+skip$ -- 137
 stack$ -- 0
-substring$ -- 5749
-swap$ -- 18
-text.length$ -- 113
+substring$ -- 8035
+swap$ -- 25
+text.length$ -- 155
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 30
+type$ -- 40
 warning$ -- 0
-while$ -- 178
+while$ -- 245
 width$ -- 0
-write$ -- 104
+write$ -- 143

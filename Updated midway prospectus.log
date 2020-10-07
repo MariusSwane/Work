@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.9.9)  6 OCT 2020 11:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.9.9)  6 OCT 2020 13:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -157,20 +157,36 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 26.
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8] [9] [10] (./Updated midway prospectus.bbl [11]) [12] (./Updated midway prospectus.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+<sp_sum_i_any.pdf, id=23, 1084.05pt x 669.50125pt>
+File: sp_sum_i_any.pdf Graphic file (type pdf)
+<use sp_sum_i_any.pdf>
+Package pdftex.def Info: sp_sum_i_any.pdf  used on input line 206.
+(pdftex.def)             Requested size: 390.0pt x 240.85681pt.
+<sp_o.pdf, id=24, 1084.05pt x 669.50125pt>
+File: sp_o.pdf Graphic file (type pdf)
+<use sp_o.pdf>
+Package pdftex.def Info: sp_o.pdf  used on input line 211.
+(pdftex.def)             Requested size: 390.0pt x 240.85681pt.
+<sp_b_sum.pdf, id=25, 1084.05pt x 669.50125pt>
+File: sp_b_sum.pdf Graphic file (type pdf)
+<use sp_b_sum.pdf>
+Package pdftex.def Info: sp_b_sum.pdf  used on input line 217.
+(pdftex.def)             Requested size: 390.0pt x 240.85681pt.
+ [5] [6 <./sp_sum_i_any.pdf>] [7 <./sp_o.pdf>] [8 <./sp_b_sum.pdf>] [9] [10] [11] [12] (./Updated midway prospectus.bbl [13]) [14] (./Updated midway prospectus.aux) ) 
 Here is how much of TeX's memory you used:
- 5984 strings out of 480478
- 113549 string characters out of 5905960
- 352902 words of memory out of 5000000
- 21979 multiletter control sequences out of 15000+600000
+ 6018 strings out of 480478
+ 114095 string characters out of 5905960
+ 352926 words of memory out of 5000000
+ 22010 multiletter control sequences out of 15000+600000
  539553 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,5n,43p,829b,292s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,6n,77p,829b,349s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on "Updated midway prospectus.pdf" (12 pages, 148471 bytes).
+Output written on "Updated midway prospectus.pdf" (14 pages, 576364 bytes).
 PDF statistics:
- 84 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 112 PDF objects out of 1000 (max. 8388607)
+ 79 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

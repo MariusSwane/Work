@@ -14,7 +14,19 @@ a:link, a:visited {
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
+	font-size: 25px;
+	color: black;
 }
 a:hover, a:active {
 	border: 1px solid black;
 }
+.center {
+	margin: auto;
+	list-style-type: none;
+	text-align: center;
+	margin-top: 100px;
+}
+.center li {
+	display: inline-block;
+}
+

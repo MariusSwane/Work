@@ -11,14 +11,77 @@
 <body>
 	<h1 id="mh1">Marius Øen Swane</h1>
 
-	<ul class="center">
-		<li><a href="https://www.nrk.no">NRK</a></li>
-		<li><a href="https://www.nrk.no">NRK</a></li>
-		<li><a href="https://www.nrk.no">NRK</a></li>
-		<li><a href="https://www.nrk.no">NRK</a></li>
-		<li><a href="https://www.nrk.no">NRK</a></li>
-		<li><a href="https://www.nrk.no">NRK</a></li>
-	</ul>
+	<hr></hr>
 
+	<ul class="center">
+		<li><a class="flip" onclick="firstElement()" href="#">Courses
+			& presentations</a></li> 
+		<li><a class="flip"
+			onclick="secondElement()" href="#">Working papers &
+			publications</a></li> 
+		<li><a class="flip"
+			onclick="thirdElement()" href="#">Replication data & R-code
+			</a></li>
+			<li><a class="flip" onclick="fourthElement()"
+					    href="#"><p></p>CV</a></li>
+		<li><a class="flip" href="https://github.com" 
+				style=border:1px solid white>
+		<i class="fab fa-git-alt" style="font-size:60px;"></i></a></li>
+	</ul>
+	<div id="first" class="hidden">
+		<h1>First thingy</h1>
+		<p>This some lore impsum type text just to fill in. I think I
+		might need it to go on for quite a bit though, in order to test
+		how the text fows and reflows. Or if it just becomes one long
+		ass line of text, dissapearing off screen.</p>
+	</div>
+	<div id="second" class="hidden">
+		<h1>Second thingy</h1>
+		<p>This some lore impsum type text just to fill in. I think I
+		might need it to go on for quite a bit though, in order to test
+		how the text fows and reflows. Or if it just becomes one long
+		ass line of text, dissapearing off screen.</p>
+	</div>
+	<div id="third" class="hidden">
+		<h1>Third thingy</h1>
+		<p>This some lore impsum type text just to fill in. I think I
+		might need it to go on for quite a bit though, in order to test
+		how the text fows and reflows. Or if it just becomes one long
+		ass line of text, dissapearing off screen.</p>
+	</div>
+	<div id="fourth" class="hidden">
+		<h1>Fourth thingy</h1>
+		<p>This some lore impsum type text just to fill in. I think I
+		might need it to go on for quite a bit though, in order to test
+		how the text fows and reflows. Or if it just becomes one long
+		ass line of text, dissapearing off screen.</p>
+	</div>
+<script>
+function firstElement() {
+  	document.getElementById("first").style.display = "block";
+	document.getElementById("second").style.display = "none";
+	document.getElementById("third").style.display = "none";
+	document.getElementById("fourth").style.display = "none";
+}
+function secondElement() {
+  	document.getElementById("second").style.display = "block";
+	document.getElementById("first").style.display = "none";
+	document.getElementById("third").style.display = "none";
+	document.getElementById("fourth").style.display = "none";
+}
+function thirdElement() {
+  	document.getElementById("third").style.display = "block";
+	document.getElementById("second").style.display = "none";
+	document.getElementById("first").style.display = "none";
+	document.getElementById("fourth").style.display = "none";
+}
+function fourthElement() {
+  	document.getElementById("fourth").style.display = "block";
+	document.getElementById("second").style.display = "none";
+	document.getElementById("third").style.display = "none";
+	document.getElementById("first").style.display = "none";
+}
+</script>
+<script src="https://kit.fontawesome.com/65c794ed67.js" crossorigin="anonymous"></script>
 </body>
 </html>

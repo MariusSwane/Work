@@ -5,28 +5,41 @@
 	font-size: 100px;
 	font-family: "Times New Roman";
 	font-stretch: ultra-condensed;
-	margin-top: 400px;
+	margin-top: 300px;
 	margin-bottom 250;
 	text-transform: uppercase;
 }
+.flip {
+  	padding: 16px 51px;
+	width: 250px;
+  	text-align: center;
+	text-transform: uppercase;
+}
+.flip:hover, .flip:active {
+	border: 1px solid black;
+	padding: 15px 50px;
+}
 a:link, a:visited {
-  	padding: 14px 25px;
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
-	font-size: 25px;
+	font-size: 20px;
 	color: black;
 }
-a:hover, a:active {
-	border: 1px solid black;
-}
 .center {
-	margin: auto;
-	list-style-type: none;
 	text-align: center;
 	margin-top: 100px;
 }
 .center li {
 	display: inline-block;
 }
-
+.hidden {
+	display: none;
+	margin-top: 100px;
+	text-align: center;
+}
+hr {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}

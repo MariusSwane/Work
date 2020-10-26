@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.9.9)  8 OCT 2020 13:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2020.10.16)  16 OCT 2020 13:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -62,7 +62,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip50
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count177
-) (/usr/share/texmf-dist/tex/latex/preprint/authblk.sty
+) (/usr/local/share/texmf/tex/latex/preprint/authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
 \affilsep=\skip51
 \@affilsep=\skip52
@@ -85,7 +85,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rotFPbot=\skip54
 \rot@float@box=\box45
 \rot@mess@toks=\toks18
-) (/usr/share/texmf-dist/tex/latex/datetime2/datetime2.sty
+) (/usr/local/share/texmf/tex/latex/datetime2/datetime2.sty
 Package: datetime2 2020/03/02 v1.5.6 (NLCT) date and time formats
  (/usr/share/texmf-dist/tex/latex/tracklang/tracklang.sty
 Package: tracklang 2019/11/30 v1.4 (NLCT) Track Languages
@@ -100,9 +100,9 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 )
 \XKV@depth=\count183
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (/usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-en-GB.ldf
+)) (/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-en-GB.ldf
 File: datetime2-en-GB.ldf 2019/10/21 v1.05 (NLCT)
- (/usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-english-base.ldf
+ (/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-english-base.ldf
 File: datetime2-english-base.ldf 2019/10/21 v1.05 (NLCT)
 ))) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 File: l3backend-pdfmode.def 2020-06-03 L3 backend support: PDF mode
@@ -176,7 +176,7 @@ Package pdftex.def Info: sp_b_sum.pdf  used on input line 219.
  [5] [6 <./sp_sum_i_any.pdf>] [7 <./sp_o.pdf>] [8 <./sp_b_sum.pdf>] [9] [10] [11] [12] (./Updated midway prospectus.bbl [13]) [14] (./Updated midway prospectus.aux) ) 
 Here is how much of TeX's memory you used:
  6018 strings out of 480478
- 114095 string characters out of 5905960
+ 114106 string characters out of 5905958
  352926 words of memory out of 5000000
  22010 multiletter control sequences out of 15000+600000
  539553 words of font info for 47 fonts, out of 8000000 for 9000

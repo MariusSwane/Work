@@ -27,8 +27,8 @@ INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texmf-dist/tex/latex/caption/caption3.sty
 INPUT /usr/share/texmf-dist/tex/latex/natbib/natbib.sty
 INPUT /usr/share/texmf-dist/tex/latex/natbib/natbib.sty
-INPUT /usr/share/texmf-dist/tex/latex/preprint/authblk.sty
-INPUT /usr/share/texmf-dist/tex/latex/preprint/authblk.sty
+INPUT /usr/local/share/texmf/tex/latex/preprint/authblk.sty
+INPUT /usr/local/share/texmf/tex/latex/preprint/authblk.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texmf-dist/tex/latex/setspace/setspace.sty
@@ -37,8 +37,8 @@ INPUT /usr/share/texmf-dist/tex/latex/graphics/rotating.sty
 INPUT /usr/share/texmf-dist/tex/latex/graphics/rotating.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/ifthen.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/ifthen.sty
-INPUT /usr/share/texmf-dist/tex/latex/datetime2/datetime2.sty
-INPUT /usr/share/texmf-dist/tex/latex/datetime2/datetime2.sty
+INPUT /usr/local/share/texmf/tex/latex/datetime2/datetime2.sty
+INPUT /usr/local/share/texmf/tex/latex/datetime2/datetime2.sty
 INPUT /usr/share/texmf-dist/tex/latex/tracklang/tracklang.sty
 INPUT /usr/share/texmf-dist/tex/latex/tracklang/tracklang.sty
 INPUT /usr/share/texmf-dist/tex/generic/tracklang/tracklang.tex
@@ -49,11 +49,11 @@ INPUT /usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 INPUT /usr/share/texmf-dist/tex/latex/xkeyval/xkeyval.sty
 INPUT /usr/share/texmf-dist/tex/generic/xkeyval/xkeyval.tex
 INPUT /usr/share/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-INPUT /usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-en-GB.ldf
-INPUT /usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-en-GB.ldf
-INPUT /usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-en-GB.ldf
-INPUT /usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-english-base.ldf
-INPUT /usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-english-base.ldf
+INPUT /usr/local/share/texmf/tex/latex/datetime2-english/datetime2-en-GB.ldf
+INPUT /usr/local/share/texmf/tex/latex/datetime2-english/datetime2-en-GB.ldf
+INPUT /usr/local/share/texmf/tex/latex/datetime2-english/datetime2-en-GB.ldf
+INPUT /usr/local/share/texmf/tex/latex/datetime2-english/datetime2-english-base.ldf
+INPUT /usr/local/share/texmf/tex/latex/datetime2-english/datetime2-english-base.ldf
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdfmode.def
 INPUT Updated midway prospectus.aux

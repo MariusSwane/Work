@@ -3,44 +3,44 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: GrandPlan.aux
 The style file: agsm.bst
 Database file #1: ../lib.bib
-You've used 3 entries,
+You've used 5 entries,
             2909 wiz_defined-function locations,
-            661 strings with 5149 characters,
-and the built_in function-call counts, 5047 in all, are:
-= -- 736
-> -- 72
+            672 strings with 5402 characters,
+and the built_in function-call counts, 8986 in all, are:
+= -- 1339
+> -- 120
 < -- 0
-+ -- 309
-- -- 21
-* -- 370
-:= -- 1162
-add.period$ -- 3
-call.type$ -- 3
-change.case$ -- 40
-chr.to.int$ -- 3
-cite$ -- 3
-duplicate$ -- 48
-empty$ -- 95
-format.name$ -- 27
-if$ -- 876
++ -- 571
+- -- 35
+* -- 664
+:= -- 2037
+add.period$ -- 5
+call.type$ -- 5
+change.case$ -- 68
+chr.to.int$ -- 5
+cite$ -- 5
+duplicate$ -- 80
+empty$ -- 154
+format.name$ -- 45
+if$ -- 1568
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 5
-newline$ -- 12
-num.names$ -- 30
-pop$ -- 17
+missing$ -- 7
+newline$ -- 18
+num.names$ -- 50
+pop$ -- 33
 preamble$ -- 1
-purify$ -- 45
+purify$ -- 75
 quote$ -- 0
-skip$ -- 33
+skip$ -- 56
 stack$ -- 0
-substring$ -- 970
-swap$ -- 5
-text.length$ -- 42
+substring$ -- 1776
+swap$ -- 7
+text.length$ -- 70
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 8
+type$ -- 16
 warning$ -- 0
-while$ -- 65
+while$ -- 107
 width$ -- 0
-write$ -- 41
+write$ -- 64

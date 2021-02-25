@@ -1,0 +1,14 @@
+1. "Dead" states might be overly "tabloid", creating some confusion.
+
+2. Add even more on defining "state".
+
+3. Try a model with some sort of weights by how recent the states were. Some
+sort of "half-life" weight.
+
+4. Add even more on why we consider borders almost exogenous for most countries,
+and ephasize that for the rest it should bias against our hypothesis (i.e. we 
+follow a conservative approach of including "problematic" countries).
+
+I get the feeling that this was Scott's main issue.
+
+5. Can we go futher back?

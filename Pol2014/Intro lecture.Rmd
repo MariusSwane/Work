@@ -1,0 +1,29 @@
+---
+title: "POL2012: Theories and Models in Political Economy"
+author: "Marius Swane Wishman"
+date: "Department of Sociology and Political Science"
+framework: reveal.js
+output:
+  revealjs::revealjs_presentation:
+    incremental: true
+    center: true
+    transition: none
+    theme: serif
+    reveal_options:
+      slideNumber: true
+      progress: true
+---
+
+## Practical Info
+- Hand ins
+- Term Paper
+- Exam
+    - 19th December
+- Syllabus
+
+## What is "Political "Economy"?
+
+- Why should you know this?
+
+## What are "Theories and Models"?
+- Now then?

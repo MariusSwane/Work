@@ -1,0 +1,86 @@
+---
+title: "POL2012: Theories and Models in Political Economy"
+author: "Marius Swane Wishman"
+date: "Department of Sociology and Political Science"
+framework: reveal.js
+output:
+  revealjs::revealjs_presentation:
+    css: custom.css
+    incremental: true
+    center: true
+    transition: none
+    theme: serif
+    reveal_options:
+      slideNumber: true
+      progress: true
+---
+
+## Institutional Economics
+
+## 1. What is Institutional Economics?
+
+- Critique of reductionism
+- Focus on Institutions and power
+- Bringing the "Political" back into Political Economy
+- Critique of Capitalism
+
+## 2. Is it a brid? Is it a plane? No! It's the Historical Context!
+
+- First half of 20th century
+- Corporate Power
+
+## {data-background="img/robbers.jpg"}
+
+## 2. Is it a brid? Is it a plane? No! It's the Historical Context!
+```{r, out.height="400px", echo=FALSE}
+knitr::include_graphics("img/rockefeller.jpg")
+```
+
+## 2. Is it a brid? Is it a plane? No! It's the Historical Context!
+
+> - First half of 20th century
+> - Corporate Power 
+
+- Trade Unions
+- The State
+
+
+##  {data-background="img/gatsby.jpg"}
+
+<blockquote>
+>3. Thorstein Veblen (1857-1929)
+
+- Theory of the leisure class (1899)
+</blockquote>
+
+## {data-background="img/business.jpg"}
+
+<blockquote> 
+
+>4. John Kenneth Galbraith (1908-2006)
+
+- Power
+- Technology
+- Ownership $\neq$ control
+- Rise of the Corporate manager
+
+</blockquote>
+
+## 5. Corporate Globalization
+
+```{r,  out.hight = "400px",echo=FALSE, warning=FALSE}
+source("value.R")
+```
+
+
+## 5. Corporate Globalization
+
+- TNC's/MNC's
+- Consumers and workers?
+- Everything is global...
+- Shifting Balance of Power
+- Galbraith: the State
+
+## 6. Reform > Revolution
+
+- Result? Influence?

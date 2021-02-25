@@ -1,0 +1,64 @@
+---
+title: "POL2012: Theories and Models in Political Economy"
+author: "Marius Swane Wishman"
+date: "Department of Sociology and Political Science"
+framework: reveal.js
+output:
+  revealjs::revealjs_presentation:
+    css: custom2.css
+    incremental: true
+    center: true
+    transition: none
+    theme: serif
+    reveal_options:
+      slideNumber: true
+      progress: true
+---
+
+## Stuff you missed pt.2
+
+- Labor Theory of Value
+- Theory is not policy prescriptions
+- Free market != free trade
+
+## Evolutionary Economy pt.2 and Globalization
+
+## Studwell
+
+```{r, out.height = "600px", out.width = "700px"}
+knitr::include_graphics("img/gardening.jpg")
+```
+
+## Studwell 
+
+```{r, out.height = "600px", out.width = "400px"}
+knitr::include_graphics("img/manufacturing.jpg")
+```
+
+## Studwell 
+
+```{r, out.height = "600px", out.width = "700px"}
+knitr::include_graphics("img/benjamins.jpg")
+```
+
+## Studwell 
+
+- Shining example of evolutionary economy
+
+- But also of its shortcomings
+
+## My man Francis
+
+- What paradigm is this?
+- Is America in Decay?
+
+## Globalization and Development
+
+- Increasing interconnection of the global economy
+
+## Colliers Traps
+
+```{r, out.height = "500px", out.width = "700px"}
+knitr::include_graphics("img/paultraps.jpg")
+```
+

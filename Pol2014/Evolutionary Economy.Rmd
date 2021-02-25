@@ -1,0 +1,95 @@
+---
+title: "POL2012: Theories and Models in Political Economy"
+author: "Marius Swane Wishman"
+date: "Department of Sociology and Political Science"
+framework: reveal.js
+output:
+  revealjs::revealjs_presentation:
+    css: custom2.css
+    incremental: true
+    center: true
+    transition: none
+    theme: serif
+    reveal_options:
+      slideNumber: true
+      progress: true
+---
+
+## Stuff you missed
+
+```{r, echo=FALSE}
+knitr::opts_chunk$set(echo = F)
+knitr::include_graphics("img/mtp.jpg")
+```
+
+- "Unit of analysis"
+
+## Evolutionary Economy
+
+##{data-background="img/Athens.jpg"}
+<blockquote>
+<h2>Epistemology</h2>
+- Plato vs Aristotle
+</blockquote>
+
+## Evolutionary Economy
+
+- How have countries grown historically?
+- Types of economic growth
+
+## Structural change
+
+- Shumperters "creative destruction"
+
+<p class="fragment">
+```{r}
+knitr::include_graphics("img/perez.gif")
+```
+</p>
+
+## Shumpeter
+<p class="fragment">
+```{r}
+knitr::include_graphics("img/realincome.png")
+```
+</p>
+
+##
+Quality of Economic Activity
+```{r}
+knitr::include_graphics("img/reinert.jpg")
+```
+
+## Neo-classical/orthodox vs Evolutionary
+
+```{r, out.height = "500px", out.width = "400px"}
+knitr::include_graphics("img/neovev.jpg")
+```
+
+## Trade and Production (Reinert)
+
+- Sequencing
+
+<p class="fragment">
+```{r, out.height = "400px", out.width = "600px"}
+knitr::include_graphics("img/tarrifs.jpg")
+```
+</p>
+
+## Trade and Production
+
+```{r, warning=FALSE}
+source("Tradefreedom.R")
+```
+
+## Studwell 
+
+- Shining example of evolutionary economy
+
+- But also of its shortcomings
+
+
+
+
+
+

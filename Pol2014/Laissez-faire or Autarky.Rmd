@@ -1,0 +1,29 @@
+---
+title: "Laissez-faire or Autarky"
+author: "Marius Swane Wishman"
+date: "POL2012"
+bibliography: C:\\Users\\mariussw\\Dropbox\\arc-project\\literature\\Bibliography.bib # Nice!
+framework: reveal.js
+output:
+  revealjs::revealjs_presentation:
+    incremental: true
+    center: true
+    transition: none
+    theme: serif
+    reveal_options:
+      slideNumber: true
+---
+
+## Laissez-faire or Autarky?
+
+A bit of both [@Banks2010].
+
+## Next slide!
+
+Where does the bibliography go?
+
+## It gets pushed to the last slide
+
+Sooo...
+
+## Bibliography

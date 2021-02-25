@@ -1,0 +1,113 @@
+Practical matters:
+- The Hand-infolder is live
+- Data/Stata/R/Youtube
+- Reference Students (put contact info up on blackboard) 
+
+1. Karl Marx - Framework for understanding Capitalism
+- Capitalism emerges from feudalism (which in turn emerges from slavery - primitive)
+- Mode of Production
+- Internal dynamics and Contradictions
+- Evolutionary, and revolutionary (prescriptive)
+- Resurgent?
+
+2. Historical Context
+- Rousseau (influence/foundation)
+- Structural changes: "business was booming"
+	- From merchants to manufacturers
+	- From landowners to industrialists
+	- But for the workers? Malthus
+		- Wages stagnant
+		- Work-days long (14-18h)
+		- Low-skill industries
+		- Factories, mines
+	- Even authorities worried
+		- Bad soldiers
+		- Revolutionary potential
+3. Method of Marx
+- (bad(Popper)) Historical (Hegel)
+- Materialist
+- Dialectic (empire-barabarians, aristocracy-bourgeoisie, bourgeois democracy-proletariat->communism)
+- Praxis
+
+4. Criticism of Capitalism
+- Lack of class understanding
+	- Focus on capital vs. labor
+	- Separation of labor from the ownership of the means of production
+		- One class has the ownership of the means of production
+		- One class survives by selling its labor power
+
+- Exploitation (labor THEORY of value) builds on Smith
+	- Any situation where one class derives income from the labor of another class
+	- Produce value over and above what is returned to them
+		- Surplus value (profit)
+		- Shareholders, managers, supervisors, etc.
+		- Banks, financial institutions
+		- Government
+	- Wages: Determined by class struggle
+		- Lots of actors interest in minimizing wages and maximizing surplus value
+- Growth of monopoly power
+	- Accumulation of capital the driving force of capitalism
+	- Expansionary nature of capitalism
+		- Imperialism (Lenin)
+- Uneven development (Only one class benefits, and also imperialism)
+- Commodification
+- Alienation from fruits of labor
+- State serves capitalist interests
+- Capitalism can not provide social change (selfperpetuating)
+- Economic Crises
+	- Falling profit rates
+	(value is only created by labor) Total surplus value increases,
+	but if less labor is used relativ to capital, the RATE of profits fall.
+	Ever more capital intensive.
+	- Underconsumption (overproduction)
+	- Lack of a coordinating actor
+5. Curb your Enthusiasm (for Revolution)
+- Is capitalism bad?
+	- Highly progressive system
+	- A huge step forward
+	- But no social progress in capitalism
+- Capitalists are not evil
+	- As good or evil as any other human being…
+	- Capitalist behavior stems from the structure.
+	- Cannot behave in any other way
+	- Exploitation is systemic/structural
+	- Conflict of interest is structurally embedded in the system
+	- Marxist level of analysis: Structural – doesn’t matter if individuals are good or evil
+	- Neoclassical level of analysis: Micro/individual or meso/firm
+		- Not structural. No program for structural change (or any other change)
+		- At the same time: Taking structure for granted, just adapting to it.
+6. But what of Growth? 5 conditions of capital accumulation
+- Minimizing production costs
+	- Extending the geographical area
+	- Hiring people from new social groups at lower wage rates
+	- Unemployment
+- Increasing surplus value
+	- Pushing production costs down
+	- Increasing the volume and value of goods and services
+	- Raising the productivity of labor
+	- Raising the intensity of labor
+	- Mechanizing production
+- Realizing surplus value
+	- Marketing the products – commercialization of life
+	- Grow consumer demand
+	- Extend credit facilities
+- Capitalism very good at this!
+	- Social institutions that underpin/legitimize the system
+	- Coercive backup
+	- Micro level action by actors pursuing their own self-interest. Very adaptable!
+		- But only within certain limits? 
+- (Rapid circulation & economic and social reproduction)
+7. Thomas Piketty (1971- )
+- Modern Marxist (keep this in mind as you are reading)
+	- Why does his work/theory fit inside the framework?
+		- History
+		- Structures
+		- Criticism of flaws inherent in Capitalism
+		- Class
+	- However...
+		- Equations, and lots of noeclassical modelling
+		- Gone is the Dialectic
+		- Gone is the Praxis (mostly)
+- r > g
+- L8tr
+	

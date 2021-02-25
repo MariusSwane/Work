@@ -1,0 +1,14 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: Introduction.aux
+I couldn't open database file demo.bib
+---line 103 of file Introduction.aux
+ : \bibdata{demo
+ :              }
+I'm skipping whatever remains of this command
+The style file: abbrv.bst
+I found no database files---while reading file Introduction.aux
+Warning--I didn't find a database entry for "knuth92"
+Warning--I didn't find a database entry for "ConcreteMath"
+Warning--I didn't find a database entry for "Simpson"
+Warning--I didn't find a database entry for "Er01"
+Warning--I didn't find a database entry for "greenwade93"
+(There were 2 error messages)

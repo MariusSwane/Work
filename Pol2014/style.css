@@ -1,0 +1,53 @@
+#mh1 {
+	font-weight: 100;
+	text-align: center;
+	letter-spacing: 50px;
+	font-size: 4vw;
+	font-family: "Times New Roman";
+	font-stretch: ultra-condensed;
+	margin-top: 300px;
+	margin-bottom 250;
+	text-transform: uppercase;
+}
+.flip {
+  	padding: 16px 51px;
+	width: 9vw;
+  	text-align: center;
+	text-transform: uppercase;
+}
+.flip:hover, .flip:active {
+	border: 1px solid black;
+	padding: 15px 50px;
+}
+.flip2 {
+  	padding: 16px 51px;
+	width: 9wm;
+  	text-align: center;
+	text-transform: uppercase;
+}
+.flip2:hover, .flip2:active {
+	border: 1px solid white;
+	padding: 15px 50px;
+}
+a:link, a:visited {
+  	text-align: center;
+  	text-decoration: none;
+  	display: inline-block;
+	font-size: 20px;
+	color: black;
+}
+.center {
+	text-align: center;
+	margin-top: 100px;
+}
+.center li {
+	display: inline-block;
+}
+.hidden {
+	display: none;
+	margin-top: 100px;
+	text-align: center;
+}
+hr {
+	width: 60%;
+}

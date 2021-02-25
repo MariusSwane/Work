@@ -1,0 +1,81 @@
+- Inequality
+One of The topics of the day
+US: 1% of the people 25% of the income; 1% of the people 40% of the wealth
+
+##Inequality of what?
+- Gender?
+- Opportunity?
+- Social?
+- Wealth?
+- Income?
+
+Last two - Economic inequality
+
+##
+- Not a zero sum game! The important bit: the robbers gain = your loss!
+- The economy (thankfully) does not work like this. Tends to be winners all around, but some win more
+- Can you think of some examples where the economy DOES work as a zero sum game?
+
+- Two broad trends lead to the same effect (Wealth Inequality)
+- Every one is getting richer - some started with more
+- The rich are getting richer faster than the rest
+
+- Inequality is not poverty! (they are related, and we will return to that later)
+
+
+## Let's look at the data
+
+- Graphs galore
+	- United States is not THAT cracy
+	- China is... (in terms of change)
+- World numbers are simillar, check out:
+- World Inequality Data (Piketty)
+
+- But poverty IS going down
+- Remember: EXTREME poverty, barely surviving, is the default human condition!
+
+
+## What are the consequences? 
+
+% AKA why should we care?
+
+% Remember your paradigms!
+%     Marx: continued/worsening oppression of the working class
+%     Institutionalist: money is power, power can be used to skew markets & politics -> growth! From meritocracy to plutocracy?
+%     Neo-classical: should not affect equality of opportunity! -> growth, but trying to correct can also be problematic
+%     Keynes? not relevant
+%     Evo: social upheaval/revolution, Protest parties and democratic degeneration, Erodes social cohesion, reduces trust and legitimacy
+
+% Health? Social inequality
+
+## Causes?  % Now that we care
+- Marx: capital accumulation & class system, exploitation of labor
+- Neo-classical: reflects ability or accumulated ability (inheritance)
+- Keynes? not relevant
+- Institutionalist: money is power, power has been used to skew markets & politics
+- evo: Long run tendency (Marx right?)
+
+
+## Piketty
+- r>g 
+	-> income from rents increase more than income from wages (which depend on growth)
+	-> wealth inequality over time
+
+- Goes(2016): Observed increases in income inequality largely uncorrelated with changes in r – g.
+- Acemoglu & Robinson (2015): Institutions!
+    - r > g not unimportant (does lead to more inequality), but many other variables quantitatively 
+	more important
+- Stiglitz: Two forms of capital 
+	- One which increases productivity, one which is captured economic rent
+		- Former is good, latter is bad.
+		- Financial capital reduces productive capital
+
+##Soulutions? 
+
+- Progressive taxation (DEFINE)
+	- Walter Scheidel 2017 says this has NEVER worked, only mitigated
+	- Piketty says this is most of the reduction of the world wars, but that only those wars 
+	made the policies politically viable
+- Public tax records? Worked for Norway, will it work for Trump?
+- Global cooperation (closing tax havens)
+- Focus on reducing poverty instead?

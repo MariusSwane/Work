@@ -1,0 +1,111 @@
+---
+title: "POL2012: Theories and Models in Political Economy"
+author: "Marius Swane Wishman"
+date: "Department of Sociology and Political Science"
+framework: reveal.js
+output:
+  revealjs::revealjs_presentation:
+    incremental: true
+    transition: none
+    theme: serif
+    self_contained: true
+    reveal_options:
+      slideNumber: true
+      progress: true
+      
+---
+
+## Marxism
+
+- Marxism $\neq$ Communism
+- Marxism $\neq$ Political Marxism
+- Marxism = Grand theory = Paradigm = Theoretical framework = Lots of theories in a system
+
+## <font face="Kroftsmann" color="white"> 1. Karl Marx (1818-1883){data-background="img/KM.jpg"}
+
+<section style="text-align: left;">
+
+- Understanding Capitalism
+- In its entirety
+
+</font></section>
+
+## <font face="Kroftsmann" color="white"> 2. Historical Context{data-background="img/KM.jpg"}
+
+<section style="text-align: left;">
+
+- The Fires of Industry<br/><br/>
+```{r,  out.width = "400px", echo=F}
+knitr::include_graphics("img/industry.jpg")
+```
+
+</font></section>
+
+## <font face="Kroftsmann" color="white"> 2. Historical Context{data-background="img/KM.jpg"}
+
+<section style="text-align: left;">
+
+- The World According to Thomas<br/><br/>
+```{r,  out.width = "400px", echo=F}
+knitr::include_graphics("img/labor.jpg")
+```
+</font></section>
+
+## <font face="Kroftsmann" color="white"> 3. The Method of Marx{data-background="img/KM.jpg"}
+
+<section style="text-align: left;">
+
+- Historical
+- Materialist
+- Dialectic
+- Praxis
+
+</font></section>
+
+## <font face="Kroftsmann" color="white"> 4. Criticism of Capitalism{data-background="img/KM.jpg"}
+
+<section style="text-align: left;">
+
+- Class is not Classy
+- The Nature of Capitalism
+<small>
+  - Exploitation
+  - Growth of monopoly power
+  - Expansionary nature of capitalism
+  - Uneven development
+  - Commodification
+  - Alienation
+  </small>
+- The State
+- Crises
+
+</font></section>
+
+## <font face="Kroftsmann" color="white"> 5. Curb your Enthusiasm (for Revolution){data-background="img/KM.jpg"}
+
+<section style="text-align: left;">
+
+- A huge step forward
+- Capitalists are not evil
+
+</font></section>
+
+## <font face="Kroftsmann" color="white"> 6. But what of Growth?{data-background="img/KM.jpg"}
+
+<section style="text-align: left;">
+
+- Minimizing production costs
+- Increasing surplus value
+- Realizing surplus value
+- Capitalism very good at this!
+
+</font></section>
+
+## <font color="white"> 7. Thomas Piketty (1971 - ){data-background="img/Piketty.jpg"}
+
+<section style="text-align: left;">
+
+- Modern Marxist?
+- $r > g$
+- More on that later :)
+

@@ -1,0 +1,78 @@
+- Changes to the Schedule
+
+1. Modern Political Economy
+- Neoclassical + Keynesianism + monetarism + neoliberalism
+	- Adolph book
+	- Trumpism?/populism?/protectionism?/Patriotism?
+2. Dissitents
+- Marxists + institutionalists + (post-)Keynesians
+- Common features: 
+	- Relationship between capital, labor and state
+	- Studying change over time rather than static equilibrium
+	- Processes of circular and cumulative causation
+	- How resources are created/destroyed, not just allocated
+	- Role of politics
+3. More Dissent
+- Feminism (Broad terms, remember the context)
+- Environmentalism
+	- Strong normative elements
+- Evolutionary economics (next week)
+- Behavioral economics
+	Kahneman: Thinking fast and slow.
+	Thaler & Sunstein: Nudge
+	Importance of how a question/decision is framed
+	Consumer is NOT king
+4. "New" Themes in Political Economy
+- Nature
+	- «Newest» of the new trends
+	- Ecological problems in the past as well, but never more than local or temporary
+		- Pollution, overharvesting, floods, draughts, earthquakes
+		- Energy crises (oil crises) 
+	- For the first time bumping up against global physical limits
+		- Peak oil? (Resource-exhaustion in general.)
+		- Population growth 
+		- Climate change
+	- Fixed within standard neoclassical framework?
+		- Externalities
+			- Using the price-mechanism. Polluter pays. Tradable permits.
+			Carbon taxes
+			- CarbonCaptureStorage. REDD+.
+	- Ecological economics
+		- Zero-growth economics
+- Technology
+	- Classic, neoclassic, Marxism(?), Keynes structure as given
+		- Institutionalists interested in technological change
+		- Evolutionary economists very interested in tech change
+	- The driver of the economy
+	- Process of constant structural change
+	- But does it change how capitalism works?
+	- Fordism and post-Fordism
+		- Networks, niches, low-scale, hi-skill, autonomous, flexibility
+	- Sphere of production vs. sphere of circulation
+		- Financialization
+			- Short-termism, max shareholder value over long-term results.
+			- Market-agenda over long-term development
+- Society
+	- Class, gender, ethnicity
+		- Strong Marxist influence
+		- Just another way of thinking class?
+	- More generally: Socioeconomic inequalities
+	- Women earn 90.855% of mens salleries. 86.678% within same work
+	- Middle class?
+		- Manegerial, small employers, semi-autonomous wage earners
+- State
+	- Capacity
+	- Role of the State?
+		- (Neo-)Mercantilists: Strong state. Foster exports. Regulatory state.
+		- Smith: Regulatory state stifles enterprise, but colonialism secures bigger markets. State also important for social reasons. 
+		- Neoclassicals: Free trade and individual enterprise. Govt correct imperfections in free-market economies
+		- Institutionalists: Consciously engineer and secure cooperation between important interest groups in society.
+		- Keynesians: flaws of free-market economy (i.e. lack of full employment) makes intervention necessary. Govt as stabilizer.
+		- Marxists: State serves the interests of capital. State provides legitimacy to capital interests. 
+		- Softer version: Common interests and values between economic and political elites. 
+		- Globalization: Threat of capital flight makes the bond even stronger
+		- Anarchists: Voluntary (individual) associations over state coercion. State is oppressive, but not just the capitalist state. 
+		- Public choice theory: State a threat because it keeps distributing favors to interest groups in return for political support.
+		Govt failure rather than market failure.
+
+	

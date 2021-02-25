@@ -1,0 +1,83 @@
+Dear Dr. Wishman:
+
+We have now completed our evaluation of your manuscript entitled "Beyond Ethnicity:  Dead States and Modern Conflict", submitted to Journal of Peace Research on 04-Sep-2020. Two reviewers have read the manuscript, and their comments appear below this letter. On the basis of these comments and my own reading of the manuscript, I have concluded that we cannot publish it in JPR.
+
+I apologize for the long review process. We have been waiting for a promised third review that never was delivered despite repeated efforts on our part. We can wait no longer. I am proceeding on the basis of two reviews.
+
+One reviewer is negative and the other is more positive. In sum, the extent of revisions needed is too significant to warrant an invitation to revise and resubmit.
+
+Both reviewers inquire about the temporal domain of the study. I agree, 1816 is not early enough to examine the question at hand. R1 asks for more theoretical clarity. Central concepts are inadequately defined. R1 also inquires about the generalizability of the western definition of the state to the non-western world. This issue needs to be discussed. R2 notes the overlapping “dead” states and incongruent dead states problem, which needs to be addressed more concretely. I also agree that you need to code the degree of continuity within the category of “dead” states. Coding the outcome variable is also a big issue as noted by R2 -- both conflict onset and conflict years should be examined. The big issue with the analysis concerns the endogeneity of boundaries. This is a problem that needs to be dealt with analytically. Please note the other recommendations made by R2. These constructive suggestions will certainly strengthen your article as you work to publish it in another journal.
+
+hank you for thinking of JPR as an outlet for your work, even though it was not successful this time.
+
+Sincerely,
+
+Scott Gates
+Editor, JPR
+
+Professor, University of Oslo
+Research Professor, PRIO
+
+mobile phone: +47 91 64 83 67
+
+via Bertrand Lescher-Nuland - Managing Editor
+Journal of Peace Research Editorial Office
+jpr@prio.no
+
+
+************************************
+Reviewers' Comments to Author:
+
+Reviewer: 1
+
+Comments to the Author
+
+1.On the theory side, I was unclear about how to think about the definition of historical states. Take, figure 3 for example. In this figure there is not much variation in Europe aside from places like Germany but if one extended the metric a bit further back in time this would increase.
+
+2. Such issues raise questions regarding the “half life” of the effect of historical states. When should historical states cease to be considered? The paper suggests that the relevant effects should disappear as the relevant networks and symbols decay, but one can think of many examples of historical states that ceased to exist long ago but continue to exhibit such characteristics (e.g. Catalonia).
+
+3. For non-western regions I was unclear as to how to think of the state. Often these entities relied on ethnic groups and so I found it difficult to unpack how these are different. On p. 9 the paper states that it does not “attempt to untie the knot of ethnicity and statehood” but given the large literature on ethnic diversity and conflict the paper needs to take more of a stand here. In other words, how can one be sure that the results are not simply a reflection of greater ethnic diversity in HSE areas? I understand that the paper attempts to control for this, but surely this variable is measure with error. In other words, could the state metric often be providing an additional noisy measure of ethnicity? Given the existing state of the literature this seems a central questions.
+
+4. On a minor note, I found the use of the acronym HSE in the introduction confusing as it had not yet been defined.
+
+Reviewer: 2
+
+Comments to the Author
+This is a nice paper demonstrating a link between historical statehood (between 1816-1920) and modern conflict (1946-present). It discusses a nice suite of mechanisms that could account for this correlation, and conducts a thorough and informative empirical analysis. This being said, I have some worries about empirical results and conclusions. I think the paper is publishable and would make a nice contribution to JPR, contingent on addressing the following issues:
+
+Time-span:
+The authors set the cutoff for historical states in 1816. This does not make much sense to me, and seems to be an artifact of the time span of historical conflict datasets, such as the correlates of war. Since state-like entities have a much longer history than 1816, there is little theoretical warrant for not going back further than this. In fact, a number of the historical states that are interesting in this context (such as e.g., in Asia, the Middle East, Africa etc. have deeper histories than 1816). I don’t think the absence of data is a good enough reason for not going back further than 1816 either.
+
+Nowadays, there are several potential historical and systematic sources with which to code historical state entities going back much further than 1816, such as Euroatlas, GeaCron etc. Using e.g., Geacron or something similar to code data back to 1600 or 1700 would be feasible. I don’t think there is a good excuse for not doing this. The authors should follow either of these two suggestions:
+- A. Convince us as readers that 1816 is a warranted starting point, on theoretical or feasibility grounds. I think this is hard.
+- B. Code data going back further than 1816 using available sources.
+The authors claim to get around the problem of starting in 1700 by excluding early colonized cases, but historical states prior to 1816 will also be present in countries that were not heavily colonized (e.g., in Europe).
+
+Overlap with contemporary states:
+Some historical “dead” states will overlap with contemporary states (e.g. Nejd and Saudi Arabia) while others will not. If there is strong overlap, I expect there to be less conflict than if there is weak overlap. Is there any way of getting at this? One way would of course be to measure congruence between the borders of the dead state and the contemporary state as Alesina et al. do (2011) and which the authors seem well aware of. But, even if the authors control for Alesina et al.’s fractal index, how do they account for the difference between overlapping “dead” states and incongruent dead states? These should have theoretically dissimilar relations to conflict.
+
+One way to get at this, that doesn’t rely on borders, is to code (qualitatively) whether the contemporary state is a successor state to the “dead” state or whether these originate from different loci of power. In some cases, where we are talking about the same state but with a different name, this should be obvious. Can the authors do this with their data? It occurs to me that the degree of continuity between the dead and contemporary state is very important to code.
+
+Also, it seems important to code degree of continuity within the category of “dead” states (in the 1816-1920 period) as well! If, for example, there are three “dead states” in one country, but they are really just reconfigurations (or different regime-flavors) of the same historical state, then it is important to capture this, since it is an important contrast to three “dead” states that represent entirely different nations. The paper would be significantly improved if the authors can account for this. Another way of capturing congruence could be to look at the distance between the historical states and the contemporary capital. If this distance is high (e.g. the number of dead states X the distance between each dead state and the post-1946 capital) this will be an indication of non-congruence.
+
+Empirical model:
+There are some problems with the statistical model. First, I don’t think the authors do enough to convince us that the number of onsets is the relevant outcome in this context, or that it is the only right outcome. The mechanisms they outline, such as e.g., networks, symbolism, should conduce more conflict but this might as well be more sustained conflict rather than more onsets.
+
+To see this, consider the following hypothetical: A current rebel group fights to resurrect a historical “dead state”, and this struggle is based on legacy networks from this dead state and its symbolic mobilization potential. Do we expect this to leave a mark in the number of onsets or in the number of years this country has experienced conflict? The answer is not clear. I don’t think the number of onsets, per se, is the right answer. Therefore, I suggest that the authors complement the onset outcome with e.g. an outcome variable capturing the number of years in conflict, or something similar.
+
+Regimes as alternative mechanism:
+Could the number of historical states also capture the number of different “regimes” or regime-elites that have alternated in power? Since we as readers are not getting a lot of information on what constitutes a “dead state” and what the degree of congruence is with contemporary states, it is a little hard to assess this, but it seems to me that the number of historical states will correlate with the number of previous regimes (and regime alternations) in the given country. Could the authors get at this by controlling for e.g., the number of historical regime alternations, for example by using data from Djuve et al. (2019) on historical regimes?
+
+National identity as alternative mechanism:
+It strikes me that an important alternative explanation (which is theoretically relevant) is the impact of “dead states” on national identity. If a contemporary nation has a legacy of fractured states, national identity and identification with the current state may be weak, resulting in mixed allegiances in the population. Could the authors include some measures that tap into national identity (perhaps from the World Values Survey) to investigate whether this is a potential mechanism?
+
+Controls:
+The authors control for a range of things that should affect both historical states and conflict. But, I still think there is much to be done. First, I think geographic factors are key, since they condition state formation and conflict. Two such factors come to mind: One is mountainous terrain or ruggedness, another is suitability for agriculture. Numerous works suggest these two factors affect state formation historically and contemporary conflict.
+Also, do the authors control for extrastate conflicts from the COW data, between 1820 and 1946 (which would include conflicts against colonial powers)? These should correlate with dead states and contemporary conflict. If not, this should be included as a control.
+
+Endogenous borders:
+One obvious problem here is the fact that contemporary borders are not exogenous. Some states that have been able to unify diverse territories (with many dead states) should have done this because of low conflict propensity (such as e.g., Italy and Germany). That is, they were able to unify these states because there was not enough armed resistance to such unification. This means that the “selection into” the category of contemporary states with many dead states should matter for the empirical results. I think it explains the cases of Germany and Italy, and it will probably explain other cases as well.
+An implication from these examples is that states that have grown endogenously containing many dead states (such as Italy, Germany) should be more peaceful than states that have been exogenously imposed with many dead states (such as India). The authors should discuss this endogeneity problem more, and perhaps do some tests to investigate implications from it. It is very hard to solve, since the state (with endogenous borders) is the unit of analysis, and its not so easy to get around this. One option, is to create "artificial" states, using GIS (ie. artificial grids that are not endogenous), and see whether the link between dead states and conflict remains.
+
+Mediation analysis:
+I think the authors should also show some sensitivity tests for their mediation analyses (see Imai, 2011) investigating how sensitive the mediator is to omitted variables. Its of course not easy to address the problem of omitted variables at the level of mediators (and I do not expect the authors to do this here) but it should get some mention, and the authors should show the sensitivity analyses for the interest of the reader.

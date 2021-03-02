@@ -200,7 +200,7 @@ Maps are generally published in the year following the return of an expedition.
 However, expeditions could last for years, so observations could be several
 years after the fact by the time they met print.
 .NH 2
-Southern Africa, p.49
+Southern Africa, p.49-50
 .LP
 It was the use of instruments, including a sextant, an artificial horizon,
 chronometer, compass and measuring chain for traversing but corrected by means
@@ -211,4 +211,10 @@ accompanying his
 .I "Travels into the Interior of Southern Africa",
 published in 1801 (Penn 1994).
 .PP
-
+The missionary thrust northwards through the eastern Kalahari was continued by 
+Robert Moffat, whose map of SOUTH AFRICA 
+.I "compiled for the Revd. R. Moffat's work by James Wyld",
+published in Moffat's 
+.I "Missionary Labours and Scenes in Southern Africa"
+(1842) improved considerably on Campbell's depiction in the amount of
+geographical and ethnographic information and its accuracy.

@@ -1,16 +1,21 @@
 1. "Dead" states might be overly "tabloid", creating some confusion.
 
-2. Add even more on defining "state".
+2. Add even more on defining "state". And separate more clearly the difference
+between regime and state, and clarify that we do not count different regimes.
 
 3. Try a model with some sort of weights by how recent the states were. Some
 sort of "half-life" weight.
 
 4. Add even more on why we consider borders almost exogenous for most countries,
-and ephasize that for the rest it should bias against our hypothesis (i.e. we 
+and emphasize that for the rest it should bias against our hypothesis (i.e. we 
 follow a conservative approach of including "problematic" countries).
 
 I get the feeling that this was Scott's main issue.
 
-5. Can we go futher back?
+5. Can we go further back without comparing apples to oranges (in terms of
+sources)?
 
 6. How to avoid the problem of "You should do what you do in your other paper".
+
+7. Add a measure of whether there has been some continuity of a state in the
+country (easier for some countries than others).

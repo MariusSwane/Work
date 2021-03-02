@@ -16,8 +16,7 @@
 	text-transform: uppercase;
 }
 .flip:hover, .flip:active {
-	border: 1px solid black;
-	padding: 15px 50px;
+	font-weight: bold;
 }
 .flip2 {
   	padding: 16px 51px;
@@ -48,6 +47,13 @@ a:link, a:visited {
 	margin-top: 100px;
 	text-align: center;
 }
-hr {
-	width: 60%;
+h1 {
+	font-weight: normal;
+	font-family: "Times New Roman";
+	text-transform: uppercase;
+}
+h2 {
+	font-weight: normal;
+	font-family: "Times New Roman";
+	text-transform: uppercase;
 }

@@ -177,3 +177,38 @@ From State Capacity to Civil Conflict
 .B 
 Similar to Koren and Sarbahi 2018 but focuses on low intensity state-based
 violence instead of civil war.
+.NH
+A Short History of the Cartography of Africa
+.[
+Stone Cartography of Africa
+.]
+.NH 2
+Chapter 5 The Nineteenth Century: Golden Age of the Cartography of Imperialism ,
+p. 47-48 
+.LP
+.B
+The 19th century is a transition period leading up to the revolution
+of the 20th  century cartography of colonialism.
+.PP
+.B
+Cartography in Africa is still a mix of measurement, less accurate observations,
+word of mouth,  previous maps and sources, educated guesses and pure conjecture.
+Nevertheless a distinct improvement on the maps of previous periods.
+.PP
+.B
+Maps are generally published in the year following the return of an expedition.
+However, expeditions could last for years, so observations could be several
+years after the fact by the time they met print.
+.NH 2
+Southern Africa, p.49
+.LP
+It was the use of instruments, including a sextant, an artificial horizon,
+chronometer, compass and measuring chain for traversing but corrected by means
+of daily observation of latitude and occasional observartion of longditude (de
+Smidt 1896), which resulted in John Barrow's influential 
+.I "General chart of the Colony of the Cape of Good Hope",
+accompanying his 
+.I "Travels into the Interior of Southern Africa",
+published in 1801 (Penn 1994).
+.PP
+

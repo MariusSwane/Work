@@ -7,7 +7,7 @@ accumulate
 .TL
 Notes from the literature
 .AU
-Marius Swane
+Marius Øen Swane
 .AI
 NTNU
 .AB 
@@ -200,11 +200,11 @@ Maps are generally published in the year following the return of an expedition.
 However, expeditions could last for years, so observations could be several
 years after the fact by the time they met print.
 .NH 2
-Southern Africa, p.49-50
+Southern Africa, p. 49-50
 .LP
 It was the use of instruments, including a sextant, an artificial horizon,
 chronometer, compass and measuring chain for traversing but corrected by means
-of daily observation of latitude and occasional observartion of longditude (de
+of daily observation of latitude and occasional observation of longitude (de
 Smidt 1896), which resulted in John Barrow's influential 
 .I "General chart of the Colony of the Cape of Good Hope",
 accompanying his 
@@ -218,3 +218,32 @@ published in Moffat's
 .I "Missionary Labours and Scenes in Southern Africa"
 (1842) improved considerably on Campbell's depiction in the amount of
 geographical and ethnographic information and its accuracy.
+.B
+While our data do not include the maps in question, we do have two maps by James
+Wyld among our sources.
+.PP
+The information which was forthcoming in the aftermath of the Great Trek duly
+made its appearance in contemporary maps, notably in the maps of John Arrowsmith
+(Schrive 1965).
+.B
+Our data includes four maps by John Arrowsmith.
+.NH 2
+East Africa, p. 53
+.LP
+A
+.I "Sketch Map of Eastern Africa"
+accompanied Speke's journal, engraved by W. & A.K. Johnston. It contained much
+less of the detail which he had recorded and which was contained in the map
+accompanying Burton's account, with one significant difference. It showed the 'Mountains
+of the Moon 6000 to 8000 feet by estimation' as a horseshoe forming
+the catchment at the north end of Lake Tanganyika.
+.B
+Our data includes a map of Africa by the same Johnstons from 1961 (two years
+after the first publication from Bruton and Speke's expedition). The map is
+clearly based on the one mentioned by
+.[
+Stone Africa
+.],
+and includes the infamous Mountains of the Moon, as described above, and with
+Speke's name attached. In our next map by the Johnstons (1879) the erroneous 
+mountains have been removed.

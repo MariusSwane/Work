@@ -1,40 +1,59 @@
-.nr PSINCR 2p
-.nr GROWPS 2
-.R1
-no-label-in-reference
-accumulate
-.R2
-.TL
-Notes from the literature
-.AU
-Marius Øen Swane
-.AI
-NTNU
-.AB 
-This is a document for keeping notes from what I read in one place. 
-One document for writing and one for reading.
-Section headers are works (books or articles etc.), and should contain the reference.
-Subsections describe, chapter or heading from the source, and the page number.
-Paragraphs are individual quotes.
-Any commentary by me should be below the note and in bold font.
-.AE
-.NH
-Nation Building - Why Some Countries Come Together While Others Fall Apart
-.[
-Wimmer Nation building
-.]
-.NH 2
-Introduction, p.3
-.LP
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{rotating}
+\usepackage[british]{datetime2}
+\usepackage{amssymb}
+%\usepackage{hyperref}
+\usepackage{url}
+
+\renewcommand{\harvardurl}{\textbf{URL:} \url}
+\renewcommand\Affilfont{\itshape\small}
+
+\title{Notes from the literature}
+\author[1]{Marius Swane Wishman}
+\affil[1]{Department of Sociology and Political Science, NTNU}
+
+\date{\today}
+
+\providecommand{\keywords}[1]
+{
+	\small	
+	\textbf{\textit{Keywords---}} #1
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+	This is a document for keeping notes from what I read in one
+	place.  One document for writing and one for reading.  Section headers are works
+	(books or articles etc.), and should contain the reference.  Subsections
+	describe, chapter or heading from the source, and the page number.  Paragraphs
+	are individual quotes.  Any commentary by me should be below the note and in
+	bold font. 
+\end{abstract}
+
+\pagebreak
+
+\onehalfspacing
+\section{Nation Building - Why Some Countries Come Together While Others Fall 
+	Apart \citep{Wimmer_2018}}
+
+\subsection{Introduction, p.3}
 Locals might resist a national government that intruded more into their daily
 lives that did its colonial predecessor.  Political elites competed over who
 controlled the new center of power.
 Economic poverty, artificially drawn boundaries, the legacies of colonial
 divide-and-rule policies, and the weakness of postcolonial states made national
 political integration difficult.
-.NH 2
-Introduction, p.8
-.LP
+
+\subsection{Introduction, p.8}
 Such voluntary organizations facilitate building alliances across ethnic
 communities and regions, I will argue.  They bundle individual interests, as it
 were such that politicians or state agencies can respond to them more easily.
@@ -232,7 +251,7 @@ East Africa, p. 53
 .LP
 A
 .I "Sketch Map of Eastern Africa"
-accompanied Speke's journal, engraved by W. & A.K. Johnston. It contained much
+accompanied Speke's journal, engraved by W. INSERT AMPERSAND A.K. Johnston. It contained much
 less of the detail which he had recorded and which was contained in the map
 accompanying Burton's account, with one significant difference. It showed the 'Mountains
 of the Moon 6000 to 8000 feet by estimation' as a horseshoe forming
@@ -247,3 +266,10 @@ Stone Africa
 and includes the infamous Mountains of the Moon, as described above, and with
 Speke's name attached. In our next map by the Johnstons (1879) the erroneous 
 mountains have been removed.
+
+\pagebreak
+
+\bibliographystyle{agsm}
+\bibliography{lib.bib}
+
+\end{document}

@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex notes"] 1614950708 "notes.aux" "notes.bbl" "notes" 1614950708
+["bibtex notes"] 1615197105 "notes.aux" "notes.bbl" "notes" 1615197132
   "/usr/share/texmf-dist/bibtex/bst/harvard/agsm.bst" 1607188566 25549 e3d0f1ab4ae55e777f7352db30e2c6f7 ""
   "lib.bib" 1614949739 170002 2a7a7f6a3e55366f07be4dce8078b68a ""
-  "notes.aux" 1614950708 540 3083d3b4bced5f5e62125c7388e49c57 "pdflatex"
+  "notes.aux" 1615197132 2633 d99dbd075da8eedcb47faa1afcb0c829 "pdflatex"
   (generated)
-  "notes.bbl"
   "notes.blg"
-["pdflatex"] 1614950708 "notes.tex" "notes.pdf" "notes" 1614950708
+  "notes.bbl"
+["pdflatex"] 1615197132 "notes.tex" "notes.pdf" "notes" 1615197132
   "/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-en-GB.ldf" 1602847733 7087 f93b6b3c25e3f131c74221ea64fecdcd ""
   "/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-english-base.ldf" 1602847733 6045 8e05bb92722a656e9c9a33137d44697a ""
   "/usr/local/share/texmf/tex/latex/datetime2/datetime2.sty" 1602847179 50803 b6f13745f1828d28e3931d9aa43d614f ""
@@ -20,6 +20,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1607249373 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1607249373 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1607249373 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm" 1607249373 1532 9162035f4e7176612125649e348e2195 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1607249373 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm" 1607249373 1528 abec98dbc43e172678c11b3b9031252a ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1607249373 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -39,6 +40,7 @@
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmtt12.tfm" 1607249373 772 9a936b7f5e2ff0557fce0f62822f0bbf ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1607249373 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1607249373 32080 340ef9bf63678554ee606688e7b5339d ""
+  "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1607249373 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb" 1607249373 35752 024fb6c41858982481f6968b5fc26508 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb" 1607249373 32722 d7379af29a190c3f453aba36302ff5a9 ""
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1607249373 32362 179c33bbf43f19adbb3825bb4e36e57a ""
@@ -79,9 +81,9 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1607249373 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1612895944 334215 ad2feb41952e3720830b65f83a01c5b0 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1612895925 2635858 13396bb4c5261ebf294c26a89385cbd2 ""
-  "notes.aux" 1614950708 540 3083d3b4bced5f5e62125c7388e49c57 "pdflatex"
-  "notes.bbl" 1614950708 333 793cd3a6df1a86d1487f7e1f4583b831 "bibtex notes"
-  "notes.tex" 1614950707 11310 c14c414ba08d9df0e9f1a19718cc8eb8 ""
+  "notes.aux" 1615197132 2633 d99dbd075da8eedcb47faa1afcb0c829 "pdflatex"
+  "notes.bbl" 1615197105 787 0c538a2d5bb6d46d093a0a550efcd7df "bibtex notes"
+  "notes.tex" 1615197130 11457 4e281e4eec4666d735489b4c6b1ce2d5 ""
   (generated)
   "notes.log"
   "notes.pdf"

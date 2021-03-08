@@ -1,9 +1,18 @@
 \begin{thebibliography}{xx}
 
+\harvarditem{Stone}{1995}{Stone1995}
+Stone, J.~C.  \harvardyearleft 1995\harvardyearright , {\em A Short History of
+  the Cartography of Africa}, The Edwin Mellen Press, Lampeter, United Kingdom.
+
 \harvarditem{Wimmer}{2018}{Wimmer_2018}
 Wimmer, A.  \harvardyearleft 2018\harvardyearright , `Nation building: Why some
   countries come together while others fall apart', {\em Survival} {\bf
   60}(4),~151--164.
 \newline\harvardurl{https://doi.org/10.1080%2F00396338.2018.1495442}
+
+\harvarditem{Ying}{2020}{Ying_2020}
+Ying, L.  \harvardyearleft 2020\harvardyearright , `How state presence leads to
+  civil conflict', {\em Journal of Conflict Resolution} p.~002200272095706.
+\newline\harvardurl{https://doi.org/10.1177%2F0022002720957063}
 
 \end{thebibliography}

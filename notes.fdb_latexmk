@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex notes"] 1615197105 "notes.aux" "notes.bbl" "notes" 1615197132
+["bibtex notes"] 1615206262 "notes.aux" "notes.bbl" "notes" 1615206343
   "/usr/share/texmf-dist/bibtex/bst/harvard/agsm.bst" 1607188566 25549 e3d0f1ab4ae55e777f7352db30e2c6f7 ""
   "lib.bib" 1614949739 170002 2a7a7f6a3e55366f07be4dce8078b68a ""
-  "notes.aux" 1615197132 2633 d99dbd075da8eedcb47faa1afcb0c829 "pdflatex"
+  "notes.aux" 1615206343 3353 1b6f8f33237b5b0a6988cd27cfab02d3 "pdflatex"
   (generated)
   "notes.blg"
   "notes.bbl"
-["pdflatex"] 1615197132 "notes.tex" "notes.pdf" "notes" 1615197132
+["pdflatex"] 1615206343 "notes.tex" "notes.pdf" "notes" 1615206343
   "/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-en-GB.ldf" 1602847733 7087 f93b6b3c25e3f131c74221ea64fecdcd ""
   "/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-english-base.ldf" 1602847733 6045 8e05bb92722a656e9c9a33137d44697a ""
   "/usr/local/share/texmf/tex/latex/datetime2/datetime2.sty" 1602847179 50803 b6f13745f1828d28e3931d9aa43d614f ""
@@ -81,10 +81,10 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1607249373 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1612895944 334215 ad2feb41952e3720830b65f83a01c5b0 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1612895925 2635858 13396bb4c5261ebf294c26a89385cbd2 ""
-  "notes.aux" 1615197132 2633 d99dbd075da8eedcb47faa1afcb0c829 "pdflatex"
-  "notes.bbl" 1615197105 787 0c538a2d5bb6d46d093a0a550efcd7df "bibtex notes"
-  "notes.tex" 1615197130 11457 4e281e4eec4666d735489b4c6b1ce2d5 ""
+  "notes.aux" 1615206343 3353 1b6f8f33237b5b0a6988cd27cfab02d3 "pdflatex"
+  "notes.bbl" 1615206262 787 0c538a2d5bb6d46d093a0a550efcd7df "bibtex notes"
+  "notes.tex" 1615206342 15384 902084cfa0f84030dd743bce2c852297 ""
   (generated)
-  "notes.log"
-  "notes.pdf"
   "notes.aux"
+  "notes.pdf"
+  "notes.log"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.9)  8 MAR 2021 10:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.9)  8 MAR 2021 13:25
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -167,29 +167,39 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (19.10779pt too wide) in paragraph at lines 46--46
+Overfull \hbox (19.10779pt too wide) in paragraph at lines 47--47
 []\OT1/cmr/bx/n/17.28 Nation Build-ing - Why Some Coun-tries Come
  []
 
 [2] [3] [4] [5]
-Overfull \hbox (12.38568pt too wide) in paragraph at lines 189--189
+Overfull \hbox (12.38568pt too wide) in paragraph at lines 190--190
 []\OT1/cmr/bx/n/17.28 A Short His-tory of the Car-tog-ra-phy of Africa
  []
 
-[6] [7] [8] (./notes.bbl) [9] (./notes.aux) ) 
+[6] [7]
+Overfull \hbox (10.94586pt too wide) in paragraph at lines 246--253
+\OT1/cmr/m/n/12 teenth cen-tury at-las pub-lish-ers such as W. & A.K. John-ston, John Bartholomew
+ []
+
+[8] [9]
+Overfull \hbox (11.87639pt too wide) in paragraph at lines 295--300
+\OT1/cmr/m/n/12 These `stay-at-home schol-ars' (Bridges 1987b) re-examined the clas-si-cal sources,
+ []
+
+[10] (./notes.bbl) [11] (./notes.aux) ) 
 Here is how much of TeX's memory you used:
- 6652 strings out of 479383
- 122508 string characters out of 5875831
- 396237 words of memory out of 5000000
- 23711 multiletter control sequences out of 15000+600000
+ 6653 strings out of 479383
+ 122516 string characters out of 5875831
+ 396239 words of memory out of 5000000
+ 23712 multiletter control sequences out of 15000+600000
  415969 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,6n,72p,520b,334s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on notes.pdf (9 pages, 141562 bytes).
+Output written on notes.pdf (11 pages, 148165 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 52 compressed objects within 1 object stream
+ 80 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

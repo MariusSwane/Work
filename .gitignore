@@ -3,7 +3,7 @@
 *.bbl
 *.fls
 *.out
-*.gz
+*.synctex.gz
 *.toc
 *.log
 *.fdb_latexmk

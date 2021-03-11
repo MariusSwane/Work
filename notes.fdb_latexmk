@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex notes"] 1615466285 "notes.aux" "notes.bbl" "notes" 1615466285
+["bibtex notes"] 1615466285 "notes.aux" "notes.bbl" "notes" 1615467553
   "/usr/share/texmf-dist/bibtex/bst/harvard/agsm.bst" 1607188566 25549 e3d0f1ab4ae55e777f7352db30e2c6f7 ""
   "lib.bib" 1615275272 170002 2a7a7f6a3e55366f07be4dce8078b68a ""
-  "notes.aux" 1615466285 4030 ea4c4076c5aa74100ac9922a80605c3b "pdflatex"
+  "notes.aux" 1615467553 4030 ea4c4076c5aa74100ac9922a80605c3b "pdflatex"
   (generated)
   "notes.blg"
   "notes.bbl"
-["pdflatex"] 1615466285 "notes.tex" "notes.pdf" "notes" 1615466285
+["pdflatex"] 1615467553 "notes.tex" "notes.pdf" "notes" 1615467553
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1607355867 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1607355867 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1607355867 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -81,12 +81,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1607355867 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1615367298 336600 6f90c65e159aaf8faaa6ea56bf6655c4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1615367292 2635855 c2f181f8288093f738add6ab5c966d48 ""
-  "notes.aux" 1615466285 4030 ea4c4076c5aa74100ac9922a80605c3b "pdflatex"
+  "notes.aux" 1615467553 4030 ea4c4076c5aa74100ac9922a80605c3b "pdflatex"
   "notes.bbl" 1615466285 787 0c538a2d5bb6d46d093a0a550efcd7df "bibtex notes"
-  "notes.tex" 1615466283 19673 6f31a2d4139efa25dc46a14279cbe0be ""
-  "notes.toc" 1615466285 2486 5e3e72da900c2bbac14ce553b7098494 "pdflatex"
+  "notes.tex" 1615467552 19673 6f31a2d4139efa25dc46a14279cbe0be ""
+  "notes.toc" 1615467553 2486 5e3e72da900c2bbac14ce553b7098494 "pdflatex"
   (generated)
-  "notes.toc"
-  "notes.log"
   "notes.aux"
   "notes.pdf"
+  "notes.toc"
+  "notes.log"

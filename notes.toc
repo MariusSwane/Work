@@ -27,3 +27,5 @@
 \contentsline {subsection}{\numberline {3.11}The Characteristics of the Cartography of Imperialism, p. 70}{12}{}%
 \contentsline {subsection}{\numberline {3.12}The Nineteenth Century Atlas Map of Africa, p. 72-73}{13}{}%
 \contentsline {subsection}{\numberline {3.13}The Nineteenth Century Atlas Map of Africa, p. 73-74}{13}{}%
+\contentsline {subsection}{\numberline {3.14}Additional comments by me}{14}{}%
+\contentsline {section}{\numberline {4}The art of not being governed \citep {Scott2009}}{15}{}%

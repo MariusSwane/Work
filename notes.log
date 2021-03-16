@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.10)  11 MAR 2021 14:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.10)  16 MAR 2021 12:44
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -193,20 +193,20 @@ Overfull \hbox (11.87639pt too wide) in paragraph at lines 299--304
 \OT1/cmr/m/n/12 These `stay-at-home schol-ars' (Bridges 1987b) re-examined the clas-si-cal sources,
  []
 
-[11] [12] [13] [14] (./notes.bbl) [15] (./notes.aux) ) 
+[11] [12] [13] [14] [15] (./notes.bbl) [16] (./notes.aux) ) 
 Here is how much of TeX's memory you used:
- 6658 strings out of 479383
- 122544 string characters out of 5875830
- 401239 words of memory out of 5000000
- 23714 multiletter control sequences out of 15000+600000
+ 6661 strings out of 479383
+ 122595 string characters out of 5875830
+ 402263 words of memory out of 5000000
+ 23717 multiletter control sequences out of 15000+600000
  415969 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 66i,6n,72p,520b,304s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,6n,72p,520b,306s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on notes.pdf (15 pages, 153803 bytes).
+Output written on notes.pdf (16 pages, 156160 bytes).
 PDF statistics:
- 93 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 96 PDF objects out of 1000 (max. 8388607)
+ 67 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

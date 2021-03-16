@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.2.9)  5 MAR 2021 13:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.3.10)  16 MAR 2021 09:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -61,7 +61,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip50
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count187
-) (/usr/local/share/texmf/tex/latex/preprint/authblk.sty
+) (/usr/share/texmf-dist/tex/latex/preprint/authblk.sty
 Package: authblk 2001/02/27 1.3 (PWD)
 \affilsep=\skip51
 \@affilsep=\skip52
@@ -84,7 +84,7 @@ Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 \rotFPbot=\skip54
 \rot@float@box=\box47
 \rot@mess@toks=\toks18
-) (/usr/local/share/texmf/tex/latex/datetime2/datetime2.sty
+) (/usr/share/texmf-dist/tex/latex/datetime2/datetime2.sty
 Package: datetime2 2020/03/02 v1.5.6 (NLCT) date and time formats
  (/usr/share/texmf-dist/tex/latex/tracklang/tracklang.sty
 Package: tracklang 2020/06/30 v1.5 (NLCT) Track Languages
@@ -99,9 +99,9 @@ Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
 )
 \XKV@depth=\count193
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-en-GB.ldf
+)) (/usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-en-GB.ldf
 File: datetime2-en-GB.ldf 2019/10/21 v1.05 (NLCT)
- (/usr/local/share/texmf/tex/latex/datetime2-english/datetime2-english-base.ldf
+ (/usr/share/texmf-dist/tex/latex/datetime2-english/datetime2-english-base.ldf
 File: datetime2-english-base.ldf 2019/10/21 v1.05 (NLCT)
 ))) (/usr/share/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
@@ -166,14 +166,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] (./GrandPlan.bbl) [8] (./GrandPlan.aux) ) 
 Here is how much of TeX's memory you used:
  6573 strings out of 479383
- 121648 string characters out of 5875831
+ 121637 string characters out of 5875830
  396027 words of memory out of 5000000
  23637 multiletter control sequences out of 15000+600000
  413899 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  66i,5n,72p,524b,297s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on GrandPlan.pdf (8 pages, 146927 bytes).
+Output written on GrandPlan.pdf (8 pages, 146926 bytes).
 PDF statistics:
  79 PDF objects out of 1000 (max. 8388607)
  56 compressed objects within 1 object stream

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  14 APR 2021 13:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Arch Linux) (preloaded format=pdflatex 2021.4.5)  15 APR 2021 11:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -208,7 +208,7 @@ Overfull \hbox (39.52628pt too wide) in paragraph at lines 476--477
 \OT1/cmr/bx/n/12 like the fol-low-ing for PCS ar-eas/groups rel-a-tive to Non-PCS groups/areas: 
  []
 
-[18] [19] [20] [21] [22] [23] [24] [25] [26] [27] (./notes.bbl) [28] (./notes.aux) ) 
+[18] [19] [20] [21] [22] [23] [24] [25] [26] [27] [28] [29] (./notes.bbl) [30] (./notes.aux) ) 
 Here is how much of TeX's memory you used:
  6672 strings out of 479383
  122808 string characters out of 5875831
@@ -218,10 +218,10 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  66i,6n,72p,520b,310s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on notes.pdf (28 pages, 185675 bytes).
+Output written on notes.pdf (30 pages, 189470 bytes).
 PDF statistics:
- 139 PDF objects out of 1000 (max. 8388607)
- 97 compressed objects within 1 object stream
+ 146 PDF objects out of 1000 (max. 8388607)
+ 101 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

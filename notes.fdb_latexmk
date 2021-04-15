@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex notes"] 1618400207 "notes.aux" "notes.bbl" "notes" 1618400207
+["bibtex notes"] 1618478893 "notes.aux" "notes.bbl" "notes" 1618478893
   "/usr/share/texmf-dist/bibtex/bst/harvard/agsm.bst" 1607188566 25549 e3d0f1ab4ae55e777f7352db30e2c6f7 ""
   "lib.bib" 1617695418 172753 d33f4dc4a6fb286ade5d4dc2a8ed08c0 ""
-  "notes.aux" 1618400207 8264 1caa34699ab5556d771897cff4bb7582 "pdflatex"
+  "notes.aux" 1618478893 8504 5ba7585d593c993efb363124c6c62478 "pdflatex"
   (generated)
-  "notes.bbl"
   "notes.blg"
-["pdflatex"] 1618400207 "notes.tex" "notes.pdf" "notes" 1618400207
+  "notes.bbl"
+["pdflatex"] 1618478893 "notes.tex" "notes.pdf" "notes" 1618478893
   "/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1616961503 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1616961503 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1616961503 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -84,12 +84,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1616961503 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1617642367 336600 6f90c65e159aaf8faaa6ea56bf6655c4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1617642338 2635855 1bbd8162bdf6735c6b00e82323158835 ""
-  "notes.aux" 1618400207 8264 1caa34699ab5556d771897cff4bb7582 "pdflatex"
-  "notes.bbl" 1618400207 1437 c85b7459fe47381479efd17d6ddd7e1c "bibtex notes"
-  "notes.tex" 1618400206 40776 f39139d3918c42fa40656a8ad210040e ""
-  "notes.toc" 1618400207 5074 1df8e66d26e37e36443761e66bbdfb1f "pdflatex"
+  "notes.aux" 1618478893 8504 5ba7585d593c993efb363124c6c62478 "pdflatex"
+  "notes.bbl" 1618478893 1437 c85b7459fe47381479efd17d6ddd7e1c "bibtex notes"
+  "notes.tex" 1618478890 44461 09650b7aec81dbb02d2295af4575125a ""
+  "notes.toc" 1618478893 5232 41488557bb77b82a2b29fa4db6ef8747 "pdflatex"
   (generated)
-  "notes.toc"
+  "notes.aux"
   "notes.pdf"
   "notes.log"
-  "notes.aux"
+  "notes.toc"

@@ -1,0 +1,13 @@
+@article{10.2307/27847040,
+ ISSN = {00030996},
+ URL = {http://www.jstor.org/stable/27847040},
+ author = {J. Maynard Smith},
+ journal = {American Scientist},
+ number = {1},
+ pages = {41--45},
+ publisher = {Sigma Xi, The Scientific Research Society},
+ title = {Evolution and the Theory of Games: In situations characterized by conflict of interest, the best strategy to adopt depends on what others are doing},
+ volume = {64},
+ year = {1976}
+}
+

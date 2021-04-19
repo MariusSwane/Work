@@ -1,0 +1,833 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{natbib}
+\usepackage{authblk}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{rotating}
+\usepackage[british]{datetime2}
+\usepackage{amssymb}
+%\usepackage{hyperref}
+\usepackage{url}
+
+\renewcommand{\harvardurl}{\textbf{URL:} \url}
+\renewcommand\Affilfont{\itshape\small}
+
+\title{Notes from the literature}
+\author[1]{Marius Swane Wishman}
+\affil[1]{Department of Sociology and Political Science, NTNU}
+
+\date{\today}
+
+\providecommand{\keywords}[1]
+{
+	\small	
+	\textbf{\textit{Keywords---}} #1
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+
+	This is a document for keeping notes from what I read in one place.
+	Section headers are works (books or articles etc.), and should contain
+	the reference. Sections describe, chapter or heading from the source,
+	and the page number. Paragraphs are individual quotes, except when
+	written in bold font, which is commentary by me.
+
+\end{abstract}
+
+\pagebreak
+
+\tableofcontents
+
+\pagebreak
+
+\onehalfspacing
+\section{Nation Building - Why Some Countries Come Together While Others Fall 
+	Apart \citep{Wimmer_2018}}
+
+\subsection{Introduction, p. 3}
+
+Locals might resist a national government that intruded more into their daily
+lives that did its colonial predecessor.  Political elites competed over who
+controlled the new center of power.  Economic poverty, artificially drawn
+boundaries, the legacies of colonial divide-and-rule policies, and the weakness
+of postcolonial states made national political integration difficult.
+
+\subsection{Introduction, p. 8}
+
+Such voluntary organizations facilitate building alliances across ethnic
+communities and regions, I will argue.  They bundle individual interests, as it
+were such that politicians or state agencies can respond to them more easily.
+In patronage systems, by contrast, each alliance needs to be managed separately:
+a patron needs to provide political protection or government favors to each of
+his clients on an individual basis.
+
+\bigskip
+
+How far such voluntary organizations have developed matters especially in early
+years after a country transitions to the nation-state - when an absolutist
+monarchy is overthrown or when a former colony becomes independent.  If a dense
+web of such organizations haves already emerged, the new power holders can tap
+into these networks to extend relationships of authority and support across the
+country. 
+
+\subsection{Introduction, p. 17}
+
+Rather, .I both high diversity and low capacity to provide public goods emerge
+in societies without a historical legacy of centralized states, as argued
+throughout the preceding chapters.
+
+\subsection{Chapter 1, p. 31}
+
+The reach of political alliance networks-rather than communication in a shared
+language per se - turns out to be crucial.  Where these networks were confined
+by political boundaries such as imperial provinces, nationalists divided the
+space of a shared language, as in Latin America.  Where language barriers within
+imperial domains hampered the establishment of such ties, linguistic communities
+were imagined as nations.  This happened in Romanov Russia.  Where civil
+societies flourished early, as in Switzerland, or where states were
+exceptionally capable of providing public goods, political networks stretched
+across ethnic divides and the nation was imagined as polyglot.  I other words,
+the contours of political alliance networks determine which communities emerge
+as nations.
+
+\subsection{Chapter 1, p. 66}
+
+Because voluntary associations facilitate horizontal linkages across a
+territory, the more associational networks have developed during the period
+leading to the creation of a nation-state the easier it will be for the new
+governing elites to build alliances across ethnic divides bu relying on these
+networks.
+
+\textbf{Conversely, HSE's create \textit{"vertical networks."}}
+\textbf{Potentially facilitating both mobilization of said networks, but also
+patronage networks.} 
+
+\subsection{Chapter 2, p. 97}
+The administrative footprint, however, of both the Ottoman Empire and the
+Zanzibari Sultanate was extremely light and consisted of a handful of
+representatives and tax collectors per town only.  The city-states never managed
+to due the nomads of the hinterland.  These could mobilize tens of thousands
+of warriors against which the feebly fortified coastal cities stood little
+chance (Lewis 1988:34-35).  Only the Majeerteen Sultanate (a clan of the Darood
+family) situated at the Horn managed to gain effective control over the interior
+and represented a territorial state comparable to some of the more powerful and
+populous Tswana kingdoms.  It remained independent from both the Ottoman Empire
+and the Oman Sultanate by signing a treaty with Britain in 1839.  In the 1920s ,
+Italy ended its long-lasting sovereignty through military conquest.
+
+\subsection{Chapter 3, p. 103}
+
+This fragmented, embryonic, politicized administration had virtually no tac base
+beyond the tariffs it collected from imports and exports-a legacy of the
+resistance that the interior clans had mounted against any form of taxation, in
+turn the consequence of long centuries of living without a state.  Somalia
+therefore became one of the most aid-dependent countries in Africa
+
+\subsection{Chapter 3, p. 105}
+
+The expanded political arena also offered incentives to found new parties with
+both northern and southern clan elements, as the short-lived Somali Democratic
+Union and the more stable Somali National Congress show (Lewis 1988: 176.  The
+latter included northern Dir and Isaaq clans bu also important Hawiye elements
+from the former Italian parts of the country-all united in the attempt to
+counter the dominance of Darood, particularly Majeerteen politicians during the
+first decade of independence.  Indeed, it seems that the politically dominant
+clans during that first decade were the Hawaiye from central Somalia, the Isaaq
+from the north and especially the Majeerteen from the former eponymous sultanate
+on the Horn (Laitin and Samatar 1987: 92), who supplied one out of two
+presidents and two prime ministers out of three.
+
+\subsection{Chapter 3, p. 105}
+
+Further fragmentation followed.  In the 1969 elections 62 parties, most of
+which represented narrower clan interests, competed with each other.  The more
+broadly based SYL won again.  Indicating the opportunistic nature of politics in
+independent Somalia, all but one member of the opposition parties defected after
+the election to join the government party SYL, hoping to get a piece of the pie
+and distribute it to their clan supporters.
+
+\subsection{Chapter 4, p. 148}
+
+Third, the memories of independent statehood provided politically ambitious
+Polish noblemen with a model for the future.  They thus confined their networks
+of alliances to other Polish nobles (who made up as much as 20% of the
+population in order to one day achieve the dream of renewed independent
+statehood, a dream first couched in terms of rights to dynastic succession
+rather than modern nationalist discourse.  The peasant population, whether
+speaking Polish, Belorussian, Lithuanian, or Ukrainian, as well as Jewish town
+dwellers, remained largely excluded from these networks of agitation and
+mobilization and thus indifferent to the proto-nationalist cause of the Polish
+nobility.
+
+\section{How State Presence Leads to Civil Conflict \citep{Ying_2020}}
+
+\subsection{Abstract}
+
+\textbf{Argues that conflict occurs when states attempt to penetrate areas or 
+	groups it has not controlled previously.}
+
+\textbf{He tests both at \textit{province} and \textit{"ethnic group"}
+level, using the accuracy of census data in the first and global ground
+transportation data in the second analysis.}
+
+\subsection{State Weakness and Civil Conflict}
+
+Two concepts are crucial in understanding state power: (1) state capacity, i.e.
+the overall power of a nation-state to administrate its territory (Evans,
+Rueschemeyer, and Skocpol 1985), and (2) state presence, i.e. the allocation of
+state power at the -national level. The lower the state-capacity the more
+likely is state presence to be insufficient and uneven across regions. Existing
+literature terms this phenomenon as limited statehood (Risse 2011) or
+incomplete sovereignty/inefficient governance (Lee 2018).
+
+\subsection{From State Capacity to Civil Conflict}
+
+\textbf{Similar to Koren and Sarbahi 2018 but focuses on low intensity state-based
+violence instead of civil war.}
+
+\section{A Short History of the Cartography of Africa \citep{Stone1995}}
+
+\subsection{Chapter 5 The Nineteenth Century: Golden Age of the Cartography of
+Imperialism, p. 47-48 }
+
+\textbf{The 19th century is a transition period leading up to the revolution
+of the 20th  century cartography of colonialism.}
+
+\textbf{Cartography in Africa is still a mix of measurement, less accurate
+observations, word of mouth,  previous maps and sources, educated guesses and
+pure conjecture.  Nevertheless a distinct improvement on the maps of previous
+periods.}
+
+\textbf{Maps are generally published in the year following the return of an
+expedition.  However, expeditions could last for years, so observations could be
+several years after the fact by the time they met print.}
+
+\subsection{Southern Africa, p. 49-50}
+
+It was the use of instruments, including a sextant, an artificial horizon,
+chronometer, compass and measuring chain for traversing but corrected by means
+of daily observation of latitude and occasional observation of longitude (de
+Smidt 1896), which resulted in John Barrow's influential 
+\textit{"General chart of the Colony of the Cape of Good Hope"}, accompanying
+his \textit{"Travels into the Interior of Southern Africa"}, published in 1801
+(Penn 1994).
+
+The missionary thrust northwards through the eastern Kalahari was continued by 
+Robert Moffat, whose map of SOUTH AFRICA \textit{"compiled for the Revd. R. 
+Moffat's work by James Wyld"}, published in Moffat's \textit{"Missionary Labours
+and Scenes in Southern Africa"} (1842) improved considerably on Campbell's 
+depiction in the amount of geographical and ethnographic information and its 
+accuracy. \textbf{While our data do not include the maps in question, we do have
+two maps by James Wyld among our sources.}
+
+The information which was forthcoming in the aftermath of the Great Trek duly
+made its appearance in contemporary maps, notably in the maps of John Arrowsmith
+(Schrive 1965). \textbf{Our data includes four maps by John Arrowsmith.}
+
+\subsection{East Africa, p. 53}
+
+A \textit{"Sketch Map of Eastern Africa"} accompanied Speke's journal, engraved
+by W. \& A.K. Johnston. It contained much less of the detail which he had
+recorded and which was contained in the map accompanying Burton's account, with
+one significant difference. It showed the 'Mountains of the Moon 6000 to 8000
+feet by estimation' as a horseshoe forming the catchment at the north end of
+Lake Tanganyika.  \textbf{Our data includes a map of Africa by the same
+	Johnstons from 1961 (two years after the first publication from Bruton
+	and Speke's expedition). The map is clearly based on the one mentioned
+	by \citet{Stone1995}, and includes the infamous Mountains of the Moon,
+	as described above, and with Speke's name attached. In our next map by
+the Johnstons (from 1879) the erroneous mountains have been removed. In total
+our data contains five maps by one or more of the Johnston's.}
+
+\subsection{East Africa, p. 58}
+
+Further detailed observations by sequent explorers followed, in turn to be
+compiled into route maps which could be used as sources by the great nineteenth
+century atlas publishers such as W. \& A.K. Johnston, John Bartholomew and the
+Society for the Diffusion of Useful Knowledge, but the hydrographical framework
+had now been provided for east and central Africa. \textbf{As mentioned
+previously, our data contains five Johnston maps. We also have one map by John
+Bartholomew and two maps by the Society for the Diffusion of Useful Knowledge.}
+
+\subsection{West Africa, p. 59-60}
+
+The map which accompanies Denham and Clapperton's \textit{Narrative of Travels
+and Discoveries in Northern and Central Africa} (1826) extends from the Gulf of
+Sirtees to the Bight of Benin and is a typical explorer's transect, with
+comments about wells, oases, wadis and villages. The western shores of Lake Chad
+are firmly mapped, but the northeast shores are shown tentatively and the lower
+course of the Niger is speculative. The map made an immediate impact with those
+searching fir source material to update their maps of Africa, as can be seen in
+John Cary's \textit{New Map of Africa Exhibiting the Recent Discoveries
+constructed from the most recent travels}, published in 1828. Denham, Clapperton
+and Oudney's route stands out by comparison with the scarcity of information
+elsewhere in the Sahara, as it does on Sidney Hall's map of Africa of 1829.
+\textbf{Our data contains one map by Cary and one by Hall. However, not they are
+	not the ones mentioned here.}
+
+\subsection{The Momentum Sustained, p. 61-62}
+The published findings of the explorers of West Africa fed rapidly into the
+mainstream of map and atlas publishing. In larger scale maps which carried
+forward much of the detail of the explorer's originals, the task of combining a
+large number of sources into a single mosaic at the selected scale was clearly a
+major work of cartographic compilation. This is very well seen in the atlas of
+\textit{Maps of the Society for the Diffusion of Useful Knowledge} (1844), which
+contains a small scale map of the African continent, supplemented by larger
+scale maps of parts of the continent. West Africa is divided into two sheets (I
+and II) at a scale of c.1:5,600,000 extending from Timbuktu to the Guinea Coast
+and from Cape Verde to Lake Chad. The extremely detailed content of the two maps
+includes the routes of more than twenty explorers, including Beaufort, Gray,
+Mollien, Winterbottom, Caillié, Park O'Byrne, Liang, Dupuis, Bowdien, Dochard,
+Houghton, Dickson, Clapperton, Denham, Oudney, Lander, Hornemann, Laird, Allen,
+Oldfield, Coulthurst and Toole. \textbf{Not one of the two included in our data.}
+
+\subsection{The Momentum Sustained, p. 62}
+
+The maps were published in 1839, (earlier then the atlas) and the explorers'
+dates range from Houghton in 1791 to Oldfield in 1836. \textbf{The atlas
+referred to is the one in the above subsection, published in 1844. In other
+words, in this illustrative case, maps were published three years after the
+expedition and was published in an atlas after eight.}
+
+\subsection{The Momentum Sustained, p. 63}
+These `stay-at-home scholars' (Bridges 1987b) re-examined the classical sources,
+and they sought to learn from anyone with recent experience of Africa. The maps
+of armchair geographers such as William Desborough Cooley, James McQueen and
+A.G. Findlay were published by the RGS and are properly part of the evolving map
+of the African interior in the 1850s.
+
+\subsection{The Momentum Sustained, p. 65}
+By the End of the nineteenth century, mapping by military personnel had been
+instituted elsewhere in Africa, not only by French and British military
+authorities. However, in the context of the nineteenth century as a whole, it
+was peripheral in its location and limited in its extent, by comparison with the
+work of the explorers. 
+
+\subsection{The Characteristics of the Cartography of Imperialism, p. 69}
+
+The imperial relationship with Africa was essentially international in
+character, in the sense that the European powers shared a common purpose in the
+continuation of access to trade at the coast of Africa. ... On the other hand,
+the colonial period which was to follow can be differentiated by parochial
+exclusivity and nationalism within colonial boundaries in a continent
+partitioned among seven European powers, in contrast to the common attitudes and
+access among European powers which characterised the previous imperial
+relationship. The Europeans who made maps of Africa prior to colonial partition
+scribed to common attitudes of the imperial powers. The subject matter of
+their maps cannot easily be differentiated by their particular European country
+of origin. They were a part of an imperial relationship which was international
+in character.
+
+\subsection{The Characteristics of the Cartography of Imperialism, p. 70}
+
+Professor Bridges (1982) is able to talk about unofficial planning amongst
+Europeans for direct intervention in East Africa by 1876, interventions which
+would amount to interference in the lives of Africans. Such actions were
+thought of as part of a laudable civilizing process involving European
+organizational and technological skills. It was in this context that the
+compilation of maps of the highest possible scientific calibre, using
+instrumentally determined data to measure and locate places with optimum
+accuracy, contributed to legitimizing European penetration and even
+Interference in Africa. This background situation influenced the form of the
+growing number of explorer's maps in the late nineteenth century.
+
+\textbf{The rest of the page is very relevant as well, but I cannot rewrite the
+whole thing here.}
+
+\subsection{The Nineteenth Century Atlas Map of Africa, p. 72-73}
+
+The picture of Africa which atlas publishers were presenting at the beginning of
+the nineteenth century was not consistent. For example, de la Rochette's
+\textit{Africa} dated 1803, published by W. Faden (Tooley 1969) incorporates
+recent explorations in West Africa. It shows an eastward flowing upper Niger
+(but not the as yet undiscovered outlet to the Gulf of Guinea) and the sources
+of the Blue Nile. South of the Equator, it continues to rely heavily on the long
+standing Portuguese sources for the lower Congo and Zambezi basin, with
+extensive intervening otherwise blank areas containing a curious mix of textual
+descriptions, either of an ethnographic nature or about potential routs. On the
+other hand, James Cundee's \textit{New Royal Atlas Engraved from the best
+modern authorities}, of 1810, includes a map of Africa \textit{Engraved for the
+Revd. Mr. Evans's New Geographical Grammar} in 1809, which is much more
+concerned with ethnic names distributed evenly across the entire face of the
+continent, albeit with the recent knowledge of the drainage of West Africa as a
+part of the background information. 
+
+\textbf{The map published by W. Faden is not in our data, but two later ones
+are. Cundee is not in our data.}
+
+\subsection{The Nineteenth Century Atlas Map of Africa, p. 73-74}
+
+Nevertheless, the great weight of new information becoming available from
+explorers' maps was clearly making an impact.This is particularly well seen in
+the four maps compiled in 1839 under the auspices of the Society for the
+Diffusion of Useful Knowledge, founded in 1826 to promote 'the moral improvement
+of the great body of the population', in part by means of publishing and
+distributing suitable books (Smith 1974). Their atlas entitled \textit{Maps of
+the Society}... published by Chapman and Hall in 1844, contained four maps of
+Africa mostly dated to 1839, one of the entire continent, one of South Africa
+(dated 1834), plus cover of West Africa at a larger scale in two maps. The
+contents of the two maps of West Africa have already been described in the
+context of the exploration of West Africa, but an aspect worthy of mention is
+their total reliance on recent explorers as their sources. This is also true of
+the relatively large scale maps of South Africa but less so in the case of the
+map of the continent on a single sheet.
+
+\textbf{This map of the whole continent is in our data.}
+
+\subsection{Additional comments by me}
+
+\textbf{\citet{Stone1995} builds the chapter covering the 19th century by
+	covering a selection of `a few influential or characteristic maps. ...
+	The choice of maps has been influenced by the valuable summary history
+	of African exploration by Professor R.C. Bridges (1991).' I interpret
+	this to mean that the emphasis is on quality and the maps drawn by the
+	explorers themselves.  The overlap between our data and the maps covered
+	by \citet{Stone1995} should therefor give an indication of the quality
+	of our data.  At least in terms of including quality sources.}
+
+\textbf{Of the 47 maps referred to in \citet{Stone1995} only six are included in
+	the GeoISD. However, given \citet{Stone1995}'s emphasis on maps
+	published by explorers and our reliance on compiled atlases this is no
+	surprise. A different way to reckon would be to include maps by the same
+	author or drawn by, compiled by, engraved by or published by the same
+	author across \citet{Stone1995} and the GeoISD. This count should be
+	able to capture some of the maps as they have ``trickled down" to atlas
+	compilation. It is additionally a further ``fuzzy" measure of quality as
+the quality of maps varied far more between mapmakers than between maps by the
+same author. By this more inclusive count close to half the maps are ``partially
+included" in the GeoISD (22/47).}
+	
+\section{The Art of Not Being Governed \citep{Scott2009}}
+
+\subsection{State Space, p.42}
+
+The realpolitik behind this elective affinity is evident in the fact that ``for
+European governors and Southeast Asian rules alike, large settled populations
+supported by abundant amounts of food were seen as the key to authority and
+power." Land grants in ninth- and twentieth-century Java, for which we have
+inscriptional evidence, were made in the understanding that the recipient would
+clear the forest and convert shifting, swidden plots into permanent irrigated
+rice fields (sawah). The Logic, as Jan Wisseman Christie notes, is that ``sawah
+... had the effect of anchoring populations and increasing their visibility, and
+making the size of the crop relatively stable and easy to calculate."
+
+\textbf{An extension of this logic would be that where once states existed,
+conditions for re-incorporation into a state are likely better, \textit{ceteris
+paribus.}} Taken together with \citet{Ying_2020} there should be less resistance
+to incorporation and thus less civil conflict in pre-colonial state areas.
+
+\subsection{State Space, p. 53}
+
+One might emphasize with Edmund Leach the fact that ``the riceland stayed in one
+place" and thus represented a potential ecological and demographic strong
+point, which a clever and lucky political entrepreneur might exploit to create a
+new, or revived, state space.
+
+\subsection{Ethnogenesis, p. 251}
+
+Much of what passes as the ethnic particularity and distinctiveness of the
+Shan, Burmese, and Thai cultures is closely tied to the basic devices for
+statebuilding. Put in another way, ``stateness" is built into the foundations
+of ethnicity. Reciprocally, in the Shan, Burmese, and Thai view, much of the
+ethnicity of those populations in the hills, those not-yet-gathered-in,
+consists precisely of their statelessness. 
+
+\subsection{Ethnogenesis, p. 259}
+
+The political entrepreneurs--official or not--who endeavor to mark out an
+identity based on supposed cultural differences are not so much discovering a
+social boundary as selecting one of innumerable cultural differences on which to
+base group distinctions.  Whichever of these differences is emphasized (dialect,
+dress, diet, mode of sistence presumed descent) leads to the stipulation
+of a different cultural and ethnographic boundary distinguishing an ``us" from
+a ``them." This is why the invention of the tribe is best understood as a
+political project. The chosen boundary is a strategic choice because it is a
+political device for group formation. 
+
+\textbf{Once overcome, conquered or incorporated into a state, pre-colonial
+states should be easier to govern effectively and peacefully according to Scott's
+logic. However, in times of central state weakness (economic collapse, successive
+coups, chaotic colonial hand-over) or otherwise opportunity-costs favoring
+rebellion (access to lootable goods like oil or diamonds) prior state centers
+can reemerge or become viable alternatives to the central government. Perhaps
+like Somaliland or South Sudan. Not necessarily struggles for independence. More
+likely increased autonomy or privileged access to resources or power. I expect
+this to happen in PCS-areas because (1) the legitimizing effect of prior
+statehood, (2) these areas have local elites on top of hierarchical social
+structures \citep{Scott2009} and (3) often have access to relatively large
+concentrated population. This last point however, also makes these areas
+vulnerable to state crack-down. This could lead these areas to remain relatively
+peaceful until the central government is especially weak.}
+
+\textbf{A contrast could be to other, non-PCS ethnic groups. According to
+\citet{Scott2009} these groups should be more numerous, more likely to be
+minorities, more likely to be excluded from power, more geographically
+dispersed and more likely to live in terrain chosen to avoid the state. For all
+these reasons they should be more likely to violently resist state integration
+\citep{Ying_2020, Scott2009}.}
+
+\textbf{The resulting different patterns of conflict should be something like the
+following for PCS areas/groups relative to Non-PCS groups/areas:}
+
+\begin{itemize}
+	\item Fewer conflict onsets
+		\subitem Conflict resolution institutions/mechanisms
+		\subitem Better integrated in the state already
+		\subitem Easy target for repression (before onset, and
+		deterrence)
+		\subitem ``Pacified by earlier exposure to statehood and state
+		monopoly of violence \citep{Pinker2012}
+		\subitem Intermediate in terms of economic development at the
+		national level? (Less than capital, more than peripheries?)
+	\item Shorter but deadlier conflicts?
+		\subitem Easier to target due to more concentrated urban
+		population, not located in geography chosen to avoid state
+		capture. I.e. conflict more closely resembling ``conventional
+		warfare", as opposed to guerilla warfare, than for non-PCS
+		groups/areas.
+		\subitem State targeting urban centers is likely to cause more
+		deaths.
+	\item The most conflict events occur somewhere between the
+		PCS area and the state capital. (As opposed to inside, or close
+		to the core of the PCS area)?
+		\subitem By the time fighting has reached either the core of
+		the PCS area either side should recognize defeat?
+\end{itemize}
+
+\section{A History of Borno \citep{HiribarrenVincent2017AHoB}}
+
+\subsection{Introduction, p. 14}
+
+Its main argument is that Borno had a relatively structured territorial
+framework in the nineteenth century. Disputing Jeffrey Herbst's assumption that
+political domination was not territorial in pre-colonial Africa, this first
+chapter emphasises the territorial singularity of Borno by analysing its borders
+and the spatial structure of the kingdom. It argues that Borno was a bounded
+territory with a codified relationship with its vassals.
+
+\subsection{The Territory of Borno in the 19\textsuperscript{th} Century, p.30}
+
+\textbf{The explorer Nachtigal quoted:}
+
+Where there is no sharply defined natural frontier, such as the Chad and Shari,
+these boundaries are indeterminate as towards the desert, or arbitrary and
+fluctuating, as in the regions of Pagan and semi-Pagan tribes who have not been
+brought completely under control. Where the Muhammadan inhabitants of two such
+comparatively well-ordered states as Bornu and the Hausa country are adjacent,
+the boundary can be fixed fairly exactly, though encroachments on either side
+and boundary disputes are not lacking. Where, however, between the two
+lie more or less independent regions as along a great pan of the western and
+southern frontier of Bornu, the contours of the empire fluctuate according to
+the measure of military success against tribes which are kept in subjection only
+by force. This is the situation especially with the regions of the Bedde,
+Ngizzem, Kerrikerri, Babir and Musgo, while the position in the Margin country,
+where the proximity of Adamawa to the south has a decisive influence, is
+somewhat more stable. Because of their more solid state organisation, Mandara
+and Logon are also in a more regular relationship of dependence upon Bornu.
+
+\textbf{Based on what I have read, Nachtigal's description is plausible.}
+
+\subsection{The Territory of Borno in the 19\textsuperscript{th} Century, p.35}
+
+Notions of `space' and `limits' are therefore present in Borno and Hausaland as
+much as in Europe in the nineteenth century. Thus, even if the explorers had a
+Eurocentric vision of the African continent, the Bornoan boundaries could have
+been very similar to some European ones. Indeed, the whole kingdom of Borno was
+a territory imagined not only by its inhabitants but also by the European
+travellers.
+
+\subsection{The Territory of Borno in the 19\textsuperscript{th} Century, p.37}
+
+Cohen also quoted the case of the ruler of Zinder who was nominally under the
+domination of the rulers of Borno but who rebelled in the 1830s and 1840s. Every
+time, the Shehu of Borno had to re-establish his authority with an army. He
+even left a consul in Xinder to represent the Bornoan power. In the 1870s, the
+ruler of Xinder annexed another vassal of Borno, Muniyo. Maïkorema Zakari argued
+that this invasion was possible because of the weakness of Borno at the end of
+the nineteenth century. Thus, the relationship between Borno and its vassals
+depended also on the political situation in Kukawa. The distance between Borno
+`proper* and its vassals certainly played a role but was not essential as the
+political situation in Kukawa seemed to be altogether more important.
+
+\subsection{The Territory of Borno in the 19\textsuperscript{th} Century, p.41}
+
+The Europeans defined the boundaries as lines which could be closed if needed.
+They applied their own vision of the boundaries to the kingdom of Borno but
+also reminded the readers of the frontier policy used in this part of Africa.
+Barth by this comment revealed his knowledge of the local geopolitics but also
+patronised the `vizier' of Borno who, according to Barth, could not properly
+manage his northern boundary. This last showed how tenuous the power of Borno
+must have been in this area.
+
+It is clear that the traveller's narratives were largely influenced by theories
+of statehood which were widespread in Europe in the nineteenth century. However,
+their narratives also gave precious information about the borders of nineteenth
+century Borno. They showed that Borno had a spatial structure which could be
+sometimes precisely bounded. Nineteenth century Borno was thud more than a
+network. Despite their fledging authority at the end of the century, the Shehus
+exerted their authority over a territory. It does not mean that their authority
+was supreme over the whole of Borno throughout the century; it rather indicates
+that territorial rule was one of the attributes of statehood in
+nineteenth-century Borno.
+
+\subsection{All Paths Lead to Borno, p. 47}
+
+\textbf{A Bornoan pilgrim quoted in a French intelligence report:}
+The name of Borno was extended to the whole of the Empire of the Dunama which
+consisted for the rest, in separated states, governed by vassal dynasties; the
+vassality link becoming looser when these states were situated far from the
+center of the Empire.
+
+\subsection{All Paths Lead to Borno, p. 58}
+
+The will to preserve the unity of the nineteenth-century polities was linked to
+the fact that they would be easier to colonise and, later, administer. Thus, if
+the British and French wanted to preserve the unity of Borno, it was because it
+served their interests. This was the reason for which they conceptualised its
+territory in their negotiations.
+
+\subsection{The Quest for a Territorial Framework, p.72}
+
+At the end of the nineteenth-century, the European conquest of Borno clearly
+displayed the ambivalent European attitudes to African polities. On the one
+hand, these considerations could be discarded to carve out colonies in Africa.
+
+\subsection{The Quest for a Territorial Framework, p.85}
+
+Therefore, the newly created boundary of Borno was a paradox as the Westphalian
+boundary created in 1893 by the Germans and British divided the territory which
+possessed delimited boundaries. Thus, the nineteenth-century boundaries, even if
+blatantly ignored by the Europeans, still existed in Germany and British Borno.
+From 1902 to 1914, the European-made boundary became the limit of the Shehus'
+authority, thus recreating Borno within each colonial territory. It can be
+argued that the Europeans were eager to transfer the concept of
+nineteenth-century Borno to the newly created colonial territory. Thus, even
+if, as seen in the previous chapter, the nineteenth-century limits of Borno were
+ignored by the British and Germans in 1893, the concept of the territory of
+Borno was re-used as it conveyed legitimacy to each European colonial territory.
+
+\subsection{The Quest for a Territorial Framework, p.88}
+
+The need for a legitimate ruler forced the British to bring Shehu Garbai into
+their sphere of influence as their Northern Nigerian territories through their
+hereditary leaders was at the centre of the British ambitions. Moreover, if the
+French assertions were well founded, a Kanemi ruler could have claimed
+suzerainty over the whole of Borno, British and German, despite the presence of
+the Anglo-German boundary. In 1903 and at the start of 1904, both Shehus were
+still trying to levy taxes in some border-villages located on the other side of
+`their' borders. 
+
+\subsection{The Quest for a Territorial Framework, p.91-92}
+
+At the beginning of the twentieth century, Borno was not an ethnic group but a
+kingdom. 
+
+...
+
+Thus, for two reasons, the maps representing Borno differed from other early colonial
+maps of Africa. First, they represented a territory and not an ethnic group.
+Secondly, the kingdom of Borno was an identified and prestigious landmark for
+European cartographers.
+
+\subsection{The Resurrection of Borno: (1902-1960), p.100}
+
+As seen previously for Machina, historical reasons were more relevant to the
+first colonial officers than ethnic ones. The main interest of British colonial
+rule was not ethnic consistency but colonial efficiency. Preserving the
+pre-conquest administrative framework was the key to this efficiency.
+
+\subsection{The Resurrection of Borno: (1902-1960), p.103}
+
+As the authors of the maps were still European and their source information was
+still Bornoan, they reproduced the same image of Borno ruling over its distant
+peripheries. This would not be the first time the Europeans gave one of their
+rulers more land than he had before the European conquest. For example, when the
+British created the protectorate of Uganda, they transferred the southern part
+of the kingdom of Bunyoro to Buganda.
+
+\subsection{The Resurrection of Borno: (1902-1960), p.104}
+
+This fact could be compared with the French situation where, in theory, the
+French are supposed to have created new political entities based on a Cartesian
+and equalitarian conception of space. Actually, the administrative subdivisions
+in the French African colonies, the \textit{cantons}, were based on a loose
+conception of the nineteenth-century territorial structures. Robert
+Delavignette, a French colonial administrator, stressed the inherited
+territoriality of these divisions: `The canton is in most cases a former feudal
+province turned into an administrative district'. In a chapter of his book
+\textit{Freedom and Authority in French West Africa}, he also emphasised the
+role of the African chiefs in the territorial framework of the French
+sub-Saharan colonies. French rule was partly based on the assumption that strong
+pre-colonial strictures were a sound basis for their own power. For example, in
+what is now Burkina Faso, the French used the Mossi kingdoms as a basis for
+their colonial administrative division. Even after different attempts at reform
+in the first decade of the twentieth century, the structure of these kingdoms
+was preserved in the colonial administration.
+
+\subsection{Re-writing the History of Borno, p.121-122}
+
+This personal sense of belonging enabled them to administer Borno more as a
+ruler than as a colonial officer. Two factors were responsible for such an
+attitude. Firstly, the geographical distance between the administrative capitals
+of Northern Nigeria, Zugeru and later Kaduna, and the capital of colonial Borno.
+As a result Borno was particularly isolated from the rest of the colony of
+Northern Nigeria -- arguably, the residents in charge of Sokoto never developed
+such a strong autonomous attitude. Secondly, it could be argued that the British
+colonial officials were directly influenced by the strong political framework of
+Borno.
+
+\subsection{Re-writing the History of Borno, p.129}
+
+Furthermore, a British version of Bornoan history was also transmitted in
+schools. The successors of the nineteenth-century rulers of Borno also supported
+the teaching of Bornoan history. The monarch of Borno from 1922 to 1937, Shehu
+Sanda Kura, was particularly involved in this production of history books. The
+joint work of the colonial officers and the local elite was thus taught to the
+minority of young Bornoans who attended school.
+
+\subsection{The Reunion of Dikwa and Borno: (1916-1959), p.138-139}
+
+The historian Michael Callahan studied the impact of the creation of mandates on
+European colonial policies. He revealed how the ideals of the American President
+Woodrow Wilson pervaded the foreign policy of Britain and France towards their
+mandates.
+
+...
+
+This mandate spirit, Callahan argues, created an obligation for the Europeans to
+care for the populations living in the former German colonies. By stressing that
+ethnic identities should not be split by colonial boundaries the British and
+French governments recognised a legal right for Borno to be reunited. This right
+was expressed in ethnic, cultural and religious terms by the colonial
+administration and the press.
+
+\subsection{Postcolonial Borno, p.165}
+
+For example, Nigeria is supposed to be one of the best examples of an African
+failed state. The British amalgamation of Nigeria in 1914 is thought to be one
+of the culprits explaining this failure.
+
+\subsection{Postcolonial Borno, p.170}
+
+In a similar vein, in 2011, a Sudanese provincial border created by the British
+became the international boundary separating North Sudan and South Sudan. The
+current dispute over the Sudanese province of Abyei shows to what extent the
+question of the regional borders is fundamental.
+
+\subsection{Postcolonial Borno, p.173-174}
+
+The official position was that to facilitate the development of its western
+half, Borno was split into two parts. The creation of Yobe State was nor
+officially triggered by ethnic strife, but the choice of the capital of the new
+state seemed to reveal underlying local conflicts. In 1991 the main city of the
+new state, Potiskum, was mainly inhabited by Ngizim, Bole and Karekare
+populations. The preference for Damaturu, mainly inhabited by Kanuries, as the
+state capital of the new state can be explained by the pressure of members of
+the political elite of Borno State to preserve a Kanuri grip on Yobe. The Shehu
+of Borno, Mustapha Amin, was particularly displeased with the creation of Yobe.
+As he inherited the Kanemi throne, he was the main spiritual and political
+authority wishing to safeguard the territorial integrity of his legacy. The
+choice of Damaturu can be seen as a compromise from the Babangida administration
+willing to offer some form of compensation to the defenders of Borno State. The
+Emir of Damaturu, like his counterpart in Maiduguri, is also an heir to the
+nineteenth-century rulers of the kingdom of Borno and styles himself Shehu;
+titles from the Shehus' court in Maiduguri were even duplicated in Damaturu. 
+
+The similarity between Borno and Sokoto in 1991 is striking. When confronted with
+the threat of having Sokoto State divided, the Sultan of Sokoto opposed the
+Babangida regime. The Sultan was not the only opponent of this new state but his
+intervention contributed to the victory of the unitary movement.
+
+\subsection{Postcolonial Borno, p.179}
+
+Politicians eager to obtain support from their voters did not hesitate to call
+on Kanuri feelings. The most striking example is the Governor of Yobe state
+who, in 2001, desired the rise of a Kanuri nation. The Lagos newspaper
+\textit{This Day} reported:
+
+...
+
+Governor Bukar Abba Ibrahim said the unity he envisaged would accord due
+recognition to the Kanuri heritage of a superior civilisation, bequeathed by the
+Kanem-Borno Empire which should fire the spirit of the descendants and promote
+the socio-economic advancement of the Kanuri nation of today, and of generations
+unborn.
+
+\subsection{Postcolonial Borno, p.180}
+
+This phenomenon, which was already widely studied in 1950s Nigeria, reinforced
+some of the pre-existing ethnic identities. The Borno Youth movement mentioned
+before was an example of these ethnic politics. Political parties could only
+hope to obtain power of they based their discourse on ethnicity. 
+
+Bounded territoriality was never totally substituted for ethnicity. Indeed, some
+Kanuri-speaking inhabitants of Niger and Cameroon tend also to recognise
+themselves in these transnational cultural identity. The term `identity' is used
+here on purpose for its vague meaning as the Kanuri-speakers present in the
+neighbouring countries recognise cultural links with Borno. For example, in
+2009, Kanuri delegates from Cameroon, Chad and Niger attended the coronation of
+the new Shehu of Borno and recognised Shehu Abubakar Ibn Garbai as their
+historical overlord. The transborder links evoked above always refer to a vague
+and distant past when the kings of Kanem-Borno ruled over the whole Lake Chad
+basin.
+
+...
+
+The vague memory of a glorious distant past is thus entertained by Cameroonian,
+Chadian and Nigérien citizens regardless of the nineteenth-century history of
+Borno. As they were once part of the kingdom, the ancient political links can be
+re-activated in the name of a common history and culture. The fact that these
+regions were no longer part of the Kanemi kingdom during the nineteenth century
+is not relevant. Borno is no longer a region or a state but has become a
+cultural area with all the vagueness that entails. A certain form of ahistorical
+territoriality is thus promoted across the twenty-first century borders.
+
+Twentieth-century examples of cooperation across international borders among
+Kanuris would tend to demonstrate that Borno still has an influence on its
+former empire. The Kanuris and Kanembus living in the area once dominated by the
+empire of Kanem-Borno have a clear sense of belonging to  an assumed Kanuri
+nation. Ade Adefuye, Nigerian historian, found that a certain `Kanuri factor' is
+responsible for explaining the Nigerian interventions during the Chadian civil
+war. Indeed, Nigeria supported a Kanuri Chadian, Aboubakar Abdel Rahman, in 1977
+when the latter founded the `Third Liberation Army'. According to Virginia
+Thompson and Richard Adloff, Maiduguri's airport was even used by Gaddafi's
+planes to bomb N'Djamena in 1980. For Thompson and Adloff, the Nigerian
+authorities were unaware of this military help.
+
+\subsection{Postcolonial Borno, p.186}
+
+The Kanuris seem to have provided Nigeria with more statesmen than their share
+of the Nigerian population would indicate. As mentioned above, in the context of
+the `Northernisation' of politics in the 1950s, numerous Bornoans were part of
+the civil service. How can we explain the disproportion between the relatively
+high number of Kanuris holding positions in Nigeria and their minor demographic
+importance? The first explanation offered by Paden was that the presence of
+Kanuri civil servants endured the continued loyalty of Borno to the `North' of
+Ahmadu Bello. The presence of Bornoans in the Nigerian administration and army
+was not only a phenomenon in the 1950s. Other Kanuris from Borno such as Kashim
+Ibrahim, Ibrahim Imam and Baba Gana Kingibe, and Shuwa Arabs such as Musa
+Daggash, distinguished themselves in the recent history of Nigeria. It is clear
+that a statesmanship tradition exists in Borno because of the prolonged
+existence of a state in the Chad basin. The infamous dictator Sani Abacha was a
+Kanuri from Kano. However, in the absence of detailed studies of these
+politicians, this argument only remains a hypothesis.
+
+\section{Freedom and Authority in French West Africa
+\citep{delavignette2018freedom}}
+
+\subsection{The Native Chiefs, p.74-75}
+
+lol
+
+\pagebreak
+
+\bibliographystyle{agsm}
+\bibliography{lib.bib}
+
+\end{document}

@@ -1,0 +1,322 @@
+Introduction: COVID-19 enters, and states respond
+
+The covid-19 virus hit the world with fury during the early months of 2020, and states had to take measures to ensure the virus couldn't go on and spread easily. These manifested as different restrictions, varying vastly from state to state. To restrict the spread of the virus one must also restrict personal freedom, especially the freedom to gather. But some argue that several countries have used the COVID-19 pandemic as an opportunity to repress civil rights beyond what is deemed necessary to limit the spread of the virus.  
+
+In the Philippines president Rodrigo Duterte applied his "war on drugs" tactics to the Covid-19 virus as well, and between March 17 and July 25 Philippine police have arrested 76'000 people from breaching lockdown. During this time frame over 900 complaints alleging torture, inhuman treatments, arrests, or detention were made to the Philippines' Commission on Human Rights (Insider, 2020). In Uganda 12 people have allegedly been killed by security officers enforcing corona restrictions (BBC, 2020). In Mexico protesters took the streets after a man was found beaten to death hours after he was arrested by police for not wearing a facemask. Two people were also allegedly tortured and killed by police in India after they kept their shop open longer than restrictions allowed (Human Right Watch, 2020). In Malaysia the police arrested hundreds of undocumented migrants with the purpose to stop these in spreading the virus, this included children (BBC, 2020). (Examples cited in (Kolvani et al., 2020)
+
+Many states have also spread misinformation about the virus. Several countries deny that the virus is spreading inside its borders and are reporting zero infections. This includes Turkmenistan, North Korea, Kiribati, Tonga and several other island states. In Turkmenistan, the US embassy wrote on their website that there has been reports of local citizens with symptoms consistent with that of Covid-19. The Foreign Ministry called the statement "disorted", "baseless", and "fake" (Human Rights Watch, 2020). Varieties of Democracy have, in their report about democratic backsliding, divided 25 countries into three groups based on the nature of the states disinformation. Four governments fall into the category  of "denialists". These have denied that outbreak of the virus has occurred within their country's borders: Turkmenistan, Nicaragua, Tanzania and Burundi. The next category "anti-scientists" contain five countries. State leaders in this group often downplay the consequences of getting Covid-19, discourage social distancing and doesn't encourage general WHO recommendations on how to limit spreading of the disease. The last group of "curist"  -  containing 16 countries  -  don't necessary question accepted facts about the virus, but they spread disinformation about unfounded preventives, treatments or cures for Covid-19 (For full list and more information see Kolvani et al., 2020).
+
+This excessive use of emergency powers and limitations on media freedom created a widespread concern that responses to Covid-19 may harm democracy. In June, the Varieties of Democracy institute published the "The Pandemic Backsliding Project" to assess the extent to which countries violate democratic standards of emergency provisions in response to Covid-19. The data collected from Mars to June (check dates) showed that two thirds of democracies implemented emergency responses without undermining liberal-democratic standards. The majority of states that violated these were already fully autocratic before the pandemic. Edgell et al. (2020) mentions, however, that there may be countries where the government is using the pandemic to erode already weak democratic institutions. They've used the term "pandemic backsliding" for this process. The risk for this is highest in Hungary, El Salvador, India, Philippines, Serbia, Sri Lanka and Uganda. 
+
+During the pandemic, Edgell et al. (2020) are tracking six types of violations of democratic standards for emergency measures during the pandemic: No time limit on emergency measures; discriminatory measures; de-jure violation of non-derogable rights from the Internation Covenant on Civil and Political Rights (ICCPR); restrictions on media freedom; disproportionate limitations on the role of the legislature; and abusive enforcement. To summarize: in June they noted concerning developments in 89 (61%) countries, of these there were particularly concerning developments in 12. (More examples here on how governments violates democratic standards.). 
+
+Of these, nineteen countries showed no or only minor evidence of backsliding(check this) in the third quarter (July  -  September) of 2020 (Source). The improvements were due to removal of limitations to the media, less abusive enforcement and lifting of measurements that did not have a time limit. They still measured major violations of democratic standards in 36 countries.
+
+It may be that the Covid-19 pandemic has given governments an opportunity to repress their citizens with the excuse of fighting the pandemic. This puts the repressive Covid-19 restrictions into the repression-dissent nexus, a body of literature that studies the complicated relationship between repression and dissent, how states respond to dissent; and how citizens respond to repression. 
+
+Structure of the thesis
+
+I will first go through the available literature on the repression-dissent nexus. This is a two-way causal relationship where studies have explored how dissent affects repression, and how repression affects dissent. The thematic of the thesis revolves around how people have responded to COVID-19 restrictions, so I will focus on the latter connection: how repression affects dissent. I describe the gap in the literature, and how my thesis will bring fruitful answers. 
+
+Next section goes through definitions of the COVID-19 pandemic; the definitions of dissent and protest; and the definition I use for repression.
+
+Further I describe the different mechanisms which explains the relationship between repression and protest. This revolves around how the public view repression, and how repression affects dissident organizations and mobilization activities. I then argue how these mechanisms will work during the COVID-19 pandemic. 
+
+Literature review 
+Complicated matter
+When cataloguing the available theory and empirical findings Lichbach (1987) found that there is a connection between repression and protest, but the literature gives us en general mixed results. It can stimulate more protest; work as a deterrent against protest; have a negative effect in the short run and positive effect in the long run; and lastly studies have shown that its effect on protest is conditional on what kind of repression it is. The section that follows will go through the existing literature on the relationship between repression and dissent/protest, and is sorted based on the contradicting findings as mentioned: when it's stimulating; when it has a dampening effect; when the relationship is curvilinear; and under what conditions it will stimulate/depress.  
+Stimulating
+When repression is used against protesters it may lead to a rise in protest, this is often referred to as "backfiring" (Hess and Martin, 2006. This may occur around censorship, police brutality, or other kinds of repressive events that are perceived as unjust and generate public concern without necessarily being directly linked to social movements (Hess & Martin, 2006). This mechanism came to show in Khawaja (1993) study of the Palestinian West Bank from 1976 to 1985. He found that  -  with some exceptions  -  that repression increased the rate of collective action.
+Further studies have shown that the relationship between repression and dissent is sometimes reciprocal; that dissidents respond to government action with more dissent, and governments respond to dissident action with more repression (Lichbach, 1987; Moore, 1998). Carey (2006) finds that there is a reciprocal relationship between repression and protest, and that protest is constant over time.
+The type of repression also affects level of repression. When the repression is mild it will have a positive effect on dissent due to less cost (Tilly, 1978; Hechter, 1982; Can't find Tilly, go through Hechter). Further Sing and Sprague (1993) found in their analysis that type of state will affect level of dissent. When government sanctions is employed in democracies this will lead to a rise in level of protest. 
+Pre-existing campaign infrastructure will make domestic mobilization go up. Organisational structure and communicating infrastructure plays a critical role in making killing unarmed civilians too costly for the government. Theoretical literature shows that leadership and communication plays an important role in generating backfire, a theory Sutton, Butcher and Svensson (2014) finds support for in their empirical analysis. 
+
+Deterrent
+Studies have also shown that repression may work as intended and lead to less protest. When authorities repress the cost of additional mobilizing rises and thus have an depressing effect on protest (Tilly 1978: 100-102). Here again the type of repression will lead to different effects. When harsh repression is employed this will have a depressing effect on dissident due to the risen cost of protest (Tilly, 1978; Hechter, 1982; Can't find Tilly, go through Hechter). This may also drive portions of the opposition underground and thus dampen dissent (Zwerman, Steinhoff and della Porta, 2000). In their study of South-Africa 1970-1985 Olzak, Beasley and Oliver (2005) found that different reform would lead to a rise in protest, but that repression decreased the rate of protest significantly. Further studies have shown that if repression is absent this can facilitate protest and spur big protest waves (della Porta, 1995; della Porta and Diani, 1999). 
+In democracies state restrictions would lead to a rise in dissent, in authoritarian states the effect is reverse and due to the increased cost it will have a dampening effect on dissent (Sing and Sprague, 1993). 
+Legal or institutional means of repression can have a dampening effect on dissent (Barkan, 1994). 
+Even though many studies have shown that repression will be used to answer dissident acitivites (source), states may repress without any present dissent to stop mobilization processes (Nordås & Davenport, 2013). 
+Curvilinear 
+Lichbach, (1987) found that it can be a curvilinear relationship (both u-shaped and inverse u-shaped). The latter relationship is supported by Opp and Ruehl (1990) who finds in their analysis that repression had a short term negative effect on dissent through cost, and a positive effect on dissent in the long-run if it raises the incentives for protest. These mechanisms will start if the repression is considered illegitimate and launches micromobilization processes.  Rasler (1996) also finds support for this short-term long-term effect, and also explains this with micromobilization effects.  This is due to the lag before micromobilization effects takes place.  Moore (1998) finds support for Lichbachs (1987) theory, and that dissident will substitute violent protest with nonviolent protest and vice versa when confronted with repression. (don't think he support curvilinear.)
+Muller and Weede (1990) finds a curvilinear relationship between negative sanctions (think this is about violence and not violence).  
+Factors matter
+Another theory tries to explain the competing findings as described in the literature review with whether the repression indiscriminately target the general population, or whether the coercion selectively targets only movement participants (Sullivan, 2016). 
+Mason & Krane (1989) explain theoretically that carefully targeted repression may lead to less active support for the opposition movement. When the level of repression rises and it becomes more indicriminating it will lead to more support for the opposition because elites can no longer stay dormant and not be repressed.  This selective repression  -  or as Mason and Krane (1989) calls it: carefully targeted repression  -  may reduce the level of active popular support for the opposition. But when the level of repression rises and it becomes more indiscriminate, it may increase the support for the opposition. This is because that political elites can no longer be immune to repression by laying dormant. 
+A study went through a hundred studies and forty-five historical cases in which indiscriminate repression provoked greater insurgent violence (Kalyvas, 2006: 146-72). Lyall (2009) argues that indiscriminate forces bystanders (Free riders) to seek shelter in the rebels arms. This effect could be seen in Kocher, Pepinsky and Kalyvas (2011) study of aerial bombing during the Vietnam war: when civilians were bombed it shifted the support to the Viet Cong insurgents. 
+To facilitate the backlashing after a repressive event (massacre) there has to be sufficient communication of the massacre to enable backlash mobilization. Further there has to be sufficient leadership to coordinate the backlash protest (Francisco, 2004). 
+. 
+Repression can lead to increased dissent under specific circumstances. When dissent was already decreasing, repression led to more dissent. 	When dissent was on the rise in the recent past, repression led to non or a slightly negative effect on dissent (Sullivan, Loyle, and Davenport 2012).
+Gaps in the literature
+Previous research on the repression-dissent-nexus has turned up mixed, and often conflicting results (Maher & Peterson, 2008). Further the research lacks consensus of how repression and dissent is intertwined (Ritter, 2014). The literature has shown us that repression can facilitate and depress dissent, but also that dissent can fade in the short-run but spur in the long-run when face with repression. But as Pierskalla (2010) mentions, we do not have a clear understanding of when repression will depress dissent, when repression of dissent is effectively, and under which circumstances repression will lead to escalating violence. 
+As mentioned in the introduction the Covid-19 pandemic has spurred a rise in repression in several states. This provides a unique opportunity to examine the effects of repression on dissent in several countries, while other factors are rather constant given the short time frame. There has been censorship, police brutality and other forms of repression, and as Hess and Martin (2006) mentions this can lead to backfire if it is perceived as unjust. Further this thesis will help to fill a rather obvious gap in the literature, namely how has the COVID-19 pandemic has affected protest. 
+This brings us to the puzzle: How has repression affected protests during the COVID-19 pandemic?
+Definitions
+The definitions of repression and dissent are still notes and not structured. Please do not use a lot of time going through these.
+Covid-19
+The corona virus family contains several different viruses which gives you a respiratory infections. (Can talk abit about the older sars virus). In many cases the corona virus causes a mild cold, but may also cause more serious disease, and in some cases also death. 
+The new corona virus that is now spreading throughout the world is called SARS-CoV-2, and was first identified in January 2020. It has some similarities with the SARS virus (Severe Acute Respiratory Syndrome) which also is a corona virus. Another one is the virus which causes MERS (Middle East Respiratory Syndrome). 
+The virus can also be found in animals. The SARS-CoV-2 most likely originates from bats and was transferred to humans late in 2019, either directly or via other animals. 
+Infections mostly happens when in close contact when airways becomes exposed to droplets containing the virus. It is possible to be infected with SARS-CoV-2 without developing any disease, but still infect others with the virus. 
+The virus can infect through several methods, some believed to be more significant than others. Droplet transmission is believed to be the most important route of transmission. People infected with Covid-19 admits droplets and particles from mouth and nose containing SARS-CoV-2. Infections happens when these then touch mucous membranes in the mouth, nose or eyes of the receiver. Droplet transmission happens within 1-2 metres of the infected person. Studies suggest that risk of infections drops rapidly with more distance to the infected person, and that the risk drops by 80% when the distance is greater than 1 meter. 
+It is unclear how important contact infection is for getting infected with SARS-CoV-2, but current knowledge suggest that is may play a part in the spread of the virus. Contact infection may take place directly through handshakes, hugs etc., and indirectly through contact with surfaces which has been polluted with virus. 
+That last way of infection is through airborne infection, which is considered to be less important. Airborne infection involves spreading of small particles and droplets containing virus from mouth or nose of an infected person, which can stay airborne for some time and travel a longer distance. The amount of particles and droplets containing virus decreases fast when times go by, and distance increases. Studies have shown that the amount of contagious virus that you're exposed to with distances exceeding 1-2 metres rarely will be enough to cause infection. 
+Some studies have suggested that 10-30% of the infected accounts for approximately 80% of the infections. These are often called "super spreaders". Cases of super spreaders may arise when many people are gathered with one or more people who are infected over a longer amount of time, often indoors in a room with limited space. 
+https://www.fhi.no/nettpub/coronavirus/fakta-og-kunnskap-om-covid-19/fakta-om-koronavirus-coronavirus-2019-ncov/
+Find all the sources here. 
+Repression
+Ritter and Conrad (2016): Preventing and responding to Dissent.
+Repression is any realized or threatened limit or coercive action taken by state authorities to control or prevent challenges that could alter the status quo policy or distribution of power. Any behavior (legal or illegal, violent or nonviolent) used to prevent people within the state from participating in their own governane can be considered repression, with the goal being either to reduce their capacity to threaten the government (Nordås and Davenport, 2013; Sullivan 2015) or to establish conditions under which they lack the will to do so (Galtung, 1969). Either authorities order repressive action to be carried out by agents, or authorized agents engage in repression under the auspices of carrying out other orders, such as collecting information or maintaining order (Conrad and Moore., 2010; DeMeritt, 2015; Mitchell, 2009; Rejali, 2007). 
+Davenport (2007): State repression and political order
+By most accounts, repression involves the actual or threatened use of physical sanctions against an individual or organization, within the territorial jurisdiction of the state, for the purpose of imposing a cost on the target as well as deterring specific activities and/or beliefs perceived to be challenging to government personnel, practices or institutions (Goldstein, 1978) Like other forms of coercion, repressive behavior relies on threats and intimidation to compel targets, but it does not concern itself with all coercive applications (e.g. deterrence of ciolent crime and theft). Rather, it deals with applications of state power that violate First Amendment-type rights, due to process in the enforcement of adjudication of law, and personal integrity or security. 
+First Amendment-type rights include (Goldstein, 1978, pp. xxx-xxxi):
+ Freedom of speech, assembly and travel. Freedom of the press up to a very narrowly defines "clear and present danger" point, regardless of the views communicated.
+ Freedom of association and belief without governmental reprisal, obloguy, or investigation unless clearly connected with possible violations of existing laws.
+ The general freedom to boycott, preacefully picket, or strike without suffering criminal or civil penalties. 
+Due process transgressions involve violations of "generally accepted standards of police action and judicial and administrative behavior related to the political beliefs of the person involved" (Goldenstein, 1978, p.xxxi). Personal integrity rights are those concerned with individual survival and security, such as freedom from torture, "disappearance, "imprisonment, extrajudicial execution, and mass killing.
+The definition of repression employed here is important not only for what it includes but also for what it excludes. For example, the definition does not consider the deleterious after-effects of particular structural characteristics experienced over long periods of time, such as the inequitable distribution of resources (Galtung's "structural violence"). The definition does not consider what are referred to as second-generation (economic, social, and cultural privileges) and third-generation
+rights (the right to peace and a clean environment). The definition does not specify
+that a behavioral threat must exist, as in the case of "protest policing" (e.g.,
+Earl 2003), nor does it specify that a law or norm must be violated, like with
+regard to "human rights violations" (e.g., Poe & Tate 1994). The definition does
+not specify the particular ends to which repressive action is put, nor how successfully
+authorities achieve the following objectives -- topics that should be subjects
+of investigation in themselves: (a) setting general limits within which citizens can
+act; (b) controlling or eliminating specific challenges (real or imagined) to existing
+political leaders, institutions, and/or practices; and (c) facilitating movement in a
+particular direction -- e.g., a preferred strategy of development or ideological orientation.
+My conception encompasses a wide variety of coercive efforts employed
+by political authorities to influence those within their territorial jurisdiction: overt
+and covert; violent and nonviolent; state, state-sponsored (e.g., militias), and stateaffiliated
+(e.g., death squads); successful and unsuccessful. Many researchers do
+not adopt such an approach, but I believe that this is a critical error for two reasons:
+(a) These more focused efforts ignore the fact that governments select from
+the full repertoire of coercive activities highlighted above, and (b) these more focused
+efforts miss the underlying similarities that exist across the diverse forms of
+repressive behavior. I now turn to these.
+Davenport: State Repression and the domestic democratic peace
+For the general observer, repression is rare, inherently illegitimate (not accepted in law or custom), and secondary to, and potentially irrelevant for, the state's existence. When this behavior occurs, the various components of the event are important, but they are viewed as essentially isolated from the general workings of the society and political system. To the specialist, however, repression can be rare or frequent, it can be legitimate or illegitimate, but it is always essential to the very definition of the state  -  one of the most basic functions of the institution. Adopting the latter view, state repression is a mechanism of force wielded by the government  -  an overtly manifest device, always available to political authorities  -  that restricts the freedom and/or inflicts bodily pain/injury on citizens up to and including the destruction of human life itself (Wrong, 1998: 24).
+Writes more about the differences between social control and repression, and that the consequences are not important. 
+The focus of the means/process of repression is important because it unifies the literature. Without this orientation, it would be difficult to imagine bringing together research on arrest, imprisonment, surveillance, disappearance, political bans, pepper-spraying, the closing of a newspaper, and mass killing. At the same, the normative position regarding the means/process of repression divides the work in this area. There are those for whom repressive behavior servers a useful purpose. Here, the coercive action of the state are believed to assist in creating a political system and keeping it together as well as sustaining morale in times of resistance and challenges. Differing from this view, there are those who consider repression to be an indication of systemic malfunction, defiency, and/or pathology  -  a mechanism of rule unlike any other, whose very ise signifies the abdication of that which is right, just, and appropriate (got examples). In this case, sate coercive action is nothing less than a violation of humanity. Finally there are those who consider repression as a generally "neutral" mechanism of influence, simply one strategy among many employed by political authorities against those within their territorial jurisdiction (Dallin and Breslauer, 1970; Weber, 1946). Davenports take on the subject is clearly associated with this view. 
+The key to understanding state repression lies in considering the similarities between the two basic forms of state coercive power (restrictions and killing (check this p45)) while acknowledging the differences and the significance of diverse combinations. Two factors are worthy of consideration: objectives and the relevant costs as well as benefits.
+Objectives: As conceived, there are a great many ways that repressive behavior can serve the interests of the state, and a great deal of effort has been expended toward understanding what these different interests might be (examples here p47). Regardless of this diversity, however, the main reason for state repression is the pursuit of political order. According to Hobbes and Weber, this stands as perhaps the most important role of the state. Exactly how governments pursue this objective however varies. 
+For example, when states restrict citizens, their goal is less to remove individuals/groups from society than it is to mold them within I, demarcating where members can and cannot go and defining who they can and cannot be. In other word, they are aiming first at capacity and then will. Relevant to this point, the establishment of martial law in Poland on December 13, 1981, was not about removing individuals/groups from Poland but hindering the ability of specific individuals/groups to mobilize against the government by increasing the difficulty of engaging in speech, association, and assembly. Restrictions thus establish parameters within which individuals modify their behaviour in an attempt to avoid sanctions in the present and future.
+In contrast, killing citizens eliminates a part of society demmed unacceptable while compelling acquiescence or guided change within others. This act thus aims at eliminating the will of those previously challing authority, as well as breaking the will of those remain  -  reducing capacity as an afterthought. 
+Restrictions and Violence
+It is useful to consider distinct repressive strategies individually, but it is also useful to think of them in tandem, for this is generally how they are employed. For example, when distinct techniques are used simultaneously (that is, when particular restritions are used with particular forms of violence), this is done in an effort to take advantage of what distinct methods of repression have to offer and communicate different messages to targets/victims and audiences. Essentially, there are four basic combinations.
+First, there are those governments that use neither restrictions nor violence. Here governments try to facilitate populare involvement in political and social life, staying out of the way as much as possible. Second, there are governments that use restrictions at significant levels but that use only limited amounts of violence. This entails an attempt to limit the parameters of sociopolitical engagement  -  reducing the ease with which alternative ideas and behaviors can be expressed  -  while avoiding the most lethal and objectionable forms of state repression. Third, there are situations where limited restrictions are imposed on citizens but where the use off violence is common. Here, there is simply an assault on those within the nationstate in an effort to remove the most threatening elements, but there are no efforts made to mold individuals within it. Fourth and finally, there is a situation where both restrictions and violence are significant. In this case, authorities have essentially declared war on the citizenry while simultaneously attempting to constrain the parameters of sociopolitical life. Such an approach eliminates those deemed unlikely to play by the rules and significantly influences the behavior of those who do decide to play. 
+The identificaition of these diverse combinations is important because they each provide distinct costs and benefits. For example, complete disentgagement from repressive behavior allows authorities to establish a perception of tolerance within the society, which simultaneously reduces the costs associated with state-sponsored violent action. Violence without restriction allows authorities to eliminate challengers but avoids the administration, monitoring, and pretense of legality commonly affiliated with civil liberties restrctions. Restrctions with violence provide the best and worst of both worlds. In this context, authorities are able to eliminate particularly threatening individuals/groups as well as attempt to hinder general levls of mobilization and communication (49). 
+
+
+
+Dissent
+Preventing and Responding to dissent: The Observational Challenges of Explaining Strategic Repression Ritter and Conrad (2016)
+Dissent occurs when nonstate actors within a state threaten to or actually impose a cost to the government thus facilitating the government to change status quo policy, treatment, power allocation, resource distribution, etc. People who are dissatisfied with the status quo follow initiators or otherwise overcome the collective action problem to take a unified coercive action against the status quo (Lichback, 1998).  As Ritter and Conrad (2016) mentions, this is distinguishable from general disagreement due to the requirement that collective actors need to make a statement or take actions. The behaviours take place outside of state-orgianizes forums for expressing disagreement, for example voting or legislative actions. 
+The dissent action imposes costs on the ruling entity that can challenge their hold on power. The dissent may be both violent and non-violent, and include behaviours including riots, strikes, nonviolent protests, and boycotts damage. The actions may damage state property or disrupt normal functioning of society (Bueno de Mesquita et al.2003?). 
+To stop or prevent a group from dissenting the rulers may give in to the dissidents demands or repress them (Pierskalla, 2010; Ritter, 2014).  
+Of the several forms of dissent, this assignment in interested in protests. 
+From book:
+A characteristic of protest is its capacity to mobilize public opinion through unorthodox forms of action and put pressure on decision-makers.
+They use examples in which activists marched and arranged blockades; they had concerts. People went around in costumes and masks. They occupied real and virtual spaces. The thing these had in common is in the first place that they are forms of protest, meaning non routinized ways of affecting political, social and cultural processes. They citate "social movements employ methods of persuasion and coercion which are, more than often not, novel, unorthodox, dramatic, and of questionable legitimacy" (Wilson, 1973: 227). Protests are "sites of contestation in which bodies, symbols, identities, practices, and discourses are used to pursue or prevent changes in institutionalized power relation" (Taylor and van Dyke, 2004: 268). (p.165).
+When citizens are faced with laws or decisions considered to be unjust, they adopt form of action that challenge established norms. Especially since the 60's, new forms of political acitivites have been added to the citizens political repertoire (Barnes et al. 1979:149). These may be signing petitions, lawful demonstration, boycotts, withholding of rent or tax, occupations, sit-ins, blocking traffic, and wildcat strikes  -  to the more traditional ones, such as following politics in the newspapers, discussing politics with others, working for political parties or their candidates, attending political meetings, contactiong public officials, or persuiading friends and acquaintances to vote in particular ways.
+These newer forms have become increasingly legitimized. (p.166)
+An important charactereistic of protest is the use of ndirect channels to influence decision-makers. As Michael Lipsky noted (1965), protest is a political resource of the powerless. 
+They use examples from the United States in the 1960's regarding the civil rights of minorities. They define several things they have in common: "They were engaged in by relatively powerless groups; and they depended for success not upon direct utilization of power, but upon activating other groups to enter the political arena. Because protest is successful to the extent that other parties are activated to political involvement, it is one of the few strategies in which even politically improvised groups can aspire to engage" (Lipsky, 1965:1).
+(seattle example). Protest, then, sets in motion a precoess of indirect persuasion mediated by mass media and powerful actors. (see figure 7.1). Powerless actors must mobilize the support of more powerful groups. In fact, protest mobilizes a variety of actors. Those directly interested in political decisions comprise protest constituency. From this constituency a leadership emerges to lead action and maintain external relations. The mass media spread their messag, a message directed in the first instance at the reference public of the decision-makers. The latter are the true targets of protest. In order to succeed, protest must produce positive stimuli, winning the sympathies of those who have more resources to invest in the arenas where decisions are tkaken. While colletice action by groups who already possess power can be aimed directly at decisionsmakers, the powerless must seek to involve those who have the possibility of influencing then, In addition, the influence exerted by social movements can be either positive, creating symphaty for thei cause, or negative, threatening (for example) (end of p167) to create disorder. This is why the characteristics of the mass media and of channels of communication in general, are particualry relevant for social movements: their capacity to address public opinion is indeed a crucial component of their action. 
+Social movements certainly do not use protest alone and do not have a monopoly on protest. Other actors, such as political parties or pressure groups, also make use of protest action and occasionally make alliances with social movements for particular campaigns. However, protest (particularly at its most innovative and radical) has been considered a form of action typial of social movements because, unlike political parties and pressure groups, they have fewer channels through which to access decisions-makers. Forms of action are particularly important for them since social movements are "often remembered more for the methods of persuasion adopted bu them than for their objectives" (Wilson, 1973: 226).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Theory
+In this section I describe the mechanisms in the relationship between repression and dissent. There are two schools of thought: one emphasises how the public view the repression; and one emphasising how the repression affects dissident organizations and mobilization activities. I describe both of these and discuss how these will work during the COVID-19 pandemic.
+Mechanisms
+How the public view the repression
+Even though autocratic leaders in popular culture have carte blanche to do what they wish, this is seldom true. Even in the autocratic countries, leaders may be greeted by an outraged crowd if their choices and actions are deemed illegitimate. When governments repress their citizens, and the citizens answer this is called backlashing. This reply comes then in form of dissent, which again have different shapes. This may be peaceful protesters or violent riots, but governments try to avoid this since it hinders the normal routine of the country and delegitimates the ruling party. 
+Just and legitimate, or unjust and illegitimate?
+To stop people from joining dissenting activities the rulers may choose from a wide variety of tactics and strategies, which have been described and explain in the literature concerning the repression-dissent nexus. How and when repression leads to a rise in dissent a is still a question with varying answers as described in the introduction, but the literature gives us an understanding of the underlying mechanisms which comes to play when repressive tactics are used against citizens. An important mechanism here is how the people view the repression; is it just and legitimate, or is it unjust and illegitimate (Davenport, Johnston and Muller, 2005; as cited in Hess and Martin, 2006; I think). This perception of unjustness is connected also to how people view the dissidents, namely if the claim of the movement is perceived as legitimate. If that is the case and the government repress the movement it will be viewed as unjust, and thus leading to backfiring (della Porta and Reiter, 1998; Wisler and Guigni, 1999; as cited in Hess and Martin 2006). 
+Also, the use of violence may cause the public view the repression as unjust and disapprove. Thus, governments are not expected to use violence against non-violent dissents since this will make the cost too high to make it a lucrative strategy (Carey, 2006). Violent repression of non-violent protesters may cause public outrage and backfire. This stands in contrast to legal or institutional means of repression which may dampen backfire (Barkan, 1994; Koopmans, 1997; didn't find last one, cited in Carey, 2006). Sharp (1973) argue that witnessing violent repression against peaceful protesters may cause people to feel repulsed, and that entire groups may want to dissociate themselves from the repression. This effect can be observed vice versa: when protester use violence attacking them may seem more justified (2015). The use of violence also revolves around the concept of legitimacy; and if it's viewed as illegitimate it may cause people to join protest network through micro mobilization processes (Opp and Roehl, 1990(book, but citez in Hess and Martin (2006). 
+Examples of backfiring
+Brian Martin (2015) has analysed different situations where hard repression led to less support for the repressor, which again led to transforming events. In East Timor, Indonesian troops opened fire on defenceless mourners during a funeral for a independence supporter. Many were killed and wounded. This is known as the Dili massacre. The event provided powerful stimulus to the international movement in support of independence for East Timor (Martin, 2015). This is seen as a crucial turning point in East Timor's fight for independence (Kohen, 1999; Nevins, 2005  -  as cited in Martin, 2015) 
+In 1905 in Russia protesters converged on the winter palace. During this the Tzars police shot many of the protesters. This led to weakened support for the Tzars government which laid the foundation for the 1917 revolution (Sharp, 1973). 
+During the apartheid in south Africa protest spurred due to the passes black people had to carry. Following many small events, police in Sharpeville opened fire on the protesters, killing dozens. This was a significant event in the struggle against apartheid since the south African government was discredited around the world (Frankel, 2001).
+Martin (2015) points to an important mechanism which comes to show in these examples, namely that attack on peaceful is difficult to legitimize and will therefor generate support for the protesters and their cause. The examples of East-Timor and South-Africa shows us also that it's not only how citizens reacts to the repression that important, but also how the international community react. 
+Communication and tactics
+So for a repressive event to generate backfire the event has to be viewed as unjust and/or illegitimate by people especially living in the country, but also by people and organisations in the world otherwise. This leads us to another important mechanism, namely how the events are communicated. Hess and Martin (2006 and 2015, check this out) define different tactics states use to avoid this backfiring. They can cover up the situation, including censorship of the media. States will then use disinformation and manipulate the media to discredit a movement (Marx, 1979; as cited Hess and Martin (2006). Even if the states do not censor or cover up the situation in the media, the information about the event still must be communicated effectively to a big enough receptive audience to generate a significant backfire (Hess and Martin, 2006). 
+The targets of the repression can also be devalued or stigmatized to make the repressive action seem legitimate and less offensive to audiences. This includes drawing on prejudices such as racism, using derogatory labels, spreading rumours, and publicizing unfavourable information; real or manufactured. When the repressed are of low status or stigmatized by allegations, and called terrorist or criminals, what happens to them may not seem as serious (may be direct citation) (Martin, 2015). 
+The repressive event may be reinterpreted as something other than an attack. This can be done by explaining things in a way that justifies the action or makes it not seem as important, this can be done by lying, by blaming, by minimizing, or by framing. It is for example possible to label a protest as illegitimate (Martin, 2015). 
+The authorities may obtain statements from expert or official, put together formal inquiries or putting together other kinds of official analysis, and using these to delegitimate a dissident event. Lastly, they may also bribe and/or intimidating participants and witnesses (Jansen and Martin, 2004; Martin 2004).
+Survival
+A mechanism that is raised in the literature that doesn't revolve around legitimacy and/or just fullness, is the mechanism that depends on survival instinct of a dissent movement. In Al-ananis (2019) article he explains how the Muslim Brothershood responded to regime repression. One of the focuses was organizational adaptation, which is understood as a change, either strategic or tactical, in the movements organization structure because of repressing. He found (check this) that during repression waves, opposition movements tend to focus on their survival and how to avoid political elimination. 
+Selective and indiscriminating repression
+Dissident organization's role in generating backfire
+The mechanisms described above relies in simple terms on how the public  -  both domestic and international  -  react to a repressive event. The effect of the repression is dependent on how it affects the local population. Another theory that explains the competing findings as described in the literature review with whether the repression indiscriminately target the general population, or whether the repression selectively targets only movement participants. If its indiscriminately this can increase support for the movement and lead to backfiring. If its selective it can effectively deter support and lead to de-escalation (Mason and Krane, 1989; Kalyvas, 2006; Kalyvas and Kocher, 2007; Wood, 2010; Condra and Shapiro, 2012; Kocher, Pepinski, and Kalyvas, 2011)(Check sources, see lit rev.)
+This argument relies heavily on the importance of dissident organisations. As Sullivan (2016) points out, a weakness concerning the mechanisms based on how the public view repression is on the assumption that functional challenger organization exist, and that they can translate dissatisfaction of the public into action. Spontaneous corporations is already difficult during normal times, and nearly impossible during repressive times. 
+Sullivan (2016) points out a weakness concerning theory build on public view of repression (calls this population-centric modelling), namely that they rely on the assumption that there are functional challenger organizations to translate the publics sentiment into action. But spontaneous cooperation is difficult during normal times, and nearly impossible during repressive times. Thus Sullivan (2016) argues that to understand how repression affects dissent, it is not the anti-government sentiment that matters most, but rather its degree of organization. "Without functional challenger organizations, backlash of any kind becomes extraordinarily unlikely as the movements cannot provice selective incentives or channel retaliation"p:646.
+This argument can be seen in several articles as well, which has shown that for dissident events like protest, strikes, and acts of terror to happen, there has to be organizations in the background to coordinate the participants and direct the strategies (McCarty and Zald, 1977; Tilly, 1978; morris, 1983; Oliver, 1984; McAdam, 1982; Marwell and Oliver, 1993; Tarrow, 1998; Staniland, 2012; Parkison, 2013, look through these again). 
+Why organizational activities matter
+Sullivan (2016) goes into more details about why organizations is crucial to generate backfire. These depends on three different functions that mobilization activities play. The first is based on that mobilization activities help restructure the social connections in a society (Lichbach, 1995: 149-56(book)). 
+"By shaping social ties, influencing communication, and formulating collective valus, such as common symbls, focal points, and identities, these activities transition the alignment of preexisting social networks away from the state and toward the opposition (Morris, 1984: chap.3; Chong, 1991: chap 6; Gould, 1995; Wood, 2003: chap 3-4; Parksinson, 2013; Staniland, 2014." (check the sources, a lot of books). This will then help creating expectations that other members will participate in dissident activities (Sullivan, 2016). 
+The second function depends on resources (Lichbach, 1995: 36-38). The mobilization activities will help to redistribute resources like food, money or weapons through an organizational structure, which can reach even the periphery of the movement (McCarthy and Zald, 1977; McAdam, 1982; Morris, 1984: chap, 8; Oliver, 1984; Chong, 1991:126-41; Staniland, 2012; Parkinson, 2013 (go through these). 
+The last effect is based on trust, namely the trust between members that they will participate in dissident activities. This through that mobilization activities help form corresponding retaliation (Lichbach, 1995: 129-46). The activities form an organisational form that helps to facilitate the necessary interaction needed "for the evolution of collective monitoring and enforcement" (Hardin, 1982: 165-87; Axelrod, 1984: 124-42; Ostrom, 1990: 94-100; Ching, 1991: chap 3.check these).
+So sustained mobilization will make the chance of dissident activities like protest more likely to happen. People who previously had followed the authorities now how to choose between the political authority and a organized opposition who can offer goods in exchange for participation. Thus mobilization activities has to be present before overt dissident activities like protest are to happen, and it has to persist to keep challenge the authorities over time (Sullivan, 2016). 
+Selective and indiscriminating repression
+When governments are using repressive tactics, they may repress the mobilizational activities  -  selective repression, or they may repress the overt dissident activities like protests  -  indiscriminative repression. Two kinds of repression with two different kinds of outcome. 
+When repressing the mobilization activities, they are trying to stop these functions from happening. If successful they may stop the production of bigger dissident activities. Members will then reconsider their decision to join the opposition. And it will remove resources available for the organisation so they cant fund the activities and the incentivise for participation. It may also destabilize the trust between the members of the organisation (Sullivan, 2016). 
+The organizations may lose their ability to sustain and inspire. If the government can successfully hinder activities like training programs, meetings, and funding campaigns, they will undermine the organisations capacity to recruit new members and coordinate collective action. Thus stopping the mobilization and subsequent dissident events (Sullivan, 2016).
+The last mechanism Sullivan (2016) describes is somewhat related to public views. When governments successfully represses mobilization processes, this will stop the organizations capacity to express their political ideas, and thus be censored from the public space.
+On the other hand, when government use the indiscriminating tactic, and represses overt activities like a protest, the movement will then could arrange counterstrategies that may facilitate a backlash. To counteract the rise in cost of protesting they can give out different incentives, like protection from the state; for example through access to a safe house (Kalyvas and Kocher, 2007, check this). The organization may also give out payment to the families of people who were abused during the repression (Parkinson, 2013, check this).  Further they may also publicise information about the repressive event to gather more support for their cause, and thus arrange more protests (Goldstone and Tilly, 2001, check this).
+This will help heighten the expectations for participation and thus draw more members into the movement (Wood, 2003; Fancisco, 2004). The repression of event likes protest may thus lead to backlashing.
+Mechanisms during the pandemic 
+Past research on the relationship between repression and dissent/protest have established that repression can backfire and create more protest, while in other cases it can have a depressing effect on protest (should mention time as well). But what will be the likely effect of repressing during the COVID-19 pandemic. I will in this chapter go through the mechanisms described in the theory chapter and argue how these will be affected by a global pandemic and if repression will lead to backfire.
+The view of the public
+The important factor to examine here is whether repressive events will be viewed as just and legitimate or unjust and illegitimate (Davenport, Johnston and Muller, 2005), and if the claims of movement is viewed as legitimate (della Porta and Reiter, 1998; Wisler and Guigni, 1999). The definition of protesting is to gather; one of the key strategies against spreading COVID-19 is social distancing. Thus the action of protesting can help the virus spread and cause harm. This simple logic can be used to delegitimate any protest. Even though their claims may be viewed as legitimate, this can be overshadowed by the fact that the protesters are causing harm by spreading the virus and ignoring recommendations of social distancing. 
+The use of violence against peaceful protesters is often too costly since the public will disapprove (Carey, 2006). During the pandemic the public may not view the protesters as peaceful, but rather a group of people that's risking not only their life, but also other citizens who now have a higher chance of contracting the virus. Further a legally or institutional means of repression have a dampening effect on backfire (Barkan, 1994; Koopmans, 1997). This mechanisms will be easier to employ now that states have enforced rules that prevents big groups of gathering to stop the spread the virus. Even though the protesters are peaceful the public may see the protests as a form of "soft" violence, since this may cause harm down the road due to more infections, and make any possible repression seem more justified (2015). All this together may dampen or remove the mechanism where people join protest network and micro mobilization processes start, since the repression seems more legitimate and the protesters more illegitimate.  
+If we look at the different tactics states may use to avoid backlashing, we'll see that the pandemic gives a favourable opportunity for states to employ these. When covering up the situation they may manipulate the media to only focus on the negative sides of the protest, namely spreading the virus and ignoring advises of social distancing, and not putting a focus on the reasons behind the protest which may be legitimate. Which may then discredit the movement (Marx, 1979).
+Governments can devalue or stigmatized the targets of the repression by drawing on the fact that this is spreading the disease. Calling them derogatory labels, spreading rumours and publicizing unforourable information. Thus lowering the status of protesters which makes the repression not seem as serious (Martin, 2015). 
+The repressive event may be reinterpredet as something other than a attack. The government can explain the repressive event as damaging control to stop the spreading of the virus. This can be as mentioned done by lying, by blaming, by minimizing, or by framing. The latter can be enough during pandemic times, since the risk of consequences are real and states could put focus on that.
+The next tactic is to obtain statements from experts or officials, putting together formal inquiries or putting together other kinds of official analysis, and using these to delegitimate a dissident event. This will not be a difficult task, since international organisations like WHO now is encouraging social distancing and not gathering in big groups (source). Governments may use statements like this while trying to delegitimize the movement.
+Lastly the government may bribe and/or intimidating participants and witnesses. The government may then use the pandemic and fear of getting sick as a way of intimidating both participants and witnesses.
+The last mechanism revolved around how opposition movements tend to focus on their survival and to avoid political elimination when faced with repression. During the pandemic there is a possibility that some social movements choose to lay dormant and step down their protesting activities to avoid being delegitimized through the tactics described above.
+The role of dissident organisations and mobilization activities during pandemic
+The COVID-19 pandemic has given an opportunity for governments to repress with a better chance of it being viewed as legitimate and just, and thus limit the level of backfiring. 
+Now I will discuss how repression during Covid-19 pandemic has affected dissident organisations and mobilization activities. 
+First of all the main argument for the importance of dissident organisations, is that the dissatisfaction of the public in the wake of illegitimate repression, there has to be functional challenger organization to translate this into action. As I have argued, during the pandemic the causal mechanisms may stop before such dissatisfaction can arise, and thus making functional dissident organisations and mobilization activities a intermediate variable which does not have an effect during the pandemic. 
+The rest of this part will be used to describe how the pandemic will affect dissident organizations and mobilization activities. This revolves around that during the pandemic it will be harder to gather people for meetings and activities, and thus stop a sustained mobilization, which again affects resources etc. 
+
+
+Hypothesis
+Based on the describes mechanisms between repression and dissent, and the discussion on how these may work during the pandemic, I propose that repressive restrictions during the pandemic will have a dampening effect on protest.
+H1: The more repressive restrictions are, it will be let protest.
+
+
+
+
+
+
+
+
+                                                                               
+Control. Also notes
+Davenport: State Repression and the domestic democratic peace
+Although dozens of explanatory factors have been examined over time, after thirty-five years of quantitative investigation, three have consistently received support across time, space, context, and methodological technique.
+Protest decreases the cost of repression by providing political leaders with a
+legitimate mandate to coerce. Within such contexts, states are able to frame
+their activity as a "law and order" measure, which is likely to be viewed
+unfavourably. The challenge need not be linked to international factors. It is
+sufficient that a state (its personnel, policies, and institutions) and/or its
+citizens be threatened in some manner.  Next control is prior repression, but
+I'm not explaining why repression happens.  Another big effect to control for is
+the fear of getting sick with COVID-19. This can be done.. 
+ 
+
+
+
+
+
+
+
+
+
+
+https://www.hrw.org/news/2020/06/30/deaths-custody-india-highlight-police-torture
+
+https://www.businessinsider.com/philippines-police-arrested-people-for-breaching-lockdown-2020-7?r=US&IR=T
+(Insider, 2020) https://www.bbc.com/news/world-africa-53450850 (BBC, 2020).
+https://www.bbc.com/news/world-asia-52515000 Kolvani, P., Lundstedt, M., Maerz,
+S. F., Lührmann, A., Lachapelle, J., Grahn, S., & Edgell, A. B. (2020). Pandemic
+Backsliding: Democracy and Disinformation Seven Months into the Covid-19
+Pandemic. V-Dem Institute Policy Brief.  Ritter, E. H., & Conrad, C. R. (2016).
+Preventing and responding to dissent: The observational challenges of explaining
+strategic repression. American Political Science Review, 110(1), 85-99.
+Davenport, C. (2007). State repression and political order. Annu. Rev. Polit.
+Sci., 10, 1-23.
+--------------------------------------------------------------------------------
+
+From other document
+
+
+Chenoweth, E., Perkoski, E., & Kang, S. (2017). State repression and nonviolent
+resistance. Journal of Conflict Resolution, 61(9), 1950-1969.  Sharp, G., &
+Finkelstein, M. (1973). The Politics of Nonviolent Action. With the Editorial
+Assistance of M. Finkelstein. Porter Sargent.  Nevins, J. (2005). A
+not-so-distant horror: Mass violence in East Timor. Cornell University Press.
+Kohen, A. S., & Bstan-'dzin-rgya-mtsho ((XIV dalajlama;). (1999). From the place
+of the dead: the epic struggles of Bishop Belo of East Timor (pp. 160-87). New
+York: St. Martin's Press.  Martin, B. (2015). From political Jiu-jitsu to the
+backfire dynamic: how repression can promote mobilization. Civil resistance:
+Comparative perspectives on nonviolent struggle, 145-167.
+
+Khawaja, M. (1993, March). Repression and popular collective action: Evidence
+from the West Bank. In Sociological Forum (Vol. 8, No. 1, pp. 47-71). Kluwer
+Academic Publishers-Plenum Publishers.  Gupta, D. K., Singh, H., & Sprague, T.
+(1993). Government coercion of dissidents: deterrence or provocation?. Journal
+of Conflict Resolution, 37(2), 301-339.
+
+Maher, T. V., & Peterson, L. (2008). Time and country variation in contentious
+politics: Multilevel modeling of dissent and repression. International Journal
+of Sociology, 38(3), 52-81.  Wisler, D., & Giugni, M. (1999). Under the
+spotlight: The impact of media attention on protest policing. Mobilization: An
+International Quarterly, 4(2), 171-187.  Marx, G. T. (1979). External efforts to
+damage or facilitate social movements: Some patterns, explanations, outcomes,
+and complications. The dynamics of social movements, 94-125.  Opp, K. D., &
+Roehl, W. (1990). Repression, micromobilization, and political protest. Social
+Forces, 69(2), 521-547.
+
+Zwerman, G., Steinhoff, P., & Porta, D. (2000). Disappearing social movements:
+Clandestinity in the cycle of New Left protest in the US, Japan, Germany, and
+Italy. Mobilization: An International Quarterly, 5(1), 85-104.
+
+Regan, P. M., & Henderson, E. A. (2002). Democracy, threats and political
+repression in developing countries: are democracies internally less violent?.
+Third World Quarterly, 23(1), 119-136.
+
+Gupta, D. K., Singh, H., & Sprague, T. (1993). Government coercion of
+dissidents: deterrence or provocation?. Journal of Conflict Resolution, 37(2),
+301-339.
+
+al-Anani, K. (2019). Rethinking the repression-dissent nexus: assessing Egypt's
+Muslim Brotherhood's response to repression since the coup of 2013.
+Democratization, 26(8), 1329-1341.
+
+Araj, B. (2008). Harsh state repression as a cause of suicide bombing: The case
+of the Palestinian - Israeli conflict. Studies in Conflict & Terrorism, 31(4),
+284-303.  Maher, V. T. & Peterson, L. (2008) Time and Country Variation in
+Contentious Politics: Multilevel Modeling of Dissent and Repression.
+International Journal of Sociology, 38(3), 52-81 
+
+
+Ritter, E. H. (2014). Policy Disputes, Political Survival, and the Onset and
+Severity of State Repression. Journal of Conflict Resolution, 58(1), 143-168 
+
+Moore, W. H. (1998). Repression and dissent: Substitution, context, and timing.
+American Journal of Political Science, 851-873.  Carey, S. C. (2006). The
+dynamic relationship between protest and repression. Political Research
+Quarterly, 59(1), 1-11.  Hess, D., & Martin, B. (2006). Repression, backfire,
+and the theory of transformative events. Mobilization: An International
+Quarterly, 11(2), 249-267.  Davenport, C., Johnston, H., & Mueller, C. M.
+(Eds.). (2005). Repression and mobilization (Vol. 21). U of Minnesota Press.
+Olzak, S., Beasley, M., & Olivier, J. (2003). The impact of state reforms on
+protest against apartheid in South Africa. Mobilization: An International
+Quarterly, 8(1), 27-50.  Titarenko, L., McCarthy, J., McPhail, C., & Augustyn,
+B. (2001). The interaction of state repression, protest form and protest sponsor
+strength during the transition from communism in Minsk, Belarus, 1990-1995.
+Mobilization: An International Quarterly, 6(2), 129-150.  della Porta, 1995.
+Social movements. Political Violence, and the State.  della Porta and Diani,
+1999:210. Social Movements: An introduction.  Barkan, S. E. (1984). Legal
+control of the southern civil rights movement. American Sociological Review,
+552-565.
+
+

@@ -1,4 +1,4 @@
-
+# Ignore latex make-files
 *.aux
 *.bbl
 *.fls
@@ -7,3 +7,7 @@
 *.toc
 *.log
 *.fdb_latexmk
+
+# Ignore data folder(s) for fear of large files
+**/Data/
+**/QGIS/Geo-ISD.csv

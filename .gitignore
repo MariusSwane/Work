@@ -9,5 +9,9 @@
 *.fdb_latexmk
 
 # Ignore data folder(s) for fear of large files
-**/Data/
-**/QGIS/Geo-ISD.csv
+#**/Data/
+#**/QGIS/Geo-ISD.csv
+
+# Adding large files by script
+QGIS/Geo-ISD.csv
+R/Data/PRIO-Grid/PRIO-GRID Yearly Variables for 1946-2014 - 2021-06-04.csv

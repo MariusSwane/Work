@@ -1,3 +1,4 @@
+l
 #=============================================================================#
 #	 ______                 _________ ____   			      #
 #	/ ____/__  ____        /  _/ ___// __ \  			      #
@@ -17,6 +18,8 @@ rm(list = ls())
 # Otherwise, consider using the RSTUDIO menu:
 # Session -> Set Working Directory -> To Source File Location
 
+# On linux it just works :)
+
 #library(rstudioapi)
 #setwd(dirname(getActiveDocumentContext()$path))
 
@@ -24,18 +27,17 @@ rm(list = ls())
 #	Loading packages 						      # 
 #=============================================================================#
 
-library(raster)
-library(spData)
-library(sf)
-library(sp)
 library(dplyr)
 library(ggplot2)
-library(readr)
-library(tidyr)
-library(purrr)
-library(RColorBrewer)
-library(stars)
 library(priogrid)
+library(purrr)
+library(raster)
+library(RColorBrewer)
+library(readr)
+library(sf)
+library(sp)
+library(spData)
+library(tidyr)
 
 #=============================================================================#
 #	Loading data  							      #
@@ -433,8 +435,22 @@ popdr  <- raster_to_pg(popdr, aggregation_function = "mean")
 # Converting to tibble with PG-id
 popdr  <- raster_to_tibble(popdr, add_pg_index = TRUE)
 
-# Tidying
-popdr  <- popdr %>% rename(popd = layer, gid = pgid) %>% select(popd, gid)
+# Tidying -- not working
+# popdr  <- popdr %>% rename(popd = layer, gid = pgid) %>% select(popd, gid)
 
 # Merging
 pggisd  <- left_join(prio_grid_isd, popdr, by = c("gid"))
+
+#=============================================================================#
+#	Afrobarometer							      #
+#=============================================================================#
+
+# Loading afrobarometer data
+afroba  <- revd.csv("../Data/afb_full_r3.csv")
+
+afroba  <- st_as_sf(afroba, coords = c("longitude", "latitude"))
+
+#afroba <- st_contains(afroba, prio_grid_shp)
+
+vector_to_pg(afro, mean, need_aggregation = FALSE, missval = -99)
+

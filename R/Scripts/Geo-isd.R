@@ -1,18 +1,17 @@
-l
-#=============================================================================#
-#	 ______                 _________ ____   			      #
-#	/ ____/__  ____        /  _/ ___// __ \  			      #
-#      / / __/ _ \/ __ \______ / / \__ \/ / / /  			      #
-#     / /_/ /  __/ /_/ /_____// / ___/ / /_/ /   			      #
-#     \____/\___/\____/     /___//____/_____/    			      #
-#                                                                             #
-#=============================================================================#
+#==============================================================================#
+#	 ______                 _________ ____   			       #
+#	/ ____/__  ____        /  _/ ___// __ \  			       #
+#      / / __/ _ \/ __ \______ / / \__ \/ / / /  			       #
+#     / /_/ /  __/ /_/ /_____// / ___/ / /_/ /   			       #
+#     \____/\___/\____/     /___//____/_____/    			       #
+#                                                                              #
+#==============================================================================#
 
 rm(list = ls())
 
-#=============================================================================#
-#	Setting Working Directory  					      #
-#=============================================================================#
+#==============================================================================#
+#	Setting Working Directory  					       #
+#==============================================================================#
 
 # Only works in Windows
 # Otherwise, consider using the RSTUDIO menu:
@@ -23,9 +22,9 @@ rm(list = ls())
 #library(rstudioapi)
 #setwd(dirname(getActiveDocumentContext()$path))
 
-#=============================================================================#
-#	Loading packages 						      # 
-#=============================================================================#
+#==============================================================================#
+#	Loading packages 						       # 
+#==============================================================================#
 
 library(dplyr)
 library(ggplot2)
@@ -35,13 +34,14 @@ library(raster)
 library(RColorBrewer)
 library(readr)
 library(sf)
+library(sidedata) # Some conflicts with raster (tail, stack, unstack, head)
 library(sp)
 library(spData)
 library(tidyr)
 
-#=============================================================================#
-#	Loading data  							      #
-#=============================================================================#
+#==============================================================================#
+#	Loading data  							       #
+#==============================================================================#
 
 isd <- read.csv2('../Data/ISDV2_Africa.csv')
 
@@ -95,19 +95,24 @@ geoisd_borders_data <- read_csv('../../QGIS/Geo-ISD_Borders2.csv',
 
 prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
 
-prio_grid <- read_csv('../Data/PRIO-Grid/prio_grid_2010.csv') %>% 
-  filter( (gwno >= 404 & gwno <= 626) | gwno == 651)
+prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
+  filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
+  group_by(gid) %>% 
+  summarise(gid = gid, bdist3 = mean(bdist3),
+  capdist = mean(capdist), excluded = mean(excluded), temp = mean(temp), 
+  	  temp_sd = sd(temp), gwno = gwno,
+	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
 
-# TODO: Add average instead of just 2010 snapshot
+head(prio_grid)
+
+# TODO: Fix the sd of prec_gpcc and temp
 
 prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
 
-prio_grid_merge  <- left_join(prio_grid, prio_grid_static, by = c("gid"))
+prio_grid_merge  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
 
 prio_grid_merge <- left_join(prio_grid_shp, prio_grid_merge, by = c("gid")) %>% 
-  filter( (gwno >= 404 & gwno <= 626) | gwno == 651) 
-  #%>% 
-  #select(gid, xcoord, ycoord, col, row, gwno, geometry)
+  filter( (gwno >= 404 & gwno <= 626) | gwno == 651)
 
 # Interpolated years from atlas maps
 geoisd_interpol <- geoisd_data %>% filter(is.na(year) == T & is.na(lyear) == F) %>%
@@ -141,9 +146,9 @@ borders_interpol <- left_join(geoisd_borders_data, borders_interpol)
 borders_interpol <- borders_interpol %>% 
   mutate(year=ifelse(is.na(year) == T, data, year))
 
-#=============================================================================#
-#  Checking for naming errors  					 	      #
-#=============================================================================#
+#==============================================================================#
+#  Checking for naming errors  						       #
+#==============================================================================#
 
 #isd$isdcow <- paste(isd$COWNum, isd$COWID)
 #
@@ -153,9 +158,9 @@ borders_interpol <- borders_interpol %>%
 #errors <- filter(errorcheck, is.na(COWID.y))
                     
 
-#=============================================================================#
-#  Summarising the Data  						      #
-#=============================================================================#
+#==============================================================================#
+#  Summarising the Data  						       #
+#==============================================================================#
 
 # Sate presence 
 geoisd_data_gid_year <- geoisd_data %>% 
@@ -282,9 +287,9 @@ geoisd_one_state_int <- geoisd_interpol %>%
   summarise(sp_os_i_sum_any = max(na.omit(state_presence_sum_any)),
             sp_os_i_sum = max(na.omit(state_presence_sum)))
 
-#=============================================================================#
-#	Merge with PRIOGRID  						      #
-#=============================================================================#
+#==============================================================================#
+#	Merge with PRIOGRID  						       #
+#==============================================================================#
 
 prio_grid_isd <- left_join(prio_grid_merge, geoisd_data_gid, by = c("gid")) %>%
   mutate(sp_sum=ifelse(is.na(sp_sum) == T, 0, sp_sum),
@@ -316,9 +321,9 @@ prio_grid_isd <- left_join(prio_grid_isd, geoisd_one_state_int, by = c("gid")) %
   mutate(sp_os_i_sum=ifelse(is.na(sp_os_i_sum) == T, 0, sp_os_i_sum),
          sp_os_i_sum_any=ifelse(is.na(sp_os_i_sum_any) == T, 0, sp_os_i_sum_any))
 
-#=============================================================================#
-#	Plotting state presence  					      #
-#=============================================================================#
+#==============================================================================#
+#	Plotting state presence  					       #
+#==============================================================================#
 
 # Creating variables vector
 
@@ -388,23 +393,23 @@ ggplot() +
   scale_fill_manual(values=sample(pal(82))) +
   theme_minimal()
 
-#=============================================================================#
-#	Loading coast data						      #
-#=============================================================================#
+#==============================================================================#
+#	Loading coast data						       #
+#==============================================================================#
 
 coastline <- read_sf('../Data/GSHHS_shp/l/GSHHS_l_L1.shp') 
 
 coastline <- sf::st_boundary(coastline)
 
-#=============================================================================#
-#	Calculating dist to coast and merging data			      #
-#=============================================================================#
+#==============================================================================#
+#	Calculating dist to coast and merging data			       #
+#==============================================================================#
 
 prio_grid_isd$distcoast <- get_closest_distance(prio_grid_isd, coastline)
 
-#=============================================================================#
-#	Plotting to see it looks right					      #
-#=============================================================================#
+#==============================================================================#
+#	Plotting to see it looks right					       #
+#==============================================================================#
 
 ggplot() +
     geom_sf(data = prio_grid_isd,
@@ -417,14 +422,14 @@ ggplot() +
 ggplot() +
 	geom_sf(data = pggisd,
             linetype = 0,
-            aes_string(fill = sqrt(pggisd$popd)),
+            aes_string(fill = temp)),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()
 
-#=============================================================================#
-#	Rasterdata on pop-density					      #
-#=============================================================================#
+#==============================================================================#
+#	Rasterdata on pop-density					       #
+#==============================================================================#
 
 # Loading data
 popdr <- raster("../Data/popd_1600AD.asc")
@@ -441,9 +446,9 @@ popdr  <- raster_to_tibble(popdr, add_pg_index = TRUE)
 # Merging
 pggisd  <- left_join(prio_grid_isd, popdr, by = c("gid"))
 
-#=============================================================================#
-#	Afrobarometer							      #
-#=============================================================================#
+#==============================================================================#
+#	Afrobarometer							       #
+#==============================================================================#
 
 # Loading afrobarometer data
 afroba  <- revd.csv("../Data/afb_full_r3.csv")

@@ -101,6 +101,10 @@ geoisd_borders_data <- read_csv('../../QGIS/Geo-ISD_Borders2.csv',
 
 prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
 
+gcp <- read_csv('../Data/PRIO-Grid/gcp9005.csv') %>% 
+  group_by(gid) %>% 
+  summarise(gcp_mer = mean(na.omit(gcp_mer)), gcp_ppp = mean(na.omit(gcp_ppp)))
+
 prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
   as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
   group_by(gid) %>% 
@@ -113,6 +117,8 @@ prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 20
 
 # Merging static and aggregated prio data
 prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
+
+prio_grid <- left_join(prio_grid, gcp, by = c("gid"))
 
 # Merging with the grid shape 
 prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
@@ -339,67 +345,6 @@ rm(geoisd, geoisd_data, geoisd_interpol, prio_grid, geoisd_one_state_int,
    geoisd_data_gid_int, geoisd_data_gid)
 
 #==============================================================================#
-#	Plotting state presence  					       #
-#==============================================================================#
-
-# Creating variables vector
-
-vars <- c("sp_sum_any", "sp_sum", "sp_i_sum_any", "sp_i_sum", "sp_b_sum_any",
-          "sp_b_sum", "sp_b_i_sum_any", "sp_b_i_sum", "sp_o",
-          "sp_o_i", "sp_os_sum_any", "sp_os_sum", "sp_os_i_sum_any", 
-          "sp_os_i_sum")
-
-# Creating plots
-
-plot_list = list()
-for(i in 1:length(vars)) {
-  p = ggplot() +
-     geom_sf(data = prio_grid_isd,
-              linetype = 0,
-              aes_string(fill = vars[i]), 
-              show.legend = FALSE) + 
-      scale_fill_viridis_c() +
-      theme_minimal()
-  plot_list[[i]] = p 
-}
-
-# Printing plots to file
-
-for (i in 1:length(plot_list)) {
-  title <- vars[i]
-  filename <- paste(title,".pdf",sep="") 
-  pdf(filename, width=15, height=15/1.618)
-      print(plot_list[[i]])
-  dev.off()
-}
-
-# Creating logged plots | currently not working
-
-for(i in 1:length(vars)) {
-  ivar = as.name(vars[i])
-  var = paste0("prio_grid_isd$",ivar)
-  p = ggplot() +
-    geom_sf(data = prio_grid_isd,
-            linetype = 0,
-            aes_string(fill = log(var+1)), 
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
-    theme_minimal()
-  plot_list[[i]] = p 
-}
-
-# Printing logged plots to file
-
-for (i in 1:length(plot_list)) {
-  title <- vars[i]
-  filename <- paste("ln_",title,".pdf",sep="") 
-  pdf(filename, width=15, height=15/1.618)
-  print(plot_list[[i]])
-  dev.off()
-}
-
-
-#==============================================================================#
 #	Loading coast data						       #
 #==============================================================================#
 
@@ -421,17 +366,9 @@ rm(coastline)
 #==============================================================================#
 
 ggplot() +
-    geom_sf(data = prio_grid_isd,
-            linetype = 0,
-            aes_string(fill = "distcoast"),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
-    theme_minimal()
-
-ggplot() +
 	geom_sf(data = prio_grid_isd,
             linetype = 0,
-            aes_string(fill = "non_state"),
+            aes_string(fill = "gcp_mer"),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()
@@ -463,26 +400,41 @@ rm(popdr)
 #==============================================================================#
 
 # Loading afrobarometer data
-afroba  <- read.csv("../Data/afb_full_r3.csv")
+#afroba  <- read.csv("../Data/afb_full_r3.csv")
 
-afroba  <- st_as_sf(afroba, coords = c("longitude", "latitude"))
+#afroba  <- st_as_sf(afroba, coords = c("longitude", "latitude"))
 
 #afroba <- st_contains(afroba, prio_grid_shp)
 
-vector_to_pg(afro, mean, need_aggregation = FALSE, missval = -99)
+#vector_to_pg(afro, mean, need_aggregation = FALSE, missval = -99)
 
 #==============================================================================#
 #	UCDP Georeferenced Event Dataset (GED)				       #
 #==============================================================================#
 
+#TODO: Include the fatalities data
+
 # Loading data
 load("../Data/ged201.RData")
+load("../Data/ucdp-nonstate-211.rdata")
+
+# Filtering
+ged <- Nonstate_v21_1 %>%  dplyr::select(conflict_id, org, year) %>%  
+	mutate(conflict_id = as.integer(conflict_id)) %>% 
+	mutate(org = as.integer(org))
+
+# Merging
+ged <- left_join(ged201, ged, by = c("conflict_new_id" =
+						"conflict_id"))
 
 # Summarising
-ged  <- ged201 %>% group_by(priogrid_gid) %>% 
+ged  <- ged %>% group_by(priogrid_gid) %>% 
 	summarise(state_based = sum(type_of_violence == 1),
 	non_state = sum(type_of_violence == 2),
-	one_sided = sum(type_of_violence == 3))
+	one_sided = sum(type_of_violence == 3),
+	org1 = sum(org == 1),
+	org2 = sum(org == 2),
+	org3 = sum(org == 3))
 
 # Merging
 prio_grid_isd  <- left_join(prio_grid_isd, ged, by = c("gid" = "priogrid_gid"))
@@ -491,7 +443,21 @@ prio_grid_isd  <- left_join(prio_grid_isd, ged, by = c("gid" = "priogrid_gid"))
 prio_grid_isd  <- prio_grid_isd %>% 
 	mutate(state_based = ifelse(is.na(state_based), 0, state_based)) %>% 
 	mutate(non_state = ifelse(is.na(non_state), 0, non_state)) %>%  
-	mutate(one_sided = ifelse(is.na(one_sided), 0, one_sided))
+	mutate(one_sided = ifelse(is.na(one_sided), 0, one_sided)) %>% 
+	mutate(org1 = ifelse(is.na(org1), 0, org1)) %>%  
+	mutate(org2 = ifelse(is.na(org2), 0, org2)) %>%  
+	mutate(org3 = ifelse(is.na(org3), 0, org3)) 
 
 # Cleaning
 rm(ged, ged201)
+
+#==============================================================================#
+#	Saving to file	 						       #
+#==============================================================================#
+
+# Rdata
+save(prio_grid_isd, file = "../Data/GeoISDControls.Rdata")
+load("../Data/GeoISDControls.Rdata")
+
+# Shape file
+write_sf(prio_grid_isd, "../Data/GeoISDControls.shp")

@@ -203,7 +203,7 @@ geoisd_data_gid_int <- geoisd_interpol %>%
             state_presence_all = sum(na.omit(state_presence))
   )
 
-geoisd_data_gid_int <- geoisd_data_gid_int %>% 
+geoisd_data_gid_int_sp <- geoisd_data_gid_int %>% 
   group_by(gid) %>%
             # Summing years with any state presence
   summarise(sp_i_sum_any = sum(na.omit(state_presence_max)),
@@ -255,7 +255,6 @@ overlap <- overlap %>%
   summarise(sp_o = sum(na.omit(overlap)))
 
 # Overlapping sovereignty (interpolated)
-
 overlap_int <- geoisd_data_gid_int %>% 
   group_by(gid, year) %>%
   summarise(overlap_int = max(na.omit(no_unique_states)))-1
@@ -310,7 +309,7 @@ prio_grid_isd <- left_join(prio_grid, geoisd_data_gid, by = c("gid")) %>%
   mutate(sp_sum=ifelse(is.na(sp_sum) == T, 0, sp_sum),
          sp_sum_any=ifelse(is.na(sp_sum_any) == T, 0, sp_sum_any))
 
-prio_grid_isd <- left_join(prio_grid_isd, geoisd_data_gid_int, by = c("gid")) %>%
+prio_grid_isd <- left_join(prio_grid_isd, geoisd_data_gid_int_sp, by = c("gid")) %>%
   mutate(sp_i_sum=ifelse(is.na(sp_i_sum) == T, 0, sp_i_sum),
          sp_i_sum_any=ifelse(is.na(sp_i_sum_any) == T, 0, sp_i_sum_any))
 
@@ -412,8 +411,6 @@ rm(popdr)
 #	UCDP Georeferenced Event Dataset (GED)				       #
 #==============================================================================#
 
-#TODO: Include the fatalities data
-
 # Loading data
 load("../Data/ged201.RData")
 load("../Data/ucdp-nonstate-211.rdata")
@@ -434,7 +431,8 @@ ged  <- ged %>% group_by(priogrid_gid) %>%
 	one_sided = sum(type_of_violence == 3),
 	org1 = sum(org == 1),
 	org2 = sum(org == 2),
-	org3 = sum(org == 3))
+	org3 = sum(org == 3),
+	deaths = sum(best))
 
 # Merging
 prio_grid_isd  <- left_join(prio_grid_isd, ged, by = c("gid" = "priogrid_gid"))
@@ -446,7 +444,8 @@ prio_grid_isd  <- prio_grid_isd %>%
 	mutate(one_sided = ifelse(is.na(one_sided), 0, one_sided)) %>% 
 	mutate(org1 = ifelse(is.na(org1), 0, org1)) %>%  
 	mutate(org2 = ifelse(is.na(org2), 0, org2)) %>%  
-	mutate(org3 = ifelse(is.na(org3), 0, org3)) 
+	mutate(org3 = ifelse(is.na(org3), 0, org3)) %>% 
+	mutate(deaths = ifelse(is.na(deaths), 0, deaths)) 
 
 # Cleaning
 rm(ged, ged201)

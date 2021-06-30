@@ -40,9 +40,8 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
                data=data)
       m2 <- lm(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
                data=data)
-      m3 <- lm(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, all_controls)),
-               data=data)
-
+      m3 <- lm(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
+				all_controls)), data=data)
       models_out_j[[j]] <- list(m1, m2, m3)
     } 
     models_out[[i]] <- models_out_j %>% purrr::flatten()
@@ -64,19 +63,22 @@ corrdata <- prio_grid_isd %>% dplyr::select(bdist3, capdist, excluded, temp_sd,
 					    sp_os_sum_any, sp_os_sum,
 					    sp_os_i_sum_any, sp_os_i_sum,
 					    distcoast, popd, state_based,
-					    non_state, org3)
+					    non_state, org3, deaths, gcp_mer,
+					    gcp_ppp)
 
 corrdata_mat <- cor(corrdata, method = c("spearman"), 
                      use="pairwise.complete.obs")
 
 corrdata_mat <- rcorr(as.matrix(corrdata))
 
+# TODO: Print to file
 corrplot(corrdata_mat$r, method='color', diag=F, addCoef.col = "black", 
          p.mat = corrdata_mat$P, insig = "blank", tl.col = "black",
          tl.srt = 45)
 
 # Summary Statistics
 
+# TODO: Print to file
 summary(corrdata)
 
 #==============================================================================#
@@ -90,30 +92,37 @@ extended_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + barren_gc +
 
 all_controls <- c('+ popd + bdist3')
 
-dvs <- c('state_based', 'non_state', 'org3', 'gcp_mer', 'gcp_ppp')
+control_names <-c('Baseline', 'Extetended Controls', 'Full Model',
+		 'Baseline', 'Extetended Controls', 'Full Model',
+		 'Baseline', 'Extetended Controls', 'Full Model',
+		 'Baseline', 'Extetended Controls', 'Full Model')
+
+dvs <- c('state_based', 'non_state', 'deaths', 'org3', 'gcp_mer', 'gcp_ppp')
 
 ivs <- c('sp_os_sum_any', 'sp_os_sum', 'sp_os_i_sum_any', 'sp_os_i_sum')
+
+rootivs <-
 
 #==============================================================================#
 #	Analysis							       #
 #==============================================================================#
 
-initial_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
-				 data=prio_grid_isd, test_label='Initial
+linear_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
+				 data=prio_grid_isd, test_label='Linear
 				 Models')
-#model_names <- c('
 
 for (i in 1:length(dvs)) { 
   name <- dvs[i]
-  filename <- paste("../Tables and Figures/",name,".tex",sep="") 
-  texreg(initial_models$models[[i]],
+  filename <- paste("../Output/",name,".tex",sep="") 
+  texreg(linear_models$models[[i]],
          file = filename,
-         #custom.model.names = control_names,
+         custom.model.names = control_names,
          #custom.coef.map = coefs,
          stars = c(0.001, 0.01, 0.05, 0.1), 
-         sideways=T, use.packages = F, scalebox = 0.8,
+         sideways = T, use.packages = F, scalebox = 0.6,
          #custom.note = "Reference region is Eastern Europe and Central Asia.",
-         caption="", 
+         #caption = dvs[i], 
+	 #custom.label = ,
          table = T)
 }
 

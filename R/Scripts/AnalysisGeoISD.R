@@ -158,10 +158,14 @@ summary(corrdata)
 
 controls <- c('+ logCapdist + mountains_mean + water_gc + distcoast')
 
+sqrt_controls <- c('+ sqrtCapdist + mountains_mean + water_gc + distcoast')
+
 extended_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + barren_gc +
 		       forest_gc')
 
 all_controls <- c('+ logPopd + logBDist')
+
+sqrt_all_controls <- c('+ sqrtPopd + sqrtBDist')
 
 control_names <-c('Baseline', 'Extetended Controls', 'Full Model',
 		 'Baseline', 'Extetended Controls', 'Full Model')
@@ -175,6 +179,8 @@ captions <- c('Deaths (logged)', 'State based conflict events (logged)',
 	      (logged)')
 
 ivs <- c('logSpAll', 'logSpAny')
+
+srqt_ivs <- c('sqrtSpAll', 'sqrtSpAny')
 
 # interactions <- c('SpAllXCapDist', 'SpAnyXCapDist')
 
@@ -301,3 +307,8 @@ margins_nb_plot <- ggplot(data = nb_full_margins,
  independent variable with 95% confidence intervals.")
 
 margins_nb_plot
+
+#=============================================================================#
+# Square root models
+
+

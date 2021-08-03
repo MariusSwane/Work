@@ -170,9 +170,10 @@ sqrt_all_controls <- c('+ sqrtPopd + sqrtBDist')
 control_names <-c('Baseline', 'Extetended Controls', 'Full Model',
 		 'Baseline', 'Extetended Controls', 'Full Model')
 
-dvs <- c('logDeaths', 'logState_based', 'non_state', 'org3', 'logPpp')
+dvs <- c('logDeaths', 'logState_based', 'non_state', 'org3', 'logPpp',
+	 'nightlights')
 
-nb_dvs <- c('deaths', 'state_based', 'non_state', 'sqrtorg3')
+nb_dvs <- c('deaths', 'state_based', 'non_state', 'sqrtorg3', 'logPppp', 'nightlights')
 
 captions <- c('Deaths (logged)', 'State based conflict events (logged)',
 	      'Non state conflict events', 'Communal violence events', 'PPP
@@ -193,8 +194,8 @@ linear_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
 				 Models')
 
 #interaction_models <- GeoISDanalysis(dvs=dvs, ivs=interactions, controls=controls,
-				 data=prio_grid_isd, test_label='Interaction
-				 Models')
+#				 data=prio_grid_isd, test_label='Interaction
+#				 Models')
 
 
 
@@ -222,7 +223,8 @@ full_margins <- linear_models[[1]] %>%
 	dep_var == 'logState_based' ~ 'State based conflict events (logged)',
 	dep_var == 'non_state' ~ 'Non state conflict events',
 	dep_var == 'org3' ~ 'Communal violence events',
-	dep_var == 'logPpp' ~ 'PPP (logged)'))  %>% 
+	dep_var == 'logPpp' ~ 'PPP (logged)',
+	dep_var == 'nightlights' ~ 'Mean nightlights'))  %>% 
 	rename(Test=test)
 
 
@@ -275,6 +277,14 @@ NB_non_state <- glm.nb(non_state ~ logSpAny + logCapdist + mountains_mean +
  			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
 
 NB_org3 <- glm.nb(sqrtorg3 ~ logSpAny + logCapdist + mountains_mean +
+ 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
+ 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+
+NB_ppp <- glm.nb(logPpp ~ logSpAny + logCapdist + mountains_mean +
+ 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
+ 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+
+NB_nightlights <- glm.nb(nightlights ~ logSpAny + logCapdist + mountains_mean + 
  			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
  			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
 

@@ -39,6 +39,7 @@ library(sidedata) # Some conflicts with raster (tail, stack, unstack, head)
 library(sp)
 library(spData)
 library(tidyr)
+library(maps)
 
 #==============================================================================#
 #	Setting preferences                                                    #
@@ -99,11 +100,29 @@ geoisd_borders_data <- read_csv('../../QGIS/Geo-ISD_Borders2.csv',
                         col_names = T,
 )
 
+# Capitals
+
+data(world.cities)
+capitals <- world.cities %>% filter(capital==1) 
+capitals <- st_as_sf(x = capitals, coords = c("long", "lat"), 
+			crs = st_crs(geoisd))
+
+valid_geoisd <- st_make_valid(geoisd)
+valider_geoisd <- filter(valid_geoisd, st_is_valid(valid_geoisd)==TRUE)
+
+valider_geoisd$capitals <- lengths(st_intersects(valider_geoisd, capitals))
+
+# PRIO-Grid
+
 prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
 
 gcp <- read_csv('../Data/PRIO-Grid/gcp9005.csv') %>% 
   group_by(gid) %>% 
   summarise(gcp_mer = mean(na.omit(gcp_mer)), gcp_ppp = mean(na.omit(gcp_ppp)))
+
+nightlights <- read_csv('../Data/PRIO-Grid/nightlights.csv') %>% 
+	group_by(gid) %>% 
+	summarise(nightlights = mean(na.omit(nlights_calib_mean)))
 
 prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
   as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
@@ -119,6 +138,8 @@ prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 20
 prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
 
 prio_grid <- left_join(prio_grid, gcp, by = c("gid"))
+
+prio_grid <- left_join(prio_grid, nightlights, by = ("gid"))
 
 # Merging with the grid shape 
 prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 

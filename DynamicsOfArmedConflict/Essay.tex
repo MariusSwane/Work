@@ -8,7 +8,7 @@
 \usepackage{setspace}
 \usepackage{rotating}
 \usepackage[british]{datetime2}
-\usepackage{url}
+\usepackage{hyperref}
 
 \renewcommand{\harvardurl}{\textbf{URL:} \url}
 
@@ -42,6 +42,10 @@
 %\pagebreak
 
 \onehalfspacing
+
+\section{Introduction}
+
+Growing literature on pre-colonial states and civil conflict.
 
 \section{Theory}
 
@@ -177,9 +181,18 @@ resolved before escalating to violence. ** Examples **
 
 \subsection{Conflict inducing}
 
-\subsubsection{Distance from capital}
+\subsection{Symbols of past sovereignty}
 
-In any event where a pre-colonial state can be said to be conflict inducing 
+Symbols to rally around as well as a foundation for ethnic claims making
+following the international adoption of the policy of self determination of
+peoples.
+
+\subsection{Networks useful for insurgency}
+
+Pre-colonial states can leave behind formal and informal social networks that
+lower the cost of insurgent collective action \citep{Wig2016, Wood2000}. The
+most visible examples of this are cases in which kingdoms were ruled indirectly
+and remained intact into the modern era. Buganda, Lunda-Yeke, Aussa examples.
 
 \subsubsection{Central State Weakness/Collapse}
 
@@ -293,8 +306,8 @@ situations of state collapse.
 \subsubsection{Political Inequality}
 
 In countries where an ethnic group has a history of statecraft, said group is
-likely to be have an out sized share of power in government. This can come about
-through indirect colonial rule, which preferred to leave existing power
+likely to be have an over sized share of power in government. This can come
+about through indirect colonial rule, which preferred to leave existing power
 structures intact, or by seizure from less politically experienced groups
 following independence \citep{Paine2019}. \citet{Paine2019} argues that such
 state groups are likely to either exclude other groups from power, leaving them
@@ -319,13 +332,6 @@ group(s) would be relatively more likely to challenge any attempts at exclusion.
 As this is a continuation of \citet{Paine2019}'s original mechanism, this would
 also be best proxied by high levels of state presence far from the capital.
 
-\subsubsection{Multiple pre-colonial states}
-
-Bargaining problems and multiplies any other effect.
-
-Hx: High levels of SP, far from the capital interacted with the number of
-pre-colonial states in the country predicts higher levels of violence.
-
 \subsubsection{Resistance to western influence}
 
 That one article that argues that where European colonizers met
@@ -344,12 +350,17 @@ in the capital predicts higher levels of violence.
 Hxm: Areas of higher levels of SP are less likely to be protestant, and/or
 express support for humanist ideas (afrobarometer?). \footnote{`Humanist ideas'
 as opposed to support for democracy because everyone supports democracy if you
-ask them point blank, but everyones definition of democracy does not conform to
+ask them point blank, but everyone's definition of democracy does not conform to
 a VDEM-sanctioned definition.}
 
-%What is the appropriate dependent variable?
+\subsubsection{Multiple pre-colonial states}
 
-\section{Data}
+Bargaining problems and multiplies any other effect.
+
+Hx: High levels of SP, far from the capital interacted with the number of
+pre-colonial states in the country predicts higher levels of violence.
+
+\section{The Geo-ISD}
 
 The main independent variable is a measure of what I call `state presence' per
 PRIO grid cell. It is a measure of the aggregate presence of independent
@@ -412,16 +423,59 @@ maps for different states) of this measure for all African PRIO grid cells.
 
 \section{Research design}
 
-\subsection{Hypotheses}
+\subsection{Dependent variable}
+
+Unit of analysis is PRIO grid cell 
+
+Fatalities - square root transformed and logged
+
+State based conflict events - square root transformed and logged
+
+\subsection{Independent variable}
+
+Sum of state presence - square root transformed and logged
+
+Interaction between state presence and distance to capital
 
 \subsection{Controls}
 
+Distance to capital only in interaction models.
+
+Mountains and water. Mountains help in early state formation by providing
+protection and limiting the exit options of sedentary farmers. Water is
+essential for state formation. States typically formed either as coastal cities,
+close to navigable rivers or by the shores of great lakes. People still tend to
+live next to a source of water, thus this acts as a proxy for population
+density, and fighting usually happens where there are people. Water could also
+be related to the conflict measures more directly by being a non divisible
+resource to fight for control over.
+
+Distance to coast
+
+Population density and barren
+
+Temperature, precipitation and forest (remove).
+
 \subsection{Alternative measures}
 
+\subsection{Modelling}
 
-\section{Preliminary results}
+%TODO: To fitness test for NB or Poisson 
+Negative binomial models
 
-Awaiting fully formed theory and theoretically founded model specifications.
+Zero inflated negative binomial is probably a good idea. Zeros could be true
+zeros - there were no fatalities or state based conflict events in the grid cell
+during the period, or zeros could be measurement error, most likely resulting
+from lack of reporting.
+
+\section{Results}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=\linewidth]{"../R/Output/conflictMargins.pdf"}
+	\caption{}
+	\label{margins}
+\end{figure}
 
 \section{Conclusion}
 
@@ -431,6 +485,9 @@ Awaiting fully formed theory and theoretically founded model specifications.
 \bibliography{../lib.bib}
 
 \section*{Appendix}
+
+\input{"../R/Output/sqrtDeaths.tex"}
+\input{"../R/Output/sqrtState_based.tex"}
 
 \end{document}
 

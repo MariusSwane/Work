@@ -319,6 +319,82 @@ margins_nb_plot <- ggplot(data = nb_full_margins,
 margins_nb_plot
 
 #=============================================================================#
-# Square root models
+# Square root negative binomial models
 
+
+NB_sqrt_deaths_min <- glm.nb(sqrtDeaths ~ sqrtSpAny + logCapdist +
+			     mountains_mean + distcoast + barren_gc, 
+		data = prio_grid_isd)
+
+summary(NB_sqrt_deaths_min )
+
+NB_sqrt_deaths <- glm.nb(sqrtDeaths ~ sqrtSpAny + logCapdist + mountains_mean +
+ 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
+ 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+
+summary(NB_sqrt_deaths )
+
+NB_sqrt_state_based_min <- glm.nb(sqrtState_based ~ sqrtSpAny + sqrtCapdist + mountains_mean +
+ 			distcoast + barren_gc, 
+		data = prio_grid_isd)
+
+summary(NB_sqrt_state_based_min )
+
+NB_sqrt_state_based <- glm.nb(sqrtState_based ~ sqrtSpAny + logCapdist + mountains_mean +
+ 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
+ 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+
+summary(NB_sqrt_state_based )
+
+NB_org3 <- glm.nb(sqrtorg3 ~ sqrtSpAny + logCapdist + 
+		  mountains_mean + distcoast + barren_gc,
+		     data = prio_grid_isd)
+
+summary(NB_org3)
+
+NB_org3_all <- glm.nb(sqrtorg3 ~ sqrtSpAny + logCapdist + mountains_mean + barren_gc +
+ 			water_gc + distcoast + logPopd + temp_sd + temp + prec_sd +
+ 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+
+summary(NB_org3_all)
+
+#=============================================================================#
+# Square root negative binomial interaction models 
+
+NB_sqrt_deaths_min_inter <- glm.nb(sqrtDeaths ~ sqrtSpAny * logCapdist + mountains_mean +
+ 			distcoast + barren_gc, 
+		data = prio_grid_isd)
+
+summary(NB_sqrt_deaths_min_inter )
+
+NB_sqrt_deaths_inter <- glm.nb(sqrtDeaths ~ sqrtSpAny * logCapdist + mountains_mean +
+ 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
+ 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+
+summary(NB_sqrt_deaths_inter )
+
+interaction_deaths_out <- summary(margins(NB_sqrt_deaths_inter, variables =
+				  "sqrtSpAny", at = list( logCapdist =
+							  seq(0,8, by=0.5))))
+
+ggplot(interaction_deaths_out,
+                    aes(x = exp(logCapdist), y = AME, ymin = lower, ymax = upper)) +
+  geom_point(position = position_dodge(width = 0.4)) +
+  geom_errorbar(position = position_dodge(width = 0.4), width = 0.1) +
+  #goldenScatterCAtheme +
+  theme(panel.grid.major.y = element_line(colour="grey60", linetype="dashed")) +
+  geom_hline(yintercept=0, linetype="dotted") +
+  xlab('Distance from the Modern Capital') + ylab('AME')
+
+NB_sqrt_state_based_min_inter <- glm.nb(sqrtState_based ~ sqrtSpAny * logCapdist + mountains_mean +
+ 			distcoast + barren_gc, 
+		data = prio_grid_isd)
+
+summary(NB_sqrt_state_based_min_inter )
+
+NB_sqrt_state_based_inter <- glm.nb(sqrtState_based ~ sqrtSpAny * logCapdist + mountains_mean +
+ 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
+ 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+
+summary(NB_sqrt_state_based_inter )
 

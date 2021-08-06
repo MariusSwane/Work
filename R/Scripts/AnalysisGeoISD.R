@@ -27,10 +27,11 @@ library(conflicted)
 library(MASS)
 
 #==============================================================================#
-#	Loading Data							       #
+#	Loading Data and functions					       #
 #==============================================================================#	
 
 load("../Data/GeoISDControls.Rdata")
+source("goldenScatterCAtheme.r")
 
 #==============================================================================#
 #	Creating New Variables						       #
@@ -69,11 +70,11 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
   for(i in 1:length(dvs)) {
     dv <- dvs[i] 
     for(j in 1:length(ivs)) {
-      m1 <- lm(as.formula(paste(dv, '~', ivs[j], controls)),
+      m1 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls)),
                data=data)
-      m2 <- lm(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
+      m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
                data=data)
-      m3 <- lm(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
+      m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
 				all_controls)), data=data)
       iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
       m1_m <- summary(margins(m1, variables=iv_margins, change = "sd")) %>% 
@@ -158,28 +159,25 @@ summary(corrdata)
 
 controls <- c('+ logCapdist + mountains_mean + water_gc + distcoast')
 
-sqrt_controls <- c('+ sqrtCapdist + mountains_mean + water_gc + distcoast')
+extended_controls <- c('+ logPopd')
 
-extended_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + barren_gc +
+all_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + barren_gc +
 		       forest_gc')
 
-all_controls <- c('+ logPopd + logBDist')
+sqrt_controls <- c('+ sqrtCapdist + mountains_mean + water_gc + distcoast')
 
 sqrt_all_controls <- c('+ sqrtPopd + sqrtBDist')
 
 control_names <-c('Baseline', 'Extetended Controls', 'Full Model',
 		 'Baseline', 'Extetended Controls', 'Full Model')
 
-dvs <- c('logDeaths', 'logState_based', 'non_state', 'org3', 'logPpp',
-	 'nightlights')
+dvs <- c('sqrtDeaths', 'sqrtState_based')
 
 nb_dvs <- c('deaths', 'state_based', 'non_state', 'sqrtorg3', 'logPppp', 'nightlights')
 
-captions <- c('Deaths (logged)', 'State based conflict events (logged)',
-	      'Non state conflict events', 'Communal violence events', 'PPP
-	      (logged)')
+captions <- c('Deaths (square root)', 'State based conflict events (square root)')
 
-ivs <- c('logSpAll', 'logSpAny')
+ivs <- c('sqrtSpAny', 'logSpAny')
 
 srqt_ivs <- c('sqrtSpAll', 'sqrtSpAny')
 
@@ -189,7 +187,7 @@ srqt_ivs <- c('sqrtSpAll', 'sqrtSpAny')
 #	Analysis							       #
 #==============================================================================#
 
-linear_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
+nb_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
 				 data=prio_grid_isd, test_label='Linear
 				 Models')
 
@@ -202,7 +200,7 @@ linear_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
 for (i in 1:length(dvs)) { 
   name <- dvs[i]
   filename <- paste("../Output/",name,".tex",sep="") 
-  texreg(linear_models$models[[i]],
+  texreg(nb_models$models[[i]],
          file = filename,
          custom.model.names = control_names,
          #custom.coef.map = coefs,
@@ -214,17 +212,13 @@ for (i in 1:length(dvs)) {
          table = T)
 }
 
-full_margins <- linear_models[[1]] %>% 
+full_margins <- nb_models[[1]] %>% 
   mutate(factor_label = case_when(
-    factor == 'logSpAll' ~ 'State Preseance (all)(logged)',
-    factor == 'logSpAny' ~ 'State Preseance (any)(logged)'),
+    factor == 'sqrtSpAny' ~ 'State Preseance (square root)',
+    factor == 'logSpAny' ~ 'State Preseance (logged)'),
 	 facet_label = case_when(
-	dep_var == 'logDeaths' ~ 'Total fatalities (logged)',
-	dep_var == 'logState_based' ~ 'State based conflict events (logged)',
-	dep_var == 'non_state' ~ 'Non state conflict events',
-	dep_var == 'org3' ~ 'Communal violence events',
-	dep_var == 'logPpp' ~ 'PPP (logged)',
-	dep_var == 'nightlights' ~ 'Mean nightlights'))  %>% 
+	dep_var == 'sqrtDeaths' ~ 'Total fatalities (square root)',
+	dep_var == 'sqrtState_based' ~ 'State based conflict events (square root)'))  %>% 
 	rename(Test=test)
 
 
@@ -238,13 +232,16 @@ margins_main_plot <- ggplot(data = full_margins,
   geom_errorbar(position = position_dodge(width = 0.4), width = 0.1) +
   coord_flip() +
   theme(panel.grid.major.y = element_line(colour="grey60", linetype="dashed")) +
+  goldenScatterCAtheme + 
   geom_hline(yintercept=0, linetype="dotted") +
   guides(alpha="none") +
   labs(caption = "Points are average marginal effects of a 1 SD increase in the 
  independent variable with 95% confidence intervals.")
 
-# TODO: Print to file
+pdf("../Output/conflictMargins.pdf",
+    width = 10, height = 10/1.68)
 margins_main_plot
+dev.off()
 
 # Marginal effects (interaction models)
 fit <- lm(logDeaths ~ logSpAll * logCapdist + mountains_mean +

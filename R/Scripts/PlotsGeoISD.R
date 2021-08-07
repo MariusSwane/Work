@@ -1,9 +1,18 @@
+#==============================================================================#
+#	Loading Packages						       #
+#==============================================================================#	
+
+
+#==============================================================================#
+#	Loading Data and functions					       #
+#==============================================================================#	
+
+load("../Data/GeoISDControls.Rdata")
+source("goldenScatterCAtheme.r")
 
 #==============================================================================#
 #	Plotting state presence  					       #
 #==============================================================================#
-
-# Load data
 
 # Creating variables vector
 
@@ -61,4 +70,30 @@ for (i in 1:length(plot_list)) {
   dev.off()
 }
 
+# Main plot
 
+sp_os_i_sum_any_plot <- ggplot() +
+     geom_sf(data = prio_grid_isd,
+              linetype = 0,
+              aes_string(fill = sqrt(prio_grid_isd$sp_os_i_sum_any)),
+              show.legend = FALSE) + 
+      scale_fill_viridis_c() +
+      theme_minimal()
+
+pdf("../Output/sp_os_i_sum_any_plot.pdf",
+    width = 10, height = 10/1.68)
+sp_os_i_sum_any_plot
+dev.off()
+
+sp_os_sum_any_plot <- ggplot() +
+     geom_sf(data = prio_grid_isd,
+              linetype = 0,
+              aes_string(fill = sqrt(prio_grid_isd$sp_os_sum_any)),
+              show.legend = FALSE) + 
+      scale_fill_viridis_c() +
+      theme_minimal()
+
+pdf("../Output/sp_os_sum_any_plot.pdf",
+    width = 10, height = 10/1.68)
+sp_os_sum_any_plot
+dev.off()

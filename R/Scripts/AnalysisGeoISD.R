@@ -93,33 +93,33 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
   return(final)
 }
 
-GeoISD_NBanalysis <- function(dvs, ivs, controls, data, test_label){
+GeoISD_interactions <- function(dvs, ivs, controls, data, test_label){
   models_out_j <- NULL
   models_out <- NULL
   margins_out <- NULL
   for(i in 1:length(dvs)) {
     dv <- dvs[i] 
     for(j in 1:length(ivs)) {
-#      m1 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls)),
-#               data=data)
-#      m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
-#               data=data)
+      m1 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls)),
+               data=data)
+      m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
+               data=data)
       m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
 				all_controls)), data=data)
-      iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
+#      iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
 #      m1_m <- summary(margins(m1, variables=iv_margins, change = "sd")) %>% 
 #        mutate(test='Baseline model', dep_var=dv)
 #      m2_m <- summary(margins(m2, variables=iv_margins, change = "sd")) %>% 
 #        mutate(test='Extended controls', dep_var=dv)
-      m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
-        mutate(test='Full model', dep_var=dv)
-      margins_out <- bind_rows(margins_out, m3_m)
-      models_out_j[[j]] <- list(m3)
+#      m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
+#        mutate(test='Full model', dep_var=dv)
+#      margins_out <- bind_rows(margins_out, m3_m)
+      models_out_j[[j]] <- list(m1, m2, m3)
     } 
     models_out[[i]] <- models_out_j %>% purrr::flatten()
   }
   models_out <- models_out
-  final <- list('margins'=margins_out, 'models'=models_out)
+  final <- list('models'=models_out)
   return(final)
 }
 
@@ -157,16 +157,17 @@ summary(corrdata)
 #	Variables							       #
 #==============================================================================#
 
-controls <- c('+ logCapdist + mountains_mean + water_gc + distcoast')
+controls <- c('+ mountains_mean + water_gc + barren_gc + distcoast')
 
 extended_controls <- c('+ logPopd')
 
-all_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + barren_gc +
-		       forest_gc')
+all_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + forest_gc')
 
 sqrt_controls <- c('+ sqrtCapdist + mountains_mean + water_gc + distcoast')
 
 sqrt_all_controls <- c('+ sqrtPopd + sqrtBDist')
+
+control_names_int <-c('Baseline', 'Extetended Controls', 'Full Model',
 
 control_names <-c('Baseline', 'Extetended Controls', 'Full Model',
 		 'Baseline', 'Extetended Controls', 'Full Model')
@@ -177,11 +178,14 @@ nb_dvs <- c('deaths', 'state_based', 'non_state', 'sqrtorg3', 'logPppp', 'nightl
 
 captions <- c('Deaths (square root)', 'State based conflict events (square root)')
 
+captions_int <- c('Deaths * Distance to capital', 'State based conflict events *
+		  distance to capital')
+
 ivs <- c('sqrtSpAny', 'logSpAny')
 
 srqt_ivs <- c('sqrtSpAll', 'sqrtSpAny')
 
-# interactions <- c('SpAllXCapDist', 'SpAnyXCapDist')
+interactions <- c('sqrtSpAny * logCapdist')
 
 #==============================================================================#
 #	Analysis							       #
@@ -191,12 +195,12 @@ nb_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
 				 data=prio_grid_isd, test_label='Linear
 				 Models')
 
-#interaction_models <- GeoISDanalysis(dvs=dvs, ivs=interactions, controls=controls,
-#				 data=prio_grid_isd, test_label='Interaction
-#				 Models')
+interaction_models <- GeoISD_interactions(dvs=dvs, ivs=interactions, controls=controls,
+				 data=prio_grid_isd, test_label='Interaction
+				 Models')
 
 
-
+# Regression tables
 for (i in 1:length(dvs)) { 
   name <- dvs[i]
   filename <- paste("../Output/",name,".tex",sep="") 
@@ -206,9 +210,26 @@ for (i in 1:length(dvs)) {
          #custom.coef.map = coefs,
          stars = c(0.001, 0.01, 0.05, 0.1), 
          sideways = T, use.packages = F, scalebox = 1,
-         #custom.note = "Reference region is Eastern Europe and Central Asia.",
+         #custom.note = "",
          caption = captions[i],
 	 label = name,
+         table = T)
+}
+
+# Interaction tabels
+for (i in 1:length(dvs)) { 
+  name <- dvs[i]
+  filename <- paste("../Output/interaction_",name,".tex",sep="") 
+  intlabel <- paste("interaction_",name,sep="")
+  texreg(interaction_models$models[[i]],
+         file = filename,
+         custom.model.names = control_names_int,
+         #custom.coef.map = coefs,
+         stars = c(0.001, 0.01, 0.05, 0.1), 
+         sideways = T, use.packages = F, scalebox = 1,
+         #custom.note = "",
+         caption = captions_int[i],
+	 label = intlabel,
          table = T)
 }
 
@@ -244,16 +265,16 @@ margins_main_plot
 dev.off()
 
 # Marginal effects (interaction models)
-fit <- lm(logDeaths ~ logSpAll * logCapdist + mountains_mean +
-	  water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
-	  prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-predplot <- ggpredict(fit, terms = c("logSpAll", "logCapdist"))
-
-ggplot(predplot, aes(x, exp(predicted))) +
-  geom_line() +
-  geom_ribbon(aes(ymin = exp(conf.low), ymax = exp(conf.high)), alpha = .1)
-
+#fit <- lm(logDeaths ~ logSpAll * logCapdist + mountains_mean +
+#	  water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
+#	  prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+#
+#predplot <- ggpredict(fit, terms = c("logSpAll", "logCapdist"))
+#
+#ggplot(predplot, aes(x, exp(predicted))) +
+#  geom_line() +
+#  geom_ribbon(aes(ymin = exp(conf.low), ymax = exp(conf.high)), alpha = .1)
+#
 #=============================================================================#
 # Negative binomial models
 
@@ -359,32 +380,37 @@ summary(NB_org3_all)
 # Square root negative binomial interaction models 
 
 NB_sqrt_deaths_min_inter <- glm.nb(sqrtDeaths ~ sqrtSpAny * logCapdist + mountains_mean +
- 			distcoast + barren_gc, 
+ 			distcoast + water_gc + barren_gc, 
 		data = prio_grid_isd)
 
 summary(NB_sqrt_deaths_min_inter )
 
 NB_sqrt_deaths_inter <- glm.nb(sqrtDeaths ~ sqrtSpAny * logCapdist + mountains_mean +
- 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
+ 			water_gc + distcoast + sqrtPopd + temp_sd + temp + prec_sd +
  			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
 
 summary(NB_sqrt_deaths_inter )
 
-interaction_deaths_out <- summary(margins(NB_sqrt_deaths_inter, variables =
+interaction_deaths_out <- summary(margins(NB_sqrt_deaths_min_inter, variables =
 				  "sqrtSpAny", at = list( logCapdist =
 							  seq(0,8, by=0.5))))
 
-ggplot(interaction_deaths_out,
+deaths_int_plot <- ggplot(interaction_deaths_out,
                     aes(x = exp(logCapdist), y = AME, ymin = lower, ymax = upper)) +
   geom_point(position = position_dodge(width = 0.4)) +
   geom_errorbar(position = position_dodge(width = 0.4), width = 0.1) +
-  #goldenScatterCAtheme +
-  theme(panel.grid.major.y = element_line(colour="grey60", linetype="dashed")) +
+  goldenScatterCAtheme +
+ # theme(panel.grid.major.y = element_line(colour="grey60", linetype="dashed")) +
   geom_hline(yintercept=0, linetype="dotted") +
   xlab('Distance from the Modern Capital') + ylab('AME')
 
+pdf("../Output/deaths_int_plot.pdf",
+    width = 10, height = 10/1.68)
+deaths_int_plot
+dev.off()
+
 NB_sqrt_state_based_min_inter <- glm.nb(sqrtState_based ~ sqrtSpAny * logCapdist + mountains_mean +
- 			distcoast + barren_gc, 
+ 			distcoast + barren_gc + water_gc, 
 		data = prio_grid_isd)
 
 summary(NB_sqrt_state_based_min_inter )
@@ -395,3 +421,20 @@ NB_sqrt_state_based_inter <- glm.nb(sqrtState_based ~ sqrtSpAny * logCapdist + m
 
 summary(NB_sqrt_state_based_inter )
 
+interaction_sb_out <- summary(margins(NB_sqrt_state_based_min_inter, variables =
+				  "sqrtSpAny", at = list( logCapdist =
+							  seq(0,8, by=0.5))))
+
+sb_int_plot <- ggplot(interaction_sb_out,
+                    aes(x = exp(logCapdist), y = AME, ymin = lower, ymax = upper)) +
+  geom_point(position = position_dodge(width = 0.4)) +
+  geom_errorbar(position = position_dodge(width = 0.4), width = 0.1) +
+  goldenScatterCAtheme +
+ # theme(panel.grid.major.y = element_line(colour="grey60", linetype="dashed")) +
+  geom_hline(yintercept=0, linetype="dotted") +
+  xlab('Distance from the Modern Capital') + ylab('AME')
+
+pdf("../Output/state_based_int_plot.pdf",
+    width = 10, height = 10/1.68)
+sb_int_plot
+dev.off()

@@ -360,6 +360,12 @@ Bargaining problems and multiplies any other effect.
 Hx: High levels of SP, far from the capital interacted with the number of
 pre-colonial states in the country predicts higher levels of violence.
 
+\subsection{Conflict regulating}
+
+\subsubsection{Artificial states}
+
+Keys to the kingdom
+
 \section{The Geo-ISD}
 
 The main independent variable is a measure of what I call `state presence' per
@@ -416,8 +422,17 @@ maps for different states) of this measure for all African PRIO grid cells.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{../Rplot_ln_sp_int.pdf}
-	\caption{State presence, log transformed}
+	%\includegraphics[width=0.8\linewidth]{../Rplot_ln_sp_int.pdf}
+	\includegraphics[width=\linewidth]{../R/Output/sp_os_i_sum_any_plot.pdf}
+	\caption{State presence, sqrt transformed}
+	\label{Sp_i}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering
+	%\includegraphics[width=0.8\linewidth]{../Rplot_ln_sp_int.pdf}
+	\includegraphics[width=\linewidth]{../R/Output/sp_os_sum_any_plot.pdf}
+	\caption{State presence, sqrt transformed}
 	\label{Sp}
 \end{figure}
 
@@ -477,6 +492,20 @@ from lack of reporting.
 	\label{margins}
 \end{figure}
 
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=\linewidth]{"../R/Output/deaths_int_plot.pdf"}
+	\caption{}
+	\label{deaths_int}
+\end{figure}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=\linewidth]{"../R/Output/state_based_int_plot.pdf"}
+	\caption{}
+	\label{sb_int}
+\end{figure}
+
 \section{Conclusion}
 
 \pagebreak
@@ -484,10 +513,13 @@ from lack of reporting.
 \bibliographystyle{agsm}
 \bibliography{../lib.bib}
 
+\pagebreak
 \section*{Appendix}
 
 \input{"../R/Output/sqrtDeaths.tex"}
 \input{"../R/Output/sqrtState_based.tex"}
+\input{"../R/Output/interaction_sqrtDeaths.tex"}
+\input{"../R/Output/interaction_sqrtState_based.tex"}
 
 \end{document}
 

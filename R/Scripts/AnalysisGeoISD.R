@@ -42,7 +42,7 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				sqrtState_based = sqrt(state_based),
 				sqrtPpp = sqrt(gcp_ppp),
 				sqrtSpAll = sqrt(sp_os_i_sum),
-				sqrtSpAny = sqrt(sp_os_i_sum_any),
+				sqrtSpAny = sqrt(sp_i_sum_any),
 				sqrtCapdist = sqrt(capdist),
 				sqrtBDist = sqrt(bdist3),
 				sqrtPopd = sqrt(popd),
@@ -50,8 +50,8 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				logState_based = log(state_based + 1),
 				logPpp = log(gcp_ppp + 1),
 				logSpAll = log(sp_os_i_sum + 1),
-				logSpAny = log(sp_os_i_sum_any + 1),
-				logCapdist = log(capdist + 1),
+				logSpAny = log(sp_i_sum_any + 1),
+				logCapdist = log(capdist),
 				logBDist = log(bdist3 + 1),
 				logPopd = log(popd + 1),
 				sqrtorg3 = sqrt(org3),
@@ -167,7 +167,7 @@ sqrt_controls <- c('+ sqrtCapdist + mountains_mean + water_gc + distcoast')
 
 sqrt_all_controls <- c('+ sqrtPopd + sqrtBDist')
 
-control_names_int <-c('Baseline', 'Extetended Controls', 'Full Model',
+control_names_int <-c('Baseline', 'Extetended Controls', 'Full Model')
 
 control_names <-c('Baseline', 'Extetended Controls', 'Full Model',
 		 'Baseline', 'Extetended Controls', 'Full Model')

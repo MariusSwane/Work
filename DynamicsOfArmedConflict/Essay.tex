@@ -456,7 +456,38 @@ candidates for such an intervening variable.
 
 \subsubsection{Artificial states}
 
-Conformity to the pre-existing topography of historical statehood. 
+Within the literature there are a number of conceptualisation and definitions of
+`artificial states' or states whose borders are more or less `artificial'
+\citep{Alesina2011, Clapham1996, Englebert2002, Herbst2014}. The underlying
+principle, I argue, is the degree to which current states conform to the
+pre-existing topography of historical statehood (which is itself a product of
+geography and the military/political reach of political entities). The measure
+of pre-colonial state presence presented below captures this better than
+existing measures (such as the straightness of boundaries \citep{Alesina2011} or
+the variance in pre-colonial ethnic centralisation \citep{Englebert2002}). The
+only caveat is that it does not distinguish between the presence of for example
+the pre-colonial Tunisian state, who the current country of Tunisia corresponds
+very well with, or the kingdom of Darfur, who does not correspond to any current
+country. To illustrate how the pre-colonial state presence can measure state
+artifice, take the case of Ethiopia. Ethiopia contains a clear continuation of
+the pre-colonial (in terms of time period) Empire of Ethiopia, but it also
+contains a number of other pre-colonial states (conquered by the Ethiopian
+Empire in the period cover in our data). In this example high levels of state
+presence would most often reflect a strong presence of the Ethiopian state and
+thus, for as long as its still inside the boundary of modern day Ethiopia, it
+would indicate low state artifice (or natural borders). However, The further
+away from the capital one would go the less likely and the less strong is this
+presence, and equally the more artificial it is if this is part of Ethiopia
+today. Additionally, if one is far from the capital and yet there are high
+levels of state presence, it most likely represents the presence of one of the
+kingdoms most recently incorporated into the Ethiopian Empire (such as the
+aforementioned sultanate of Aussa). In this area high values would also indicate
+a poor conformity to the existing history of statehood, and thus be more
+artificial.  Likewise, areas of little to no pre-colonial state presence close
+to its current capital would indicate a state built without any precedent or on
+top of colonial institution, and thus also be more artificial. The literature
+suggest that artificial states experience more conflict 
+\citep{Alesina2011, Englebert2002}, which implies the following hypotheses:
 
 H3: The relationship between grid cell level levels of state presence and civil
 conflict is modified by the grid cell's distance to the current capital (as
@@ -470,14 +501,20 @@ experience lower levels of civil conflict.
 
 \subsubsection{Multiple pre-colonial states}
 
-Bargaining problems and multiplies any other effect. This is the argument of
-\citet{Wishman}, but has only been tested at a country level
-(albeit on a global sample), but found that countries that were hosts to more
-historical state entities (pre-colonial states in this paper), experienced more
-civil conflict in the post World War 2 period. If the observed correlation is
-due to any of the mechanisms that the authors outline, then there should be an
-equivalent correlation between areas of high state presence in countries with
-multiple pre-colonial states.
+It could be true as that pre-colonial states are individually (or dyadically)
+conflict reducing \citep{Pinker2012, Wig2016}, but as the number of groups with
+ties to pre-colonial states increase this positive (normatively speaking)
+relationship breaks down due to increased complexity of bargaining
+\citep{Walter2009} and altered incentives for the state to punish (rather than
+accommodate) early groups who (try or threaten to) assert autonomy in order to
+dissuade others from doing the same. This is one of the arguments of
+\citet{Wishman}, but has only been tested at a country level (albeit on a global
+sample), but found that countries that were hosts to more historical state
+entities (pre-colonial states in this paper), experienced more civil conflict in
+the post World War 2 period. If the observed correlation is due to any of the
+mechanisms that the authors outline, then there should be an equivalent
+correlation between areas of high state presence in countries with multiple
+pre-colonial states.
 
 H4: The relationship between grid cell level levels of state presence and civil
 conflict is modified by the number of unique pre-colonial states in the country
@@ -568,30 +605,43 @@ maps for different states) of this measure for all African PRIO grid cells.
 
 \subsection{Dependent variable}
 
-Unit of analysis is PRIO grid cell 
-
-Fatalities - square root transformed and logged
-
-State based conflict events - square root transformed and logged
+The unit of analysis are PRIO grid cells, which are one degree by one degree
+cells \citep{Tollefsen2012}. Accordingly, the dependent variables are fatalities
+- square root transformed, logged or untransformed, and state based conflict
+events - square root transformed, logged or untransformed) per grid cell in the
+period 1946-2018 *** Check end date ***. In other words these are cross
+sectional count data. The data are from the GED project \citep{Sundberg2013}.
 
 \subsection{Independent variable}
 
-Sum of state presence - square root transformed and logged
+The main explanatory variable is the per grid cell sum of state presence -
+square root transformed or logged depending on the model. For the main model I
+use measure of state presence from the Geo-ISD that counts all maps that
+intersect a given grid cell, even if multiple maps do so in a single year, but
+only for the state that has the most presence overall in that grid cell. This
+measure has the benefit of including more data, which allows for the
+approximation of relative degrees of state presence by one state in any year, as
+described in the data section above. At the same time it avoids over counting
+state presence where there were overlaps in sovereignty or changes in who
+controlled the territory. As a robustness check I also ran models using the
+measure that counts if there was any state presence in a grid-cell-year. In
+other words, it is more so a measure of the maximum \textit{extent} of state
+presence, and is less accurate in terms of depth. Again counting only the
+presence of the most present state for each grid cell.
 
-Interaction between state presence and distance to capital
+*** DISCLAIMER - the models reported in the results use this last measure.
+However, models using the main measure are very similar. *** 
 
 \subsection{Controls}
 
-Distance to capital only in interaction models.
-
-Mountains and water. Mountains help in early state formation by providing
-protection and limiting the exit options of sedentary farmers. Water is
-essential for state formation. States typically formed either as coastal cities,
-close to navigable rivers or by the shores of great lakes. People still tend to
-live next to a source of water, thus this acts as a proxy for population
-density, and fighting usually happens where there are people. Water could also
-be related to the conflict measures more directly by being a non divisible
-resource to fight for control over.
+Mountains help in early state formation by providing protection and limiting the
+exit options of sedentary farmers \citep{Carneiro1988}. Water is essential for
+state formation.  States typically formed either as coastal cities, close to
+navigable rivers or by the shores of great lakes. People still tend to live next
+to a source of water, thus this acts as a proxy for population density, and
+fighting usually happens where there are people. Water could also be related to
+the conflict measures more directly by being a non divisible resource to fight
+for control over.
 
 Distance to coast
 
@@ -610,6 +660,10 @@ Zero inflated negative binomial is probably a good idea. Zeros could be true
 zeros - there were no fatalities or state based conflict events in the grid cell
 during the period, or zeros could be measurement error, most likely resulting
 from lack of reporting.
+
+Interaction models
+
+Controlling for spatial interdependence.
 
 \section{Preliminary results}
 

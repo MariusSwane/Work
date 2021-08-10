@@ -635,37 +635,105 @@ However, models using the main measure are very similar. ***
 \subsection{Controls}
 
 Mountains help in early state formation by providing protection and limiting the
-exit options of sedentary farmers \citep{Carneiro1988}. Water is essential for
-state formation.  States typically formed either as coastal cities, close to
-navigable rivers or by the shores of great lakes. People still tend to live next
-to a source of water, thus this acts as a proxy for population density, and
-fighting usually happens where there are people. Water could also be related to
-the conflict measures more directly by being a non divisible resource to fight
-for control over.
+exit options of sedentary farmers \citep{Carneiro1988}. Mountainous terrain has
+also been linked with civil conflict by providing shelter for rebel groups
+\citep{Hegre2006}, although this relationship is debated 
+\citep{Buhaug2002}. The data is from the PRIO-grid data set, but originally 
+from *** INSERT SOURCE ***.
 
-Distance to coast
+Water is essential for state formation. States typically formed either as
+coastal cities, close to navigable rivers or by the shores of great lakes.
+People still tend to live next to a source of water, thus this acts as a proxy
+for population density, and fighting usually happens where there are people.
+Water could also be related to the conflict measures more directly by being a
+non divisible resource to fight for control over. *** SOURCES NEEDED ***. The
+data on water as a percentage of the grid surface is from the PRIO-grid data
+set, but originally from *** INSERT SOURCE ***.
 
-Population density and barren
+Distance to coast could affect both state presence and conflict in a number of
+ways. First, as state above, states were more likely to be formed along the
+coast as it connected cities and people. A special case for Africa is also the
+existence of slave raiding/trading states that formed along the eastern and
+western coasts of the continent. These states raison d'être was raiding slaves
+from tribes and peoples inland and selling them to coastal traders (European in
+the West and Arab in the east). \citet{Nunn2008} argues that this state of
+affairs left legacies of mistrust and antagonism, which has resulted in
+increased levels of current day conflict. Distance to the coast could also be
+related to the measure of state presence through the fact that our measure is
+based on European observations (maps), which undoubtedly had better coverage
+along the coast, especially for the earlier periods. Distance to the coast could
+further be related to conflict through lower levels of development. The distance
+to coast data is from the PRIO-grid data set, but originally from *** INSERT
+SOURCE ***.
 
-Temperature, precipitation and forest (remove).
+Barren terrain could correlate with both state presence and conflict by 
+
+Population density could be a consequence of prior state building and could
+correlate with conflit measures as fighting broadly speaking happens where there
+are at least some population. I therefor include an estimate of population
+density in *** INSERT YEAR *** from the HYDE project \citep{Goldewijk2016}.
+Because this is an estimate and not a measurement, I also include a measure of
+the barrenness of each grid cell from the PRIO-grid data set, but originally
+from *** INSERT SOURCE ***. This measure proxies population density because
+people generally do not live on barren land, and captures the large amount of
+zeroes in both the Sahara and Kalahari deserts.
+
+As a robustness check some models also include measures of temperature (mean and
+variance), precipitation (mean and variance) and forest (remove?), as these have
+been found to affect conflict and could potentially affect state building ***
+Ask Ole Magnus about these, I don't see the connection ***
+
+Distance to borders *** Put back in ***. Could be related to state presence
+because despite their reputation African borders were not drawn completely at
+random (or along meridian lines). For example, the borders of northern Nigeria
+and Niger were based on the extent of the Sokoto Caliphate and the neighboring
+Kanem-Bornu (or just Bornu) empire \citep{HiribarrenVincent2017AHoB}. Proximity
+to international border has also been found to predict conflict
+\citep{Buhaug2002}. I use the measure included in the PRIO grid data, which is
+originally from *** ISERT SOURCE ***.
 
 \subsection{Alternative measures}
 
+*** So far I have none ***
+
 \subsection{Modelling}
 
-%TODO: To fitness test for NB or Poisson 
-Negative binomial models
+My main models are negative binomial models to account for the dependent
+variable being count data (count of deaths (fatalities) and count of conflict
+events (state based)). *** As I currently understand the assumptions of it, I
+should not have to transform the data, as I have done (in the results presented
+below), as the negative binomial model accounts for the non-linear nature of the
+data. ***
+
+TODO: To fitness test for whether negative binomial or Poisson regression is
+most appropriate. I suspected it would be negative binomial, so I went with
+that, but this needs to be confirmed.
 
 Zero inflated negative binomial is probably a good idea. Zeros could be true
 zeros - there were no fatalities or state based conflict events in the grid cell
 during the period, or zeros could be measurement error, most likely resulting
-from lack of reporting.
+from lack of reporting. However, I am not familiar with ZIMB models at this
+point, but I will figure it out before the next draft.
 
-Interaction models
-
-Controlling for spatial interdependence.
+I should also probably be controlling for spatial interdependence, but again, I
+am not yet familiar with the method of doing so. Will be addressed in future
+versions.
 
 \section{Preliminary results}
+
+I have run a whole lot of model specifications, some of which are reported below
+in the figures and in the tables in the appendix. The positive relationship
+between state presence and conflict is as surprising as it is robust across all
+models. The results of the interaction models might help explain the
+relationship. As seen in Figure \ref{deaths_int} and Figure \ref{sb_int}, state
+presence is negatively correlated with both conflict measure close to the
+capital, but becomes positive and significant further away from the capital.
+This supports an interpretation that state presence can be conflict reducing in
+those cases where it makes a country less artificial for all the reasons
+outlined by the conflict reducing arguments in the literature. Taken tougher
+however, the results indicate that the negative effects of higher values of
+state presence further away form the capitals of Africa outweighs these conflict
+reducing effects. 
 
 \begin{figure}[htpb]
 	\centering
@@ -689,6 +757,8 @@ Controlling for spatial interdependence.
 \end{figure}
 
 \section{Conclusion}
+
+*** Awaiting more detailed results ***
 
 \pagebreak
 

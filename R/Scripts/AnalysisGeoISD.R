@@ -74,17 +74,17 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
                data=data)
       m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
                data=data)
-      m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
-				all_controls)), data=data)
+      #m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
+				#all_controls)), data=data)
       iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
       m1_m <- summary(margins(m1, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Baseline model', dep_var=dv)
       m2_m <- summary(margins(m2, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Extended controls', dep_var=dv)
-      m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
-        mutate(test='Full model', dep_var=dv)
-      margins_out <- bind_rows(margins_out, m1_m, m2_m, m3_m)
-      models_out_j[[j]] <- list(m1, m2, m3)
+      #m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
+        #mutate(test='Full model', dep_var=dv)
+      margins_out <- bind_rows(margins_out, m1_m, m2_m)
+      models_out_j[[j]] <- list(m1, m2)
     } 
     models_out[[i]] <- models_out_j %>% purrr::flatten()
   }
@@ -159,7 +159,7 @@ summary(corrdata)
 
 controls <- c('+ mountains_mean + water_gc + barren_gc + distcoast')
 
-extended_controls <- c('+ logPopd')
+extended_controls <- c('+ logPopd + bdist3')
 
 all_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + forest_gc')
 
@@ -169,23 +169,24 @@ sqrt_all_controls <- c('+ sqrtPopd + sqrtBDist')
 
 control_names_int <-c('Baseline', 'Extetended Controls', 'Full Model')
 
-control_names <-c('Baseline', 'Extetended Controls', 'Full Model',
-		 'Baseline', 'Extetended Controls', 'Full Model')
+control_names <-c('Baseline', 'Extetended Controls',
+		 'Baseline', 'Extetended Controls',
+		 'Baseline', 'Extetended Controls')
 
-dvs <- c('sqrtDeaths', 'sqrtState_based')
+dvs <- c('deaths', 'state_based')
 
 nb_dvs <- c('deaths', 'state_based', 'non_state', 'sqrtorg3', 'logPppp', 'nightlights')
 
-captions <- c('Deaths (square root)', 'State based conflict events (square root)')
+captions <- c('Fatalities', 'State based conflict events')
 
-captions_int <- c('Deaths * Distance to capital', 'State based conflict events *
+captions_int <- c('Fatalities * Distance to capital', 'State based conflict events *
 		  distance to capital')
 
-ivs <- c('sqrtSpAny', 'logSpAny')
+ivs <- c('sqrtSpAll', 'logSpAll', 'sp_os_i_sum')
 
 srqt_ivs <- c('sqrtSpAll', 'sqrtSpAny')
 
-interactions <- c('sqrtSpAny * logCapdist')
+interactions <- c('sqrtSpAll * logCapdist')
 
 #==============================================================================#
 #	Analysis							       #
@@ -235,11 +236,12 @@ for (i in 1:length(dvs)) {
 
 full_margins <- nb_models[[1]] %>% 
   mutate(factor_label = case_when(
-    factor == 'sqrtSpAny' ~ 'State Preseance (square root)',
-    factor == 'logSpAny' ~ 'State Preseance (logged)'),
+    factor == 'sqrtSpAll' ~ 'State Preseance (square root)',
+    factor == 'logSpAll' ~ 'State Preseance (logged)',
+    factor == 'sp_os_i_sum' ~ 'State Preseance'),
 	 facet_label = case_when(
-	dep_var == 'sqrtDeaths' ~ 'Total fatalities (square root)',
-	dep_var == 'sqrtState_based' ~ 'State based conflict events (square root)'))  %>% 
+	dep_var == 'deaths' ~ 'Total fatalities',
+	dep_var == 'state_based' ~ 'State based conflict events'))  %>% 
 	rename(Test=test)
 
 
@@ -379,21 +381,20 @@ summary(NB_org3_all)
 #=============================================================================#
 # Square root negative binomial interaction models 
 
-NB_sqrt_deaths_min_inter <- glm.nb(sqrtDeaths ~ sqrtSpAny * logCapdist + mountains_mean +
+NB_deaths_min_inter <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
  			distcoast + water_gc + barren_gc, 
 		data = prio_grid_isd)
 
-summary(NB_sqrt_deaths_min_inter )
+summary(NB_deaths_min_inter )
 
-NB_sqrt_deaths_inter <- glm.nb(sqrtDeaths ~ sqrtSpAny * logCapdist + mountains_mean +
- 			water_gc + distcoast + sqrtPopd + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+NB_deaths_inter <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
+ 			water_gc + distcoast + sqrtPopd + bdist3, data = prio_grid_isd)
 
-summary(NB_sqrt_deaths_inter )
+summary(NB_deaths_inter )
 
-interaction_deaths_out <- summary(margins(NB_sqrt_deaths_min_inter, variables =
-				  "sqrtSpAny", at = list( logCapdist =
-							  seq(0,8, by=0.5))))
+interaction_deaths_out <- summary(margins(NB_deaths_inter, variables =
+				  "sqrtSpAll", at = list( logCapdist =
+							  seq(0,7, by=0.2))))
 
 deaths_int_plot <- ggplot(interaction_deaths_out,
                     aes(x = exp(logCapdist), y = AME, ymin = lower, ymax = upper)) +
@@ -409,21 +410,20 @@ pdf("../Output/deaths_int_plot.pdf",
 deaths_int_plot
 dev.off()
 
-NB_sqrt_state_based_min_inter <- glm.nb(sqrtState_based ~ sqrtSpAny * logCapdist + mountains_mean +
+NB_state_based_min_inter <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
  			distcoast + barren_gc + water_gc, 
 		data = prio_grid_isd)
 
-summary(NB_sqrt_state_based_min_inter )
+summary(NB_state_based_min_inter )
 
-NB_sqrt_state_based_inter <- glm.nb(sqrtState_based ~ sqrtSpAny * logCapdist + mountains_mean +
- 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
+NB_state_based_inter <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
+ 			water_gc + distcoast + logPopd + bdist3, data = prio_grid_isd)
 
-summary(NB_sqrt_state_based_inter )
+summary(NB_state_based_inter )
 
-interaction_sb_out <- summary(margins(NB_sqrt_state_based_min_inter, variables =
-				  "sqrtSpAny", at = list( logCapdist =
-							  seq(0,8, by=0.5))))
+interaction_sb_out <- summary(margins(NB_state_based_inter, variables =
+				  "sqrtSpAll", at = list( logCapdist =
+							  seq(0,7.7, by=0.5))))
 
 sb_int_plot <- ggplot(interaction_sb_out,
                     aes(x = exp(logCapdist), y = AME, ymin = lower, ymax = upper)) +

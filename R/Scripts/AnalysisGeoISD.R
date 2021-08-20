@@ -24,6 +24,7 @@ library(ggrepel)
 library(ggeffects)
 library(splines)
 library(conflicted)
+library(pscl)
 library(MASS)
 
 #==============================================================================#
@@ -63,6 +64,9 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 #	Functions				    	             	       #
 #==============================================================================#
 
+#==============================================================================#
+# Negative binomial models function
+
 GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
   models_out_j <- NULL
   models_out <- NULL
@@ -74,15 +78,11 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
                data=data)
       m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
                data=data)
-      #m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
-				#all_controls)), data=data)
       iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
       m1_m <- summary(margins(m1, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Baseline model', dep_var=dv)
       m2_m <- summary(margins(m2, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Extended controls', dep_var=dv)
-      #m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
-        #mutate(test='Full model', dep_var=dv)
       margins_out <- bind_rows(margins_out, m1_m, m2_m)
       models_out_j[[j]] <- list(m1, m2)
     } 
@@ -92,6 +92,9 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
   final <- list('margins'=margins_out, 'models'=models_out)
   return(final)
 }
+
+#==============================================================================#
+# Same function, without margins to do the interaction models
 
 GeoISD_interactions <- function(dvs, ivs, controls, data, test_label){
   models_out_j <- NULL
@@ -104,17 +107,7 @@ GeoISD_interactions <- function(dvs, ivs, controls, data, test_label){
                data=data)
       m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
                data=data)
-      m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls, 
-				all_controls)), data=data)
-#      iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
-#      m1_m <- summary(margins(m1, variables=iv_margins, change = "sd")) %>% 
-#        mutate(test='Baseline model', dep_var=dv)
-#      m2_m <- summary(margins(m2, variables=iv_margins, change = "sd")) %>% 
-#        mutate(test='Extended controls', dep_var=dv)
-#      m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
-#        mutate(test='Full model', dep_var=dv)
-#      margins_out <- bind_rows(margins_out, m3_m)
-      models_out_j[[j]] <- list(m1, m2, m3)
+      models_out_j[[j]] <- list(m1, m2)
     } 
     models_out[[i]] <- models_out_j %>% purrr::flatten()
   }
@@ -127,6 +120,7 @@ GeoISD_interactions <- function(dvs, ivs, controls, data, test_label){
 #	Descriptive Statistics                                         	       #
 #==============================================================================#
 
+#==============================================================================#
 # Correlation Matrix Plot
 
 corrdata <- prio_grid_isd %>% dplyr::select(bdist3, capdist, excluded, temp_sd,
@@ -163,11 +157,7 @@ extended_controls <- c('+ logPopd + bdist3')
 
 all_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + forest_gc')
 
-sqrt_controls <- c('+ sqrtCapdist + mountains_mean + water_gc + distcoast')
-
-sqrt_all_controls <- c('+ sqrtPopd + sqrtBDist')
-
-control_names_int <-c('Baseline', 'Extetended Controls', 'Full Model')
+control_names_int <-c('Baseline', 'Extetended Controls')
 
 control_names <-c('Baseline', 'Extetended Controls',
 		 'Baseline', 'Extetended Controls',
@@ -175,16 +165,16 @@ control_names <-c('Baseline', 'Extetended Controls',
 
 dvs <- c('deaths', 'state_based')
 
-nb_dvs <- c('deaths', 'state_based', 'non_state', 'sqrtorg3', 'logPppp', 'nightlights')
+cv_dvs <- c('non_state', 'org3')
 
 captions <- c('Fatalities', 'State based conflict events')
+
+cv_captions <- c('Non-state conflict events', 'Communal violence events')
 
 captions_int <- c('Fatalities * Distance to capital', 'State based conflict events *
 		  distance to capital')
 
 ivs <- c('sqrtSpAll', 'logSpAll', 'sp_os_i_sum')
-
-srqt_ivs <- c('sqrtSpAll', 'sqrtSpAny')
 
 interactions <- c('sqrtSpAll * logCapdist')
 
@@ -200,8 +190,19 @@ interaction_models <- GeoISD_interactions(dvs=dvs, ivs=interactions, controls=co
 				 data=prio_grid_isd, test_label='Interaction
 				 Models')
 
+#==============================================================================#
+# Communal violence analysis
 
+
+cv_nb_models <- GeoISDanalysis(dvs=cv_dvs, ivs=ivs, controls=controls,
+				 data=prio_grid_isd, test_label='Linear
+				 Models')
+
+
+#==============================================================================#
 # Regression tables
+# TODO: Add coeficient maps for propper names in regression tables
+
 for (i in 1:length(dvs)) { 
   name <- dvs[i]
   filename <- paste("../Output/",name,".tex",sep="") 
@@ -217,7 +218,9 @@ for (i in 1:length(dvs)) {
          table = T)
 }
 
+#==============================================================================#
 # Interaction tabels
+
 for (i in 1:length(dvs)) { 
   name <- dvs[i]
   filename <- paste("../Output/interaction_",name,".tex",sep="") 
@@ -234,16 +237,36 @@ for (i in 1:length(dvs)) {
          table = T)
 }
 
+#==============================================================================#
+# Communal violence regression tables
+
+for (i in 1:length(dvs)) { 
+  name <- cv_dvs[i]
+  filename <- paste("../Output/",name,".tex",sep="") 
+  texreg(cv_nb_models$models[[i]],
+         file = filename,
+         custom.model.names = control_names,
+         #custom.coef.map = coefs,
+         stars = c(0.001, 0.01, 0.05, 0.1), 
+         sideways = T, use.packages = F, scalebox = 1,
+         #custom.note = "",
+         caption = cv_captions[i],
+	 label = name,
+         table = T)
+}
+
+#==============================================================================#
+# Margin plots
+
 full_margins <- nb_models[[1]] %>% 
   mutate(factor_label = case_when(
-    factor == 'sqrtSpAll' ~ 'State Preseance (square root)',
-    factor == 'logSpAll' ~ 'State Preseance (logged)',
-    factor == 'sp_os_i_sum' ~ 'State Preseance'),
+    factor == 'sqrtSpAll' ~ 'State Presence (square root)',
+    factor == 'logSpAll' ~ 'State Presence (logged)',
+    factor == 'sp_os_i_sum' ~ 'State Presence'),
 	 facet_label = case_when(
 	dep_var == 'deaths' ~ 'Total fatalities',
 	dep_var == 'state_based' ~ 'State based conflict events'))  %>% 
 	rename(Test=test)
-
 
 margins_main_plot <- ggplot(data = full_margins,
   aes(x = factor_label, y = AME, ymin = lower, ymax = upper, colour=Test)) +
@@ -266,62 +289,20 @@ pdf("../Output/conflictMargins.pdf",
 margins_main_plot
 dev.off()
 
-# Marginal effects (interaction models)
-#fit <- lm(logDeaths ~ logSpAll * logCapdist + mountains_mean +
-#	  water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
-#	  prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-#
-#predplot <- ggpredict(fit, terms = c("logSpAll", "logCapdist"))
-#
-#ggplot(predplot, aes(x, exp(predicted))) +
-#  geom_line() +
-#  geom_ribbon(aes(ymin = exp(conf.low), ymax = exp(conf.high)), alpha = .1)
-#
-#=============================================================================#
-# Negative binomial models
+#==============================================================================#
+# Communal violence margin plots
 
-NB_models <- GeoISD_NBanalysis(dvs=nb_dvs, ivs=ivs, controls=controls,
-				 data=prio_grid_isd, test_label='Negative
-				 binomial Models')
-
-NB_deaths <- glm.nb(deaths ~ logSpAny + logCapdist + mountains_mean +
- 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-NB_state_based <- glm.nb(state_based ~ logSpAny + logCapdist + mountains_mean +
- 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-NB_non_state <- glm.nb(non_state ~ logSpAny + logCapdist + mountains_mean +
- 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-NB_org3 <- glm.nb(sqrtorg3 ~ logSpAny + logCapdist + mountains_mean +
- 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-NB_ppp <- glm.nb(logPpp ~ logSpAny + logCapdist + mountains_mean +
- 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-NB_nightlights <- glm.nb(nightlights ~ logSpAny + logCapdist + mountains_mean + 
- 			water_gc + distcoast + logPopd + logBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-nb_full_margins <- NB_models[[1]] %>% 
+cv_full_margins <- cv_nb_models[[1]] %>% 
   mutate(factor_label = case_when(
-    factor == 'logSpAll' ~ 'State Preseance (all)(logged)',
-    factor == 'logSpAny' ~ 'State Preseance (any)(logged)'),
-	facet_label = case_when(
-	dep_var == 'deaths' ~ 'Total fatalities',
-	dep_var == 'state_based' ~ 'State based conflict events',
-	dep_var == 'non_state' ~ 'Non state conflict events',
-	dep_var == 'sqrtorg3' ~ 'Communal violence events (square root
-	transformed)')) %>% 
+    factor == 'sqrtSpAll' ~ 'State Presence (square root)',
+    factor == 'logSpAll' ~ 'State Presence (logged)',
+    factor == 'sp_os_i_sum' ~ 'State Presence'),
+	 facet_label = case_when(
+	dep_var == 'non_state' ~ 'Non-state conflict events',
+	dep_var == 'org3' ~ 'Communal violence events'))  %>% 
 	rename(Test=test)
 
-
-margins_nb_plot <- ggplot(data = nb_full_margins,
+cv_margins_main_plot <- ggplot(data = cv_full_margins,
   aes(x = factor_label, y = AME, ymin = lower, ymax = upper, colour=Test)) +
   facet_wrap(~ facet_label) +
   xlab('') +
@@ -331,72 +312,30 @@ margins_nb_plot <- ggplot(data = nb_full_margins,
   geom_errorbar(position = position_dodge(width = 0.4), width = 0.1) +
   coord_flip() +
   theme(panel.grid.major.y = element_line(colour="grey60", linetype="dashed")) +
+  goldenScatterCAtheme + 
   geom_hline(yintercept=0, linetype="dotted") +
   guides(alpha="none") +
   labs(caption = "Points are average marginal effects of a 1 SD increase in the 
  independent variable with 95% confidence intervals.")
 
-margins_nb_plot
+pdf("../Output/CommunalViolenceMargins.pdf",
+    width = 10, height = 10/1.68)
+cv_margins_main_plot
+dev.off()
 
 #=============================================================================#
-# Square root negative binomial models
+# Communal violence negative binomial interaction models 
 
+non_state_NB_inter <- glm.nb(non_state ~ sqrtSpAll * logCapdist + mountains_mean +
+ 			water_gc + distcoast + logPopd + bdist3, data = prio_grid_isd)
 
-NB_sqrt_deaths_min <- glm.nb(sqrtDeaths ~ sqrtSpAny + logCapdist +
-			     mountains_mean + distcoast + barren_gc, 
-		data = prio_grid_isd)
+summary(non_state_NB_inter)
 
-summary(NB_sqrt_deaths_min )
-
-NB_sqrt_deaths <- glm.nb(sqrtDeaths ~ sqrtSpAny + logCapdist + mountains_mean +
- 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-summary(NB_sqrt_deaths )
-
-NB_sqrt_state_based_min <- glm.nb(sqrtState_based ~ sqrtSpAny + sqrtCapdist + mountains_mean +
- 			distcoast + barren_gc, 
-		data = prio_grid_isd)
-
-summary(NB_sqrt_state_based_min )
-
-NB_sqrt_state_based <- glm.nb(sqrtState_based ~ sqrtSpAny + logCapdist + mountains_mean +
- 			water_gc + distcoast + sqrtPopd + sqrtBDist + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-summary(NB_sqrt_state_based )
-
-NB_org3 <- glm.nb(sqrtorg3 ~ sqrtSpAny + logCapdist + 
-		  mountains_mean + distcoast + barren_gc,
-		     data = prio_grid_isd)
-
-summary(NB_org3)
-
-NB_org3_all <- glm.nb(sqrtorg3 ~ sqrtSpAny + logCapdist + mountains_mean + barren_gc +
- 			water_gc + distcoast + logPopd + temp_sd + temp + prec_sd +
- 			prec_gpcc + barren_gc + forest_gc, data = prio_grid_isd)
-
-summary(NB_org3_all)
-
-#=============================================================================#
-# Square root negative binomial interaction models 
-
-NB_deaths_min_inter <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
- 			distcoast + water_gc + barren_gc, 
-		data = prio_grid_isd)
-
-summary(NB_deaths_min_inter )
-
-NB_deaths_inter <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
- 			water_gc + distcoast + sqrtPopd + bdist3, data = prio_grid_isd)
-
-summary(NB_deaths_inter )
-
-interaction_deaths_out <- summary(margins(NB_deaths_inter, variables =
+non_state_int_out <- summary(margins(non_state_NB_inter, variables =
 				  "sqrtSpAll", at = list( logCapdist =
 							  seq(0,7, by=0.2))))
 
-deaths_int_plot <- ggplot(interaction_deaths_out,
+non_state_int_plot <- ggplot(non_state_int_out,
                     aes(x = exp(logCapdist), y = AME, ymin = lower, ymax = upper)) +
   geom_point(position = position_dodge(width = 0.4)) +
   geom_errorbar(position = position_dodge(width = 0.4), width = 0.1) +
@@ -405,27 +344,21 @@ deaths_int_plot <- ggplot(interaction_deaths_out,
   geom_hline(yintercept=0, linetype="dotted") +
   xlab('Distance from the Modern Capital') + ylab('AME')
 
-pdf("../Output/deaths_int_plot.pdf",
+pdf("../Output/non_state_int_plot.pdf",
     width = 10, height = 10/1.68)
-deaths_int_plot
+non_state_int_plot
 dev.off()
 
-NB_state_based_min_inter <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
- 			distcoast + barren_gc + water_gc, 
-		data = prio_grid_isd)
-
-summary(NB_state_based_min_inter )
-
-NB_state_based_inter <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
+org3_int <- glm.nb(org3 ~ sqrtSpAll * logCapdist + mountains_mean +
  			water_gc + distcoast + logPopd + bdist3, data = prio_grid_isd)
 
-summary(NB_state_based_inter )
+summary(org3_int)
 
-interaction_sb_out <- summary(margins(NB_state_based_inter, variables =
+org3_int_out <- summary(margins(org3_int, variables =
 				  "sqrtSpAll", at = list( logCapdist =
 							  seq(0,7.7, by=0.5))))
 
-sb_int_plot <- ggplot(interaction_sb_out,
+org3_int_plot <- ggplot(org3_int_out,
                     aes(x = exp(logCapdist), y = AME, ymin = lower, ymax = upper)) +
   geom_point(position = position_dodge(width = 0.4)) +
   geom_errorbar(position = position_dodge(width = 0.4), width = 0.1) +
@@ -434,7 +367,43 @@ sb_int_plot <- ggplot(interaction_sb_out,
   geom_hline(yintercept=0, linetype="dotted") +
   xlab('Distance from the Modern Capital') + ylab('AME')
 
-pdf("../Output/state_based_int_plot.pdf",
+pdf("../Output/org3_int_plot.pdf",
     width = 10, height = 10/1.68)
-sb_int_plot
+org3_int_plot
 dev.off()
+
+#==============================================================================#
+#	ZINB  								       #
+#==============================================================================#		
+
+zinb_deaths <- zeroinfl(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
+ 			water_gc + distcoast + logPopd + bdist3, data =
+			prio_grid_isd, dist = "negbin")
+
+summary(zinb_deaths)
+
+summary(zinb_deaths$residuals)
+
+# Because the regular model does not work I create standardized independent
+# variables, and rerun the model.
+
+prio_grid_isd <- prio_grid_isd %>% mutate(deaths_s = scale(deaths),
+					  sqrtSpAll_s = scale(sqrtSpAll),
+					  logCapdist_s = scale(logCapdist),
+					  mountains_mean_s =
+						  scale(mountains_mean),
+					  water_gc_s = scale(water_gc),
+					  distcoast_s = scale(distcoast),
+					  logPopd_s = scale(logPopd),
+					  bdist3_s = scale(bdist3))
+
+
+zinb_deaths_s <- zeroinfl(deaths ~ sqrtSpAll_s * logCapdist_s +
+			  mountains_mean_s +
+ 			water_gc_s + distcoast_s + logPopd_s + bdist3_s, data =
+			prio_grid_isd, dist = "negbin")
+
+summary(zinb_deaths_s)
+
+summary(zinb_deaths$residuals)
+

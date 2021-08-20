@@ -1,4 +1,0 @@
-\beamer@sectionintoc {1}{Evaluation Form}{3}{0}{1}
-\beamer@sectionintoc {2}{Lectures, Seminars and Course Outline}{13}{0}{2}
-\beamer@sectionintoc {3}{What is Political Economy?}{30}{0}{3}
-\beamer@sectionintoc {4}{Who are you?}{72}{0}{4}

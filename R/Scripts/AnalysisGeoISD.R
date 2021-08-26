@@ -198,6 +198,33 @@ cv_nb_models <- GeoISDanalysis(dvs=cv_dvs, ivs=ivs, controls=controls,
 				 data=prio_grid_isd, test_label='Linear
 				 Models')
 
+non_state_NB_mini <- glm.nb(non_state ~ sqrtSpAll , data = prio_grid_isd)
+summary(non_state_NB_mini)
+
+non_state_NB <- glm.nb(non_state ~ logSpAll + mountains_mean + water_gc + barren_gc +
+		  distcoast + logPopd + bdist3, data = prio_grid_isd)
+summary(non_state_NB)
+
+org3_NB_mini_sqrt <- glm.nb(org3 ~ sqrtSpAll, data = prio_grid_isd)
+summary(org3_NB_mini_sqrt)
+
+org3_NB_pop_sqrt <- glm.nb(org3 ~ sqrtSpAll + logPopd, data = prio_grid_isd)
+summary(org3_NB_pop_sqrt)
+
+org3_NB_mini_log <- glm.nb(org3 ~ logSpAll, data = prio_grid_isd)
+summary(org3_NB_mini_log)
+
+org3_NB_mini<- glm.nb(org3 ~ sp_os_i_sum, data = prio_grid_isd)
+summary(org3_NB_mini)
+
+org3_P_mini <- glm(org3 ~ logSpAll, data = prio_grid_isd, family = poisson)
+summary(org3_P_mini)
+
+pchisq(2 * (logLik(org3_NB_mini) - logLik(org3_P_mini)), df = 1, lower.tail = FALSE)
+
+org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		  distcoast + logPopd + bdist3, data = prio_grid_isd)
+summary(org3_NB)
 
 #==============================================================================#
 # Regression tables
@@ -406,4 +433,30 @@ zinb_deaths_s <- zeroinfl(deaths ~ sqrtSpAll_s * logCapdist_s +
 summary(zinb_deaths_s)
 
 summary(zinb_deaths$residuals)
+
+#==============================================================================#
+#	Transforming the main independent variable			       #
+#==============================================================================#
+
+# From a theoretical standpoint, what is the most appropriate way to model the
+# influence of state presence on conflict?  Should we expect a linear
+# relationship, one that increases rapidly and the tapers off (log), one that
+# increases less rapidly but tapers off less quickly (sqrt), or one that
+# increases slowly, then rapid before tapering off (s-shaped, like logistic)?
+
+hist(prio_grid_isd$sp_os_i_sum)
+
+hist(prio_grid_isd$logSpAll)
+
+hist(prio_grid_isd$sqrtSpAll)
+
+hist(prio_grid_isd$sp_os_i_sum^2)
+
+x <- (0:100)
+
+plot(sqrt(x))
+
+plot(log(x))
+
+plot(x)
 

@@ -499,6 +499,51 @@ prio_grid_isd  <- prio_grid_isd %>%
 rm(ged, ged201)
 
 #==============================================================================#
+#	Cleaning variable names 					       #
+#==============================================================================#	
+
+names(prio_grid_isd)
+
+shpPrep <- prio_grid_isd %>% 
+	rename(xcoordx = xcoord.x,
+	       ycoordy = ycoord.y,
+	       ycoordx = ycoord.x,
+	       xcoordy = xcoord.y,
+	       colx = col.x,
+	       coly = col.y,
+	       rowx = row.x,
+	       rowy = row.y,
+	       prec = prec_gpcc,
+	       precSD = prec_sd,
+	       tempSD = temp_sd,
+	       barren = barren_gc,
+	       forest = forest_gc,
+	       mountains = mountains_mean,
+	       water = water_gc,
+	       gcpmer = gcp_mer,
+	       gcpppp = gcp_ppp,
+	       spReach = sp_sum_any,
+	       spSum = sp_sum,
+	       spReachInt = sp_i_sum_any,
+	       spSumInt = sp_i_sum,
+	       frontierReach = sp_b_sum_any,
+	       frontierSum = sp_b_sum,
+	       frontierReachInt = sp_b_i_sum_any,
+	       frontierSumInt = sp_b_i_sum,
+	       overlap = sp_o,
+	       overlapInt = sp_o_i,
+	       spReachOneState = sp_os_sum_any,
+	       spOneState = sp_os_sum,
+	       spReachOneStateInt = sp_os_i_sum_any,
+	       spOneStateInt = sp_os_i_sum,
+	       stateBasedViolence = state_based,
+	       nonStateViolence  = non_state,
+	       oneSidedViolence = one_sided
+	)
+	
+names(shpPrep)
+
+#==============================================================================#
 #	Saving to file	 						       #
 #==============================================================================#
 
@@ -507,4 +552,4 @@ save(prio_grid_isd, file = "../Data/GeoISDControls.Rdata")
 load("../Data/GeoISDControls.Rdata")
 
 # Shape file
-write_sf(prio_grid_isd, "../Data/GeoISDControls.shp")
+write_sf(shpPrep, "../Data/GeoISDControls.shp")

@@ -191,7 +191,7 @@ interaction_models <- GeoISD_interactions(dvs=dvs, ivs=interactions, controls=co
 				 Models')
 
 #==============================================================================#
-# Communal violence analysis
+# Communal violence analysis & randomness
 
 
 cv_nb_models <- GeoISDanalysis(dvs=cv_dvs, ivs=ivs, controls=controls,
@@ -226,11 +226,58 @@ org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)
 summary(org3_NB)
 
+lighten <- function (col, pct = 0.75, alpha = .8) 
+{
+    if (abs(pct) > 1) {
+        print("Warning:  Error in Lighten; invalid pct")
+        pcol <- col2rgb(col)/255
+    }
+    else {
+        col <- col2rgb(col)/255
+        if (pct > 0) {
+            pcol <- col + pct * (1 - col)
+        }
+        else {
+            pcol <- col * pct
+        }
+    }
+    pcol <- rgb(pcol[1], pcol[2], pcol[3], alpha)
+    pcol
+}
+
+ggorg3 <- ggeffect(org3_NB, terms = "sqrtSpAll [0:15]")
+
+ggplot(ggorg3, aes(x^2, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+	      fill = lighten("blue")) +
+  geom_line(color = "blue") +
+  goldenScatterCAtheme
+
+deathsMainInt <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc + barren_gc +
+		  distcoast + logPopd + bdist3, data = prio_grid_isd)
+summary(deathsMainInt)
+
+ggDeathsInt <- ggeffect(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 6.27, 7.817]"))
+
+cols <- c("red", "green", "blue")
+
+pastels <- NULL
+for (i in 1:length(cols)) {
+	pastels[i] <- lighten(cols[i])
+}
+
+ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group, linetype = NA)) +
+  scale_fill_manual(values = pastels) +
+  geom_line() +
+  goldenScatterCAtheme
+
 #==============================================================================#
 # Regression tables
 # TODO: Add coeficient maps for propper names in regression tables
 
-for (i in 1:length(dvs)) { 
+xor (i in 1:length(dvs)) { 
   name <- dvs[i]
   filename <- paste("../Output/",name,".tex",sep="") 
   texreg(nb_models$models[[i]],

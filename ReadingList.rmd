@@ -1,0 +1,20 @@
+---
+title: "Reading list"
+bibliography: lib.bib
+output: pdf_document
+---
+
+Articles and books to read:
+==========================
+
+- @Hegre_2016 in 2
+- @Ito2020 in 2	
+- @Fearon_1996 **NOW READING**
+- @Eaton_2008 in 2
+
+Articles and books to use:
+=========================
+
+- @Ying_2020 in 2
+
+# References

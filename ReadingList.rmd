@@ -7,14 +7,15 @@ output: pdf_document
 Articles and books to read:
 ==========================
 
-- @Hegre_2016 in 2
-- @Ito2020 in 2	
-- @Fearon_1996 **NOW READING**
-- @Eaton_2008 in 2
+- @Hegre_2016 in 2. #Forcasting civil conflict
+- @Ito2020 in 2. #Partitioned ethnic groups & conflict onset
+- **@Fearon_1996** #Intragroup dynamics on intergroup conflict
+- @Englebert_2000 in 2. #Pre-colonial institutions & economic development
+- @Eaton_2008 in 2. Communal violence/raids in Keny/Uganda
 
 Articles and books to use:
 =========================
 
-- @Ying_2020 in 2
+- @Ying_2020 in 2 #State presence & conflict
 
 # References

@@ -35,6 +35,7 @@ library(raster)
 library(RColorBrewer)
 library(readr)
 library(sf)
+library(spdep)
 library(sidedata) # Some conflicts with raster (tail, stack, unstack, head)
 library(sp)
 library(spData)
@@ -549,6 +550,7 @@ names(shpPrep)
 
 # Rdata
 save(prio_grid_isd, file = "../Data/GeoISDControls.Rdata")
+
 load("../Data/GeoISDControls.Rdata")
 
 # Shape file

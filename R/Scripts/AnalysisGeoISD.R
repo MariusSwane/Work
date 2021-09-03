@@ -25,7 +25,10 @@ library(ggeffects)
 library(splines)
 library(conflicted)
 library(pscl)
+library(readr)
 library(MASS)
+library(spdep)
+library(sf)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -33,6 +36,12 @@ library(MASS)
 
 load("../Data/GeoISDControls.Rdata")
 source("goldenScatterCAtheme.r")
+
+#==============================================================================#
+#	Solving conflicts 						       #
+#==============================================================================#		
+
+conflict_prefer("filter", "dplyr")  
 
 #==============================================================================#
 #	Creating New Variables						       #
@@ -177,6 +186,45 @@ captions_int <- c('Fatalities * Distance to capital', 'State based conflict even
 ivs <- c('sqrtSpAll', 'logSpAll', 'sp_os_i_sum')
 
 interactions <- c('sqrtSpAll * logCapdist')
+
+#==============================================================================#
+#	Set up for spatial analysis				       	       #
+#==============================================================================#
+
+prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
+
+prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
+  as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
+  group_by(gid) %>% 
+  summarise(bdist3 = mean(bdist3),
+  capdist = mean(capdist), excluded = mean(excluded), 
+  	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
+	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
+
+prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
+
+# Merging static and aggregated prio data
+prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
+
+# Merging with the grid shape 
+prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
+  filter( (gwno >= 404 & gwno <= 626) | gwno == 651)
+
+prio_sp <- as(prio_grid, Class = "Spatial")
+
+nbQueen <- poly2nb(prio_sp, queen = T, row.names = prio_sp$gid)
+
+lw = nb2listw(nbQueen, style = "W", zero.policy = TRUE)
+
+moran.test(prio_grid_isd$deaths, listw = lw, zero.policy = TRUE)
+
+prio_grid_isd$deaths_l <- lag.listw(lw, prio_grid_isd$deaths, zero.policy = T)
+
+prio_grid_isd$state_based_l <- lag.listw(lw, prio_grid_isd$state_based, zero.policy = T)
+
+prio_grid_isd$non_state_l <- lag.listw(lw, prio_grid_isd$non_state, zero.policy = T)
+
+prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 
 #==============================================================================#
 #	Analysis							       #

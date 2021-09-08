@@ -555,3 +555,11 @@ plot(log(x))
 
 plot(x)
 
+#==============================================================================#
+#	Danger Zone!						      	       #
+#==============================================================================#
+
+testmodel <- glm.nb(state_based ~ logSpAll * capdist + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3 + factor(region), data =
+		    prio_grid_isd)
+summary(testmodel)

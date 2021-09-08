@@ -6,11 +6,11 @@ output: pdf_document
 Historical Context - The Emergence of Capitalism
 ------------------------------------------------
 
-- Expansion of trade (invention banking, limited liability)
-- Improvements in agriculture
-- Population growth
+- Expansion of trade (colonies, inventions in banking, limited liability)
+- Improvements in production & agriculture
+- Population growth & concentration
 - Revolutions
-	- Chicken or the egg? Capitalism or technological innovation?
+- Chicken or the egg? Capitalism or technological innovation?
 
 Adam Smith 1723-90
 ------------------
@@ -20,8 +20,8 @@ Adam Smith 1723-90
 - Greed is good, it tends to self-structure
 - Mercantilism and "Just prices"
 - It's about MOTIVATION -> increased efforts
-- COMPETITION (EXAMPLE - Carprenter)
-	- He even noted that if left to themsleves people of the same trade will 
+- COMPETITION (EXAMPLE - Carpenter)
+	- He even noted that if left to themselves people of the same trade will 
 	  collude to rig prices
 	- AKA need for regulation
 	- Provision of public goods
@@ -30,9 +30,8 @@ Adam Smith 1723-90
 What is the theory?
 -------------------
 
-- Bonus for those present
-- Individual rational pursuit of self interest can be a public good
-- "greed" -> competition -> increased economic output
+- Conclusion: Individual rational pursuit of self interest can be a public good
+- Theory: "greed" -> competition -> specialization -> increased economic output
 
 When actors are allowed to compete in a market, provision of goods and services
 improve over time

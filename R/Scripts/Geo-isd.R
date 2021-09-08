@@ -41,6 +41,8 @@ library(sp)
 library(spData)
 library(tidyr)
 library(maps)
+library(fastDummies)
+library(countrycode)
 
 #==============================================================================#
 #	Setting preferences                                                    #
@@ -104,19 +106,19 @@ geoisd_borders_data <- read_csv('../../QGIS/Geo-ISD_Borders2.csv',
 
 # Capitals
 
-data(world.cities)
-capitals <- world.cities %>% filter(capital==1) 
-capitals <- st_as_sf(x = capitals, coords = c("long", "lat"), 
-			crs = st_crs(geoisd))
-
-valid_geoisd <- st_make_valid(geoisd)
-valider_geoisd <- filter(valid_geoisd, st_is_valid(valid_geoisd)==TRUE)
-
-# TODO: below steps should probably be done after interpolation (see step further
-# down)
-valider_geoisd$capitals <- lengths(st_intersects(valider_geoisd, capitals))
-
-nocaps <- filter(valider_geoisd, valider_geoisd$capitals < 1) 
+#data(world.cities)
+#capitals <- world.cities %>% filter(capital==1) 
+#capitals <- st_as_sf(x = capitals, coords = c("long", "lat"), 
+#			crs = st_crs(geoisd))
+#
+#valid_geoisd <- st_make_valid(geoisd)
+#valider_geoisd <- filter(valid_geoisd, st_is_valid(valid_geoisd)==TRUE)
+#
+## TODO: below steps should probably be done after interpolation (see step further
+## down)
+#valider_geoisd$capitals <- lengths(st_intersects(valider_geoisd, capitals))
+#
+#nocaps <- filter(valider_geoisd, valider_geoisd$capitals < 1) 
 
 # PRIO-Grid
 
@@ -155,22 +157,22 @@ prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>%
 #	Intersect with priogrid to create gids with number of maps in them     #
 #==============================================================================#	
 
-interpl <- valider_geoisd %>% filter(is.na(year) == T & is.na(lyear) == F) %>%
-	mutate(row_id = row.names(.), 
-	       lyear_new = lyear, hyear_new=hyear)
-
+#interpl <- valider_geoisd %>% filter(is.na(year) == T & is.na(lyear) == F) %>%
+#	mutate(row_id = row.names(.), 
+#	       lyear_new = lyear, hyear_new=hyear)
+#
 # TODO: fix error
-interpl <- interpl %>% group_by(row_id) %>%
-  nest(lyear_new, hyear_new) %>%
-  mutate(data = map(data, ~seq(.x$lyear_new, .x$hyear_new, by = 1))) %>%
-  unnest(data)
-
-interpl <- left_join(valider_geoisd, interpl)
-
-interpl <- interpl %>% 
-  mutate(year=ifelse(is.na(year) == T, data, year))
-
-new_gisd_pg <- prio_grid %>% mutate(sp = lenghts(st_within(prio_grid, interpl)))
+#interpl <- interpl %>% group_by(row_id) %>%
+#  nest(lyear_new, hyear_new) %>%
+#  mutate(data = map(data, ~seq(.x$lyear_new, .x$hyear_new, by = 1))) %>%
+#  unnest(data)
+#
+#interpl <- left_join(valider_geoisd, interpl)
+#
+#interpl <- interpl %>% 
+#  mutate(year=ifelse(is.na(year) == T, data, year))
+#
+#new_gisd_pg <- prio_grid %>% mutate(sp = lenghts(st_within(prio_grid, interpl)))
 
 #==============================================================================#	
 # Cleaning
@@ -498,6 +500,16 @@ prio_grid_isd  <- prio_grid_isd %>%
 
 # Cleaning
 rm(ged, ged201)
+
+#==============================================================================#
+#	Adding region dummies						       #
+#==============================================================================#	
+
+# Removing Seychelles for lack of region (and relevance in general)
+prio_grid_isd <- prio_grid_isd %>% filter(prio_grid_isd$gwno != 591)
+
+prio_grid_isd$region <- as.numeric(as.factor(countrycode(prio_grid_isd$gwno,
+							 "gwn", "region23")))
 
 #==============================================================================#
 #	Cleaning variable names 					       #

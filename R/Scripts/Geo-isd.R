@@ -41,7 +41,6 @@ library(sp)
 library(spData)
 library(tidyr)
 library(maps)
-library(fastDummies)
 library(countrycode)
 
 #==============================================================================#

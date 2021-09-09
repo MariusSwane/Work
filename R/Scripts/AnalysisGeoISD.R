@@ -262,6 +262,7 @@ summary(org3_NB_pop_sqrt)
 org3_NB_mini_log <- glm.nb(org3 ~ logSpAll, data = prio_grid_isd)
 summary(org3_NB_mini_log)
 
+# Test for NB or Poisson
 org3_NB_mini<- glm.nb(org3 ~ sp_os_i_sum, data = prio_grid_isd)
 summary(org3_NB_mini)
 
@@ -273,6 +274,10 @@ pchisq(2 * (logLik(org3_NB_mini) - logLik(org3_P_mini)), df = 1, lower.tail = FA
 org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)
 summary(org3_NB)
+
+#==============================================================================#
+#	Marginal interacation plots 					       #
+#==============================================================================#
 
 lighten <- function (col, pct = 0.75, alpha = .8) 
 {
@@ -556,10 +561,75 @@ plot(log(x))
 plot(x)
 
 #==============================================================================#
+#	Excluding unpopulated cells					       #
+#==============================================================================#
+
+# TODO: Decide on whether to use 1500 pop.density or more modern. Am I only
+# interested in places where there *were* any pople or, places where there
+# *are* pople now? Probably current day.
+
+# Draw plot of population denisty (log) anno 1500 where population is > 0
+
+ggplot() +
+	geom_sf(data = filter(prio_grid_isd, popd > 0),
+            linetype = 0,
+            aes_string(fill = "logPopd"),
+            show.legend = FALSE) + 
+    scale_fill_viridis_c() +
+    theme_minimal()
+
+# Main Regressions without unpopulated cells
+
+sb0 <- glm.nb(state_based ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3, data =
+		    filter(prio_grid_isd, popd > 0))
+summary(sb0)
+
+
+ds0 <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3, data =
+		    filter(prio_grid_isd, popd > 0))
+summary(ds0)
+
+ns0 <- glm.nb(non_state ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3, data =
+		    filter(prio_grid_isd, popd > 0))
+summary(ns0)
+
+org0 <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3, data =
+		    filter(prio_grid_isd, popd > 0))
+summary(org0)
+
+# Main Regressions without unpopulated cells and regional dummies
+
+sb0 <- glm.nb(state_based ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3 + factor(region), data =
+		    filter(prio_grid_isd, popd > 0))
+summary(sb0)
+
+
+# Throws an error
+ds0 <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3 + factor(region), data =
+		    filter(prio_grid_isd, popd > 0))
+summary(ds0)
+
+ns0 <- glm.nb(non_state ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3 + factor(region), data =
+		    filter(prio_grid_isd, popd > 0))
+summary(ns0)
+
+org0 <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		    distcoast + logPopd + bdist3 + factor(region), data =
+		    filter(prio_grid_isd, popd > 0))
+summary(org0)
+
+#==============================================================================#
 #	Danger Zone!						      	       #
 #==============================================================================#
 
-testmodel <- glm.nb(state_based ~ logSpAll * capdist + mountains_mean + water_gc + barren_gc +
+testmodel <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
 		    distcoast + logPopd + bdist3 + factor(region), data =
 		    prio_grid_isd)
 summary(testmodel)

@@ -1,0 +1,15 @@
+[submodule "Web/starter-hugo-academic"]
+	path = Web/starter-hugo-academic
+	url = https://github.com/wowchemy/starter-hugo-academic
+[submodule "Web/themes/academic"]
+	path = Web/themes/academic
+	url = https://github.com/wowchemy/starter-hugo-academic
+[submodule "Web/themes/ananke"]
+	path = Web/themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
+[submodule "Web/themes/themes/anubis"]
+	path = Web/themes/themes/anubis
+	url = https://github.com/mitrichius/hugo-theme-anubis.git
+[submodule "Web/themes/anubis"]
+	path = Web/themes/anubis
+	url = https://github.com/mitrichius/hugo-theme-anubis.git

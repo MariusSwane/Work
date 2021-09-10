@@ -1,0 +1,32 @@
+---
+title: "Hand-in 1: Economic systems and classical political economy"
+author: "Marius Swane Wishman"
+bibliography: "../../lib.bib"
+output: pdf_document
+---
+
+Economic systems
+================
+
+1. Give 5 examples of economic systems
+
+4. Find an **academic** article online (google scholar, oria or equivalent is
+   helpful), and summarize some of its theoretical arguments.
+
+Classical political economy
+===========================
+
+1. Why did Adam Smith argue most markets should generally operate free of state
+intervention?
+
+2.
+	* What are the marginal opportunity costs of planes and in this
+	  beautifully drawn example?
+	
+	* What are their respective comparative advantages?
+
+	* What (if anything) should each of them specialize in according to
+	  Ricardo’s theory of comparative advantages, and why? Demonstrate and
+	  explain!
+
+

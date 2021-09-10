@@ -1,14 +1,17 @@
-
 \documentclass[12pt]{article}
+
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage{natbib}
+\usepackage[round]{natbib}
 \usepackage{authblk}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage{rotating}
 \usepackage[british]{datetime2}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage[top=28truemm,bottom=26.5truemm,left=25.5truemm,right=25.5truemm]{geometry}
 
 \renewcommand{\harvardurl}{\textbf{URL:} \url}
 
@@ -36,12 +39,12 @@
 
 \keywords{}
 
-\pagebreak
-
 %tableofcontents
 %\pagebreak
 
 \onehalfspacing
+
+\begin{multicols}{2}
 
 \section{Introduction}
 
@@ -567,11 +570,16 @@ Libyan case, its tenuous hold on the Fezzan region. Although to a lesser degree,
 one can also see that Libya as a whole spent fewer years as an independent state
 than its neighbours in the region.
 
-\begin{figure}[!htb]
-	\includegraphics[width=\textwidth,keepaspectratio]{../TUNLIBEGY.pdf}
+\end{multicols}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{../TUNLIBEGY.pdf}
 	\caption{Overlay of all map polygons of Tunisia, Libya and Egypt}
 	\label{overlay}
 \end{figure}
+
+\begin{multicols}{2}
 
 The data from this project can be aggregated and used in many ways and to
 produce many variables. All of these indicators are aggregated over all years
@@ -581,6 +589,8 @@ number of maps that indicate that a state was present there, counting only those
 of the state most often present in that cell. Figure \ref{Sp} shows the log
 transformation (to lessen the visual impact of large variations in the number of
 maps for different states) of this measure for all African PRIO grid cells.
+
+\end{multicols}
 
 \begin{figure}[htpb]
 	\centering
@@ -598,6 +608,8 @@ maps for different states) of this measure for all African PRIO grid cells.
 	\caption{State presence (sqrt transformed)}
 	\label{Sp}
 \end{figure}
+
+\begin{multicols}{2}
 
 \section{Research design}
 
@@ -733,6 +745,8 @@ however, the results indicate that the negative effects of higher values of
 state presence further away form the capitals of Africa outweighs these conflict
 reducing effects. 
 
+\end{multicols}
+
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=\linewidth]{"../R/Output/conflictMargins.pdf"}
@@ -754,9 +768,13 @@ reducing effects.
 	\label{sb_int}
 \end{figure}
 
+\begin{multicols}{2}
+
 \section{Conclusion}
 
 *** Awaiting more detailed results ***
+
+\end{multicols}
 
 \pagebreak
 

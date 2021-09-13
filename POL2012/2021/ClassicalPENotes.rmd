@@ -20,7 +20,7 @@ Adam Smith 1723-90
 - Greed is good, it tends to self-structure
 - Mercantilism and "Just prices"
 - It's about MOTIVATION -> increased efforts
-- COMPETITION (EXAMPLE - Carpenter)
+- COMPETITION (EXAMPLE - airports)
 	- He even noted that if left to themselves people of the same trade will 
 	  collude to rig prices
 	- AKA need for regulation
@@ -31,7 +31,7 @@ What is the theory?
 -------------------
 
 - Conclusion: Individual rational pursuit of self interest can be a public good
-- Theory: "greed" -> competition -> specialization -> increased economic output
+- Theory: "greed" -> competition & specialization -> increased economic output
 
 When actors are allowed to compete in a market, provision of goods and services
 improve over time
@@ -46,28 +46,20 @@ David Ricardo 1772-1823
 - THE classical theory of international trade
 - Has not aged like Smith
 - The benefits of international (free) trade
-- Absolute advantage - Bananas vs potatoes, Norway and Costa Rica (Smith)
-
-	This is when trade happens
-
+- Absolute advantage 
+	- Bananas vs potatoes, Norway and Costa Rica (Smith)
+	This is when trade happens according to Smith
 	Both have more stuff
 
-- Comparative advantage is when the country has absolute advantage in the
-	production of both commodities it is beneficial for that country to specialise
-	in the production of that commodity in which it has a greater comparative 
-	advantage (wine). 
+- Comparative advantage 	
+	- Was the above example of comparative? Yes
+	- Pairwise, two parties (countries) and tow products
+	- You can have absolute advantage in both, but still benefit from
+	  exchange!
+	- What you are the most better at!
 
-	 the comparative advantage is greater in the production of wine 
-	(1.5 - 0.66 = 0.84) than in cloth (1.11 - 0.9 = 0.21). 
+- Practice!
 
-	England has the smallest comparative disadvantage in cloth
-
-	- But still, why should not Portugal still just be better in both?
-	- Here both England and Portugal gain from the trade i.e.
-	England gives 0.2 less of cloth to get one unit of wine and 
-	Portugal gets 0.11 more of cloth for one unit of wine.
-
-	Practice	
 - Class -- a product of source of income, competing interests
 - The interaction between rent, capital and labor
 - More on this in the seminar
@@ -101,3 +93,19 @@ Jean-Babtiste Say 1767-1832
 - Notice that this is a "Law", it was held to be True, until later in the course.
 
 There are others in Stillwell, they are also relevant, and we'll get to know at least one of them in the seminar
+
+John Stewart Mill (1806-73) 
+----------------------------
+
+- The great synthesizer!
+- Used as *the* book on economics (PE) until the neo-classicals we will
+  encounter next week
+- Tempered faith in markets. Worried about inequality and environmental
+  degradation (proffering the stationary state).
+
+Summary discussion
+------------------
+
+- To what degree were the classical political economists pro laissez-faire? What
+  where their counter points to free markets?
+  	- Discussed in terms of moral short comings, to be addressed by politics

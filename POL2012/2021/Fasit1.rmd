@@ -1,0 +1,59 @@
+---
+title: "Hand-in 1: Economic systems and classical political economy"
+author: "Marius Swane Wishman"
+bibliography: "../../lib.bib"
+output: pdf_document
+---
+
+Economic systems
+================
+
+1. Give 5 examples of economic systems.
+
+Capitalist, communist/socialist, facist, state-capitalist, slave-based,
+agrarian, collonial/extractive, plantation, feudal
+
+2. Find an **academic** article online (google scholar, oria or equivalent is
+   helpful), and summarize some of its theoretical arguments.
+
+Classical political economy
+===========================
+
+1. Explain the reigning theory of value in classical political economy.
+
+Goods have value **in** exchange based **on** labor. In a long run equilibrium
+the price will tend toward its natural price. Think of this as an *innate*
+value.
+
+2.
+	* What are the marginal opportunity costs of planes and in this
+	  beautifully drawn example?
+	
+	Ger: 50p or 1000c, cost of 1p = 100c/5p = 20c
+	Swe: 2p or 800c, cost of 1p = 800c/2p = 400c
+
+	* What are their respective comparative advantages?
+
+	  Lowest opportunitiy cost!
+
+	  Ger: Planes (absolute advantage in both) 
+	  Swe: Cars
+
+	* What (if anything) should each of them specialize in according to
+	  Ricardo’s theory of comparative advantages, and why? Demonstrate and
+	  explain! What terms of trade benefits both countries?
+
+	Ger: p = 20c, c = 5/100 = 0.05p in internal market
+	Swe: p = 400c, c = 2/800 = 0.002p in internal market
+
+	They should specialize according to their comparative advantage. Any
+	trade in the range of 1 (German built) plane for 21-399 Volvos.  
+	
+3. Why is growth slowed down by rents over time according to a Ricardian view?
+
+Bringing more real estate into the system increases the value of the real
+estate. This allows the landlord to raise the rent, the payment of which will
+have to come out of either wages of capital. Growth = capital accumulation, and
+because wages can never go below subsistence level (for long), profits (i.e.
+growth) gets squeezed between rents and wages. Poor capitalists...
+

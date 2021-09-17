@@ -1,0 +1,105 @@
+---
+title: "Neo-Classical Political Economy Notes"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+Neo-Classical 	
+---------------
+
+- We still need at least one reference student
+- Neo-classical !- neo-liberal
+
+Historical context - A crisis of capitalism
+-------------------------------------------
+
+- 1870s ->
+- Social upheaval (Glorious Revolution and first republic in Spain, Paris
+  Commune etc)
+- Marxism/socialism
+- Economic depressions
+- Imperialism
+- Natural sciences & positivism
+- Utilitarianism
+
+Supply and Demand
+-----------------
+
+- Léon Walras (1834-1910) supply and demand interacts to form an equilibrium
+  (general equilibrium theory)
+- William Stanley Jevons (1835-82); Carl Menger (1840-1921) (Formalized into
+  marginal analysis)
+- Alfred Marshall (1842-1924) (Formalized further and synthesized)
+
+Assumptions
+-----------
+
+- Utility - Explains differences and maximization % Value, Smith
+- Rational actors
+- Information and competition
+
+Benefits
+--------
+
+- Proofs
+- (formal) Models - much science!
+- Predictions - actually super useful
+  - Orthodoxy for a reason - bread and butter of economics as a field of study
+    to this day
+- With strong/assumptions come great power! BUT!
+  - With great power comes great responsibility - Understanding that these are
+    very simplified models. The assumptions will never strictly hold, and som
+    the results will reflect that.
+
+Units of analysis
+----------------
+
+- Consumers - Utility maximizing, rational, sovereign and in charge
+- Firms - Profit maximizing.  Output given by Marginal cost = marginal revenue.
+  No more need for "winging it" when it comes to output. 
+   - slave to the consumer
+   - slave to competitions
+     - But are they really? - Constantly dooing everything in their power to
+       avoid competition! Create/inflate demand, differentiate products.
+       - Simultaneously "proves" and disproves the theory!
+- No room for class or society as a whole only "aggregate" 
+  - To what degree can individuals be aggregated?
+
+How should we structure the market?
+-----------------------------------
+
+- Perfect competition! - Pareto efficient use of factors of production!
+  Eliminates excess profits! Everyone is happy!
+
+- Easier said than done?
+  - Breaking monopolies? - Can undermine incentives, international competition,
+    how monopolized before breaking up?
+  - Barrier to entry can be really stubborn in a world of technology and
+    patents.
+  - Short term? 
+  - Long term? - Inheritance
+
+Distribution
+------------
+
+- Labor market is still a market - S&D - it will form an efficient equilibrium!
+  Don't worry about it! 
+  - Interfering might impair efficiency of the market!
+- Distribution is a result of ability
+
+Similarities
+------------
+
+- Capitalist markets economy
+- Pursuit of ``governing laws"
+- Equilibrium
+- Private property % Competition and self interest. Without property there are no profits
+- Economic liberalism
+
+Differences
+-----------
+
+- Neo-classical is far less holistic % Economics included history, geography, politics, institutions, social sciences in general. Concerns of social progress.
+- "Physics envy"
+- Far less moral conserns, but not devoid of it: liberal-interventionist
+

@@ -29,6 +29,7 @@ library(readr)
 library(MASS)
 library(spdep)
 library(sf)
+library(yarr)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -42,6 +43,7 @@ source("goldenScatterCAtheme.r")
 #==============================================================================#		
 
 conflict_prefer("filter", "dplyr")  
+conflict_prefer("select", "dplyr")
 
 #==============================================================================#
 #	Creating New Variables						       #
@@ -151,10 +153,32 @@ corrplot(corrdata_mat$r, method='color', diag=F, addCoef.col = "black",
          p.mat = corrdata_mat$P, insig = "blank", tl.col = "black",
          tl.srt = 45)
 
-# Summary Statistics
-
 # TODO: Print to file
 summary(corrdata)
+
+# Summary Statistics
+
+skimmed <- describe(select(data.frame(prio_grid_isd), deaths, state_based, sp_os_i_sum, capdist))
+
+latex(skimmed, title = "test", file = "../Output/skimmed.tex")
+
+d <- ggplot(prio_grid_isd, aes(deaths))
+
+sb <- ggplot(prio_grid_isd, aes(state_based))
+
+sp <- ggplot(prio_grid_isd, aes(sp_os_i_sum))
+
+cd <- ggplot(prio_grid_isd, aes(capdist))
+
+d + geom_histogram()
+
+d + geom_dotplot(
+	 dotsize = 0.5) +
+	goldenScatterCAtheme
+	
+d + geom_area(stat = "bin")
+
+d + geom_density(kernel = "gaussian")
 
 #==============================================================================#
 #	Variables							       #

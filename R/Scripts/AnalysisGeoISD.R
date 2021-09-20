@@ -29,7 +29,7 @@ library(readr)
 library(MASS)
 library(spdep)
 library(sf)
-library(yarr)
+library(psych)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -44,6 +44,7 @@ source("goldenScatterCAtheme.r")
 
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")
+conflict_prefer("describe", "psych")
 
 #==============================================================================#
 #	Creating New Variables						       #
@@ -161,6 +162,8 @@ summary(corrdata)
 skimmed <- describe(select(data.frame(prio_grid_isd), deaths, state_based, sp_os_i_sum, capdist))
 
 latex(skimmed, title = "test", file = "../Output/skimmed.tex")
+
+# stargazer and texreg?
 
 d <- ggplot(prio_grid_isd, aes(deaths))
 

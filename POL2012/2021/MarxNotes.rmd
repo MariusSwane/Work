@@ -1,0 +1,177 @@
+---
+title: "Marxism"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+Introduction
+------------
+
+- Marxism != Communism
+- Marxism != Political Marxism
+- Marxism = (kinda) Grand theory / Paradigm / Theoretical framework
+
+Historical Context
+------------------
+	
+- The first "crisis"
+- Structural changes: "business was booming"
+- From merchants to manufacturers From landowners to industrialists 
+  - But for the workers? 
+  - Malthus Wages stagnant Work-days long (14-18h) 
+  - Low-skill industries
+  - Factories, mines 
+  - Even authorities worried
+  	- Bad soldiers 
+  - Revolutionary potential
+
+Karl Marx - Framework for understanding Capitalism
+--------------------------------------------------
+
+- Capitalism emerges from feudalism (which in turn emerges from slavery -
+  primitive)
+- Mode of Production 
+- Internal dynamics and Contradictions
+- Evolutionary, and revolutionary (prescriptive)
+- Resurgent?
+
+Method of Marx
+--------------
+
+- (bad(Popper)) Historical (Hegel) 
+- Materialist Dialectic (empire-barabarians, aristocracy-bourgeoisie, bourgeois
+  democracy-proletariat -> communism) 
+- Praxis
+
+Criticism of Capitalism
+-----------------------
+
+- Lack of class understanding 
+- Class is inherently bad
+- Focus on capital vs. labor 
+- Separation of labor from the ownership of the means of production 
+- One class has the ownership of the means of production 
+- One class survives by selling its labor power
+
+Exploitation 
+-------------
+
+- Labor THEORY of value) 
+  - builds on Smith
+  - but it's **all about labor**
+- Simple, but has MASSIVE implications! 
+- DISCUSS: does it make sense to you? Do you see any problems? 
+  - Value does not translate directly to prices
+- Any situation where one class derives income from the labor of another 
+  - Produce value over and above what is returned to them 
+  - Surplus value (profit) 
+  - Lots of actors interest in minimizing wages and maximizing surplus
+    value
+- Alienation from fruits of labor 
+
+Internal contradictions
+-----------------------
+
+- Growth of monopoly power 
+	- Accumulation of capital the driving force of capitalism 
+- Expansionary nature of capitalism 
+	- Imperialism (Lenin) 
+- Commodification
+- Uneven development (Only one class benefits, and also imperialism) 
+  - Time, space and class
+
+Economic Crises
+---------------
+
+- Falling profit rates (value is only created by labor) 
+	- Marginal productivity of labor
+	- If the rate of surplus value remains unchanged, the rate of profit (how
+	much you you get back per $ invested) would tend to decline. LTV (p.145)
+	you buy a new machine -> bigger surplus, constant RoP, competitor buys
+	same machine -> same surplus as before, bigger input -> decreased RoP
+	- Collective incentives to avoid this, but lack of a coordinating actor
+- Underconsumption (overproduction) 
+
+Role of the State 
+------------------
+
+- State serves capitalist interests
+- Economic and social reproduction
+
+But what of Growth? 
+--------------------
+
+- 5 conditions of capital accumulation
+	- Minimizing production costs 
+		- Extending the geographical area 
+		- Hiring people from new social groups at lower wage rates 
+		- Unemployment 
+	- Increasing surplus value
+		- Increasing the volume and value of goods and
+  		services Raising the productivity of labor 
+		- Raising the intensity of labor
+		- Mechanizing production 
+	- Realizing surplus value 
+		- Marketing the products commercialization of life 
+		- Grow consumer demand 
+		- Extend credit facilities 
+	- (Rapid circulation & economic and social reproduction) 
+
+To the barricades!
+------------------
+
+- Capitalism can not provide social change (self-perpetuating) 
+- Class conflict is inherent in the system and will perpetually lead to conflict
+  as long as the system is in place!
+
+A word of caution
+-------------------------------------
+
+- Is capitalism bad?  
+  - A huge step forward 
+  - Very good at capital accumulation!
+	- Social institutions that underpin/legitimize the system 
+	- Coercive backup 
+	- Micro level action by actors pursuing their own self-interest. 
+	- Very adaptable!
+  - But no social progress in capitalism!
+
+  - Capitalists are not evil
+  	- As good or evil as any other human being
+  	- Capitalist behavior stems from the structure.  
+	- Cannot behave in any other way 
+	- Exploitation is systemic/structural
+- Conflict of interest is structurally embedded in the system
+
+After the revolution?
+---------------------
+
+- Do not say a whole lot on this, so neither will we
+- We focus on the more relevant (and less contentous) critique of capitalism
+
+Unit of analysis
+----------------
+
+- Marxist level of analysis: 
+	- Structural doesn't matter if individuals are good
+	  or evil 
+- Neoclassical level of analysis: 
+  	- Micro/individual or meso/firm
+	- Not structural. 
+	- No program for structural change (or any other change)
+
+Thomas Piketty (1971- ) (if time)
+---------------------------------
+
+- Modern Marxist (keep this in mind as you are reading)
+- Why does his work/theory fit inside the framework?  
+	- History 
+	- Structures 
+  	- Criticism of flaws inherent in capitalism 
+	- Class 
+- However...  
+  	- Equations, and lots of noeclassical modelling
+  	- Gone is the Dialectic 
+	- Gone is the Praxis (mostly)
+- r > g 
+	

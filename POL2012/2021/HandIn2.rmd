@@ -1,0 +1,24 @@
+---
+title: "Hand-in 2"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+Neo-classical political economy
+===============================
+
+1) Supply shift
+
+2) Indifference curves
+
+3) Elasticity of demand
+
+Marxism
+=======
+
+1) What separates Marx' labor theory of value from earlier classical theories of
+value?
+
+2) According to Marx, why will capitalist economies be doomed to repeated
+economic crises?
+

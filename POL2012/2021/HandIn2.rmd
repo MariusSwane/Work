@@ -7,11 +7,15 @@ output: pdf_document
 Neo-classical political economy
 ===============================
 
-1) Supply shift
+1) Use neo-classical marginal analysis to draw a model of, and explain, a shift
+in supply.
 
-2) Indifference curves
+2) Draw an approximate indifference curve for a consumer who:
+	a) Loves apples, but dislikes oranges
+	b) Loves apples and oranges just the same
 
-3) Elasticity of demand
+3) What does it mean that the demand for a good is inelastic at a given price?
+When is it elastic?
 
 Marxism
 =======

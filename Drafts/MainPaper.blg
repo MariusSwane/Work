@@ -4,45 +4,45 @@ The top-level auxiliary file: MainPaper.aux
 The style file: agsm.bst
 Database file #1: ../lib.bib
 Warning--can't use both author and editor fields in tilly_1985
-You've used 41 entries,
+You've used 42 entries,
             2909 wiz_defined-function locations,
-            924 strings with 11203 characters,
-and the built_in function-call counts, 114424 in all, are:
-= -- 18099
-> -- 1417
+            930 strings with 11330 characters,
+and the built_in function-call counts, 116224 in all, are:
+= -- 18358
+> -- 1441
 < -- 3
-+ -- 8219
-- -- 420
-* -- 9446
-:= -- 23949
-add.period$ -- 41
-call.type$ -- 41
-change.case$ -- 563
-chr.to.int$ -- 41
-cite$ -- 42
-duplicate$ -- 665
-empty$ -- 1334
-format.name$ -- 535
-if$ -- 20341
++ -- 8306
+- -- 427
+* -- 9555
+:= -- 24316
+add.period$ -- 42
+call.type$ -- 42
+change.case$ -- 577
+chr.to.int$ -- 42
+cite$ -- 43
+duplicate$ -- 711
+empty$ -- 1378
+format.name$ -- 544
+if$ -- 20692
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 51
-newline$ -- 131
-num.names$ -- 415
-pop$ -- 192
+missing$ -- 52
+newline$ -- 135
+num.names$ -- 425
+pop$ -- 199
 preamble$ -- 1
-purify$ -- 615
+purify$ -- 630
 quote$ -- 0
-skip$ -- 518
+skip$ -- 574
 stack$ -- 0
-substring$ -- 25084
-swap$ -- 110
-text.length$ -- 577
+substring$ -- 25385
+swap$ -- 142
+text.length$ -- 591
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 142
+type$ -- 146
 warning$ -- 1
-while$ -- 908
+while$ -- 930
 width$ -- 0
-write$ -- 518
+write$ -- 531
 (There was 1 warning)

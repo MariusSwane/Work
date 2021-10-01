@@ -1,0 +1,136 @@
+# Scraps from writing. Perhaps useful for the Kappa
+
+# INDEX
+# 
+# Central state weakness/collapse interaction  
+# Habituation/internalisation dependent on continuation?
+
+# Central state weakness/collapse interaction
+\subsubsection{Central State Weakness/Collapse}
+
+When modern states `collapse' or in another sense achieve `failed state' status,
+it creates a (series of) power vacuums and room/need for other actors to fill
+the various roles usually filled by the state. At the regional level one can
+imagine a handful of actors capable of filling this vacuum (of power and
+service provision), one of which is pre-colonial state. Other candidates could
+be active rebel groups, religious organizations and ethnic groups (not tied to
+pre-colonial states). I would argue that pre-colonial states and active rebel
+groups have distinct advantages above the others. Prime mover advantage and
+capacity to monopolise violence on part of rebel groups, and legitimacy and
+organizational benefits on the part of pre-colonial states.
+
+The dynamics of this lie in how state collapse unfolds and `evolves'. Although I
+am not sure if I will be able to test or properly examine this process I will
+nevertheless sketch out how I imagine it (typically) unfolds.
+
+Democratic collapse, succession/reform crises, state predation and/or civil war
+are usually on the path toward state failure\citep{Goldstone_2008}. Once a state
+has failed, lost its legitimacy and effectiveness \citep{Goldstone_2008}, other
+actors will attempt to fill the void. This happens at all levels of government I
+imagine, but most visibly at the country (repeated coups, attempts to overthrow
+the government) and regional level (various forms of regional self governance).
+I will focus on pre-colonial states reemerging as a basis of regional self
+governance  (RSG) and the dynamics of it. If or when a pre-colonial state,
+through either ethnic group, formal institutions or less formal networks, begins
+to engage in RSG it sets out on a path that will at some point clash with the
+interests of the central government. Because of its position as a pre-colonial
+\textit{state} it is inevitably a challenge to the integrity of the state as a
+whole. This creates a potential for further conflict, along new lines, in often
+war torn countries. 
+
+A different aspect of pre-colonial states engaging in RSG is that they can
+create pockets of relatively functioning government within otherwise failed
+states. I believe this can at least be tentatively explored on few case-by-case
+basis using the data I have available. Do areas of high state presence (see data
+section) outside the capital, experience a drop in combat events after engaging
+in RSG. 
+
+The example I primarily had in mind is  Puntland in Somaila, which corresponds
+to the pre-colonial state of the Majarteen sultanate, has engaged in RSG as an
+autonomous state within Somailas federal system. In terms of both peace and
+prosperity the region has fared better than the rest of Somalia. Unlike
+Somaliland the state is not seeking full independence. However, they do have
+their own military forcer and tensions could rise if the central government were
+to attempt further integration.
+
+Other potential cases in Africa (see data) include Chad, Nigeria, DRC,
+Sudan/Darfur and Lebanon.
+
+Consider the illustrative case of the Russian federal state of Tatarstan. The
+Tatar Khanate of Kazan was conquered by Ivan the Terrible in 1552 and
+incorporated into the Russian empire as Kazan province by Peter the Great in
+1708 \citep{Sharifzhanov_2007}. Despite Russification policies until the reign
+of Cathrine II the Great (1762-96), when the Russian Empire collapsed following
+the February revolution of 1917 Tatar nationalist seized the moment and declared
+the creation Idel-Ural state \citep{Devlet_1993}. The nascent state laid claim
+to boundaries closely resembling those of the old Khanate \citep{Hartley2020},
+but the Bolsheviks and the Red Army were able to thwart the secession after a
+month \citep{Hartley2020}. While the Tatars of Kazan no doubt were able to
+retained their dreams of independence in large part to the ethnic and religious
+differences between themselves and their rulers, it is striking that the
+proposed borders follow those of the old Khanate and not of settlement patterns
+of the Tatar ethnic group who were spread over a larger territory as part of the
+Russification policy of the Tsars. Part of the movements goals was also the also
+to allow Tatars émigré populations to return to their homeland
+\citep{Devlet_1993}. When in turn the Soviet Union began to open up and collapse
+in 1990-1991, the space once again opened up for the Tatars to reassert their
+sovereignty. Following the example of Moscow and Russia the Tatar Autonomous
+Soviet Socialist Republic declared itself a sovereign republic within the USSR,
+which it attained in a declaration adopted by the Supreme Soviet. Thus on 12
+June 1991 Russia acquired two presidents, Boris Yeltsin and Mintimir Sheymiev
+\citep{Sharifzhanov_2007}. A referendum was set for 21 March 1992 on the
+question of Tatarstan's independence. Authorities in Moscow tried to prevent
+the referendum through the Constitutional Court of Russia and televised appeal
+by Yeltsin to boycott the referendum, warning that an affirmative response
+``would possibly lead to bloodshed." \citep{Sharifzhanov_2007}.  Nevertheless,
+the referendum went ahead in the presence of international observers and boasted
+a turnout 82 percent of which 61.4 percent voted for independence
+\citep{Devlet_1993}. Following the referendum a new constitution was drafted
+confirming Tatarstan's sovereignty. ``The Republic of Tatarstan shall be a
+sovereign state, a subject of international law, associated to the Russian
+Federation - Russia - on the basis of the Treaty on Mutual Delegation of Powers
+and Subjects under Jurisdiction." \citet{Sharifzhanov_2007}. Unlike Chechen
+leaders the Tatar leaders did not threaten use violent resistance to secede from
+Russia, and through negotiations with the Yeltsin government they were able to
+carve out a unique position of autonomy within the Russian Federation in 1994.
+The different positions on the use of violence between the Chechens and Tatars
+I believe is due to the feasibility of armed resistance to even a greatly
+weakened Russian state based on geographic conditions. Chechnya is on the very
+edge of the Russian periphery and is a mountainous country. Tatarstan on the
+other hand lies relatively close to Moscow, and its steppe terrain lends an
+advantage to modern national armies. In the words of the Chairman of the
+Tatarstan parliament: ``We take a completely \textit{realistic} view of the
+state of affairs: full independence is too abstract and unnecessary a concept
+whereas Tatarstan and Russia are linked by inseparable bonds."
+\citep{Sharifzhanov_2007}(emphasis added). At the same time parallels were still
+drawn all the way back to the Kazan Khanate. During a speech at the first World
+Congress of Tatars the Tatarstan president Mintimir Sheymiev declared that:
+
+\textit{The history of the Tatars nation is very difficult and tragic. The
+Tatars lost their Bulgar state, but found a respectable place for themselves
+within the Golden Horde. After its collapse they created the khanates of Kazan
+[...] the restoration of statehood was an idea ever present in Tatar history.}
+(cited in \citet{mustafin1995pervyi}, 113).
+
+H2.1: Grid cells with higher state presence experience higher levels of civil
+conflict following state collapse. 
+
+Currently not testing this hypothesis for a lack of a good measure of state
+collapse. Of course, this is not insurmountable, but I am not sure if it
+falls outside the scope of this paper. Perhaps this is best proxied by resent
+decolonisation/independence in the African context, which is somewhat testable
+by running the models of sub-samples of years. Specifically compare 1946-69 (or
+so) to other subsets of years. Perhaps split by decades. This would of course
+be an instance of state weakness more than collapse (unless you count it as the
+collapse of the colonial regime, in which case it is apt).
+
+# Habituation/internalisation dependent on continuation?
+
+Habitation/internalisation predicts lower levels of violence in higher state
+presence areas \textit{contingent} on \textit{continuation} of state presence,
+as this is quickly `unlearned'. In Africa this is almost exclusively central
+(historical) Ethiopia and perhaps parts of South Africa depending on the
+definition of continuation. However, a global sample would be interesting and
+perhaps contribute new insights to the argument that colonialism caused much of
+the woes and conflicts in the non-western world.
+

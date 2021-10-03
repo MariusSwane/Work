@@ -1,0 +1,108 @@
+---
+title: "Institutionalism and Keynesian Economics"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+Intro
+-----
+
+- Survey > reference students
+- Topics for second half
+
+Historical context
+------------------
+
+- First half of 20th century
+- Corporate power
+- Trade Unions
+- The State
+
+Institutionalism
+----------------
+
+- Can be a bit difficult, less clear cut and fewer "heroes", more particularist
+  theories/models
+- Critique of the reductionism of neo-classical PE
+- Evolution not Equilibrium
+- Institutions and Power
+- Bringing the "Political" back into "Political Economy"
+- Critique of Capitalism % Reform > Revolution
+
+Theory of the Leisure class (1899)
+----------------------------------
+
+- Conspicuous consumption/leisure % Consumption is socially determined (taken as given in neo-classical)
+- The Social process of production % Workmanship and predatory instinct, NOT PART of the theory of the leisure class!
+
+John Kenneth Galbraith (1908-2006)
+----------------------------------
+
+- Power
+	- Condign power (coercion,punishment)(leadership)	
+	- Compensatory power (money)(ownership/property)	
+	- Conditioned power ("soft power")(oraganisation)
+- Technology 
+	- Increasing pace -> requires planning -> growth of corporate power	
+	- At odds with planning and corporations
+	- Planned economy for private corporate good?
+- The techostructure
+	- Ownership != control 
+	- Control of Information	
+	- Corporate growth > profit
+- Rise of the Corporations 
+  	- Orkla group: KiMS, Nidar, OLW, Stabburet, Sætre, Pierre Robert
+	- Corporations operate in oligopolistic structure (AT ODDS WITH NEOCLASSICAL) 
+	- Only small businesses approach perfect competition 
+	- Consumer is NOT king (BECAUSE OF CORPORATE POWER)	
+	- Corporations decide the products	
+	- Creates needs, consumerism 
+
+Corporate Globalization
+-----------------------
+
+- TNC's/MNC's 
+	- Largest 500 70% of global trade
+	- intra-corporate trade, 1/3 of trade?
+	  How do you think the market operates in these circumstances?	
+	- less susceptible to national market forces and governments
+- Consumers and workers? 
+	- cheaper goods, less variety, jobs are mobile - workers are not
+	- Everything is global... including economic crises
+- Shifting balance of power 
+	- Mobile institutions > localized
+- The State 
+  	- Counterbalance 	
+	- still limited to market failure
+
+John Maynard Keynes (1883-1946)
+-------------------------------
+
+- Father of modern macroeconomics
+
+The Great Depression
+--------------------
+
+- Crisis of demand
+- Wages are not flexible - But, that is not the problem!
+- Vicious Cycle 
+  	- Wages down -> demand down -> more people unemployed 
+	-> demand further down -> even more people unemployed 
+	-> NO Equilibrium!
+
+Keynes' solution
+----------------
+
+- Y=C+I+G+X-M
+- Step 1: Be the state
+- Step 2: Increase aggregate demand % (Un)Employment is key
+  	- Increase Spending % Fiscal policy
+  	- Cut taxes (less inflationary, but...) % Dynamic effects
+  	- The multiplier effect
+- Inflation 
+  	- Increases in fiscal policy leads to inflation, 
+	  if employment is high you should limit inflation (countercyclical)
+- Monetary policy 
+  	- increase money supply -> interest rates down 
+	  -> demand up (but usually controlled by central bank)
+

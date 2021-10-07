@@ -8,9 +8,15 @@
 \usepackage{setspace}
 \usepackage{rotating}
 \usepackage[british]{datetime2}
-\usepackage[hidelinks]{hyperref}
+\usepackage{hyperref}
 \usepackage{multicol}
 \usepackage[top=28truemm,bottom=26.5truemm,left=25.5truemm,right=25.5truemm]{geometry}
+
+\hypersetup{
+colorlinks=true,
+citecolor=black,
+urlcolor=blue
+}
 
 \renewcommand{\harvardurl}{\textbf{URL:} \url}
 
@@ -58,7 +64,7 @@ consolidation should be most pressing.
 
 \onehalfspacing
 
-\begin{multicols}{2}
+%\begin{multicols}{2}
 
 \section{Introduction}
 
@@ -501,23 +507,51 @@ of civil conflict.}
 
 \section{The Geo-ISD}
 
-The main independent variable is a measure of what I call `state presence' per
-PRIO grid cell. It is a measure of the aggregate presence of independent
-pre-colonial states in the period 1800-1914. The data comes from the Geo-ISD
-project where Charles Butcher (NTNU), myself and our excellent research
-assistant Eirin Haugseth geocoded African states from the International Systems
-Data (hereafter ISD) \citep{Griffiths2013}
+The main independent variable is a measure of `state presence', per PRIO grid
+cell. It is a measure of the aggregate presence of independent pre-colonial
+states in the period 1800-1914. The data comes from the Geo-ISD project which
+geocoded the borders of African states from the International Systems Data
+(hereafter ISD) version 2 \citep{Butcher2020}. The ISD records sovereign states
+across the 1814-2016 period, defined as political entity with a population of at
+least 10,000, autonomy over a specific territory and sovereignty that is either
+uncontested or acknowledged by relevant international actors
+\citep{Butcher2020}.\footnote{For a more in depth discussion of the definition
+	of and criteria for statehood that the ISD is based on, see
+\citet{Butcher2017}.} This data picks up a large number of states that are
+missed by similar data sets, and avoids using arbitrary demands of statehood
+such as recognition by European powers \citep{Butcher2020}.  For example, the
+COW State System Membership contains 8 in Africa in the 1814-1914 period while
+the ISD v2 identifies 109. The Geo-ISD have been able to identify the borders
+of 82 out of these 109 in at least one year.
 
-\end{multicols}
-
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=0.8\linewidth]{img/Arrowsmith.jpg}
-	\caption{Example of georeferenced map}%
-	\label{fig:Arrowsmith}
-\end{figure}
-
-\begin{multicols}{2}
+The main idea behind the Geo-ISD was to use historically contemporary maps, as
+close to the primary sources as possible, containing the borders of countries to
+determine the extent/borders of different states as close to yearly as possible.
+The historically contemporary maps were collected from
+\href{https://www.davidrumsey.com}{the David Rumsey project}, matching the
+region of Africa. Figure \ref{fig:Arrowsmith} is an example of one such map,
+dated 1825. Of the multiple shapes that are drawn and named in the map, we only
+included those that were present in the ISD for the year in question. Using
+Figure \ref{fig:Arrowsmith} as an example we would include Bornou, but not
+neighboring Howssa, as the shape drawn seems to match either the Haussa ethnic
+group (a common event in these maps) or the multiple Houssa states, neither of
+which qualify as states in the ISD. The maps were then georeferenced in QGIS by
+connecting recognizable features in the maps (cities, distinctive capes,
+islands, etc) to their real locations. The result is a version of the map that
+is distorted to better fit reality, and which allows overlaying the maps onto
+satellite imagery containing exact location data, and manually tracing the
+borders drawn into GIS-shapes. The degree of distortion in the georeferenced
+maps, depends on the geographical accuracy of the original map. The degree of
+this accuracy across the sample of maps was of course a concern. The Geo-ISD
+therefore includes an estimate of the resulting errors, based on the estimated
+mean distance of the coast in the maps to the real coast along the borders of
+the states we traced. This means that there are often multiple estimates for
+each map, reflecting how the accuracy is better in some places than in others.
+If this difference was above 100km the maps were deemed too inaccurate and
+excluded from the sample. The mean error estimate across the sample is 36.9
+kilometers. We did not include error estimates for states that lay inland,
+because consistently matching features from the maps to real geographical
+features was not feasible other than when using the coastline.
 
 To get the locations of different pre-colonial states we used a combination of
 maps from the time period and maps found in historical atlases compiled by
@@ -527,31 +561,42 @@ georeferenced the maps and traced polygons for the states included in both the
 map and the ISD. Similarly the historical atlases were scanned, georeferenced
 and relevant state entities were traced.
 
-In the end we were left with over 3400 polygons covering the period 1800 to 1914
-for continental Africa and Madagascar. For some pre-colonial states in the ISD
-there were no maps for any years, some are covered only for some of the years
-they are in the ISD, but a substantial number of them are covered by multiple
-maps for many years. When maps disagreed on where the various borders were in a
-given year, we take it as an indication of the ambiguity of where a given state
-had \emph{de facto} or \emph{de jure} control in that year. In the areas where
-all the maps agree we could be quite sure that the given state entity had real
-presence.  While in areas where only one map indicated that the state was
-presence, this could either be wrong, an indication of \emph{de jure} as opposed
-to \emph{de facto} presence or some other form of limited presence. The coding
-process of looking at hundreds of maps strengthened this initial intuition, and
-the resulting figures of state presence drawn from the complete data lends it
-further credence. On aggregate most maps should agree on the core areas of a
-state while the further away from the core fewer maps would consider the area
-part of the state. We believe this approximates the real ambiguities surrounding
-where states governed and where they did not, resulting in a measure of state
-presence in a given area. Figure \ref{overlay} is an overlay of all the map
-polygons of Libya, Tunisia and Egypt. It demonstrates how the authority of these
-states faded into the desert, partially overlap at the borders, and in the
-Libyan case, its tenuous hold on the Fezzan region. Although to a lesser degree,
-one can also see that Libya as a whole spent fewer years as an independent state
-than its neighbours in the region.
+%\end{multicols}
 
-\end{multicols}
+\begin{figure}[h!tpb]
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/Arrowsmith.jpg}
+	\caption{Example of georeferenced map}%
+	\label{fig:Arrowsmith}
+\end{figure}
+
+%\begin{multicols}{2}
+
+In the end we were left with over 3400 polygons (state-shape-years) covering the
+period 1800 to 1914 for continental Africa and Madagascar. For some pre-colonial
+states in the ISD there were no maps for any years, some are covered only for
+some of the years they are in the ISD, but a substantial number of them are
+covered by multiple maps for many years. When maps disagreed on where the
+various borders were in a given year, we take it as an indication of the
+ambiguity of where a given state had \emph{de facto} or \emph{de jure} control
+in that year. In the areas where all the maps agree we could be quite sure that
+the given state entity had real presence.  While in areas where only one map
+indicated that the state was presence, this could either be wrong, an indication
+of \emph{de jure} as opposed to \emph{de facto} presence or some other form of
+limited presence. The coding process of looking at hundreds of maps strengthened
+this initial intuition, and the resulting figures of state presence drawn from
+the complete data lends it further credence. On aggregate most maps should agree
+on the core areas of a state while the further away from the core fewer maps
+would consider the area part of the state. We believe this approximates the real
+ambiguities surrounding where states governed and where they did not, resulting
+in a measure of state presence in a given area. Figure \ref{overlay} is an
+overlay of all the map polygons of Libya, Tunisia and Egypt. It demonstrates how
+the authority of these states faded into the desert, partially overlap at the
+borders, and in the Libyan case, its tenuous hold on the Fezzan region. Although
+to a lesser degree, one can also see that Libya as a whole spent fewer years as
+an independent state than its neighbours in the region.
+
+%\end{multicols}
 
 \begin{figure}[htpb]
 	\centering
@@ -560,7 +605,7 @@ than its neighbours in the region.
 	\label{overlay}
 \end{figure}
 
-\begin{multicols}{2}
+%\begin{multicols}{2}
 
 The data from this project can be aggregated and used in many ways and to
 produce many variables. All of these indicators are aggregated over all years
@@ -571,7 +616,7 @@ of the state most often present in that cell. Figure \ref{Sp} shows the log
 transformation (to lessen the visual impact of large variations in the number of
 maps for different states) of this measure for all African PRIO grid cells.
 
-\end{multicols}
+%\end{multicols}
 
 \begin{figure}[htpb]
 	\centering
@@ -590,7 +635,7 @@ maps for different states) of this measure for all African PRIO grid cells.
 	\label{Sp}
 \end{figure}
 
-\begin{multicols}{2}
+%\begin{multicols}{2}
 
 \section{Research design}
 
@@ -726,7 +771,7 @@ however, the results indicate that the negative effects of higher values of
 state presence further away form the capitals of Africa outweighs these conflict
 reducing effects. 
 
-\end{multicols}
+%\end{multicols}
 
 \begin{figure}[htpb]
 	\centering
@@ -749,13 +794,13 @@ reducing effects.
 	\label{sb_int}
 \end{figure}
 
-\begin{multicols}{2}
+%\begin{multicols}{2}
 
 \section{Conclusion}
 
 *** Awaiting more detailed results ***
 
-\end{multicols}
+%\end{multicols}
 
 \pagebreak
 

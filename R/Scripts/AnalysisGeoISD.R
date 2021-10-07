@@ -30,6 +30,7 @@ library(MASS)
 library(spdep)
 library(sf)
 library(psych)
+library(sidedata)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -660,3 +661,10 @@ testmodel <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + b
 		    distcoast + logPopd + bdist3 + factor(region), data =
 		    prio_grid_isd)
 summary(testmodel)
+
+side_download(country = "Uganda", year = 2010, marker = "ethnic", dest.dir =
+	      "../Data/", conv.hull = T)
+
+uga.ethnic <- side_load(country = "Uganda", year = 2010, marker = "ethnic",
+			source.dir = "../Data")
+plot(uga.ethnic)

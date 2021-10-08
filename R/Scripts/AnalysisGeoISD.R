@@ -31,6 +31,7 @@ library(spdep)
 library(sf)
 library(psych)
 library(sidedata)
+library(raster)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -662,9 +663,48 @@ testmodel <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + b
 		    prio_grid_isd)
 summary(testmodel)
 
-side_download(country = "Uganda", year = 2010, marker = "ethnic", dest.dir =
-	      "../Data/", conv.hull = T)
+# # The below command only needs to be run once
+# side_download(country = "Uganda", year = 2010, marker = "ethnic", dest.dir =
+#	      "../Data/", conv.hull = T)
 
 uga.ethnic <- side_load(country = "Uganda", year = 2010, marker = "ethnic",
 			source.dir = "../Data")
+
+uga.ethnic.meta.df <- sidemap2data(uga.ethnic)
+head(uga.ethnic.meta.df)
+
+names(uga.ethnic) <- uga.ethnic.meta.df$groupname
+
 plot(uga.ethnic)
+
+head(uga.ethnic)
+
+geoisd <- st_read('../../QGIS/Geo-ISD.shp')
+
+geoisd_data <- read_csv('../../QGIS/Geo-ISD.csv',
+                        cols(
+                          gid = col_double(),
+                          xcoord = col_double(),
+                          ycoord = col_double(),
+                          col = col_double(),
+                          row = col_double(),
+                          ISDID = col_character(),
+                          COWID = col_double(),
+                          name = col_character(),
+                          year = col_double(),
+                          lyear = col_integer(),
+                          hyear = col_integer(),
+                          source = col_character(),
+                          coder = col_character(),
+                          note = col_character(),
+                          error = col_double(),
+                          layer = col_character(),
+                          path = col_character()
+                        ),
+                        col_names = T,
+                        )
+
+crs(uga.ethnic) <- crs(geoisd)
+
+ugaSP <- as(uga.ethnic, 'SpatialGridDataFrame')
+

@@ -1,0 +1,72 @@
+
+\documentclass{beamer}
+
+\usepackage{graphicx}
+\usepackage[light]{FiraSans}
+\usepackage[british]{datetime2}
+\usetheme{default}
+\setbeamertemplate{navigation symbols}{} % No navigation symbols
+\definecolor{ntnu}{cmyk}{100,75,0,5}
+\setbeamercolor{alerted text}{fg=ntnu}
+\setbeamercolor{frame title}{fg=ntnu}
+\setbeamercolor{title}{fg=ntnu}
+\setbeamercolor{subtitle}{fg=ntnu}
+\setbeamercovered{transparent}
+
+\setbeamertemplate{itemize item}{\color{white}$\bullet$} % Comment this line for default bullet points (triangles)
+
+\setbeamertemplate{footline}
+{
+	\begin{center}
+	\begin{tabular}{ccccc|c}
+	\raisebox{-0.3cm}{\includegraphics[width=2cm, keepaspectratio]{logo_ntnu_u-slagord.pdf}} &
+	\insertshortauthor & 
+	\insertshorttitle &
+	\insertdate &
+	\insertsection
+	\hspace{2cm} &
+	\insertframenumber
+	\end{tabular}
+	\end{center}
+}
+
+\makeatletter
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[POL2012]{Evolutionary economics \& Modern political economy}
+
+\subtitle{}
+
+\author[Wishman]{Marius Swane Wishman} 
+\date{\today} 
+\institute{ISS}
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage 
+\centering
+\includegraphics[width=5cm]{logo_ntnu_u-slagord.pdf} 
+%\hspace{0.5cm} \includegraphics[width=5cm]{logo_ntnu_u-slagord.pdf} % Second logo, for use with black theme
+\end{frame}
+
+\section{The other Canon} 
+
+\begin{frame}
+\frametitle{The other Canon}
+
+\begin{itemize}
+	\item A response to the gap between the classical theories and the
+		actual policy pursued by their proponents\pause
+	\item Biology not physics \pause
+	\item Induction not deduction \pause
+	\item $$\aprox$$
+\end{itemize}
+	
+\end{frame}
+
+\end{document}	

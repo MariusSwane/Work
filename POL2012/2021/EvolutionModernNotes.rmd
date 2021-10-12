@@ -1,0 +1,114 @@
+---
+title: "Evolutionary Economy and Modern PE"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+Introduction
+------------
+
+- Reminder: today's seminar will be on writing a term paper
+- Far less on Evolutionary economics in Stillwell than I remembered. I will
+  upload an article, and put more text in today's slides
+
+The other Canon
+---------------
+
+- Other canon, evolutionary economics experienced-based economics, historical
+  economics, reality economics etc.
+- A response to the gap between the classical theories and the actual policy
+  pursued by their proponents
+- Biology not physics 
+- Induction not deduction 
+- Production not exchange or distribution
+
+National economics
+------------------
+
+- Friedrich List (1789-1846)
+- A word of caution! 
+- Right, not more or or less
+- Development through stages 
+ 	- HUGE political influence,
+	- theoretically it took a while to catch on. 
+	- Free trade, protection, free trade. Temporary sacrifice likened to education
+	
+Schumpeter, creative destruction 
+---------------------------------
+
+- Builds on Marx, List and others
+
+- The road through Galbraith to socialism 
+	- Innovation is the key to progress
+	- Capitalism unleashed the beast, but will ultimately tame it to its own 
+	  detriment
+- The legacy of Schumpeter
+	- Innovation is the key to progress! ... And is cool!
+	
+But, is it that simple?
+-----------------------
+
+- Economic growth? Yes, but progress?
+- Two stories, Socialist or QEA
+
+Quality of economic activity
+----------------------------
+
+- Reiterates and synthesises the "canon"
+- Production! Sequencing! Pulling up the ladder!
+- "Adds" synergies, activities dependent on human capital (last figure)
+- Increasing vs decreasing returns
+	- Production expands -> prod.cost per unit falls
+		- Economies of scale
+	- As opposed to "regular labor" and agriculture
+
+Protectionism or free trade?
+----------------------------
+
+What is Modern PE?
+------------------
+
+- The current state of the field 
+- Reigning orthodoxy 
+	- Neo-classical + Keynesianism + Monetarism 
+		- Monetarism MV === PQ, fight inflation
+- Reigning political movements 
+        - Neo-liberalism (US) 
+        - Populism? Protectionism? Anti-globalization...ism? Patriotism?
+
+
+Dissidents
+----------
+
+- Evolutionary economy 
+- Marxists 
+- Institutionalists 
+- Common features: 
+	- Relationship between capital, labor and state
+	- Studying change over time rather than static equilibrium
+	- Processes of circular and cumulative causation
+	- How resources are created/destroyed, not just allocated
+	- Role of politics (active/transformative)
+
+- Feminism 
+	- How is the economy gendered?
+- Environmentalism % Both have strong normative elements
+- Behavioral economics
+        - Behavioral/social psychology
+     	- Importance of how a economic decisions are "framed"
+     	- Consumer is NOT king - unless we crown him
+     	- Thaler & Sunstein: Nudge
+     	- Fast becoming part of the orthodox synthesis
+
+"New" Themes in Political Economy
+---------------------------------
+
+- Nature 
+  	- Environment
+- Technology 
+  	- Industry, work
+- Society 
+  	- Class, gender, ethnicity
+- State
+    	- Themes that "modern political economists" grapple with
+

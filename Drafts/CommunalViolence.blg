@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: CommunalViolence.aux
+The style file: agsm.bst
+Database file #1: ../lib.bib
+Warning--can't use both author and editor fields in Cohen2004
+Warning--can't use both author and editor fields in tilly_1985
+You've used 24 entries,
+            2909 wiz_defined-function locations,
+            835 strings with 8782 characters,
+and the built_in function-call counts, 60617 in all, are:
+= -- 9492
+> -- 737
+< -- 2
++ -- 4204
+- -- 217
+* -- 4928
+:= -- 12812
+add.period$ -- 24
+call.type$ -- 24
+change.case$ -- 330
+chr.to.int$ -- 24
+cite$ -- 26
+duplicate$ -- 403
+empty$ -- 812
+format.name$ -- 293
+if$ -- 10789
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 29
+newline$ -- 85
+num.names$ -- 240
+pop$ -- 125
+preamble$ -- 1
+purify$ -- 360
+quote$ -- 0
+skip$ -- 311
+stack$ -- 0
+substring$ -- 13001
+swap$ -- 76
+text.length$ -- 338
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 82
+warning$ -- 2
+while$ -- 536
+width$ -- 0
+write$ -- 309
+(There were 2 warnings)

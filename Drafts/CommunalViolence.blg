@@ -5,45 +5,45 @@ The style file: agsm.bst
 Database file #1: ../lib.bib
 Warning--can't use both author and editor fields in Cohen2004
 Warning--can't use both author and editor fields in tilly_1985
-You've used 24 entries,
+You've used 26 entries,
             2909 wiz_defined-function locations,
-            835 strings with 8782 characters,
-and the built_in function-call counts, 60617 in all, are:
-= -- 9492
-> -- 737
+            846 strings with 8988 characters,
+and the built_in function-call counts, 63974 in all, are:
+= -- 9986
+> -- 785
 < -- 2
-+ -- 4204
-- -- 217
-* -- 4928
-:= -- 12812
-add.period$ -- 24
-call.type$ -- 24
-change.case$ -- 330
-chr.to.int$ -- 24
-cite$ -- 26
-duplicate$ -- 403
-empty$ -- 812
-format.name$ -- 293
-if$ -- 10789
++ -- 4406
+- -- 231
+* -- 5180
+:= -- 13576
+add.period$ -- 26
+call.type$ -- 26
+change.case$ -- 358
+chr.to.int$ -- 26
+cite$ -- 28
+duplicate$ -- 434
+empty$ -- 874
+format.name$ -- 311
+if$ -- 11373
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 29
-newline$ -- 85
-num.names$ -- 240
-pop$ -- 125
+missing$ -- 31
+newline$ -- 91
+num.names$ -- 260
+pop$ -- 135
 preamble$ -- 1
-purify$ -- 360
+purify$ -- 390
 quote$ -- 0
-skip$ -- 311
+skip$ -- 337
 stack$ -- 0
-substring$ -- 13001
-swap$ -- 76
-text.length$ -- 338
+substring$ -- 13652
+swap$ -- 80
+text.length$ -- 366
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 82
+type$ -- 90
 warning$ -- 2
-while$ -- 536
+while$ -- 580
 width$ -- 0
-write$ -- 309
+write$ -- 332
 (There were 2 warnings)

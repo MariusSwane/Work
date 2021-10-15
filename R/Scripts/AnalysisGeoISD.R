@@ -92,13 +92,18 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
                data=data)
       m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
                data=data)
+      m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
+				    extended_controls, climate_controls)),
+               data=data)
       iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
       m1_m <- summary(margins(m1, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Baseline model', dep_var=dv)
       m2_m <- summary(margins(m2, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Extended controls', dep_var=dv)
-      margins_out <- bind_rows(margins_out, m1_m, m2_m)
-      models_out_j[[j]] <- list(m1, m2)
+      m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
+        mutate(test='Climate controls', dep_var=dv)
+      margins_out <- bind_rows(margins_out, m1_m, m2_m, m3_m)
+      models_out_j[[j]] <- list(m1, m2, m3)
     } 
     models_out[[i]] <- models_out_j %>% purrr::flatten()
   }
@@ -193,13 +198,29 @@ controls <- c('+ mountains_mean + water_gc + barren_gc + distcoast')
 
 extended_controls <- c('+ logPopd + bdist3')
 
-all_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc + forest_gc')
+climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
 
-control_names_int <-c('Baseline', 'Extetended Controls')
+coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)', 
+		'mountains_mean' = 'Mountainous terrain',
+	     	'water_gc' = 'Water (%)', 
+	 	'barren_gc' = 'Barren (%)', 
+	      	'distcoast' = 'Distance to coast',
+	      	'logPopd' = 'Population density (log)', 
+		'bdist3' = 'Distance to border', 
+		'temp_sd' = 'Temperature (SD)',
+	      	'temp' = 'Temperature (mean)', 
+		'prec_sd' = 'Precipitation (SD)', 
+		'prec_gpcc' = 'Precipitation (mean)', 
+		'sqrtSpAll' = 'Precolonial state presence (sqrt)')
 
-control_names <-c('Baseline', 'Extetended Controls',
-		 'Baseline', 'Extetended Controls',
-		 'Baseline', 'Extetended Controls')
+control_names_int <-c('Baseline', 'Extended Controls')
+
+control_names_cv <-c('Baseline', 'Extended Controls', 'Climate',
+		    'Baseline', 'Extended Controls', 'Climate')
+
+control_names <-c('Baseline', 'Extended Controls', 
+		 'Baseline', 'Extended Controls',
+		 'Baseline', 'Extended Controls')
 
 dvs <- c('deaths', 'state_based')
 
@@ -212,7 +233,7 @@ cv_captions <- c('Non-state conflict events', 'Communal violence events')
 captions_int <- c('Fatalities * Distance to capital', 'State based conflict events *
 		  distance to capital')
 
-ivs <- c('sqrtSpAll', 'logSpAll', 'sp_os_i_sum')
+ivs <- c('logSpAll', 'sqrtSpAll')
 
 interactions <- c('sqrtSpAll * logCapdist')
 
@@ -396,13 +417,13 @@ for (i in 1:length(dvs)) {
 #==============================================================================#
 # Communal violence regression tables
 
-for (i in 1:length(dvs)) { 
+for (i in 1:length(cv_dvs)) { 
   name <- cv_dvs[i]
   filename <- paste("../Output/",name,".tex",sep="") 
   texreg(cv_nb_models$models[[i]],
          file = filename,
-         custom.model.names = control_names,
-         #custom.coef.map = coefs,
+         custom.model.names = control_names_cv,
+         custom.coef.map = coefs_cv,
          stars = c(0.001, 0.01, 0.05, 0.1), 
          sideways = T, use.packages = F, scalebox = 1,
          #custom.note = "",
@@ -451,8 +472,7 @@ dev.off()
 cv_full_margins <- cv_nb_models[[1]] %>% 
   mutate(factor_label = case_when(
     factor == 'sqrtSpAll' ~ 'State Presence (square root)',
-    factor == 'logSpAll' ~ 'State Presence (logged)',
-    factor == 'sp_os_i_sum' ~ 'State Presence'),
+    factor == 'logSpAll' ~ 'State Presence (logged)'),
 	 facet_label = case_when(
 	dep_var == 'non_state' ~ 'Non-state conflict events',
 	dep_var == 'org3' ~ 'Communal violence events'))  %>% 
@@ -650,8 +670,8 @@ ns0 <- glm.nb(non_state ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 summary(ns0)
 
 org0 <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3 + factor(region), data =
-		    filter(prio_grid_isd, popd > 0))
+		    distcoast + logPopd + bdist3 + temp_sd + temp + prec_sd +
+		    prec_gpcc, data = filter(prio_grid_isd, popd > 0))
 summary(org0)
 
 #==============================================================================#

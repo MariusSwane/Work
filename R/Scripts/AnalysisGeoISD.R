@@ -321,8 +321,9 @@ summary(org3_P_mini)
 
 pchisq(2 * (logLik(org3_NB_mini) - logLik(org3_P_mini)), df = 1, lower.tail = FALSE)
 
-org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		  distcoast + logPopd + bdist3, data = prio_grid_isd)
+org3_NB <- glm.nb(org3 ~ logSpAll + mountains_mean + water_gc + barren_gc +
+		  distcoast + logPopd + bdist3 + temp_sd + temp + prec_sd +
+		  prec_gpcc, data = prio_grid_isd)
 summary(org3_NB)
 
 #==============================================================================#
@@ -348,12 +349,13 @@ lighten <- function (col, pct = 0.75, alpha = .8)
     pcol
 }
 
-ggorg3 <- ggeffect(org3_NB, terms = "sqrtSpAll [0:15]")
+ggorg3 <- ggeffect(org3_NB, terms = "logSpAll [0:6], by = 0.25")
 
-ggplot(ggorg3, aes(x^2, predicted)) +
+ggplot(ggorg3, aes(exp(x), predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
 	      fill = lighten("blue")) +
   geom_line(color = "blue") +
+  labs(x = 'Precolonial state presence', y = 'Communial violence events') +
   goldenScatterCAtheme
 
 deathsMainInt <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc + barren_gc +

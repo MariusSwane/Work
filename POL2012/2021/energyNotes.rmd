@@ -1,0 +1,77 @@
+---
+title: "Energy politics (climate change) Notes"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+# The political economy of Energy
+
+- Energy IS NOT electricity 
+	- Different sources for different uses
+        - Fossil fuels
+        - Renewable and non-renewable 
+    - Technology-economics-politics
+    - Energy and politics
+    - Energy and growth % The importance of vested interests
+
+
+# International politics
+- Big money
+- Not just big money 
+  	- Germany 40% of gas from Russia #choke
+    	- Dams are kind-of like this as well
+    	- Energy security
+
+
+# Discuss the statement:
+
+"Energy dependence is a source of conflict"
+
+# Climate change
+
+Current global energy supply
+
+What needs to happen?
+- Change the type of energy used 
+- Change source of electricity 
+  	- Most electricity is still produced by coal, gas second
+- How do they interact? What happens when we try to shift demand toward green?
+
+# The grid
+
+# The Green Shift
+
+# Market mechanisms
+- Make renewable energy competitive 
+	- Subsidise renewables and research (expensive and inefficient)
+ 	- Carbon taxes and ETS (Taxes depress the economy)
+
+# Alternatives to the market?
+
+- Short of revolution, this is pretty much what we got
+- Fiat is an option, but seems even more unlikely
+
+# Will it work? % ARGUMENTS!
+
+# Potential problems
+- Vested interests 
+- Energy systems are built around fossil fuels 
+- Energy efficiency 
+    - Energy efficiency is an alternative to structural/system change
+    - Cost effective, make a plane use less fuel > make an electric plane
+    - Good, but not enough?
+- Only works if our assumptions hold 
+
+- What is the cheapest source of energy? Clean/not-clean?
+
+# Electicity prices
+
+# Discuss Norway and wind? Thorium? - NO, nuclear maybe...
+
+- Green? yes
+- Ugly? Beauty is in the eye of the beholder
+- Kills birds? Yes, but not that bad. US 110 million killed by cats, 46thousand
+  by wind. Would kill birds at sea as well
+- Moving wind off shore mostly solves the "ugly" problem at an enormous cost
+
+

@@ -1,7 +1,8 @@
-
-
-Reading list/Schedule
-=====================
+---
+title: "Reading list/Schedule"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
 
 30.08 Economic systems
 ----------------------

@@ -92,18 +92,18 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
                data=data)
       m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
                data=data)
-      m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
-				    extended_controls, climate_controls)),
-               data=data)
+      #m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
+				    #extended_controls, climate_controls)),
+               #data=data)
       iv_margins <- ivs[j] %>% strsplit(., "\\+") %>% unlist()
       m1_m <- summary(margins(m1, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Baseline model', dep_var=dv)
       m2_m <- summary(margins(m2, variables=iv_margins, change = "sd")) %>% 
         mutate(test='Extended controls', dep_var=dv)
-      m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
-        mutate(test='Climate controls', dep_var=dv)
-      margins_out <- bind_rows(margins_out, m1_m, m2_m, m3_m)
-      models_out_j[[j]] <- list(m1, m2, m3)
+      #m3_m <- summary(margins(m3, variables=iv_margins, change = "sd")) %>% 
+        #mutate(test='Climate controls', dep_var=dv)
+      margins_out <- bind_rows(margins_out, m1_m, m2_m)
+      models_out_j[[j]] <- list(m1, m2)
     } 
     models_out[[i]] <- models_out_j %>% purrr::flatten()
   }
@@ -215,7 +215,10 @@ coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)',
 
 control_names_int <-c('Baseline', 'Extended Controls')
 
-control_names_cv <-c('Baseline', 'Extended Controls', 'Climate',
+control_names_cv <-c('Baseline', 'Extended Controls',
+		    	'Baseline', 'Extended Controls')
+
+control_names_cv_full <-c('Baseline', 'Extended Controls', 'Climate',
 		    'Baseline', 'Extended Controls', 'Climate')
 
 control_names <-c('Baseline', 'Extended Controls', 
@@ -321,9 +324,8 @@ summary(org3_P_mini)
 
 pchisq(2 * (logLik(org3_NB_mini) - logLik(org3_P_mini)), df = 1, lower.tail = FALSE)
 
-org3_NB <- glm.nb(org3 ~ logSpAll + mountains_mean + water_gc + barren_gc +
-		  distcoast + logPopd + bdist3 + temp_sd + temp + prec_sd +
-		  prec_gpcc, data = prio_grid_isd)
+org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		  distcoast + logPopd + bdist3, data = prio_grid_isd)
 summary(org3_NB)
 
 #==============================================================================#
@@ -349,14 +351,19 @@ lighten <- function (col, pct = 0.75, alpha = .8)
     pcol
 }
 
-ggorg3 <- ggeffect(org3_NB, terms = "logSpAll [0:6], by = 0.25")
+ggorg3 <- ggeffect(org3_NB, terms = "sqrtSpAll [0:15 by = .5] ")
 
-ggplot(ggorg3, aes(exp(x), predicted)) +
+org3plot <- ggplot(ggorg3, aes(x^2, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
 	      fill = lighten("blue")) +
   geom_line(color = "blue") +
   labs(x = 'Precolonial state presence', y = 'Communial violence events') +
   goldenScatterCAtheme
+
+pdf("../Output/CommunalViolenceMargins.pdf",
+    width = 10, height = 10/1.68)
+org3plot
+dev.off()
 
 deathsMainInt <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)

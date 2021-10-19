@@ -69,6 +69,7 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				logCapdist = log(capdist),
 				logBDist = log(bdist3 + 1),
 				logPopd = log(popd + 1),
+				logOrg3 = log(org3 +1),
 				sqrtorg3 = sqrt(org3),
 				sqrtNonstate = sqrt(non_state),
 				SpAllXCapDist = logSpAll*capdist,
@@ -737,3 +738,31 @@ crs(uga.ethnic) <- crs(geoisd)
 
 ugaSP <- as(uga.ethnic, 'SpatialGridDataFrame')
 
+
+# Just plotting the main independent variable
+
+sqrtSpAllPlot <- ggplot() +
+	geom_sf(data = prio_grid_isd,
+            linetype = 0,
+            aes_string(fill = "sqrtSpAll"),
+            show.legend = FALSE) + 
+    scale_fill_viridis_c() +
+    theme_minimal()
+
+pdf("../Output/sqrtSpAll.pdf",
+	width = 10, height = 10/1.68)
+  	sqrtSpAllPlot
+dev.off()
+
+logOrg3 <- ggplot() +
+	geom_sf(data = prio_grid_isd,
+            linetype = 0,
+            aes_string(fill = "logOrg3"),
+            show.legend = FALSE) + 
+    scale_fill_viridis_c() +
+    theme_minimal()
+
+pdf("../Output/logOrg3.pdf",
+    width = 10, height = 10/1.68)
+logOrg3
+dev.off()

@@ -1,0 +1,92 @@
+---
+title: "The Global Financial crisis"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+The global financial crisis
+---------------------------
+
+- Real estate bubble
+- Home prices up 60% 2000-2006
+- Subprime loans
+- Securitization
+- Crisis goes global
+
+But why did it happen?
+----------------------
+
+- What would Marx, Keyens (not really relevant until maaybe the recovery!
+  Unnamed institutionalist instead)  or Friedman say?
+- Inevitable consequence of the system. Capitalists seeking profits but the
+  rates of profits are getting ever smaller! This also explains why the crisis
+  became so big.
+- Lack of regulation! Investment bank subject to less oversight than regular
+  banks and who polices the police? (insurance)
+- Government programs encouraging home ownership, Fed too low interest rates
+  (until sudden increase) + increasing housing prices + other technicalities
+  (market to market accounting). Wesbury (a bit on the extreme).
+
+Response
+--------
+
+- $200 billion injected into the market by the Fed, the ECB and the Bank of
+  England % Keynes!
+- Expansionary monetary policy $\rightarrow$ low interest-rates
+- United States continued stimulus in the range of \$800 billion 
+- ECB turned to fiscal discipline
+	- Sovereign debt
+
+The problem of diversity
+------------------------
+
+- What is appropriate for Germany may not be appropriate for certain other EU
+  countries
+- And vice-versa
+- The United States has this problem too!
+- However, it is easier to get Americans to bail out fellow Americans
+
+Who do you think fared better?
+------------------------------
+
+Lazy Southern Europeans or draconian Germans?
+---------------------------------------------
+
+- Discuss
+
+Some perspectives
+-----------------
+
+- Piketty: ``Germany has never repaid its debts. It has no right to lecture
+  Greece."
+	- Two ways to repay debt:
+		- Strict budgetary discipline over 100 years
+		- Inflation, tax on private wealth, debt relief
+- Krugman: Eliminating deficits during a crisis is a recipe for depression.
+  Leave the Euro.
+- Ferguson: Clean slate makes no sense if the problem is structural (see
+  Fukuyama ch6 for account of some of Greece's structural problems)
+
+Greeceland
+----------
+
+- Krugman might have a point!
+- But, did Iceland really escape austerity? Imports did not catch up to
+  pre-crisis levels until 2017. Self-sufficient in aluminium and fish...
+
+Lenders of last resort
+----------------------
+
+- IMF, World Bank, ECB (Germany)
+- If not these then who? 
+  	- EU economy or already high inflation
+- Moral hazard 
+  	-Ferguson
+
+Is the west going the way of Japan?
+-----------------------------------
+
+- No/low growth, little/no inflation, low/negative interest rates
+
+- Youtube video if time
+

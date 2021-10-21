@@ -1,0 +1,44 @@
+---
+title: "Seminar: Institutionalism, Keynes and evolutionary economics"
+author: "Marius Swane Wishman"
+output: pdf_document
+---
+
+Task 1
+------
+
+What characterizes the Keynesian approach to political economy, and how does
+this differ from the classic/neoclassic view?
+
+Task 2
+------
+
+How can governments use countercyclical policy to ensure stability in the
+economy?
+
+Task 3
+------
+
+Discuss this quote from Keynes:  ``In the long run we are all dead".
+    
+Task 4
+------
+
+In evolutionary economics, what are the unit(s) of analysis?
+
+Task 5
+------
+
+How does evolutionary economics compare to neoclassical and institutionalist
+economics?
+
+Task 6
+------
+
+Explain Schumpeter's term ``creative destruction"?
+
+Task 7
+------
+
+Why does Reinert (2008) argue that it is better for a country to produce golf
+balls than baseballs? 

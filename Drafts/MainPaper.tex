@@ -48,7 +48,7 @@ to relatively more continuation of traditions and institutions associated with
 statehood that are inherently conflict reducing. While in areas further away
 from the capital higher levels of state presence is conflict inducing. I argue
 that this implies a history of statehood often at odds with that of the central
-govenrment. Such histories leave behind powerful symbols of independence useful
+government. Such histories leave behind powerful symbols of independence useful
 for mobilization and elite networks (formal or informal) with the potential to
 violently resist state expansion into their sphere of influence. The proposed
 mechanisms are further supported by the finding that the effects are strongest
@@ -611,14 +611,16 @@ an independent state than its neighbours in the region.
 
 %\begin{multicols}{2}
 
-The data from this project can be aggregated and used in many ways and to
-produce many variables. All of these indicators are aggregated over all years
-for individual PRIO-GRID cells in Africa. The primary indicator used in this
-essay is a measure of the presence of one state over time. It is measured by the
+The data from this project can be aggregated and used in multiple ways and to
+produce different variables and measures. All of these indicators are aggregated
+over all years for individual PRIO-GRID cells in Africa. The primary indicator
+used in this paper is a measure of the presence over time. It is measured by the
 number of maps that indicate that a state was present there, counting only those
-of the state most often present in that cell. Figure \ref{Sp} shows the log
-transformation (to lessen the visual impact of large variations in the number of
-maps for different states) of this measure for all African PRIO grid cells.
+of the state most often present in that cell. So that if a cell bordering
+Tunisia and Libya contains 40 maps of Tunisia and 7 maps of Libya, only the
+Tunisian maps are counted. Including the Libyan maps would risk over counting as
+it most likely does not represent additional state presence, but rather
+overlapping state presence. 
 
 %\end{multicols}
 
@@ -646,31 +648,40 @@ maps for different states) of this measure for all African PRIO grid cells.
 \subsection{Dependent variable}
 
 The unit of analysis are PRIO grid cells, which are one degree by one degree
-cells \citep{Tollefsen2012}. Accordingly, the dependent variables are fatalities
-- square root transformed, logged or untransformed, and state based conflict
-events - square root transformed, logged or untransformed) per grid cell in the
-period 1946-2018 *** Check end date ***. In other words these are cross
-sectional count data. The data are from the GED project \citep{Sundberg2013}.
+cells \citep{Tollefsen2012}. Due to the explanatory variable being
+time-invariant, the analysis is limited to a cross section. Accordingly, the
+dependent variables are fatalities and the number of state based conflict events
+per grid cell in the period 1946-2018 *** Check end date ***. In other words
+these are cross sectional count data. The data are from the GED project
+\citep{Sundberg2013}.
+
+% Run models excluding org3 events and fatalities, citing my other paper?
 
 \subsection{Independent variable}
 
-The main explanatory variable is the per grid cell sum of state presence -
-square root transformed or logged depending on the model. For the main model I
-use measure of state presence from the Geo-ISD that counts all maps that
-intersect a given grid cell, even if multiple maps do so in a single year, but
-only for the state that has the most presence overall in that grid cell. This
-measure has the benefit of including more data, which allows for the
+The main explanatory variable is the per grid cell sum of state presence. For
+the main model I use measure of state presence from the Geo-ISD that counts all
+maps that intersect a given grid cell, even if multiple maps do so in a single
+year, but only for the state that has the most presence overall in that grid
+cell. This measure has the benefit of including more data, which allows for the
 approximation of relative degrees of state presence by one state in any year, as
 described in the data section above. At the same time it avoids over counting
 state presence where there were overlaps in sovereignty or changes in who
 controlled the territory. As a robustness check I also ran models using the
-measure that counts if there was any state presence in a grid-cell-year. In
-other words, it is more so a measure of the maximum \textit{extent} of state
-presence, and is less accurate in terms of depth. Again counting only the
-presence of the most present state for each grid cell.
-
-*** DISCLAIMER - the models reported in the results use this last measure.
-However, models using the main measure are very similar. *** 
+measure that counts if there was any state presence in a grid-cell-year (as a
+yearly dummy). In other words, this could be at most 214, and it is more so a
+measure of the maximum \textit{extent} of state presence, and is less accurate
+in terms of depth. The benefit of this measure is that it avoid the potential
+over representation of countries frequently mapped by Europeans, such as the
+North African states (proximity) and Darfur (weird obsession?) Again counting
+only the presence of the most present state for each grid cell. In both cases
+this paper uses the measure which includes interpolated shapes from historical
+atlases. Where historical atlases depicted the borders of a state from year x to
+y, we created identical shapes for all these years. This has the benefit of
+placing a slightly larger emphasis on the historical atlases, at the cost of
+being static.\footnote{Equivalent models excluding the interpolated shapes are
+included in the Online appendix. Results remain substantially the same for all
+specifications.}
 
 \subsection{Controls}
 
@@ -679,7 +690,7 @@ exit options of sedentary farmers \citep{Carneiro1988}. Mountainous terrain has
 also been linked with civil conflict by providing shelter for rebel groups
 \citep{Hegre2006}, although this relationship is debated 
 \citep{Buhaug2002}. The data is from the PRIO-grid data set, but originally 
-from *** INSERT SOURCE ***.
+from \citet{Blyth2002}. 
 
 Water is essential for state formation. States typically formed either as
 coastal cities, close to navigable rivers or by the shores of great lakes.
@@ -688,7 +699,7 @@ for population density, and fighting usually happens where there are people.
 Water could also be related to the conflict measures more directly by being a
 non divisible resource to fight for control over. *** SOURCES NEEDED ***. The
 data on water as a percentage of the grid surface is from the PRIO-grid data
-set, but originally from *** INSERT SOURCE ***.
+set, but originally from the European Space Agency \citep{Bontemps2009}.
 
 Distance to coast could affect both state presence and conflict in a number of
 ways. First, as state above, states were more likely to be formed along the

@@ -27,7 +27,7 @@ library(conflicted)
 library(pscl)
 library(readr)
 library(MASS)
-library(spdep)
+#library(spdep)
 library(sf)
 library(psych)
 library(sidedata)
@@ -72,8 +72,11 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				logOrg3 = log(org3 +1),
 				sqrtorg3 = sqrt(org3),
 				sqrtNonstate = sqrt(non_state),
+				dumState = as.numeric(state_based > 0),    
+				dumOrg3 = as.numeric(org3 > 0),
 				SpAllXCapDist = logSpAll*capdist,
-				SpAnyXCapDist = logSpAny*capdist)
+				SpAnyXCapDist = logSpAny*capdist,
+				SpAll10 = sp_os_i_sum*10)
 
 #==============================================================================#
 #	Functions				    	             	       #
@@ -143,14 +146,11 @@ GeoISD_interactions <- function(dvs, ivs, controls, data, test_label){
 #==============================================================================#
 # Correlation Matrix Plot
 
-corrdata <- prio_grid_isd %>% dplyr::select(bdist3, capdist, excluded, temp_sd,
-					    temp, prec_sd, prec_gpcc, barren_gc,
-					    forest_gc, mountains_mean, water_gc,
-					    sp_os_sum_any, sp_os_sum,
-					    sp_os_i_sum_any, sp_os_i_sum,
-					    distcoast, popd, state_based,
-					    non_state, org3, deaths, gcp_mer,
-					    gcp_ppp)
+corrdata <- prio_grid_isd %>% select(bdist3, capdist, barren_gc, mountains_mean,
+				     water_gc, sp_os_i_sum, distcoast, popd,
+				     state_based, non_state, org3, deaths)
+
+corrdata$geometry <- NULL
 
 corrdata_mat <- cor(corrdata, method = c("spearman"), 
                      use="pairwise.complete.obs")
@@ -163,7 +163,6 @@ corrplot(corrdata_mat$r, method='color', diag=F, addCoef.col = "black",
          tl.srt = 45)
 
 # TODO: Print to file
-summary(corrdata)
 
 # Summary Statistics
 
@@ -199,6 +198,8 @@ controls <- c('+ mountains_mean + water_gc + barren_gc + distcoast')
 
 extended_controls <- c('+ logPopd + bdist3')
 
+regions <- c('+ factor(region)')
+
 climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
 
 coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)', 
@@ -212,6 +213,7 @@ coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)',
 	      	'temp' = 'Temperature (mean)', 
 		'prec_sd' = 'Precipitation (SD)', 
 		'prec_gpcc' = 'Precipitation (mean)', 
+		'SpAll10' = 'Precolonial state presence (10)',
 		'sqrtSpAll' = 'Precolonial state presence (sqrt)')
 
 control_names_int <-c('Baseline', 'Extended Controls')
@@ -237,7 +239,7 @@ cv_captions <- c('Non-state conflict events', 'Communal violence events')
 captions_int <- c('Fatalities * Distance to capital', 'State based conflict events *
 		  distance to capital')
 
-ivs <- c('logSpAll', 'sqrtSpAll')
+ivs <- c('logSpAll', 'sqrtSpAll', 'SpAll10')
 
 interactions <- c('sqrtSpAll * logCapdist')
 
@@ -284,7 +286,7 @@ prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 #	Analysis							       #
 #==============================================================================#
 
-nb_models <- GeoISDanalysis(dvs=dvs, ivs=ivs, controls=controls,
+nb_models <- GeoISD_interactions(dvs=dvs, ivs=ivs, controls=controls,
 				 data=prio_grid_isd, test_label='Linear
 				 Models')
 
@@ -329,6 +331,12 @@ org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)
 summary(org3_NB)
 
+dumOrg3<- glm.nb(dumOrg3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		 distcoast + logPopd + bdist3, data = filter(prio_grid_isd,
+							     prio_grid_isd$popd
+							     > 0))
+		 summary(dumOrg3)
+
 #==============================================================================#
 #	Marginal interacation plots 					       #
 #==============================================================================#
@@ -368,9 +376,15 @@ dev.off()
 
 deathsMainInt <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)
-summary(deathsMainInt)
 
 ggDeathsInt <- ggeffect(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 6.27, 7.817]"))
+
+ggDumState <- glm.nb(dumState ~ sqrtSpAll * logCapdist + mountains_mean +
+		    water_gc + barren_gc + distcoast + logPopd + bdist3, data =
+		    prio_grid_isd) 
+
+ggDumStateEffect <- ggeffect(ggDum, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
 cols <- c("red", "green", "blue")
@@ -380,17 +394,22 @@ for (i in 1:length(cols)) {
 	pastels[i] <- lighten(cols[i])
 }
 
-ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group, linetype = NA)) +
-  scale_fill_manual(values = pastels) +
-  geom_line() +
-  goldenScatterCAtheme
+ggDumStatePlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					 geom_line() + goldenScatterCAtheme
+
+ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					 geom_line() + goldenScatterCAtheme
+
 
 #==============================================================================#
 # Regression tables
 # TODO: Add coeficient maps for propper names in regression tables
 
-xor (i in 1:length(dvs)) { 
+for (i in 1:length(dvs)) { 
   name <- dvs[i]
   filename <- paste("../Output/",name,".tex",sep="") 
   texreg(nb_models$models[[i]],
@@ -688,9 +707,9 @@ summary(org0)
 #	Danger Zone!						      	       #
 #==============================================================================#
 
-testmodel <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3 + factor(region), data =
-		    prio_grid_isd)
+testmodel <- glm.nb(dumState ~ sqrtSpAll * logCapdist + mountains_mean +
+		    water_gc + barren_gc + distcoast + logPopd + bdist3, data =
+		    prio_grid_isd) 
 summary(testmodel)
 
 # # The below command only needs to be run once
@@ -766,3 +785,13 @@ pdf("../Output/logOrg3.pdf",
     width = 10, height = 10/1.68)
 logOrg3
 dev.off()
+
+ggplot() +
+	geom_sf(data = prio_grid_isd,
+            linetype = 0,
+            aes_string(fill = "dumOrg3"),
+            show.legend = FALSE) + 
+    scale_fill_viridis_c() +
+    theme_minimal()
+
+

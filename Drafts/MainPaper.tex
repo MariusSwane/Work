@@ -658,7 +658,9 @@ per grid cell in the period 1946-2018 [currently, will update to the latest
 numbers]. In other words these are cross sectional count data. The data are from
 the GED project \citep{Sundberg2013}.
 
-% Run models excluding org3 events and fatalities, citing my other paper?
+These measure slightly different aspects, that is why I include both.
+
+% Run models excluding org3 fatalities, citing my other paper?
 % Would strengthen results but probably not by much. Adds little.
 
 \subsection{Independent variable}
@@ -687,6 +689,14 @@ being static.\footnote{Equivalent models excluding the interpolated shapes are
 included in the Online appendix. Results remain substantially the same for all
 specifications.}
 
+Because I do not expect the relationship between pre-colonial state presence to
+be linear, and because the data is heavily skewed, the variable is square root
+transformed. While log transformation is more commonly used, and does produce a
+more evenly distributed variable in this case as well, having to add 1 to
+all values could potentially introduce bias [ASK OLE M ABOUT THAT PAPER]. All
+regression tables below include untransformed, log transformed as well as the
+main square root transformed variable.
+
 \subsection{Controls}
 
 Mountains help in early state formation by providing protection and limiting the
@@ -702,12 +712,10 @@ People still tend to live next to a source of water, thus this acts as a proxy
 for population density, and fighting usually happens where there are (at least
 some) people.  Water could also be related to the conflict measures more
 directly by being a non-divisible resource to fight for control over, or
-potentially it indicates strategic location, such as river crossings ***
-SOURCES NEEDED, evidence is scarce ***. The data on water as a percentage of the grid surface is
-from the PRIO-grid data set, but originally from the European Space Agency
-\citep{Bontemps2009}.
-
-% TODO: check correlation between  water and population
+potentially it indicates strategic location, such as river crossings *** SOURCES
+NEEDED, evidence is scarce ***. The data on water as a percentage of the grid
+surface is from the PRIO-grid data set, but originally from the European Space
+Agency \citep{Bontemps2009}.
 
 Distance to coast could affect both state presence and conflict in a number of
 ways. First, as state above, states were more likely to be formed along the
@@ -722,38 +730,37 @@ related to the measure of state presence through the fact that our measure is
 based on European observations (maps), which undoubtedly had better coverage
 along the coast, especially for the earlier periods. Distance to the coast could
 further be related to conflict through lower levels of development. The distance
-to coast data is from the PRIO-grid data set, but originally from *** INSERT
-SOURCE ***.
+to coast data is from \citet{Wessel1996}.
 
-Barren terrain could correlate with both state presence and conflict by 
+As with water, barren terrain could be a (negative) pre-condition for state
+building as well as proxy for later population densities, and thus could
+correlate with both state presence and levels of conflict. The data is from
+\citet{Bontemps2009}.
 
-Population density could be a consequence of prior state building and could
-correlate with conflit measures as fighting broadly speaking happens where there
-are at least some population. I therefor include an estimate of population
-density in *** INSERT YEAR *** from the HYDE project \citep{Goldewijk2016}.
-Because this is an estimate and not a measurement, I also include a measure of
-the barrenness of each grid cell from the PRIO-grid data set, but originally
-from *** INSERT SOURCE ***. This measure proxies population density because
-people generally do not live on barren land, and captures the large amount of
-zeroes in both the Sahara and Kalahari deserts.
+Population density is only added as an extended control despite the stronger
+theoretical expectation that it could be a confounding variable, because there
+are no accurate measures of population densities that predate most of the
+states in the Geo-ISD. The best available estimates come from the HYDE project
+\citep{Goldewijk2016}. In order to predate most of the states in the Geo-ISD I
+use the estimates from 1600.
 
-As a robustness check some models also include measures of temperature (mean and
-variance), precipitation (mean and variance) and forest (remove?), as these have
-been found to affect conflict and could potentially affect state building ***
-Ask Ole Magnus about these, I don't see the connection ***
+%As a robustness check some models also include measures of temperature (mean and
+%variance), precipitation (mean and variance) and forest (remove?), as these have
+%been found to affect conflict and could potentially affect state building ***
+%Ask Ole Magnus about these, I don't see the connection ***
 
-Distance to borders *** Put back in ***. Could be related to state presence
-because despite their reputation African borders were not drawn completely at
-random (or along meridian lines). For example, the borders of northern Nigeria
-and Niger were based on the extent of the Sokoto Caliphate and the neighboring
-Kanem-Bornu (or just Bornu) empire \citep{HiribarrenVincent2017AHoB}. Proximity
-to international border has also been found to predict conflict
-\citep{Buhaug2002}. I use the measure included in the PRIO grid data, which is
-originally from *** ISERT SOURCE ***.
+Distance to borders could be related to state presence because despite their
+reputation African borders were not drawn completely at random (or along
+meridian lines). For example, the borders of northern Nigeria and Niger were
+based on the extent of the Sokoto Caliphate and the neighboring Kanem-Bornu (or
+just Bornu) empire \citep{HiribarrenVincent2017AHoB}. Proximity to international
+border has also been found to predict conflict \citep{Buhaug2002}. I use the
+measure included in the PRIO grid data, which is originally from
+\citet{Weidmann2010a}.
 
 \subsection{Alternative measures}
 
-*** So far I have none ***
+Both the 
 
 \subsection{Modelling}
 

@@ -630,7 +630,7 @@ overlapping state presence.
 \begin{figure}[htpb]
 	\centering
 	%\includegraphics[width=0.8\linewidth]{../Rplot_ln_sp_int.pdf}
-	\includegraphics[width=\linewidth]{../R/Output/sp_os_i_sum_any_plot.pdf}
+	\includegraphics[width=\linewidth]{../R/Output/sqrtSpAll.pdf}
 	\caption{State presence (sqrt transformed) with interpolated years based
 	on historical atlases.}
 	\label{Sp_i}
@@ -639,8 +639,8 @@ overlapping state presence.
 \begin{figure}[htpb]
 	\centering
 	%\includegraphics[width=0.8\linewidth]{../Rplot_ln_sp_int.pdf}
-	\includegraphics[width=\linewidth]{../R/Output/sp_os_sum_any_plot.pdf}
-	\caption{State presence (sqrt transformed)}
+	\includegraphics[width=\linewidth]{../R/Output/sp_os_sum.pdf}
+	\caption{State presence (sqrt transformed) without interpolated years.}
 	\label{Sp}
 \end{figure}
 
@@ -791,7 +791,7 @@ I have run a whole lot of model specifications, some of which are reported below
 in the figures and in the tables in the appendix. The positive relationship
 between state presence and conflict is as surprising as it is robust across all
 models. The results of the interaction models might help explain the
-relationship. As seen in Figure \ref{deaths_int} and Figure \ref{sb_int}, state
+relationship. As seen in Figure \ref{deaths_int}, state
 presence is negatively correlated with both conflict measure close to the
 capital, but becomes positive and significant further away from the capital.
 This supports an interpretation that state presence can be conflict reducing in
@@ -803,12 +803,12 @@ reducing effects.
 
 %\end{multicols}
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=\linewidth]{"../R/Output/conflictMargins.pdf"}
-	\caption{}
-	\label{margins}
-\end{figure}
+%\begin{figure}[htpb]
+%	\centering
+%	\includegraphics[width=\linewidth]{"../R/Output/conflictMargins.pdf"}
+%	\caption{}
+%	\label{margins}
+%\end{figure}
 
 \begin{figure}[htpb]
 	\centering
@@ -817,12 +817,12 @@ reducing effects.
 	\label{deaths_int}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=\linewidth]{"../R/Output/state_based_int_plot.pdf"}
-	\caption{}
-	\label{sb_int}
-\end{figure}
+%\begin{figure}[htpb]
+%	\centering
+%	\includegraphics[width=\linewidth]{"../R/Output/state_based_int_plot.pdf"}
+%	\caption{}
+%	\label{sb_int}
+%\end{figure}
 
 %\begin{multicols}{2}
 
@@ -841,9 +841,8 @@ reducing effects.
 \section*{Appendix}
 
 \input{"../R/Output/deaths.tex"}
-\input{"../R/Output/state_based.tex"}
-\input{"../R/Output/interaction_sqrtDeaths.tex"}
-\input{"../R/Output/interaction_sqrtState_based.tex"}
+%\input{"../R/Output/state_based.tex"}
+\input{"../R/Output/interaction_deaths.tex"}
 
 \end{document}
 

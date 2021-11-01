@@ -35,7 +35,7 @@ library(raster)
 library(RColorBrewer)
 library(readr)
 library(sf)
-library(spdep)
+#library(spdep)
 library(sidedata) # Some conflicts with raster (tail, stack, unstack, head)
 library(sp)
 library(spData)
@@ -123,13 +123,13 @@ geoisd_borders_data <- read_csv('../../QGIS/Geo-ISD_Borders2.csv',
 
 prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
 
-gcp <- read_csv('../Data/PRIO-Grid/gcp9005.csv') %>% 
-  group_by(gid) %>% 
-  summarise(gcp_mer = mean(na.omit(gcp_mer)), gcp_ppp = mean(na.omit(gcp_ppp)))
+#gcp <- read_csv('../Data/PRIO-Grid/gcp9005.csv') %>% 
+#  group_by(gid) %>% 
+#  summarise(gcp_mer = mean(na.omit(gcp_mer)), gcp_ppp = mean(na.omit(gcp_ppp)))
 
-nightlights <- read_csv('../Data/PRIO-Grid/nightlights.csv') %>% 
-	group_by(gid) %>% 
-	summarise(nightlights = mean(na.omit(nlights_calib_mean)))
+#nightlights <- read_csv('../Data/PRIO-Grid/nightlights.csv') %>% 
+#	group_by(gid) %>% 
+#	summarise(nightlights = mean(na.omit(nlights_calib_mean)))
 
 prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
   as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
@@ -144,9 +144,9 @@ prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 20
 # Merging static and aggregated prio data
 prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
 
-prio_grid <- left_join(prio_grid, gcp, by = c("gid"))
+#prio_grid <- left_join(prio_grid, gcp, by = c("gid"))
 
-prio_grid <- left_join(prio_grid, nightlights, by = ("gid"))
+#prio_grid <- left_join(prio_grid, nightlights, by = ("gid"))
 
 # Merging with the grid shape 
 prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 

@@ -58,6 +58,7 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				sqrtPpp = sqrt(gcp_ppp),
 				sqrtSpAll = sqrt(sp_os_i_sum),
 				sqrtSpAny = sqrt(sp_i_sum_any),
+				sqrtSpNoInt = sqrt(sp_os_sum),
 				sqrtCapdist = sqrt(capdist),
 				sqrtBDist = sqrt(bdist3),
 				sqrtPopd = sqrt(popd),
@@ -76,7 +77,11 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				dumOrg3 = as.numeric(org3 > 0),
 				SpAllXCapDist = logSpAll*capdist,
 				SpAnyXCapDist = logSpAny*capdist,
-				SpAll10 = sp_os_i_sum*10)
+				SpAll10 = sp_os_i_sum*10,
+				region1 = as.numeric(factor(region)==1),
+				region2 = as.numeric(factor(region)==2),
+				region3 = as.numeric(factor(region)==3),
+				region4 = as.numeric(factor(region)==4))
 
 #==============================================================================#
 #	Functions				    	             	       #
@@ -119,7 +124,7 @@ GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
 #==============================================================================#
 # Same function, without margins to do the interaction models
 
-GeoISD_interactions <- function(dvs, ivs, controls, data, test_label){
+analysis <- function(dvs, ivs, controls, data, test_label){
   models_out_j <- NULL
   models_out <- NULL
   margins_out <- NULL
@@ -128,9 +133,14 @@ GeoISD_interactions <- function(dvs, ivs, controls, data, test_label){
     for(j in 1:length(ivs)) {
       m1 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls)),
                data=data)
-      m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls, extended_controls)),
-               data=data)
-      models_out_j[[j]] <- list(m1, m2)
+      m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
+				    extended_controls)), data=data)
+      m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
+				    extended_controls, even_more)), data=data)
+      m4 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
+				    extended_controls, even_more, rest)),
+		   data=data)
+      models_out_j[[j]] <- list(m1, m2, m3, m4)
     } 
     models_out[[i]] <- models_out_j %>% purrr::flatten()
   }
@@ -196,11 +206,27 @@ d + geom_density(kernel = "gaussian")
 
 controls <- c('+ mountains_mean + water_gc + barren_gc + distcoast')
 
-extended_controls <- c('+ logPopd + bdist3')
+extended_controls <- c('+ region3')
 
-regions <- c('+ factor(region)')
+even_more <- c('+ logPopd')
+
+rest <- c('+ bdist3')
 
 climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
+
+coefs <- list('sqrtSpAll' = 'Precolonial state presence (sqrt)', 
+		'mountains_mean' = 'Mountainous terrain',
+	     	'water_gc' = 'Water (%)', 
+	 	'barren_gc' = 'Barren (%)', 
+	      	'distcoast' = 'Distance to coast',
+	      	'logPopd' = 'Population density (log)', 
+		'bdist3' = 'Distance to border', 
+		'temp_sd' = 'Temperature (SD)',
+	      	'temp' = 'Temperature (mean)', 
+		'prec_sd' = 'Precipitation (SD)', 
+		'prec_gpcc' = 'Precipitation (mean)', 
+		'SpAll10' = 'Precolonial state presence (10)',
+		'sqrtSpAll' = 'Precolonial state presence (sqrt)')
 
 coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)', 
 		'mountains_mean' = 'Mountainous terrain',
@@ -224,22 +250,21 @@ control_names_cv <-c('Baseline', 'Extended Controls',
 control_names_cv_full <-c('Baseline', 'Extended Controls', 'Climate',
 		    'Baseline', 'Extended Controls', 'Climate')
 
-control_names <-c('Baseline', 'Extended Controls', 
-		 'Baseline', 'Extended Controls',
-		 'Baseline', 'Extended Controls')
+control_names <-c('Geography', 'North Africa', 'Population densisty', 'Distance
+		  to border')
 
-dvs <- c('deaths', 'state_based')
+
+dvs <- c('deaths')
 
 cv_dvs <- c('non_state', 'org3')
 
-captions <- c('Fatalities', 'State based conflict events')
+captions <- c('Fatalities')
 
 cv_captions <- c('Non-state conflict events', 'Communal violence events')
 
-captions_int <- c('Fatalities * Distance to capital', 'State based conflict events *
-		  distance to capital')
+captions_int <- c('Fatalities * Distance to capital')
 
-ivs <- c('logSpAll', 'sqrtSpAll', 'SpAll10')
+ivs <- c('sqrtSpAll')
 
 interactions <- c('sqrtSpAll * logCapdist')
 
@@ -286,13 +311,13 @@ prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 #	Analysis							       #
 #==============================================================================#
 
-nb_models <- GeoISD_interactions(dvs=dvs, ivs=ivs, controls=controls,
-				 data=prio_grid_isd, test_label='Linear
-				 Models')
+main_models <- analysis(dvs = dvs, ivs = ivs, controls = controls, data =
+			filter(prio_grid_isd, popd > 0), test_label = 'Linear
+		Models')
 
-interaction_models <- GeoISD_interactions(dvs=dvs, ivs=interactions, controls=controls,
-				 data=prio_grid_isd, test_label='Interaction
-				 Models')
+interaction_models <- analysis(dvs = dvs, ivs = interactions, controls =
+			       controls, data = filter(prio_grid_isd, popd > 0),
+		       test_label = 'Interaction Models')
 
 #==============================================================================#
 # Communal violence analysis & randomness
@@ -331,7 +356,7 @@ org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)
 summary(org3_NB)
 
-dumOrg3<- glm.nb(dumOrg3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+dumOrg3 <- glm.nb(dumOrg3 ~ sqrtSpNoInt + mountains_mean + water_gc + barren_gc +
 		 distcoast + logPopd + bdist3, data = filter(prio_grid_isd,
 							     prio_grid_isd$popd
 							     > 0))
@@ -375,7 +400,7 @@ org3plot
 dev.off()
 
 deathsMainInt <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc + barren_gc +
-		  distcoast + logPopd + bdist3, data = prio_grid_isd)
+		  distcoast + region3 + logPopd + bdist3, data = prio_grid_isd)
 
 ggDeathsInt <- ggeffect(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
@@ -387,6 +412,9 @@ ggDumState <- glm.nb(dumState ~ sqrtSpAll * logCapdist + mountains_mean +
 ggDumStateEffect <- ggeffect(ggDum, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
+ggDumOrg3Effect <- ggeffect(dumOrg3 , terms = c("sqrtSpNoInt [0:15]"))
+
+
 cols <- c("red", "green", "blue")
 
 pastels <- NULL
@@ -394,7 +422,7 @@ for (i in 1:length(cols)) {
 	pastels[i] <- lighten(cols[i])
 }
 
-ggDumStatePlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
+ggDumStatePlot <- ggplot(ggDumStateEffect, aes(x^2, predicted, color = group)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + scale_fill_manual(values = pastels) +
 					 geom_line() + goldenScatterCAtheme
@@ -403,7 +431,17 @@ ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + scale_fill_manual(values = pastels) +
 					 geom_line() + goldenScatterCAtheme
+pdf("../Output/deathsIntPlot.pdf",
+    width = 10, height = 10/1.68)
+ggDeathsIntPlot 
+dev.off()
 
+ggDumOrg3Plot <- 
+
+	ggplot(ggDumOrg3Effect, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					 geom_line() + goldenScatterCAtheme
 
 #==============================================================================#
 # Regression tables
@@ -412,7 +450,7 @@ ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
 for (i in 1:length(dvs)) { 
   name <- dvs[i]
   filename <- paste("../Output/",name,".tex",sep="") 
-  texreg(nb_models$models[[i]],
+  texreg(main_models$models[[i]],
          file = filename,
          custom.model.names = control_names,
          #custom.coef.map = coefs,
@@ -433,7 +471,7 @@ for (i in 1:length(dvs)) {
   intlabel <- paste("interaction_",name,sep="")
   texreg(interaction_models$models[[i]],
          file = filename,
-         custom.model.names = control_names_int,
+         custom.model.names = control_names,
          #custom.coef.map = coefs,
          stars = c(0.001, 0.01, 0.05, 0.1), 
          sideways = T, use.packages = F, scalebox = 1,

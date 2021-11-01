@@ -387,7 +387,7 @@ state presence.
 
 To summarise then, the longer and stronger the recent history of independent
 statehood, the stronger the symbolic value and legal claims based on that
-history would be. Equally, the more likely regional hierarcical elite networks
+history would be. Equally, the more likely regional hierarchical elite networks
 (formal or informal) are to have survived. Additionally, areas with high state
 presence are potentially more likely to be populated by ethnic groups either
 fighting over excluding other groups from power or fighting other pre-colonial
@@ -653,12 +653,19 @@ overlapping state presence.
 The unit of analysis are PRIO grid cells, which are one degree by one degree
 cells \citep{Tollefsen2012}. Due to the explanatory variable being
 time-invariant, the analysis is limited to a cross section. Accordingly, the
-dependent variables are fatalities and the number of state based conflict events
-per grid cell in the period 1946-2018 [currently, will update to the latest
-numbers]. In other words these are cross sectional count data. The data are from
-the GED project \citep{Sundberg2013}.
-
-These measure slightly different aspects, that is why I include both.
+dependent variables are conflict related fatalities per grid cell in the period
+1946-2018 [currently, will update to the latest numbers], excluding events from
+conflicts of decolonization. In other words these are cross sectional count
+data. The data are from the GED project \citep{Sundberg2013}. I intend for this
+to be a general measure of the level of conflict in the post World War 2 period.
+While some of the theoretical mechanisms discussed above might be more closely
+related to a specific type of state-based conflict, such as wars of secession,
+these are difficult to separate entirely. That is, they are unlikely to manifest
+\textit{exclusively} as a specific type. This does not mean that the choice of
+dependent variable biases in favor or finding a relationship. In fact
+\citet{Wishman2021a} finds that pre-colonial state presence has a negative
+effect on communal violence events. Fatalities from which are included in the
+dependent variable used in the models discussed below.
 
 % Run models excluding org3 fatalities, citing my other paper?
 % Would strengthen results but probably not by much. Adds little.
@@ -693,9 +700,7 @@ Because I do not expect the relationship between pre-colonial state presence to
 be linear, and because the data is heavily skewed, the variable is square root
 transformed. While log transformation is more commonly used, and does produce a
 more evenly distributed variable in this case as well, having to add 1 to
-all values could potentially introduce bias [ASK OLE M ABOUT THAT PAPER]. All
-regression tables below include untransformed, log transformed as well as the
-main square root transformed variable.
+all values could potentially introduce bias [ASK OLE M ABOUT THAT PAPER]. 
 
 \subsection{Controls}
 
@@ -737,6 +742,13 @@ building as well as proxy for later population densities, and thus could
 correlate with both state presence and levels of conflict. The data is from
 \citet{Bontemps2009}.
 
+Almost certainly due to the geographical proximity, and the accompanying
+historical familiarity of European map makers to the states of North Africa,
+this region is undoubtedly overrepresented in the Geo-ISD data. This affects
+Morocco most particularly, as can be clearly seen in figures \ref{Sp_i} and
+\ref{Sp}. The reason this affects Morocco in particular is that the remaining
+North African states were under Ottoman suzerainty for much of the period.
+
 Population density is only added as an extended control despite the stronger
 theoretical expectation that it could be a confounding variable, because there
 are no accurate measures of population densities that predate most of the
@@ -760,46 +772,61 @@ measure included in the PRIO grid data, which is originally from
 
 \subsection{Alternative measures}
 
-Both the 
+As an alternative to combat related fatalities, I also ran models using the
+count of state based conflict events, again excluding the events related to
+decolonization. This captures much of the same general level of conflict during
+the period as the fatalities measure does, but the focus is slightly different.
+Fatalities captures severity of conflict as part of the general conflict level,
+whereas the number of conflict events captures the frequency of conflict. This
+would be the difference between few, or short, but highly lethal conflicts,
+versus long winded conflict of relatively low intensity, or recurring conflicts.
+I do not expect there to be a substantial difference in the results from these
+measures based on the theory presented above.
+
+In addition to the square root transformed version of the main independent
+variable, I also ran models using the more common log transformation as well as
+models using a non-transformed variable. For the logged models result remained
+substantially the same (see online appendix eventually). Whereas the
+non-transformed models while remaining significantly positive, predicted effects
+that were substantially meaningless (an increase in pre-colonial state presence
+by 10 was still not enough to predict a .01 increase in the number of fatalities
+across the whole period).
 
 \subsection{Modelling}
 
-My main models are negative binomial models to account for the dependent
-variable being count data (count of deaths (fatalities) and count of conflict
-events (state based)). *** As I currently understand the assumptions of it, I
-should not have to transform the data, as I have done (in the results presented
-below), as the negative binomial model accounts for the non-linear nature of the
-data. ***
+The main models presented below are negative binomial models to account for the
+dependent variable being count data (count of deaths (fatalities) and count of
+conflict events (state based)). A fitness test for whether negative binomial or
+Poisson regression is most appropriate, was conducted and confirmed that
+negative binomial produced the best fit.
 
-TODO: To fitness test for whether negative binomial or Poisson regression is
-most appropriate. I suspected it would be negative binomial, so I went with
-that, but this needs to be confirmed.
+Because there are a great number of zeroes in the dependent variable, as well
+as for theoretical reasons there it is reasonable to assume that there are a
+number of excess zeros. Hence, a zero inflated negative binomial is the most
+appropriate approach. However, most specifications of the models did not
+converge unless all right hand side variable were normalized to around their
+mean. This complicates interpretations of substantial effects, but signs and
+significance remained unchanged from the main models for all specifications (see
+Online appendix eventually).
 
-Zero inflated negative binomial is probably a good idea. Zeros could be true
-zeros - there were no fatalities or state based conflict events in the grid cell
-during the period, or zeros could be measurement error, most likely resulting
-from lack of reporting. However, I am not familiar with ZIMB models at this
-point, but I will figure it out before the next draft.
-
-I should also probably be controlling for spatial interdependence, but again, I
-am not yet familiar with the method of doing so. Will be addressed in future
-versions.
+Because of the size of the grid cells I argue it is safe to assume that events
+and fatalities are largely independent across grid cells (that is independent
+across space). However, some models were run with queen pattern spatial lags,
+most of which did not converge. Those that did successfully converge, remained
+substantially similar to the main models.
 
 \section{Preliminary results}
 
-I have run a whole lot of model specifications, some of which are reported below
-in the figures and in the tables in the appendix. The positive relationship
-between state presence and conflict is as surprising as it is robust across all
-models. The results of the interaction models might help explain the
-relationship. As seen in Figure \ref{deaths_int}, state
-presence is negatively correlated with both conflict measure close to the
-capital, but becomes positive and significant further away from the capital.
-This supports an interpretation that state presence can be conflict reducing in
-those cases where it makes a country less artificial for all the reasons
-outlined by the conflict reducing arguments in the literature. Taken tougher
-however, the results indicate that the negative effects of higher values of
-state presence further away form the capitals of Africa outweighs these conflict
-reducing effects. 
+The positive relationship between state presence and conflict is robust across
+all models. The results of the interaction models might help explain the
+relationship. As seen in Figure \ref{deaths_int}, state presence is negatively
+correlated with both conflict measure close to the capital, but becomes positive
+and significant further away from the capital. This supports an interpretation
+that state presence can be conflict reducing in those cases where it makes a
+country less artificial for all the reasons outlined by the conflict reducing
+arguments in the literature. Taken together however, the results indicate that
+the negative effects of higher values of state presence further away from the
+capitals of Africa outweighs these conflict reducing effects. 
 
 %\end{multicols}
 
@@ -828,7 +855,15 @@ reducing effects.
 
 \section{Conclusion}
 
-*** Awaiting more detailed results ***
+Although effects are substantially small, they are robust, and indicate that
+pre-colonial states have played some role in shaping modern levels of conflict.
+Crucially, the interaction models show that previous assumptions about both
+conflict inducing and conflict reducing effects of pre-colonial statehood are
+not necessarily in contention. In areas where the remnants of prior statehood,
+be they traditions, institutions of social networks, form a continuum to the
+modern state, they could well help states govern more peacefully. On the other
+hand, when placed in opposition to a central government such remnants seems to
+increase the level conflict.
 
 %\end{multicols}
 

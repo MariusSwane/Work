@@ -356,7 +356,7 @@ org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)
 summary(org3_NB)
 
-dumOrg3 <- glm.nb(dumOrg3 ~ sqrtSpNoInt + mountains_mean + water_gc + barren_gc +
+dumOrg3 <- glm.nb(dumOrg3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		 distcoast + logPopd + bdist3, data = filter(prio_grid_isd,
 							     prio_grid_isd$popd
 							     > 0))

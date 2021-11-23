@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: MainPaper.aux
+The style file: agsm.bst
+Database file #1: ../lib.bib
+Warning--can't use both author and editor fields in tilly_1985
+You've used 43 entries,
+            2909 wiz_defined-function locations,
+            937 strings with 11767 characters,
+and the built_in function-call counts, 131936 in all, are:
+= -- 21017
+> -- 1691
+< -- 3
++ -- 9660
+- -- 504
+* -- 11013
+:= -- 27278
+add.period$ -- 43
+call.type$ -- 43
+change.case$ -- 592
+chr.to.int$ -- 43
+cite$ -- 44
+duplicate$ -- 717
+empty$ -- 1404
+format.name$ -- 634
+if$ -- 23550
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 50
+newline$ -- 140
+num.names$ -- 438
+pop$ -- 208
+preamble$ -- 1
+purify$ -- 645
+quote$ -- 0
+skip$ -- 588
+stack$ -- 0
+substring$ -- 29227
+swap$ -- 140
+text.length$ -- 605
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 152
+warning$ -- 1
+while$ -- 951
+width$ -- 0
+write$ -- 549
+(There was 1 warning)

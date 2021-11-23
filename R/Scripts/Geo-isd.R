@@ -436,7 +436,7 @@ popdr  <- raster_to_pg(popdr, aggregation_function = "mean")
 popdr  <- raster_to_tibble(popdr, add_pg_index = TRUE)
 
 # Tidying -- not working
-popdr  <- popdr %>% rename(popd = layer, gid = pgid) %>% dplyr::select(popd, gid)
+popdr  <- popdr %>% rename(popd = popd_1600AD, gid = pgid) %>% dplyr::select(popd, gid)
 
 # Merging
 prio_grid_isd <- left_join(prio_grid_isd, popdr, by = c("gid"))
@@ -462,7 +462,7 @@ rm(popdr)
 #==============================================================================#
 
 # Loading data
-load("../Data/ged201.RData")
+load("../Data/GEDEvent_v21_1.RData")
 load("../Data/ucdp-nonstate-211.rdata")
 
 # Filtering
@@ -471,11 +471,11 @@ ged <- Nonstate_v21_1 %>%  dplyr::select(conflict_id, org, year) %>%
 	mutate(org = as.integer(org))
 
 # Merging
-ged <- left_join(ged201, ged, by = c("conflict_new_id" =
+ged <- left_join(GEDEvent_v21_1, ged, by = c("conflict_new_id" =
 						"conflict_id"))
 
 # Summarising
-ged  <- ged %>% group_by(priogrid_gid) %>% 
+gede  <- ged %>% group_by(priogrid_gid) %>% 
 	summarise(state_based = sum(type_of_violence == 1),
 	non_state = sum(type_of_violence == 2),
 	one_sided = sum(type_of_violence == 3),
@@ -483,6 +483,12 @@ ged  <- ged %>% group_by(priogrid_gid) %>%
 	org2 = sum(org == 2),
 	org3 = sum(org == 3),
 	deaths = sum(best))
+
+# TODO: add org3 deaths as well
+gedd <-  ged %>% group_by(priogrid_gid) %>% filter(type_of_violence == 1) %>% 
+	summarise(statebaseddeaths = sum(best))
+
+ged <- left_join(gede, gedd)
 
 # Merging
 prio_grid_isd  <- left_join(prio_grid_isd, ged, by = c("gid" = "priogrid_gid"))
@@ -495,6 +501,7 @@ prio_grid_isd  <- prio_grid_isd %>%
 	mutate(org1 = ifelse(is.na(org1), 0, org1)) %>%  
 	mutate(org2 = ifelse(is.na(org2), 0, org2)) %>%  
 	mutate(org3 = ifelse(is.na(org3), 0, org3)) %>% 
+	mutate(statebaseddeaths = ifelse(is.na(statebaseddeaths), 0, statebaseddeaths)) %>% 
 	mutate(deaths = ifelse(is.na(deaths), 0, deaths)) 
 
 # Cleaning

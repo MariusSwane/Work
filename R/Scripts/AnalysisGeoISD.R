@@ -54,8 +54,8 @@ conflict_prefer("describe", "psych")
 
 prio_grid_isd <- prio_grid_isd %>% mutate(
 				sqrtDeaths = sqrt(deaths),
+				sqrtSBDeaths = sqrt(statebaseddeaths),
 				sqrtState_based = sqrt(state_based),
-				sqrtPpp = sqrt(gcp_ppp),
 				sqrtSpAll = sqrt(sp_os_i_sum),
 				sqrtSpAny = sqrt(sp_i_sum_any),
 				sqrtSpNoInt = sqrt(sp_os_sum),
@@ -64,7 +64,6 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				sqrtPopd = sqrt(popd),
 				logDeaths = log(deaths + 1),
 				logState_based = log(state_based + 1),
-				logPpp = log(gcp_ppp + 1),
 				logSpAll = log(sp_os_i_sum + 1),
 				logSpAny = log(sp_i_sum_any + 1),
 				logCapdist = log(capdist),
@@ -254,7 +253,7 @@ control_names <-c('Geography', 'North Africa', 'Population densisty', 'Distance
 		  to border')
 
 
-dvs <- c('deaths')
+dvs <- c('statebaseddeaths')
 
 cv_dvs <- c('non_state', 'org3')
 
@@ -399,8 +398,10 @@ pdf("../Output/CommunalViolenceMargins.pdf",
 org3plot
 dev.off()
 
-deathsMainInt <- glm.nb(deaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc + barren_gc +
-		  distcoast + region3 + logPopd + bdist3, data = prio_grid_isd)
+deathsMainInt <- glm.nb(statebaseddeaths ~ sqrtSpAll * logCapdist +
+			mountains_mean + water_gc + barren_gc + distcoast +
+			region3 + logPopd + bdist3, data =
+			filter(prio_grid_isd, prio_grid_isd$popd > 0))
 
 ggDeathsInt <- ggeffect(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
@@ -430,7 +431,10 @@ ggDumStatePlot <- ggplot(ggDumStateEffect, aes(x^2, predicted, color = group)) +
 ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
 					 geom_line() + goldenScatterCAtheme
+
 pdf("../Output/deathsIntPlot.pdf",
     width = 10, height = 10/1.68)
 ggDeathsIntPlot 
@@ -809,6 +813,19 @@ sqrtSpAllPlot <- ggplot() +
 pdf("../Output/sqrtSpAll.pdf",
 	width = 10, height = 10/1.68)
   	sqrtSpAllPlot
+dev.off()
+
+logSpAllPlot <- ggplot() +
+	geom_sf(data = prio_grid_isd,
+            linetype = 0,
+            aes_string(fill = "logSpAll"),
+            show.legend = FALSE) + 
+    scale_fill_viridis_c() +
+    theme_minimal()
+
+pdf("../Output/logSpAll.pdf",
+	width = 10, height = 10/1.68)
+  	logSpAllPlot
 dev.off()
 
 logOrg3 <- ggplot() +

@@ -3,46 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: MainPaper.aux
 The style file: agsm.bst
 Database file #1: ../lib.bib
-Warning--can't use both author and editor fields in tilly_1985
-You've used 51 entries,
+You've used 28 entries,
             2909 wiz_defined-function locations,
-            992 strings with 13477 characters,
-and the built_in function-call counts, 155162 in all, are:
-= -- 24673
-> -- 2021
-< -- 4
-+ -- 11342
-- -- 602
-* -- 12949
-:= -- 32123
-add.period$ -- 51
-call.type$ -- 51
-change.case$ -- 700
-chr.to.int$ -- 51
-cite$ -- 52
-duplicate$ -- 850
-empty$ -- 1665
-format.name$ -- 751
-if$ -- 27690
+            847 strings with 10252 characters,
+and the built_in function-call counts, 99903 in all, are:
+= -- 16093
+> -- 1310
+< -- 3
++ -- 7546
+- -- 392
+* -- 8542
+:= -- 20353
+add.period$ -- 28
+call.type$ -- 28
+change.case$ -- 386
+chr.to.int$ -- 28
+cite$ -- 28
+duplicate$ -- 437
+empty$ -- 917
+format.name$ -- 485
+if$ -- 17862
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 62
-newline$ -- 170
-num.names$ -- 521
-pop$ -- 250
+missing$ -- 31
+newline$ -- 98
+num.names$ -- 289
+pop$ -- 129
 preamble$ -- 1
-purify$ -- 765
+purify$ -- 420
 quote$ -- 0
-skip$ -- 680
+skip$ -- 340
 stack$ -- 0
-substring$ -- 34288
-swap$ -- 161
-text.length$ -- 718
+substring$ -- 22598
+swap$ -- 65
+text.length$ -- 395
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 176
-warning$ -- 1
-while$ -- 1128
+type$ -- 100
+warning$ -- 0
+while$ -- 623
 width$ -- 0
-write$ -- 661
-(There was 1 warning)
+write$ -- 371

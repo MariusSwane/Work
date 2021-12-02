@@ -894,36 +894,60 @@ The accuracy of the historical maps used to create the polygons of the Geo-ISD
 is a natural concern. Who typically drew these maps? Based on what sources? For
 what purposes? And with what level of technical accuracy? 
 
-By tracing the creation of a selection of the maps I found that most of the maps
-from the David Rumsey project are from atlases published for commercial purposes
-by individuals or small publishing companies specialized in this type of
-publications. The maps were based on a combination of existing maps updated with
-``the latest sources" (something frequently boasted in the title of the atlas),
-which for the majority of the period meant explorers/geographers on missions
-from their respective geographical societies.\footnote{Later maps additionally
-draw on the work of military surveyors, but as far as I have been able to tell
-the majority is still based primarily on the work of explorers and past maps.}
-
-\subsection{Compilation}
-
-The resulting data can be compiled in different ways, to provide different
-insights. Included with the data set are two different measures of
-``borderness" (the degree to which an area has historically been on the fringes
-of local states), one measuring the overlapping of borders, and one measuring
-how many borders pass through an area. For this paper however, I rely on the
-measure of `state presence', similar in concept to that of
-\citet{Depetris-Chauvin2016}, which was the original purpose for the Geo-ISD.
-
-When maps disagreed on where the
-various borders were in a given year, we take it as an indication of the
-ambiguity of where a given state had \emph{de facto} or \emph{de jure} control
-in that year. In the areas where all the maps agree we could be quite sure that
-the given state entity had real presence.  While in areas where only one map
-indicated that the state was presence, this could either be wrong, an indication
-of \emph{de jure} as opposed to \emph{de facto} presence or some other form of
+By tracing the creation of a selection of the maps, I found that most of the
+maps from the David Rumsey project are from atlases published for commercial
+purposes by individuals or small publishing companies specialized in this type
+of publications. Most are from English or American atlases, but French, Italian,
+German and other sources are included as well. The maps were based on a
+combination of existing maps updated with ``the latest sources" (something
+frequently boasted in the title of the atlas), which for the majority of the
+period meant explorers/geographers on missions from their respective
+geographical societies.\footnote{Later maps additionally draw on the work of
+	military surveyors, but as far as I have been able to tell the majority
+is still based primarily on the work of explorers and past maps.} In the words
+of \citet[47-48]{Stone1995}: `Cartography in Africa [in the 19th century] is
+still a mix of measurement, less accurate observations, word of mouth, previous
+maps and sources, educated guesses and pure conjecture. Nevertheless a distinct
+improvement on the maps of previous periods.'. As a result I expect two types of
+bias: bias resulting from measurement errors and bias resulting from
+misconceptions (deliberate or not) of what constituted the borders of a polity
+at the time. While the quote above might lead one to expect considerable
+measurement error, by my estimate this error only amounts to 36.9km on
+average.\footnote{Based on the estimated mean distance of the coast in the maps
+	to the real coast, along the borders of the states we traced. This
+	captures measurement error explicitly, because regardless of where
+	states did or did not extend their control, the coast should in the map
+	should line up with reality (assuming no reason for the cartographers or
+	anyone else to misrepresent the coastline). Indeed, we often used the
+	recognizable features along the coast to georeference the maps. This
+	means that there are often multiple estimates for each map, reflecting
+	how the accuracy is better in some places than in others. If this
+	difference was above 100km the maps were deemed too inaccurate and
+	excluded from the sample. We did not include error estimates for states
+	that lay inland, because consistently matching features from the maps to
+real geographical features was not feasible other than when using the coastline,
+which provides a visible line of comparison.} Although I have not been able to
+find any sources discussing specifically how cartographers determined the
+borders of different polities, my best guess it that it in large part relied on
+local verbal sources (word of mouth). Both their sources as well as the
+cartographers themselves could have induced bias to the resulting maps. At the
+very least there should be heterogeneity in the conceptualization of
+territoriality. What determines where a given source (or the cartographer in the
+second instance) draws the borders of a polity, or how this would vary with
+their respective conceptualization of states, polities and ethnic groups, is
+impossible do determine. However, thanks to (usually) having multiple maps for
+each state, the variation can be leveraged to create a measure of the
+\textit{degree} to which a state had a presence in a given area over the time
+period as a whole. When maps disagreed on where the various borders were, I
+interpret it as either true variation across time, or as an indication of the
+ambiguity of where a given state had \emph{de facto} or \emph{de jure} control.
+In the areas where all the maps agree we could be quite sure that the given
+state entity had real presence.  While in areas where only one map indicated
+that the state was presence, this could either be wrong, an indication of
+\emph{de jure} as opposed to \emph{de facto} presence or some other form of
 limited presence. The coding process of looking at hundreds of maps strengthened
 this initial intuition, and the resulting figures of state presence drawn from
-the complete data lends it further credence. On aggregate most maps should agree
+the complete data lends it further credence. Most maps should agree
 on the core areas of a state while the further away from the core fewer maps
 would consider the area part of the state. We believe this approximates the real
 ambiguities surrounding where states governed and where they did not, resulting
@@ -944,6 +968,14 @@ an independent state than its neighbours in the region.
 \end{figure}
 
 %\begin{multicols}{2}
+
+The resulting data can be compiled in different ways, to provide different
+insights. Included with the data set are two different measures of
+``borderness" (the degree to which an area has historically been on the fringes
+of local states), one measuring the overlapping of borders, and one measuring
+how many borders pass through an area. For this paper however, I rely on the
+measure of `state presence', similar in concept to that of
+\citet{Depetris-Chauvin2016}, which was the original purpose for the Geo-ISD.
 
 The data from this project can be aggregated and used in multiple ways and to
 produce different variables and measures. All of these indicators are aggregated

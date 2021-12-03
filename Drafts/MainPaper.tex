@@ -43,20 +43,22 @@ urlcolor=blue
 %{{{ Abstract
 \begin{abstract}
 
-This paper finds that in general the level of pre-colonial state presence are is
-positively correlated with civil conflict (as measured by fatalities and
-conflict onsets). However, higher levels of pre-colonial state presence is
-conflict reducing in areas close to modern capital cities. I argue this is due
-to relatively more continuation of traditions and institutions associated with
-statehood that are inherently conflict reducing. While in areas further away
-from the capital higher levels of state presence is conflict inducing. I argue
-that this implies a history of statehood often at odds with that of the central
-government. Such histories leave behind powerful symbols of independence useful
-for mobilization and elite networks (formal or informal) with the potential to
-violently resist state expansion into their sphere of influence. The proposed
-mechanisms are further supported by the finding that the effects are strongest
-in the period following independence, when such obstacles to state building or
-consolidation should be most pressing.
+This paper introduces the Geo-ISD data set describing the varying degrees of
+historical presence of 82 independent states in Africa during the 1800-1914
+period. It examines the relationship between pre-colonial state presence (both
+years of independent statehood and degree of control) and post independence
+civil conflict and finds that in general the level of pre-colonial state
+presence are is positively correlated with civil conflict (as measured by
+fatalities and conflict onsets). However, higher levels of pre-colonial state
+presence is conflict reducing in areas close to modern capital cities. I argue
+this is due to relatively more continuation of traditions and institutions
+associated with statehood that are inherently conflict reducing. While in areas
+further away from the capital higher levels of state presence is conflict
+inducing. I argue that this implies a history of statehood often at odds with
+that of the central government. Such histories leave behind powerful symbols of
+independence useful for mobilization and elite networks (formal or informal)
+with the potential to violently resist state expansion into their sphere of
+influence. 
 
 \end{abstract}
 
@@ -278,7 +280,7 @@ violations of sovereignty \citep{Ahram2019, Shelef2016}\footnote{Recent examples
 
 % Location discussion?
 
-\subsection{Clever subtitle}
+\subsection{The importance of an institutional base}
 
 I argue that how pre-colonial states affects conflict (which set of mechanisms
 are active), is determined by whether or not the pre-colonial state in a given
@@ -764,9 +766,7 @@ strict criteria for statehood.\footnote{For example,
 Azande [?].}
 
 %{{{ comments
-% Depetris-chau lack some states (53 in SSA), despite an apparently less stringent
-% definition of statehood (also less clear), includes Hausa states, Aro trading
-% confederacy, Air sultanate?, Azande?. And lacks most of the variation across time and
+% Depetris-chau lack some states (53 in SSA), despite an apparently less stringent definition of statehood (also less clear), includes Hausa states, Aro trading confederacy, Air sultanate?, Azande?. And lacks most of the variation across time and
 % space. Starts with states antiquity compliments with Murdoch and other
 % historical atlases
 %}}}
@@ -801,8 +801,12 @@ potentially refer to either the Haussa ethnic group (a common event in these
 maps) or the multiple Houssa states, neither of which qualify as states in the
 ISD. This process was repeated for all the maps at the time found included in
 \href{https://www.davidrumsey.com}{the David Rumsey project}, matching the
-region of Africa. To control for some of the potential biases of relying on maps
-drawn a long time ago and by non indigenous (mostly Western)
+region of Africa in the period 1800 to 1914. The start date was chosen due to the
+limitations of the ISD v2 which only extends back to 1814 (but includes the the
+founding date of states going further back), and the fact that the quality of
+contemporaneous maps becomes substantially  worse beyond this point
+\citep{Bassett_1994}. To control for some of the potential biases of relying on
+maps drawn a long time ago and by non indigenous (mostly Western)
 mapmakers,\footnote{Discussed further below} I also repeated the same process
 using historical atlases compiled by later historians (several of which were
 also consulted by \citet{Depetris-Chauvin2016} and \citet{Paine2019}). In the
@@ -945,13 +949,14 @@ his travels were routinely escorted by representatives of the kings until
 reaching \textit{frontier towns/villages} \citep{ParkMungo2015Titi}. Both their
 sources as well as the cartographers themselves could have induced bias to the
 resulting maps. Sources were likely to be rulers or their representatives, with
-incentives for engrandisement. The explorers and cartographers on their part
+incentives for aggrandisement. The explorers and cartographers on their part
 represented European rulers with an eye toward colonial expansion. It less clear
-how this would affect the resulting borders drawn, but I did not observe any
-clear/systematic differences between the maps of the different colonizers. In
-fact, if anything their colonial ambitions should have promoted accuracy, as any
-potential military expedition would benefit from accurate information
-\citep{Bassett_1994}.
+how this would affect the resulting borders drawn. One potential bias would be
+to exaggerate the domains of your own governments prospective colonies, and vice
+versa, but I did not observe any clear/systematic differences between the maps
+of the different colonizers. In fact, if anything their colonial ambitions
+should have promoted accuracy, as any potential military expedition would
+benefit from accurate information \citep{Bassett_1994}.
 
 At the very least there should be heterogeneity in the conceptualization of
 territoriality. What determines where a given source (or the cartographer in the
@@ -1019,13 +1024,13 @@ overlapping state presence.
 	\label{Sp_i}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centering
-	%\includegraphics[width=0.8\linewidth]{../Rplot_ln_sp_int.pdf}
-	\includegraphics[width=\linewidth]{../R/Output/sp_os_sum.pdf}
-	\caption{State presence (sqrt transformed) without interpolated years.}
-	\label{Sp}
-\end{figure}
+% \begin{figure}[htpb]
+% 	\centering
+% 	%\includegraphics[width=0.8\linewidth]{../Rplot_ln_sp_int.pdf}
+% 	\includegraphics[width=\linewidth]{../R/Output/sp_os_sum.pdf}
+% 	\caption{State presence (sqrt transformed) without interpolated years.}
+% 	\label{Sp}
+% \end{figure}
 
 %\begin{multicols}{2}
 
@@ -1036,19 +1041,23 @@ overlapping state presence.
 The unit of analysis are PRIO grid cells, which are one degree by one degree
 cells \citep{Tollefsen2012}. Due to the explanatory variable being
 time-invariant, the analysis is limited to a cross section. Accordingly, the
-dependent variables are conflict related fatalities per grid cell in the period
-1989-2018 [currently, will update to the latest numbers], excluding events from
-conflicts of decolonization. In other words these are cross sectional count
-data. The data are from the GED project \citep{Sundberg2013}. I intend for this
-to be a general measure of the level of conflict in the post World War 2 period.
-While some of the theoretical mechanisms discussed above might be more closely
-related to a specific type of state-based conflict, such as wars of secession,
-these are difficult to separate entirely. That is, they are unlikely to manifest
-\textit{exclusively} as a specific type. This does not mean that the choice of
-dependent variable biases in favor or finding a relationship. In fact
-\citet{Wishman2021a} finds that pre-colonial state presence has a negative
-effect on communal violence events. Fatalities from which are included in the
-dependent variable used in the models discussed below.
+dependent variable is state based conflict related fatalities per grid cell in
+the period 1989-2020. In other words these are cross sectional count data. The
+data are from the GED project \citep{Sundberg2013}. I argue that this is a
+general measure of the level of conflict in the post World War 2
+period.\footnote{Alternative measures discussed below.} The start date of 1989 is by
+availability rather than design, as it likely biases against finding results
+(positive or negative). All the mechanisms discussed in the theory section
+should present stronger closer to independence and then fade in importance
+relative to other factors. 
+
+% While some of the theoretical mechanisms discussed above might be more closely
+% related to a specific type of state-based conflict, such as wars of secession,
+% these are difficult to separate entirely. That is, they are unlikely to manifest
+% \textit{exclusively} as a specific type. This does not mean that the choice of
+% dependent variable biases in favor or finding a relationship. In fact
+% \citet{Wishman2021a} finds that pre-colonial state presence has a negative
+% effect on communal violence events. 
 
 % Run models excluding org3 fatalities, citing my other paper?
 % Would strengthen results but probably not by much. Adds little.
@@ -1128,9 +1137,9 @@ correlate with both state presence and levels of conflict. The data is from
 Almost certainly due to the geographical proximity, and the accompanying
 historical familiarity of European map makers to the states of North Africa,
 this region is undoubtedly overrepresented in the Geo-ISD data. This affects
-Morocco most particularly, as can be clearly seen in figures \ref{Sp_i} and
-\ref{Sp}. The reason this affects Morocco in particular is that the remaining
-North African states were under Ottoman suzerainty for much of the period.
+Morocco most particularly, as can be clearly seen in Figure \ref{Sp_i}. The
+reason this affects Morocco in particular is that the remaining North African
+states were under Ottoman suzerainty for much of the period.
 
 Population density is only added as an extended control despite the stronger
 theoretical expectation that it could be a confounding variable, because there
@@ -1183,6 +1192,12 @@ conflict events (state based)). A fitness test for whether negative binomial or
 Poisson regression is most appropriate, was conducted and confirmed that
 negative binomial produced the best fit.
 
+Despite the potential bias introduced by adding 1 to all observations, the most
+commonly used transformation of skewed data in the conflict literature is a
+logarithmic transformation. As such the online appendix reports models using
+this transformation as opposed to a square root transformation. Results remain
+the same, but with more substantial coefficients in some of the models.
+
 Because there are a great number of zeroes in the dependent variable, as well
 as for theoretical reasons there it is reasonable to assume that there are a
 number of excess zeros. Hence, a zero inflated negative binomial is the most
@@ -1200,25 +1215,20 @@ substantially similar to the main models.
 
 \section{Preliminary results}
 
-The positive relationship between state presence and conflict is robust across
-all models. The results of the interaction models might help explain the
-relationship. As seen in Figure \ref{deaths_int}, state presence is negatively
-correlated with both conflict measure close to the capital, but becomes positive
-and significant further away from the capital. This supports an interpretation
-that state presence can be conflict reducing in those cases where it makes a
-country less artificial for all the reasons outlined by the conflict reducing
-arguments in the literature. Taken together however, the results indicate that
-the negative effects of higher values of state presence further away from the
-capitals of Africa outweighs these conflict reducing effects. 
+Despite the data on conflict starting nearly three decades after most of Africa
+achieved independence, there is a positive relationship between state presence
+and conflict that is robust across all models. However, the results of the interaction
+models present a more nuanced image. As seen in Figure \ref{deaths_int},
+state presence is negatively correlated with both conflict measure close to the
+capital, but becomes positive and significant further away from the capital.
+This supports an interpretation that state presence can be conflict reducing in
+those cases where it makes a country less artificial for all the reasons
+outlined by the conflict reducing arguments in the literature. Taken together
+however, the results indicate that the negative effects of higher values of
+state presence further away from the capitals of Africa outweighs these conflict
+reducing effects. 
 
 %\end{multicols}
-
-%\begin{figure}[htpb]
-%	\centering
-%	\includegraphics[width=\linewidth]{"../R/Output/conflictMargins.pdf"}
-%	\caption{}
-%	\label{margins}
-%\end{figure}
 
 \begin{figure}[htpb]
 	\centering
@@ -1257,9 +1267,18 @@ central government such remnants seems to increase the level conflict.
 \pagebreak
 \section*{Appendix}
 
-\input{"../R/Output/deaths.tex"}
-%\input{"../R/Output/state_based.tex"}
-\input{"../R/Output/interaction_deaths.tex"}
+\input{"../R/Output/statebaseddeaths.tex"}
+\input{"../R/Output/interaction_statebaseddeaths.tex"}
+\input{"../R/Output/state_based.tex"}
+\input{"../R/Output/interaction_state_based.tex"}
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=\linewidth]{"../R/Output/ggStatePlot.pdf"}
+	\caption{Predicted conflict events per state presence, grouped by
+	distance to capital.}
+	\label{state_int}
+\end{figure}
 
 \end{document}
 

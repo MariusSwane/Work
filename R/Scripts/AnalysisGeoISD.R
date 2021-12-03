@@ -253,15 +253,16 @@ control_names <-c('Geography', 'North Africa', 'Population densisty', 'Distance
 		  to border')
 
 
-dvs <- c('statebaseddeaths')
+dvs <- c('statebaseddeaths', 'state_based')
 
 cv_dvs <- c('non_state', 'org3')
 
-captions <- c('Fatalities')
+captions <- c('Fatalities', 'State based conflict events')
 
 cv_captions <- c('Non-state conflict events', 'Communal violence events')
 
-captions_int <- c('Fatalities * Distance to capital')
+captions_int <- c('Fatalities * Distance to capital', 'Conflict events *
+		  Distance to capital')
 
 ivs <- c('sqrtSpAll')
 
@@ -406,11 +407,11 @@ deathsMainInt <- glm.nb(statebaseddeaths ~ sqrtSpAll * logCapdist +
 ggDeathsInt <- ggeffect(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
-ggDumState <- glm.nb(dumState ~ sqrtSpAll * logCapdist + mountains_mean +
+ggStateBased <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
 		    water_gc + barren_gc + distcoast + logPopd + bdist3, data =
-		    prio_grid_isd) 
+		    filter(prio_grid_isd, prio_grid_isd$popd > 0))
 
-ggDumStateEffect <- ggeffect(ggDum, terms = c("sqrtSpAll [0:15]", "logCapdist
+ggStateEffect <- ggeffect(ggStateBased, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
 ggDumOrg3Effect <- ggeffect(dumOrg3 , terms = c("sqrtSpNoInt [0:15]"))
@@ -423,7 +424,7 @@ for (i in 1:length(cols)) {
 	pastels[i] <- lighten(cols[i])
 }
 
-ggDumStatePlot <- ggplot(ggDumStateEffect, aes(x^2, predicted, color = group)) +
+ggStatePlot <- ggplot(ggStateEffect, aes(x^2, predicted, color = group)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + scale_fill_manual(values = pastels) +
 					 geom_line() + goldenScatterCAtheme
@@ -438,6 +439,11 @@ ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
 pdf("../Output/deathsIntPlot.pdf",
     width = 10, height = 10/1.68)
 ggDeathsIntPlot 
+dev.off()
+
+pdf("../Output/ggStatePlot.pdf",
+    width = 10, height = 10/1.68)
+ggStatePlot 
 dev.off()
 
 ggDumOrg3Plot <- 

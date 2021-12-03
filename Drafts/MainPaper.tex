@@ -784,7 +784,6 @@ pre-colonial states that addresses some of the weaknessess of the existing
 geocoded data, namely the number of states identified, static borders, lack of
 overlap and assumed/implicit uniformity in state control across territory.
 
-% Trace the process
 The original idea behind the Geo-ISD was to use historically contemporary maps,
 as close to the primary sources as possible, containing the borders of countries
 to determine the extent/borders of different states as close to yearly as
@@ -796,7 +795,7 @@ seen by the resulting black areas outside the map in Figure
 \ref{Arrowsmith}.\footnote{The exact specifications for the georeferencing and
 	subsequent transformation will be supplied in the code book, included in
 the online appendix.} Shapes of the states included in the ISD v2 for the given
-year of the map was then traced. For example we would include Bornou, but not
+year of the map was then traced. For example I would include Bornou, but not
 neighboring Howssa in Figure \ref{Arrowsmith}, as the shape drawn could
 potentially refer to either the Haussa ethnic group (a common event in these
 maps) or the multiple Houssa states, neither of which qualify as states in the
@@ -804,10 +803,10 @@ ISD. This process was repeated for all the maps at the time found included in
 \href{https://www.davidrumsey.com}{the David Rumsey project}, matching the
 region of Africa. To control for some of the potential biases of relying on maps
 drawn a long time ago and by non indigenous (mostly Western)
-mapmakers,\footnote{Discussed further below} we also repeated the same process
+mapmakers,\footnote{Discussed further below} I also repeated the same process
 using historical atlases compiled by later historians (several of which were
 also consulted by \citet{Depetris-Chauvin2016} and \citet{Paine2019}). In the
-end we were left with over 3400 unique polygons (state-shape-years) covering the
+end I was left with over 3400 unique polygons (state-shape-years) covering the
 period 1800 to 1914 for continental Africa and Madagascar. For some pre-colonial
 states in the ISD there were no maps for any years, some are covered only for
 some of the years they are in the ISD, but a substantial number of them are
@@ -911,27 +910,50 @@ maps and sources, educated guesses and pure conjecture. Nevertheless a distinct
 improvement on the maps of previous periods.'. As a result I expect two types of
 bias: bias resulting from measurement errors and bias resulting from
 misconceptions (deliberate or not) of what constituted the borders of a polity
-at the time. While the quote above might lead one to expect considerable
-measurement error, by my estimate this error only amounts to 36.9km on
-average.\footnote{Based on the estimated mean distance of the coast in the maps
-	to the real coast, along the borders of the states we traced. This
-	captures measurement error explicitly, because regardless of where
-	states did or did not extend their control, the coast should in the map
-	should line up with reality (assuming no reason for the cartographers or
-	anyone else to misrepresent the coastline). Indeed, we often used the
-	recognizable features along the coast to georeference the maps. This
-	means that there are often multiple estimates for each map, reflecting
-	how the accuracy is better in some places than in others. If this
-	difference was above 100km the maps were deemed too inaccurate and
-	excluded from the sample. We did not include error estimates for states
-	that lay inland, because consistently matching features from the maps to
-real geographical features was not feasible other than when using the coastline,
-which provides a visible line of comparison.} Although I have not been able to
-find any sources discussing specifically how cartographers determined the
-borders of different polities, my best guess it that it in large part relied on
-local verbal sources (word of mouth). Both their sources as well as the
-cartographers themselves could have induced bias to the resulting maps. At the
-very least there should be heterogeneity in the conceptualization of
+at the time. I also expect error to be replicated by other maps, before
+eventually being corrected. Such as the non-existing Mountains of Kong, that
+were replicated in maps for the better part of the nineteenth century before
+being definitively wiped from the map \citep{Bassett_1991}.
+
+While the quote above might lead one to expect considerable measurement error,
+by my estimate this error only amounts to 36.9km on average. Based on the
+estimated mean distance of the coast in the maps to the real coast, along the
+borders of the states I traced. This captures measurement error explicitly,
+because regardless of where states did or did not extend their control, the
+coast should in the map should line up with reality (assuming no reason for the
+cartographers or anyone else to misrepresent the coastline). Indeed, I often
+used the recognizable features along the coast to georeference the maps. This
+means that there are often multiple estimates for each map, reflecting how the
+accuracy is better in some places than in others. If this difference was above
+100km the maps were deemed too inaccurate and excluded from the sample. I did
+not include error estimates for states that lay inland, because consistently
+matching features from the maps to real geographical features was not feasible
+other than when using the coastline, which provides a visible line of
+comparison.
+
+Although I have not been able to find any sources discussing specifically how
+cartographers determined the borders of different polities, my best guess it
+that it in large part relied on local verbal sources (word of mouth). Of the
+sort that effectively dubbed the aforementioned mountains of Kong.\footnote{`I
+	gained the summit of a hill, from whence I had an extensive view of the
+	country. Towards the south-east, appeared some very distant mountains,
+	which I had formerly seen from an eminence near Marraboo, where the
+people informed me, that these mountains were situated in a large and powerful
+kingdom called Kong; the sovereign of which could raise a much greater army than
+the King of Bambarra.' \citep[CHAPTER XVIII]{ParkMungo2015Titi}} Mungo Park in
+his travels were routinely escorted by representatives of the kings until
+reaching \textit{frontier towns/villages} \citep{ParkMungo2015Titi}. Both their
+sources as well as the cartographers themselves could have induced bias to the
+resulting maps. Sources were likely to be rulers or their representatives, with
+incentives for engrandisement. The explorers and cartographers on their part
+represented European rulers with an eye toward colonial expansion. It less clear
+how this would affect the resulting borders drawn, but I did not observe any
+clear/systematic differences between the maps of the different colonizers. In
+fact, if anything their colonial ambitions should have promoted accuracy, as any
+potential military expedition would benefit from accurate information
+\citep{Bassett_1994}.
+
+At the very least there should be heterogeneity in the conceptualization of
 territoriality. What determines where a given source (or the cartographer in the
 second instance) draws the borders of a polity, or how this would vary with
 their respective conceptualization of states, polities and ethnic groups, is
@@ -941,30 +963,28 @@ each state, the variation can be leveraged to create a measure of the
 period as a whole. When maps disagreed on where the various borders were, I
 interpret it as either true variation across time, or as an indication of the
 ambiguity of where a given state had \emph{de facto} or \emph{de jure} control.
-In the areas where all the maps agree we could be quite sure that the given
+In the areas where all the maps agree one could be quite sure that the given
 state entity had real presence.  While in areas where only one map indicated
 that the state was presence, this could either be wrong, an indication of
 \emph{de jure} as opposed to \emph{de facto} presence or some other form of
 limited presence. The coding process of looking at hundreds of maps strengthened
 this initial intuition, and the resulting figures of state presence drawn from
-the complete data lends it further credence. Most maps should agree
-on the core areas of a state while the further away from the core fewer maps
-would consider the area part of the state. We believe this approximates the real
-ambiguities surrounding where states governed and where they did not, resulting
-in a measure of state presence in a given area. Figure \ref{overlay} is an
-overlay of all the map polygons of Libya, Tunisia and Egypt. It demonstrates how
-the authority of these states faded into the desert, partially overlap at the
-borders, and in the Libyan case, its tenuous hold on the Fezzan region. Although
-to a lesser degree, one can also see that Libya as a whole spent fewer years as
-an independent state than its neighbours in the region.
+the complete data lends it further credence. Most maps should agree on the core
+areas of a state while the further away from the core fewer maps would consider
+the area part of the state. I believe this approximates the real ambiguities
+surrounding where states governed and where they did not, resulting in a measure
+of state presence in a given area. Figure \ref{libya} demonstrates how the
+authority of the Libyan state gradually faded into the desert, that the
+Benghazi/Cyraneica region was not always or fully under the control of Tripoli,
+and its even more tenuous hold on the Fezzan region to the south. 
 
 %\end{multicols}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\textwidth,keepaspectratio]{img/TUNLIBEGY.pdf}
-	\caption{Overlay of all map polygons of Tunisia, Libya and Egypt}
-	\label{overlay}
+	\includegraphics[width=0.8\textwidth,keepaspectratio]{img/libya.png}
+	\caption{The historical state presence of Libyan state of Tripoli.}
+	\label{libya}
 \end{figure}
 
 %\begin{multicols}{2}
@@ -1053,7 +1073,7 @@ North African states (proximity) and Darfur (weird obsession?) Again counting
 only the presence of the most present state for each grid cell. In both cases
 this paper uses the measure which includes interpolated shapes from historical
 atlases. Where historical atlases depicted the borders of a state from year x to
-y, we created identical shapes for all these years. This has the benefit of
+y, I created identical shapes for all these years. This has the benefit of
 placing a slightly larger emphasis on the historical atlases, at the cost of
 being static.\footnote{Equivalent models excluding the interpolated shapes are
 included in the Online appendix. Results remain substantially the same for all
@@ -1218,15 +1238,14 @@ capitals of Africa outweighs these conflict reducing effects.
 
 \section{Conclusion}
 
-Although effects are substantially small, they are robust, and indicate that
-pre-colonial states have played some role in shaping modern levels of conflict.
-Crucially, the interaction models show that previous assumptions about both
-conflict inducing and conflict reducing effects of pre-colonial statehood are
-not necessarily in contention. In areas where the remnants of prior statehood,
-be they traditions, institutions of social networks, form a continuum to the
-modern state, they could well help states govern more peacefully. On the other
-hand, when placed in opposition to a central government such remnants seems to
-increase the level conflict.
+The results are substantial  and robust, and indicate that pre-colonial states
+have played some role in shaping modern levels of conflict. Crucially, the
+interaction models show that previous assumptions about both conflict inducing
+and conflict reducing effects of pre-colonial statehood are not necessarily in
+contention. In areas where the remnants of prior statehood, be they institutions
+or social networks, form a continuum to the modern state, they could well help
+states govern more peacefully. On the other hand, when placed in opposition to a
+central government such remnants seems to increase the level conflict.
 
 %\end{multicols}
 

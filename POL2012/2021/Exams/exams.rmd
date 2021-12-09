@@ -1,0 +1,109 @@
+---
+title: "Exam grades"
+author: "Marius Swane Wishman"
+output: html_document
+---
+
+Grades:
+```{r, echo = F, results = 'asis'}
+library(knitr)
+exams <- data.frame(candidate = c(10001,
+                                  10006,
+                                  10007,
+                                  10008,
+                                  10009,
+                                  10010,
+                                  10011,
+                                  10012,
+                                  10014,
+                                  10015,
+                                  10016,
+                                  10017,
+                                  10019,
+                                  10021,
+                                  10022,
+                                  10024,
+                                  10025,
+                                  10026,
+                                  10028,
+				  10029,
+				  10030,
+				  10031,
+				  10032,
+				  10033),
+		    grade = c("B",
+			      "B/A",
+			      "C",
+			      "D",
+			      "C/D",
+			      "D-",
+			      "E/D",
+			      "D+",
+			      "D-",
+			      "D",
+			      "D",
+			      "B-",
+			      "B",
+			      "B/A",
+			      "C",
+			      "D+",
+			      "E",
+			      "C",
+			      "C/B",
+			      "C",
+			      "B-",
+			      "E+",
+			      "E-",
+			      "E"),
+		    nGrade = c(5,
+                               6,
+                               4,
+                               3,
+                               4,
+                               3,
+                               3,
+                               4,
+                               3,
+                               3,
+                               3,
+                               5,
+                               5,
+                               6,
+                               4,
+                               4,
+                               2,
+                               4,
+                               5,
+			       4,
+			       5,
+			       3,
+			       2,
+			       2))
+
+kable(exams)
+```
+
+Distribution:
+
+```{r echo = F}
+
+library(ggplot2)
+source("../../../R/Scripts/goldenScatterCAtheme.r")
+
+ggplot(exams, aes(x=nGrade)) + geom_histogram(aes(y=..density..),
+					      colour="black", fill="white", bins
+					      = 6)+ geom_density(alpha=.2,
+					      fill="#FF6666")+
+goldenScatterCAtheme
+
+```
+
+Mean grade is:
+
+```{r, echo = F}
+
+mean(exams$nGrade)
+
+```
+
+	

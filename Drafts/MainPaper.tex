@@ -1019,7 +1019,9 @@ accuracy is better in some places than in others. If this difference was above
 not include error estimates for states that lay inland, because consistently
 matching features from the maps to real geographical features was not feasible
 other than when using the coastline, which provides a visible line of
-comparison.
+comparison. Additionally, this error only adds noise, because it is equally
+likely to err in one direction or the other. Thus it should not affect 
+coefficient estimates, but rather standard error estimates.
 
 Although I have not been able to find any sources discussing specifically how
 cartographers determined the borders of different polities, my best guess it
@@ -1101,17 +1103,12 @@ as \citet{Paine2019} and \citet{Depetris-Chauvin2016}. A full list of the
 historical atlases used is in the Appendix.
 
 The resulting data can be compiled in different ways, to provide different
-insights. Included with the data set are two different measures of
-``borderness" (the degree to which an area has historically been on the fringes
-of local states), one measuring the overlapping of borders, and one measuring
-how many borders pass through an area. For this paper however, I rely on the
-measure of `state presence', similar in concept to that of
-\citet{Depetris-Chauvin2016}, which was the original purpose for the Geo-ISD.
-
-The data from this project can be aggregated and used in multiple ways and to
-produce different variables and measures. All of these indicators are aggregated
-over all years for individual PRIO-GRID cells in Africa. The primary indicator
-used in this paper is a measure of the presence over time. It is measured by the
+insights. Included with the data set are two different measures of ``borderness"
+(the degree to which an area has historically been on the fringes of local
+states), one measuring the overlapping of borders, and one measuring how many
+borders pass through an area. For the analysis in this paper however, I rely on
+the measure of ``state presence", similar in concept to that of ``state history"
+introduced by \citet{Depetris-Chauvin2016}. I measure ``state presence" the
 number of maps that indicate that a state was present there, counting only those
 of the state most often present in that cell. So that if a cell bordering
 Tunisia and Libya contains 40 maps of Tunisia and 7 maps of Libya, only the
@@ -1144,18 +1141,18 @@ overlapping state presence.
 
 \subsection{Dependent variable}
 
-The unit of analysis are PRIO grid cells, which are one degree by one degree
-cells \citep{Tollefsen2012}. Due to the explanatory variable being
-time-invariant, the analysis is limited to a cross section. Accordingly, the
-dependent variable is state based conflict related fatalities per grid cell in
-the period 1989-2020. In other words these are cross sectional count data. The
-data are from the GED project \citep{Sundberg2013}. I argue that this is a
-general measure of the level of conflict in the post World War 2
-period.\footnote{Alternative measures discussed below.} The start date of 1989 is by
-availability rather than design, as it likely biases against finding results
-(positive or negative). All the mechanisms discussed in the theory section
-should present stronger closer to independence and then fade in importance
-relative to other factors. 
+The unit of analysis are PRIO grid cells, which are 0.5 by 0.5 decimal degree
+cells, which equals about 55 by 55km at the equator \citep{Tollefsen2012}. Due
+to the explanatory variable being time-invariant, the analysis is limited to a
+cross section. Accordingly, the dependent variable is state based conflict
+related fatalities per grid cell over the period 1989-2020, from the GED project
+\citep{Sundberg2013}. I argue that this is a measure of the overall level of
+conflict in the post World War 2 period.\footnote{Alternative measures discussed
+below.} The start date of 1989 was dictated by availability rather than chosen
+by design, as it likely biases against finding results (positive or negative).
+All the mechanisms discussed in the theory section are more relevant
+closer to independence and would fade in relative importance with the passing of
+time.
 
 % While some of the theoretical mechanisms discussed above might be more closely
 % related to a specific type of state-based conflict, such as wars of secession,
@@ -1165,42 +1162,36 @@ relative to other factors.
 % \citet{Wishman2021a} finds that pre-colonial state presence has a negative
 % effect on communal violence events. 
 
-% Run models excluding org3 fatalities, citing my other paper?
-% Would strengthen results but probably not by much. Adds little.
-
 \subsection{Independent variable}
 
-The main explanatory variable is the per grid cell sum of state presence. For
-the main model I use measure of state presence from the Geo-ISD that counts all
-maps that intersect a given grid cell, even if multiple maps do so in a single
-year, but only for the state that has the most presence overall in that grid
-cell. This measure has the benefit of including more data, which allows for the
-approximation of relative degrees of state presence by one state in any year, as
-described in the data section above. At the same time it avoids over counting
-state presence where there were overlaps in sovereignty or changes in who
-controlled the territory. As a robustness check I also ran models using the
-measure that counts if there was any state presence in a grid-cell-year (as a
-yearly dummy). In other words, this could be at most 214, and it is more so a
-measure of the maximum \textit{extent} of state presence, and is less accurate
-in terms of depth. The benefit of this measure is that it avoid the potential
-over representation of countries frequently mapped by Europeans, such as the
-North African states (proximity) and Darfur (weird obsession?) Again counting
-only the presence of the most present state for each grid cell. In both cases
-this paper uses the measure which includes interpolated shapes from historical
-atlases. Where historical atlases depicted the borders of a state from year x to
-y, I created identical shapes for all these years. This has the benefit of
-placing a slightly larger emphasis on the historical atlases, at the cost of
-being static.\footnote{Equivalent models excluding the interpolated shapes are
-included in the Online appendix. Results remain substantially the same for all
-specifications.}
+The main explanatory variable is the per grid cell state presence. For the main
+model I use measure of state presence from the Geo-ISD that counts all maps that
+intersect a given grid cell, even if multiple maps do so in a single year (as
+discussed in the data section).
+
+% However, only the state that has the most presence overall in that grid cell is
+% included, so as to avoid over counting in cases of overlap (contested
+% sovereignty) or when territory has changed hands. This measure has the benefit
+% of including more data, which allows for the approximation of relative degrees
+% of state presence by one state in any year, as described in the data section
+% above. At the same time it avoids over counting state presence where there were
+% overlaps in sovereignty or changes in who controlled the territory. 
 
 Because I do not expect the relationship between pre-colonial state presence to
 be linear, and because the data is heavily skewed, the variable is square root
-transformed. While log transformation is more commonly used, and does produce a
-more evenly distributed variable in this case as well, having to add 1 to
-all values could potentially introduce bias [ASK OLE M ABOUT THAT PAPER]. 
+transformed. While log transformation is more often employed in the previous
+literature, and does produce a more evenly distributed variable in this case as
+well, adding 1 to all values could potentially introduce bias [ASK OLE M ABOUT
+THAT PAPER]. I therefore present the more conservative approach as the main
+findings.
 
 \subsection{Controls}
+
+Because the treatment variable in this case far precedes the outcome, there is a
+substantial risk of introducing post treatment bias when including control
+variables. In choosing which control variables to include, I therefore had to
+balance a trade off between potential post treatment bias and omitted variable
+bias. 
 
 Mountains help in early state formation by providing protection and limiting the
 exit options of sedentary farmers \citep{Carneiro1988}. Mountainous terrain has
@@ -1240,12 +1231,13 @@ building as well as proxy for later population densities, and thus could
 correlate with both state presence and levels of conflict. The data is from
 \citet{Bontemps2009}.
 
-Almost certainly due to the geographical proximity, and the accompanying
+Due to the geographical proximity, and the accompanying
 historical familiarity of European map makers to the states of North Africa,
 this region is undoubtedly overrepresented in the Geo-ISD data. This affects
 Morocco most particularly, as can be clearly seen in Figure \ref{Sp_i}. The
 reason this affects Morocco in particular is that the remaining North African
-states were under Ottoman suzerainty for much of the period.
+states were under Ottoman suzerainty for much of the period. Accordingly, a
+dummy variable for the region of North Africa was included.
 
 Population density is only added as an extended control despite the stronger
 theoretical expectation that it could be a confounding variable, because there
@@ -1290,19 +1282,29 @@ that were substantially meaningless (an increase in pre-colonial state presence
 by 10 was still not enough to predict a .01 increase in the number of fatalities
 across the whole period).
 
+As a further robustness check I also ran models using a measure of state
+presence that count only if there was any state presence in a grid-cell-year (as
+a yearly dummy). In other words, this could be at most 214, and it is more so a
+measure of the maximum \textit{extent} of state presence, and is less accurate
+in terms of variations in depth. The benefit of this measure is that it avoids
+some of the potential over representation of countries frequently mapped by
+Europeans, such as the North African states (due to proximity). Again counting
+only the presence of the most present state for each grid cell. Equivalent
+models excluding the duplicated shapes for period maps in historical atlases are
+included in the Online appendix. Results remain substantially the same for all
+specifications.
+
 \subsection{Modelling}
+
+To account for the potential post treatment bias (vis-a-vis potential omitted
+variable bias) controls were added step wise with increasing potential for post
+treatment bias.
 
 The main models presented below are negative binomial models to account for the
 dependent variable being count data (count of deaths (fatalities) and count of
 conflict events (state based)). A fitness test for whether negative binomial or
 Poisson regression is most appropriate, was conducted and confirmed that
 negative binomial produced the best fit.
-
-Despite the potential bias introduced by adding 1 to all observations, the most
-commonly used transformation of skewed data in the conflict literature is a
-logarithmic transformation. As such the online appendix reports models using
-this transformation as opposed to a square root transformation. Results remain
-the same, but with more substantial coefficients in some of the models.
 
 Because there are a great number of zeroes in the dependent variable, as well
 as for theoretical reasons there it is reasonable to assume that there are a
@@ -1319,20 +1321,27 @@ across space). However, some models were run with queen pattern spatial lags,
 most of which did not converge. Those that did successfully converge, remained
 substantially similar to the main models.
 
-\section{Preliminary results}
+\section{Results}
 
 Despite the data on conflict starting nearly three decades after most of Africa
-achieved independence, there is a positive relationship between state presence
-and conflict that is robust across all models. However, the results of the interaction
-models present a more nuanced image. As seen in Figure \ref{deaths_int},
-state presence is negatively correlated with both conflict measure close to the
-capital, but becomes positive and significant further away from the capital.
-This supports an interpretation that state presence can be conflict reducing in
-those cases where it makes a country less artificial for all the reasons
-outlined by the conflict reducing arguments in the literature. Taken together
-however, the results indicate that the negative effects of higher values of
-state presence further away from the capitals of Africa outweighs these conflict
-reducing effects. 
+achieved independence, there is a small but significantly positive relationship
+between state presence and conflict (0.12, SE = .01 and 0.11, SE = .01 in the
+main models) that is robust and stable across all models (see Table
+\ref{statebaseddeaths} and Table \ref{state_based}). All controls have the
+expected signs except distance to coast in Table \ref{state_based}. However this
+is substantially a negligible effect, and the statistical significance might be
+more a reflection of the large number of observations (9492) rather than any
+causal effect.
+
+However, the results of the interaction models reveal a more nuanced image. As
+seen in Figure \ref{deaths_int}, state presence is negatively correlated with
+both conflict measure close to the capital, but becomes positive and significant
+further away from the capital. This supports an interpretation that state
+presence can be conflict reducing in those cases where it makes a country less
+artificial for all the reasons outlined by the conflict reducing arguments in
+the literature. Taken together however, the results indicate that the negative
+effects of higher values of state presence further away from the capitals of
+Africa outweighs these conflict reducing effects. 
 
 %\end{multicols}
 

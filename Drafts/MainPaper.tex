@@ -11,6 +11,7 @@
 \usepackage[british]{datetime2}
 \usepackage{hyperref}
 \usepackage{multicol}
+\usepackage{dcolumn}
 \usepackage[top=28truemm,bottom=26.5truemm,left=25.5truemm,right=25.5truemm]{geometry}
 
 \hypersetup{
@@ -1231,13 +1232,15 @@ building as well as proxy for later population densities, and thus could
 correlate with both state presence and levels of conflict. The data is from
 \citet{Bontemps2009}.
 
-Due to the geographical proximity, and the accompanying
-historical familiarity of European map makers to the states of North Africa,
-this region is undoubtedly overrepresented in the Geo-ISD data. This affects
-Morocco most particularly, as can be clearly seen in Figure \ref{Sp_i}. The
-reason this affects Morocco in particular is that the remaining North African
-states were under Ottoman suzerainty for much of the period. Accordingly, a
-dummy variable for the region of North Africa was included.
+Due to the geographical proximity, and the accompanying historical familiarity
+of European map makers to the states of North Africa, this region is undoubtedly
+overrepresented in the Geo-ISD data. This affects Morocco most particularly, as
+can be clearly seen in Figure \ref{Sp_i}. The reason this affects Morocco in
+particular is that the remaining North African states were under Ottoman
+suzerainty for much of the period. If North Africa has also seen more or less
+conflict than the rest of Africa on average the inflated values of state
+presence would bias the estimated coefficients. Accordingly, a dummy variable
+for the region of North Africa was included.
 
 Population density is only added as an extended control despite the stronger
 theoretical expectation that it could be a confounding variable, because there
@@ -1325,23 +1328,53 @@ substantially similar to the main models.
 
 Despite the data on conflict starting nearly three decades after most of Africa
 achieved independence, there is a small but significantly positive relationship
-between state presence and conflict (0.12, SE = .01 and 0.11, SE = .01 in the
-main models) that is robust and stable across all models (see Table
+between state presence and conflict (.12, SE = .01 and .11, SE = .01 in the main
+models) that is robust and stable across all models (see Table
 \ref{statebaseddeaths} and Table \ref{state_based}). All controls have the
 expected signs except distance to coast in Table \ref{state_based}. However this
 is substantially a negligible effect, and the statistical significance might be
 more a reflection of the large number of observations (9492) rather than any
-causal effect.
+causal effect. The second model in Table \ref{statebaseddeaths} indicate that
+North Africa has experienced more conflict fatalities than the rest of Africa
+comparatively. However, this effect becomes smaller and is no longer significant
+at the p < .001 level after controlling for population density in 1600,
+suggesting at least part of the effect could be due to higher levels of
+population density.
 
-However, the results of the interaction models reveal a more nuanced image. As
-seen in Figure \ref{deaths_int}, state presence is negatively correlated with
-both conflict measure close to the capital, but becomes positive and significant
-further away from the capital. This supports an interpretation that state
-presence can be conflict reducing in those cases where it makes a country less
-artificial for all the reasons outlined by the conflict reducing arguments in
-the literature. Taken together however, the results indicate that the negative
-effects of higher values of state presence further away from the capitals of
-Africa outweighs these conflict reducing effects. 
+However, the results of the interaction models reveal a more nuanced picture. As
+seen in Table \ref{interaction_statebaseddeaths} and Table
+\ref{interaction_state_based}, when controlling for the effect of the
+interaction term between state presence and distance to capital, state presence
+has a significant conflict reducing effect (ranging from -.20, SE = .10, to
+-.26, SE = .10). All control variables behave as expected, and similarly as in
+the non interaction models.
+
+Figure \ref{deaths_int}, which uses [WHAT EXACT CONTROLS?] provides a more
+intuitive interpretation of the interaction between state presence and how it
+substantially affects state based conflict. State presence is negatively
+correlated with both conflict measure close to the capital, but becomes positive
+and significant further away from the capital. This is in line with an
+interpretation that state presence can be conflict reducing in those cases where
+it makes a territory less artificial, by providing institutions and elite
+networks on which to build a state. In cases where there is no state presence on
+which to build, the model predicts an additional 40[GET EXACT NR] state based
+fatalities. Luckily, the effect drops rapidly as state presence increases. The
+most alarming effect is non the less the effect of state presence in areas far
+from the post-independence capital. In these areas, the model predicts almost no
+conflict if there is no pre-colonial state presence (similar to high levels of
+state presence in/around the capital). However, as state presence increases, so
+does predicted state based fatalities. For a moderately high level of
+pre-colonial state presence of 200, the main model predicts an additional 160
+[FIND EXACT] state based fatalities with the upper bound reaching above 300.
+Even at the mean distance to capital the predicted effect of 200 state presence
+exceeds the effect of no state presence in the capital area. While this is not a
+test of the specific mechanisms outlined in the theory section, the results do
+indicate that institutions, elite networks or some other legacy of pre-colonial
+statehood raises the potential for conflict when far from the capital area.
+
+% Taken together, the results indicate that the negative effects of higher values
+% of state presence further away from the capitals of Africa outweighs these
+% conflict reducing effects. 
 
 %\end{multicols}
 
@@ -1352,25 +1385,32 @@ Africa outweighs these conflict reducing effects.
 	\label{deaths_int}
 \end{figure}
 
-%\begin{figure}[htpb]
-%	\centering
-%	\includegraphics[width=\linewidth]{"../R/Output/state_based_int_plot.pdf"}
-%	\caption{}
-%	\label{sb_int}
-%\end{figure}
-
 %\begin{multicols}{2}
+
+\subsection{Alternative explanations?}
+
+Brainstorm with Charles?
 
 \section{Conclusion}
 
-The results are substantial  and robust, and indicate that pre-colonial states
-have played some role in shaping modern levels of conflict. Crucially, the
-interaction models show that previous assumptions about both conflict inducing
-and conflict reducing effects of pre-colonial statehood are not necessarily in
-contention. In areas where the remnants of prior statehood, be they institutions
-or social networks, form a continuum to the modern state, they could well help
-states govern more peacefully. On the other hand, when placed in opposition to a
-central government such remnants seems to increase the level conflict.
+Drawing on the emerging literature on pre-colonial states \citep{Paine2019,
+Depetris-Chauvin2016}, institutions \citep{Wig2016, Englebert2002,
+Michalopoulos2018} and civil conflict, and on newly compiled data this paper
+reexamined the relationship between pre-colonial states and civil conflict. I
+find support for a conflict reducing effect of pre-colonial state presence, but
+this is conditioned on proximity to the post-colonial capital. On the other
+hand, I find strong evidence for a conflict inducing effect, particularly in
+areas far from the post-independence capital. These results are robust to
+alternative measurements and model specifications.
+
+These findings have a few important implications. First, they demonstrate that
+pre-colonial states can be a blessing or a curse depending on whether they form
+the basis of the modern state or a point of opposition to it. Second, that local
+political histories matter, and should be taken into consideration by
+policymakers and scholars alike. Finally, these results suggests that wherever
+colonizers left novel constellations of pre-existing polities, they potentially
+sowed the seeds of future conflict. More research using global data is needed to
+test whether general trends for Africa hold outside that continent as well.
 
 %\end{multicols}
 
@@ -1382,6 +1422,7 @@ central government such remnants seems to increase the level conflict.
 \pagebreak
 \section*{Appendix}
 
+\input{"../R/Output/summaryStats.tex"}
 \input{"../R/Output/statebaseddeaths.tex"}
 \input{"../R/Output/interaction_statebaseddeaths.tex"}
 \input{"../R/Output/state_based.tex"}

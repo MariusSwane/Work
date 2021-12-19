@@ -32,6 +32,7 @@ library(sf)
 library(psych)
 library(sidedata)
 library(raster)
+library(summarytools)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -68,6 +69,7 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				logSpAny = log(sp_i_sum_any + 1),
 				logCapdist = log(capdist),
 				logBDist = log(bdist3 + 1),
+				logCDist = log(distcoast +1),
 				logPopd = log(popd + 1),
 				logOrg3 = log(org3 +1),
 				sqrtorg3 = sqrt(org3),
@@ -199,17 +201,34 @@ d + geom_area(stat = "bin")
 
 d + geom_density(kernel = "gaussian")
 
+sumStats <- select(prio_grid_isd, statebaseddeaths, state_based, sp_os_i_sum,
+		   bdist3, capdist, barren_gc, mountains_mean, water_gc,
+		   distcoast, popd)
+
+sumStats <- st_drop_geometry(sumStats)
+
+dfSumStats <- dfSummary(sumStats)
+
+stargazer(sumStats, median = FALSE, digits=1, title = "Summary Statistics",
+	  column.sep.width = "1pt", label = "summarystats", covariate.labels =
+		  c("Fatalities", "Conflict events", "State presence", "Distance
+		    to boundary", "Distance to capital", "Barren",
+		    "Mountainous", "Water", "Distance to coast"), out =
+	  "../Output/summaryStats.tex")
+
+
+
 #==============================================================================#
 #	Variables							       #
 #==============================================================================#
 
-controls <- c('+ mountains_mean + water_gc + barren_gc + distcoast')
+controls <- c('+ mountains_mean + water_gc + barren_gc + logCDist')
 
 extended_controls <- c('+ region3')
 
 even_more <- c('+ logPopd')
 
-rest <- c('+ bdist3')
+rest <- c('+ logBDist')
 
 climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
 
@@ -217,9 +236,9 @@ coefs <- list('sqrtSpAll' = 'Precolonial state presence (sqrt)',
 		'mountains_mean' = 'Mountainous terrain',
 	     	'water_gc' = 'Water (%)', 
 	 	'barren_gc' = 'Barren (%)', 
-	      	'distcoast' = 'Distance to coast',
+	      	'logCDist' = 'Distance to coast (log)',
 	      	'logPopd' = 'Population density (log)', 
-		'bdist3' = 'Distance to border', 
+		'logBDist' = 'Distance to international boundary (log)', 
 		'temp_sd' = 'Temperature (SD)',
 	      	'temp' = 'Temperature (mean)', 
 		'prec_sd' = 'Precipitation (SD)', 
@@ -400,15 +419,15 @@ org3plot
 dev.off()
 
 deathsMainInt <- glm.nb(statebaseddeaths ~ sqrtSpAll * logCapdist +
-			mountains_mean + water_gc + barren_gc + distcoast +
-			region3 + logPopd + bdist3, data =
+			mountains_mean + water_gc + barren_gc + logCDist +
+			region3 + logPopd + logBDist, data =
 			filter(prio_grid_isd, prio_grid_isd$popd > 0))
 
 ggDeathsInt <- ggeffect(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
 ggStateBased <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
-		    water_gc + barren_gc + distcoast + logPopd + bdist3, data =
+		    water_gc + barren_gc + logCDist + logPopd + logBDist, data =
 		    filter(prio_grid_isd, prio_grid_isd$popd > 0))
 
 ggStateEffect <- ggeffect(ggStateBased, terms = c("sqrtSpAll [0:15]", "logCapdist
@@ -855,4 +874,30 @@ ggplot() +
     scale_fill_viridis_c() +
     theme_minimal()
 
+# Alternative measure of state presece
+
+altmodelE <-
+
+altmodelD <- glm.nb(statebaseddeaths ~ sqrtSpAny * logCapdist +
+			mountains_mean + water_gc + barren_gc + logCDist +
+			region3 + logPopd + logBDist, data =
+			filter(prio_grid_isd, prio_grid_isd$popd > 0))
+
+summary(altmodelD)
+
+ggAltD <- ggeffect(altmodelD, terms = c("sqrtSpAny [0:15]", "logCapdist
+						 [1.309, 6.27, 7.817]"))
+
+ggAltDPlot <- ggplot(ggAltD, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
+					 geom_line() + goldenScatterCAtheme
+
+ggAltDPlot 
+
+ggStateBased <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
+		    water_gc + barren_gc + logCDist + logPopd + logBDist, data =
+		    filter(prio_grid_isd, prio_grid_isd$popd > 0))
 

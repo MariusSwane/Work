@@ -787,13 +787,10 @@ uga.ethnic <- side_load(country = "Uganda", year = 2010, marker = "ethnic",
 			source.dir = "../Data")
 
 uga.ethnic.meta.df <- sidemap2data(uga.ethnic)
-head(uga.ethnic.meta.df)
 
 names(uga.ethnic) <- uga.ethnic.meta.df$groupname
 
 plot(uga.ethnic)
-
-head(uga.ethnic)
 
 geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 
@@ -821,6 +818,19 @@ geoisd_data <- read_csv('../../QGIS/Geo-ISD.csv',
                         )
 
 crs(uga.ethnic) <- crs(geoisd)
+
+ext <- extent(29.58333, 35, -1.458333, 4.208333)
+
+ugaData <- extract(uga.ethnic, ext, df = T)
+
+baganda <- uga.ethnic$baganda
+
+grid <- st_bbox(ext) %>% 
+  st_make_grid(cellsize = 0.00833, what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid$baganda <- extract(baganda, grid)
 
 ugaSP <- as(uga.ethnic, 'SpatialGridDataFrame')
 
@@ -901,3 +911,24 @@ ggStateBased <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
 		    water_gc + barren_gc + logCDist + logPopd + logBDist, data =
 		    filter(prio_grid_isd, prio_grid_isd$popd > 0))
 
+
+# Colonial rulers
+
+cols <- glm.nb(statebaseddeaths ~ sqrtSpAny * logCapdist +
+			mountains_mean + water_gc + barren_gc + logCDist +
+			region3 + logPopd + logBDist + gbr, data =
+			filter(prio_grid_isd, prio_grid_isd$popd > 0))
+
+summary(cols)
+
+ggAltD <- ggeffect(altmodelD, terms = c("sqrtSpAny [0:15]", "logCapdist
+						 [1.309, 6.27, 7.817]"))
+
+ggAltDPlot <- ggplot(ggAltD, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
+					 geom_line() + goldenScatterCAtheme
+
+ggAltDPlot 

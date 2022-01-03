@@ -49,6 +49,7 @@ library(countrycode)
 
 conflict_prefer("filter", "dplyr")
 conflict_prefer("last", "dplyr")  
+conflict_prefer("select", "dplyr")  
 conflict_prefer("map", "purrr")
 
 #==============================================================================#
@@ -516,6 +517,29 @@ prio_grid_isd <- prio_grid_isd %>% filter(prio_grid_isd$gwno != 591)
 
 prio_grid_isd$region <- as.numeric(as.factor(countrycode(prio_grid_isd$gwno,
 							 "gwn", "region23")))
+
+#==============================================================================#
+#	Colonizers							       #
+#==============================================================================#
+
+# Colonial history data from the COW project
+col <- read_csv("../Data/coldata110.csv")
+col <- select(col, "State", "ColRuler")
+
+# Merging
+
+col$gwno <- (countrycode(col$State, "cown", "gwn"))
+
+prio_grid_isd <- left_join(prio_grid_isd, col, by = c('gwno'))
+
+# Creating dummies for variuos colonial rulers
+prio_grid_isd$gbr <- as.numeric(prio_grid_isd$ColRuler==200)
+prio_grid_isd$fra <- as.numeric(prio_grid_isd$ColRuler==220)
+prio_grid_isd$spn <- as.numeric(prio_grid_isd$ColRuler==230)
+prio_grid_isd$por <- as.numeric(prio_grid_isd$ColRuler==235)
+prio_grid_isd$nth <- as.numeric(prio_grid_isd$ColRuler==210)
+prio_grid_isd$bel <- as.numeric(prio_grid_isd$ColRuler==211)
+prio_grid_isd$ita <- as.numeric(prio_grid_isd$ColRuler==325)
 
 #==============================================================================#
 #	Cleaning variable names 					       #

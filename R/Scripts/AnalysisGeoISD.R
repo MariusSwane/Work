@@ -822,18 +822,33 @@ crs(uga.ethnic) <- crs(geoisd)
 ext <- extent(29.58333, 35, -1.458333, 4.208333)
 
 ugaData <- extract(uga.ethnic, ext, df = T)
-
-baganda <- uga.ethnic$baganda
+ugaData[is.na(ugaData)] <- 0
+ugaData <- ugaData %>% mutate(id_cell = seq_len(nrow(.)))
 
 grid <- st_bbox(ext) %>% 
-  st_make_grid(cellsize = 0.00833, what = "polygons") %>%
+  st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
   st_set_crs(4326)
 grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
 
-grid$baganda <- extract(baganda, grid)
+xy <- xyFromCell(uga.ethnic, as.integer(rownames(ugaData)))
+result <- cbind(xy, ugaData)
+colnames(result)[1:2] <- c("lon", "lat")
+head(result)
 
-ugaSP <- as(uga.ethnic, 'SpatialGridDataFrame')
+result <- st_as_sf(result, coords = c("lon","lat"))
 
+st_crs(result) <- crs(geoisd)
+
+grid <- st_join(grid, result, join = st_contains)
+
+gridtest <- ggplot() +
+		   geom_sf(data = grid,
+			   linetype = 0,
+			   aes_string(fill = "baganda"),
+			   show.legend = F) +
+		   scale_fill_viridis_c() +
+		   theme_minimal()
+gridtest
 
 # Just plotting the main independent variable
 

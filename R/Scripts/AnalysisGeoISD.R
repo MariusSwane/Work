@@ -771,13 +771,8 @@ org0 <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 summary(org0)
 
 #==============================================================================#
-#	Danger Zone!						      	       #
+#	Uganda SIDE data					               #
 #==============================================================================#
-
-testmodel <- glm.nb(dumState ~ sqrtSpAll * logCapdist + mountains_mean +
-		    water_gc + barren_gc + distcoast + logPopd + bdist3, data =
-		    prio_grid_isd) 
-summary(testmodel)
 
 # # The below command only needs to be run once
 # side_download(country = "Uganda", year = 2010, marker = "ethnic", dest.dir =
@@ -794,35 +789,17 @@ plot(uga.ethnic)
 
 geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 
-geoisd_data <- read_csv('../../QGIS/Geo-ISD.csv',
-                        cols(
-                          gid = col_double(),
-                          xcoord = col_double(),
-                          ycoord = col_double(),
-                          col = col_double(),
-                          row = col_double(),
-                          ISDID = col_character(),
-                          COWID = col_double(),
-                          name = col_character(),
-                          year = col_double(),
-                          lyear = col_integer(),
-                          hyear = col_integer(),
-                          source = col_character(),
-                          coder = col_character(),
-                          note = col_character(),
-                          error = col_double(),
-                          layer = col_character(),
-                          path = col_character()
-                        ),
-                        col_names = T,
-                        )
+gisdUga <- filter(geoisd, COWID == 5001 | COWID == 5003 | COWID == 4842 | COWID
+		  == 517)
+
+gisdUga <- st_make_valid(gisdUga)
 
 crs(uga.ethnic) <- crs(geoisd)
 
 ext <- extent(29.58333, 35, -1.458333, 4.208333)
 
 ugaData <- extract(uga.ethnic, ext, df = T)
-ugaData[is.na(ugaData)] <- 0
+#ugaData[is.na(ugaData)] <- 0
 ugaData <- ugaData %>% mutate(id_cell = seq_len(nrow(.)))
 
 grid <- st_bbox(ext) %>% 
@@ -841,14 +818,31 @@ st_crs(result) <- crs(geoisd)
 
 grid <- st_join(grid, result, join = st_contains)
 
+grid <- na.omit(grid)
+
 gridtest <- ggplot() +
-		   geom_sf(data = grid,
+		   geom_sf(data = ugaMerged,
 			   linetype = 0,
-			   aes_string(fill = "baganda"),
+			   aes(fill = sp),
 			   show.legend = F) +
-		   scale_fill_viridis_c() +
+    		   scale_fill_viridis_c() +
 		   theme_minimal()
+
 gridtest
+
+# Merging SIDE and Geo-ISD
+ugaMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisdUga)))
+
+#ugaMerged <- st_join(grid, gisdUga, join = st_intersects)
+
+#==============================================================================#
+#	Danger Zone!						      	       #
+#==============================================================================#
+
+testmodel <- glm.nb(dumState ~ sqrtSpAll * logCapdist + mountains_mean +
+		    water_gc + barren_gc + distcoast + logPopd + bdist3, data =
+		    prio_grid_isd) 
+summary(testmodel)
 
 # Just plotting the main independent variable
 

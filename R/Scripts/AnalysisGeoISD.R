@@ -785,10 +785,9 @@ uga.ethnic.meta.df <- sidemap2data(uga.ethnic)
 
 names(uga.ethnic) <- uga.ethnic.meta.df$groupname
 
-plot(uga.ethnic)
-
 geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 
+# Add Egypt?
 gisdUga <- filter(geoisd, COWID == 5001 | COWID == 5003 | COWID == 4842 | COWID
 		  == 517)
 
@@ -828,12 +827,35 @@ gridtest <- ggplot() +
     		   scale_fill_viridis_c() +
 		   theme_minimal()
 
-gridtest
+#pdf("../Output/UGAsp.pdf",
+#	width = 10, height = 10/1.68)
+#	gridtest
+#dev.off()
 
 # Merging SIDE and Geo-ISD
 ugaMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisdUga)))
 
 #ugaMerged <- st_join(grid, gisdUga, join = st_intersects)
+
+for(i in 1:length(ugaMerged$id_cell.y)) {
+		ugaMerged$ef[i] =
+		(1 - (
+		ugaMerged$acholi[i]^2 +
+		ugaMerged$alur.jopahhola[i]^2 +
+		ugaMerged$baganda[i]^2 + 
+		ugaMerged$bagisu.sabiny[i]^2 +
+		ugaMerged$bakiga[i]^2 +
+		ugaMerged$banyankore[i]^2 +
+		ugaMerged$banyoro[i]^2 +
+		ugaMerged$basoga[i]^2 +
+		ugaMerged$batoro[i]^2 +
+		ugaMerged$iteso[i]^2 +
+		ugaMerged$karimojong[i]^2 +
+		ugaMerged$langi[i]^2 +
+		ugaMerged$lugbara.madi[i]^2 +
+		ugaMerged$other[i]^2))
+}
+
 
 #==============================================================================#
 #	Danger Zone!						      	       #

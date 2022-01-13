@@ -19,17 +19,13 @@ library(texreg)
 library(margins)
 library(ggplot2)
 library(RColorBrewer)
-library(lemon)
-library(ggrepel)
 library(ggeffects)
-library(splines)
 library(conflicted)
 library(pscl)
 library(readr)
 library(MASS)
-#library(spdep)
+library(spdep)
 library(sf)
-library(psych)
 library(sidedata)
 library(raster)
 library(summarytools)
@@ -43,12 +39,11 @@ load("../Data/GeoISDControls.Rdata")
 source("goldenScatterCAtheme.r")
 
 #==============================================================================#
-#	Solving conflicts 						       #
+#	Resolving conflicts 						       #
 #==============================================================================#		
 
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")
-conflict_prefer("describe", "psych")
 
 #==============================================================================#
 #	Creating New Variables						       #
@@ -177,30 +172,6 @@ corrplot(corrdata_mat$r, method='color', diag=F, addCoef.col = "black",
 # TODO: Print to file
 
 # Summary Statistics
-
-skimmed <- describe(select(data.frame(prio_grid_isd), deaths, state_based, sp_os_i_sum, capdist))
-
-latex(skimmed, title = "test", file = "../Output/skimmed.tex")
-
-# stargazer and texreg?
-
-d <- ggplot(prio_grid_isd, aes(deaths))
-
-sb <- ggplot(prio_grid_isd, aes(state_based))
-
-sp <- ggplot(prio_grid_isd, aes(sp_os_i_sum))
-
-cd <- ggplot(prio_grid_isd, aes(capdist))
-
-d + geom_histogram()
-
-d + geom_dotplot(
-	 dotsize = 0.5) +
-	goldenScatterCAtheme
-	
-d + geom_area(stat = "bin")
-
-d + geom_density(kernel = "gaussian")
 
 sumStats <- select(prio_grid_isd, statebaseddeaths, state_based, sp_os_i_sum,
 		   bdist3, capdist, barren_gc, mountains_mean, water_gc,
@@ -370,7 +341,7 @@ summary(org3_NB_mini)
 org3_P_mini <- glm(org3 ~ logSpAll, data = prio_grid_isd, family = poisson)
 summary(org3_P_mini)
 
-pchisq(2 * (logLik(org3_NB_mini) - logLik(org3_P_mini)), df = 1, lower.tail = FALSE)
+#pchisq(2 * (logLik(org3_NB_mini) - logLik(org3_P_mini)), df = 1, lower.tail = FALSE)
 
 org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  distcoast + logPopd + bdist3, data = prio_grid_isd)
@@ -405,19 +376,12 @@ lighten <- function (col, pct = 0.75, alpha = .8)
     pcol
 }
 
-ggorg3 <- ggeffect(org3_NB, terms = "sqrtSpAll [0:15 by = .5] ")
+cols <- c("red", "green", "blue")
 
-org3plot <- ggplot(ggorg3, aes(x^2, predicted)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
-	      fill = lighten("blue")) +
-  geom_line(color = "blue") +
-  labs(x = 'Precolonial state presence', y = 'Communial violence events') +
-  goldenScatterCAtheme
-
-pdf("../Output/CommunalViolenceMargins.pdf",
-    width = 10, height = 10/1.68)
-org3plot
-dev.off()
+pastels <- NULL
+for (i in 1:length(cols)) {
+	pastels[i] <- lighten(cols[i])
+}
 
 deathsMainInt <- glm.nb(statebaseddeaths ~ sqrtSpAll * logCapdist +
 			mountains_mean + water_gc + barren_gc + logCDist +
@@ -436,13 +400,6 @@ ggStateEffect <- ggeffect(ggStateBased, terms = c("sqrtSpAll [0:15]", "logCapdis
 
 ggDumOrg3Effect <- ggeffect(dumOrg3 , terms = c("sqrtSpNoInt [0:15]"))
 
-
-cols <- c("red", "green", "blue")
-
-pastels <- NULL
-for (i in 1:length(cols)) {
-	pastels[i] <- lighten(cols[i])
-}
 
 ggStatePlot <- ggplot(ggStateEffect, aes(x^2, predicted, color = group)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
@@ -650,10 +607,16 @@ dev.off()
 #==============================================================================#		
 
 zinb_deaths <- zeroinfl(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
- 			water_gc + distcoast + logPopd + bdist3, data =
-			prio_grid_isd, dist = "negbin")
+ 			water_gc + logCDist + logPopd + logBDist, data =
+			filter(prio_grid_isd, popd > 0), dist = "negbin")
 
 summary(zinb_deaths)
+
+zinb_sb <- zeroinfl(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
+ 			water_gc + logCDist + logPopd + logBDist, data =
+			filter(prio_grid_isd, popd > 0), dist = "negbin")
+
+summary(zinb_sb)
 
 summary(zinb_deaths$residuals)
 
@@ -679,183 +642,6 @@ zinb_deaths_s <- zeroinfl(deaths ~ sqrtSpAll_s * logCapdist_s +
 summary(zinb_deaths_s)
 
 summary(zinb_deaths$residuals)
-
-#==============================================================================#
-#	Transforming the main independent variable			       #
-#==============================================================================#
-
-# From a theoretical standpoint, what is the most appropriate way to model the
-# influence of state presence on conflict?  Should we expect a linear
-# relationship, one that increases rapidly and the tapers off (log), one that
-# increases less rapidly but tapers off less quickly (sqrt), or one that
-# increases slowly, then rapid before tapering off (s-shaped, like logistic)?
-
-hist(prio_grid_isd$sp_os_i_sum)
-
-hist(prio_grid_isd$logSpAll)
-
-hist(prio_grid_isd$sqrtSpAll)
-
-hist(prio_grid_isd$sp_os_i_sum^2)
-
-x <- (0:100)
-
-plot(sqrt(x))
-
-plot(log(x))
-
-plot(x)
-
-#==============================================================================#
-#	Excluding unpopulated cells					       #
-#==============================================================================#
-
-# TODO: Decide on whether to use 1500 pop.density or more modern. Am I only
-# interested in places where there *were* any pople or, places where there
-# *are* pople now? Probably current day.
-
-# Draw plot of population denisty (log) anno 1500 where population is > 0
-
-ggplot() +
-	geom_sf(data = filter(prio_grid_isd, popd > 0),
-            linetype = 0,
-            aes_string(fill = "logPopd"),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
-    theme_minimal()
-
-# Main Regressions without unpopulated cells
-
-sb0 <- glm.nb(state_based ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3, data =
-		    filter(prio_grid_isd, popd > 0))
-summary(sb0)
-
-
-ds0 <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3, data =
-		    filter(prio_grid_isd, popd > 0))
-summary(ds0)
-
-ns0 <- glm.nb(non_state ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3, data =
-		    filter(prio_grid_isd, popd > 0))
-summary(ns0)
-
-org0 <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3, data =
-		    filter(prio_grid_isd, popd > 0))
-summary(org0)
-
-# Main Regressions without unpopulated cells and regional dummies
-
-sb0 <- glm.nb(state_based ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3 + factor(region), data =
-		    filter(prio_grid_isd, popd > 0))
-summary(sb0)
-
-
-# Throws an error
-ds0 <- glm.nb(deaths ~ sqrtSpAll * capdist + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3 + factor(region), data =
-		    filter(prio_grid_isd, popd > 0))
-summary(ds0)
-
-ns0 <- glm.nb(non_state ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3 + factor(region), data =
-		    filter(prio_grid_isd, popd > 0))
-summary(ns0)
-
-org0 <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		    distcoast + logPopd + bdist3 + temp_sd + temp + prec_sd +
-		    prec_gpcc, data = filter(prio_grid_isd, popd > 0))
-summary(org0)
-
-#==============================================================================#
-#	Uganda SIDE data					               #
-#==============================================================================#
-
-# # The below command only needs to be run once
-# side_download(country = "Uganda", year = 2010, marker = "ethnic", dest.dir =
-#	      "../Data/", conv.hull = T)
-
-uga.ethnic <- side_load(country = "Uganda", year = 2010, marker = "ethnic",
-			source.dir = "../Data")
-
-uga.ethnic.meta.df <- sidemap2data(uga.ethnic)
-
-names(uga.ethnic) <- uga.ethnic.meta.df$groupname
-
-geoisd <- st_read('../../QGIS/Geo-ISD.shp')
-
-# Add Egypt?
-gisdUga <- filter(geoisd, COWID == 5001 | COWID == 5003 | COWID == 4842 | COWID
-		  == 517)
-
-gisdUga <- st_make_valid(gisdUga)
-
-crs(uga.ethnic) <- crs(geoisd)
-
-ext <- extent(29.58333, 35, -1.458333, 4.208333)
-
-ugaData <- extract(uga.ethnic, ext, df = T)
-#ugaData[is.na(ugaData)] <- 0
-ugaData <- ugaData %>% mutate(id_cell = seq_len(nrow(.)))
-
-grid <- st_bbox(ext) %>% 
-  st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
-  st_set_crs(4326)
-grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
-
-xy <- xyFromCell(uga.ethnic, as.integer(rownames(ugaData)))
-result <- cbind(xy, ugaData)
-colnames(result)[1:2] <- c("lon", "lat")
-head(result)
-
-result <- st_as_sf(result, coords = c("lon","lat"))
-
-st_crs(result) <- crs(geoisd)
-
-grid <- st_join(grid, result, join = st_contains)
-
-grid <- na.omit(grid)
-
-gridtest <- ggplot() +
-		   geom_sf(data = ugaMerged,
-			   linetype = 0,
-			   aes(fill = sp),
-			   show.legend = F) +
-    		   scale_fill_viridis_c() +
-		   theme_minimal()
-
-#pdf("../Output/UGAsp.pdf",
-#	width = 10, height = 10/1.68)
-#	gridtest
-#dev.off()
-
-# Merging SIDE and Geo-ISD
-ugaMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisdUga)))
-
-#ugaMerged <- st_join(grid, gisdUga, join = st_intersects)
-
-for(i in 1:length(ugaMerged$id_cell.y)) {
-		ugaMerged$ef[i] =
-		(1 - (
-		ugaMerged$acholi[i]^2 +
-		ugaMerged$alur.jopahhola[i]^2 +
-		ugaMerged$baganda[i]^2 + 
-		ugaMerged$bagisu.sabiny[i]^2 +
-		ugaMerged$bakiga[i]^2 +
-		ugaMerged$banyankore[i]^2 +
-		ugaMerged$banyoro[i]^2 +
-		ugaMerged$basoga[i]^2 +
-		ugaMerged$batoro[i]^2 +
-		ugaMerged$iteso[i]^2 +
-		ugaMerged$karimojong[i]^2 +
-		ugaMerged$langi[i]^2 +
-	ugaMerged$lugbara.madi[i]^2 +
-		ugaMerged$other[i]^2))
-}
 
 #==============================================================================#
 #	Table of atlas maps 						       #

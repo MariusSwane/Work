@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2021/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: MainPaper.aux
+The style file: apalike.bst
+Database file #1: ../lib.bib
+Warning--to sort, need author, editor, or key in 1978TTao
+Warning--empty author and editor in 1978TTao
+Warning--empty journal in Bockstette2012
+Warning--empty journal in Goldewijk2016
+Warning--empty journal in Murdock1967
+Warning--empty journal in Sundberg2013
+Warning--empty journal in Weidmann2010a
+Warning--empty journal in Wessel1996
+Warning--empty journal in Wishman
+You've used 64 entries,
+            1935 wiz_defined-function locations,
+            899 strings with 13992 characters,
+and the built_in function-call counts, 22607 in all, are:
+= -- 2250
+> -- 726
+< -- 54
++ -- 264
+- -- 228
+* -- 1846
+:= -- 3958
+add.period$ -- 190
+call.type$ -- 64
+change.case$ -- 418
+chr.to.int$ -- 64
+cite$ -- 74
+duplicate$ -- 912
+empty$ -- 1668
+format.name$ -- 315
+if$ -- 4394
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 74
+newline$ -- 315
+num.names$ -- 189
+pop$ -- 361
+preamble$ -- 1
+purify$ -- 434
+quote$ -- 0
+skip$ -- 708
+stack$ -- 0
+substring$ -- 1635
+swap$ -- 94
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 350
+warning$ -- 9
+while$ -- 193
+width$ -- 0
+write$ -- 809
+(There were 9 warnings)

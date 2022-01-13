@@ -10,6 +10,8 @@
 \usepackage{rotating}
 \usepackage[british]{datetime2}
 \usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{booktabs}
 \usepackage{multicol}
 \usepackage{dcolumn}
 \usepackage[top=28truemm,bottom=26.5truemm,left=25.5truemm,right=25.5truemm]{geometry}
@@ -59,7 +61,7 @@ the borders of 82 independent states in Africa during the 1800-1914 period.
 
 \end{abstract}
 
-\keywords{}
+\keywords{Conflict, civil war, pre-colonial states, GIS}
 
 %tableofcontents
 %\pagebreak
@@ -81,14 +83,15 @@ the Europeans colonized/conquered were pre-existing states\footnote{An extended
 discussion of what pre-colonial states in Africa tended to look like in this
 period will follow below.}, with their own armies, dynasties and sometimes
 hundreds of years of history. Likewise, numerous studies have examined how
-colonial experiences have shaped post independence level of conflict[SOURCE],
-yet only a handful of recent studies have done the same for independent
-pre-colonial African polities, despite their simultaneous or immediately
-preceding existence. Within this emerging literature, the effect of pre-colonial
-states on civil conflict appears contradictory. While some find a conflict
-inducing effect due to dissimilarities between ethnic groups with and without
-histories of statehood \citep{Englebert2002, Paine2019}, others find a conflict
-reducing effect from institutions inherited by these states
+colonial experiences have shaped post independence level of conflict
+\citep{achankeng2013conflict, Blanton_2001, carton2000blood, Cohen_2014,
+Nunn2008, Wucherpfennig2016}, yet only a handful of recent studies have done the
+same for independent pre-colonial African polities, despite their simultaneous
+or immediately preceding existence. Within this emerging literature, the effect
+of pre-colonial states on civil conflict appears contradictory. While some find
+a conflict inducing effect due to dissimilarities between ethnic groups with and
+without histories of statehood \citep{Englebert2002, Paine2019}, others find a
+conflict reducing effect from institutions inherited by these states
 \citep{Depetris-Chauvin2016, Wig2016}.
 
 This paper addresses the puzzle by arguing that the effect of pre-colonial
@@ -120,18 +123,18 @@ of fuzzy borders and gradually decreasing state presence.
 Despite the emerging literature on the outcomes of traditional and pre-colonial
 states and institutions, the nature of the relationship between such historical
 roots and conflict remains disputed. From a game theoretical perspective like
-that of \citet{Fearon1995}, one would expect traditional/pre-colonial
-institutions to be conflict reducing. Groups who interact with the (modern)
-state through (traditional or otherwise) institutions reduce the uncertainty of
-future behaviour relative to groups who bargain through individuals, who are
-inherently more unpredictable and more prone to spoilers \citep{Wig2016}.
-Additionally, institutions are able to make credible commitments by putting
-restraints on their leaders through imposing violation costs. If a leader
-reneges on a commitment ratified by an institution, it reduces the legitimacy of
-the institutions and thus other laws/commitments passed by it. Pre-colonial or
-traditional institutions could also be conflict reducing by improving local
-state capacity, which could have a direct effect on the states ability to impose
-and preserve order as well as an indirect effect through economic development
+that of \citet{Fearon1995}, one would expect pre-colonial institutions to be
+conflict reducing. Groups who interact with the (modern) state through
+(traditional or otherwise) institutions reduce the uncertainty of future
+behaviour relative to groups who bargain through individuals, who are inherently
+more unpredictable and more prone to spoilers \citep{Wig2016}. Additionally,
+institutions are able to make credible commitments by putting restraints on
+their leaders through imposing violation costs. If a leader reneges on a
+commitment ratified by an institution, it reduces the legitimacy of the
+institutions and thus other laws passed by it. Pre-colonial or traditional
+institutions could also be conflict reducing by improving local state capacity,
+which could have a direct effect on the states ability to impose and preserve
+order as well as an indirect effect through economic development
 \citep{Depetris-Chauvin2016}. In support of this latter argument
 \citet{Depetris-Chauvin2016} finds that areas with more `state history' have
 higher levels of trust in various political leaders.
@@ -200,14 +203,14 @@ violations of sovereignty \citep{Ahram2019, Shelef2016}\footnote{Recent examples
 		orientation of these networks stem from the vertical power
 	structures typical of states.} is purpose build for mobilization, and
 	the fact that they are elite networks means that they have expectations
-	of being included/represented in government, have substantial regional
-	autonomy, or both \citep{Wishman}. Recent work by \citet{Ying_2020}
-	indicates that civil conflict tends to occur when the state increases
-	its presence in areas that it has hitherto not been present, i.e. when
-	it challenges the autonomy of regional elites. For example, in Ethiopia,
-	the Afar Liberation Front was originally formed by the sultan of the
-	former pre-colonial state of Awsa, when the Dirge regime tried to depose
-	the sultan \citep{Shehim1985, Hanfare2011}.  In Libya the Cyraneica
+	of being included in government, have substantial regional autonomy, or
+	both \citep{Wishman}. Recent work by \citet{Ying_2020} indicates that
+	civil conflict tends to occur when the state increases its presence in
+	areas that it has hitherto not been present, i.e. when it challenges the
+	autonomy of regional elites. For example, in Ethiopia, the Afar
+	Liberation Front was originally formed by the sultan of the former
+	pre-colonial state of Awsa, when the Dirge regime tried to depose the
+	sultan \citep{Shehim1985, Hanfare2011}.  In Libya the Cyraneica
 	Liberation Army demonstrates both the symbolic mechanism as well as the
 	elite networks, as its name refers to a short lived kingdom in Eastern
 	Libya, and the group elected a descendent of the former king as their
@@ -358,7 +361,7 @@ centered around Maiduguri, the last capital of independent Borno.
 % Perhaps this is presicely because Borno was never fully incorporated which
 % left the state woulnorabel to outside threats.
 
-In summary I expect pre-colonial state presence\footnote{This term is explained
+In summary, I expect pre-colonial state presence\footnote{This term is explained
 in detail below.} to correlate negatively with conflict in areas close to the
 (post-independence) capital, and positively in areas further away from the
 capital (as described by an interaction term).
@@ -376,17 +379,17 @@ short time span and lack of within-group variation. A further disadvantage of
 this approach is that by using ethnic groups (and not states) as a starting
 point, there is a substantial potential for missingness (as not all states are
 easily tied to a specific ethnic group). For example, \citet{Paine2019} despite
-using a `low bar' for statehood/centralization and consulting numerous sources,
-only codes 28 groups in Sub-Saharan Africa as having ties to a pre-colonial
+using a `low bar' for statehood and consulting numerous sources, only codes 28
+groups in Sub-Saharan Africa as having ties to a pre-colonial
 state.\footnote{This is partially also a result of the criteria of `independence
 on the eve of colonization'.} Using a similar approach \citet{Wig2016}
 identifies 45 state groups in the same region. Using the State Antiquity Index
 \citep{Bockstette2012} as a starting point \citet{Depetris-Chauvin2016} avoids
 the limitation of only including state with clear ties to ethnic groups.
 Nevertheless, his data only includes 54 states in the 1800-1850+ period, as
-compared to 104 in the ISD version 2, despite using less strict
-criteria for statehood.\footnote{For example, \citet{Depetris-Chauvin2016}
-includes the Hausa states.}
+compared to 104 in the ISD version 2, despite using less strict criteria for
+statehood.\footnote{For example, \citet{Depetris-Chauvin2016} includes the Hausa
+states.}
 
 %{{{ comments
 % Depetris-chau lack some states (53 in SSA), despite an apparently less stringent definition of statehood (also less clear), includes Hausa states, Aro trading confederacy, Air sultanate?, Azande?. And lacks most of the variation across time and
@@ -558,31 +561,33 @@ the online appendix.}
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=0.8\textwidth,keepaspectratio]{img/libya.png}
-	\caption{The historical state presence of Libyan state of Tripoli.}
+	\caption{The historical state presence of Libyan state of Tripoli.
+	Current borders of Libya and Egypt in red.}
 	\label{libya}
 \end{figure}
 
 %\begin{multicols}{2}
 
 To counter balance some of the potential bias in the historically
-contemporaneous maps a number of maps from historical atlases were included. These
-are works compiled by historians with both the accumulated knowledge of history
-and modern instruments of cartography at their disposal. These sources should be
-able to reduce problems of the historically contemporaneous maps, such as word
-of mouth sources exaggerating the extent of polities.\footnote{Although they should also
-be more accurate in terms measurement error, I found that this was not always
-the case. For example \citep{Kasule1998} completely misplaces Wadai, putting the
-capital of Wara (and thus the rest of the polity with it) some 80km [DOUBLE
-CHECK!] North West of its actual position.} The historical atlases were scanned,
-then georeferenced and polities traced in the same manner as the pre-colonial
-states in the historically contemporaneous maps. The historical atlases
-frequently depicted the borders of states over a period of years in a single
-map. In these cases the resulting state shapes were duplicated for each year in
-the period. This has the benefit of placing a larger emphasis on the historical
-atlases, at the cost of being more static. Another benefit of the historical
-atlases is that they are used by other data sets of pre-colonial statehood, such
-as \citet{Paine2019} and \citet{Depetris-Chauvin2016}. A full list of the
-historical atlases used is in the Appendix. [at some point]
+contemporaneous maps a number of maps from historical atlases were included.
+These are works compiled by historians with both the accumulated knowledge of
+history and modern instruments of cartography at their disposal. These sources
+should be able to reduce problems of the historically contemporaneous maps, such
+as word of mouth sources exaggerating the extent of polities.\footnote{Although
+	they should also be more accurate in terms measurement error, I found
+	that this was not always the case. For example \citep{Kasule1998}
+completely misplaces Wadai, putting the capital of Wara (and thus the rest of
+the polity with it) at least 200km North West of its actual position.} The
+historical atlases were scanned, then georeferenced and polities traced in the
+same manner as the pre-colonial states in the historically contemporaneous maps.
+The historical atlases frequently depicted the borders of states over a period
+of years in a single map. In these cases the resulting state shapes were
+duplicated for each year in the period. This has the benefit of placing a larger
+emphasis on the historical atlases, at the cost of being more static. Another
+benefit of the historical atlases is that they are used by other data sets of
+pre-colonial statehood, such as \citet{Paine2019} and
+\citet{Depetris-Chauvin2016}. Figure \ref{atlasmaps} in the appendix lists the
+historical atlases used in the Geo-ISD.
 
 The resulting data can be compiled in different ways, to provide different
 insights. For the analysis in this paper I rely on a measure of ``state
@@ -659,9 +664,8 @@ Because I do not expect the relationship between pre-colonial state presence to
 be linear, and because the data is heavily skewed, the variable is square root
 transformed. While log transformation is more often employed in the previous
 literature, and does produce a more evenly distributed variable in this case as
-well, adding 1 to all values could potentially introduce bias [ASK OLE M ABOUT
-THAT PAPER]. I therefore present the more conservative approach as the main
-findings.
+well, adding 1 to all values could potentially introduce bias. I therefore
+present the more conservative approach as the main findings.
 
 \subsection{Controls}
 
@@ -862,9 +866,24 @@ statehood raises the potential for conflict when far from the capital area.
 
 %\begin{multicols}{2}
 
-\subsection{Alternative explanations?}
+\subsection{Alternative explanations}
 
-Brainstorm with Charles?
+An alternative interpretation of the results could be that this is instead a
+story of more coherent ethnic groups being more likely to be associated with
+states, and more likely to (perhaps better able to) challenge the government
+when situated far from the capital. However, getting closer to the real
+causality requires untangling, in each case, if a given conflict is related to
+an ethnic group's ties to a pre-colonial state or not. This lies outside the
+scope of this paper, if it is even possible.
+
+Another interpretation that is not 'controlled for' in this paper is the
+possibility that past conflict drives both state creation and current conflict.
+However, data on past conflict is meager, especially so for Africa. To my
+knowledge the \citet{Brecke1999} data set is the most complete. Even so, it
+relies on written histories of which there is little for pre-colonial
+sub-Saharan Africa. What is worse, the missing will be considerably biased
+because kings and states are far more likely to chronicle their warfare in the
+form of written records.
 
 \section{Conclusion}
 
@@ -902,6 +921,7 @@ test whether general trends for Africa hold outside that continent as well.
 \input{"../R/Output/interaction_statebaseddeaths.tex"}
 \input{"../R/Output/state_based.tex"}
 \input{"../R/Output/interaction_state_based.tex"}
+\input{"../R/Output/atlasmaps.tex"}
 
 \begin{figure}[htpb]
 	\centering

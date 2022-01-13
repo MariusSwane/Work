@@ -33,6 +33,7 @@ library(psych)
 library(sidedata)
 library(raster)
 library(summarytools)
+library(xtable)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -852,10 +853,35 @@ for(i in 1:length(ugaMerged$id_cell.y)) {
 		ugaMerged$iteso[i]^2 +
 		ugaMerged$karimojong[i]^2 +
 		ugaMerged$langi[i]^2 +
-		ugaMerged$lugbara.madi[i]^2 +
+	ugaMerged$lugbara.madi[i]^2 +
 		ugaMerged$other[i]^2))
 }
 
+#==============================================================================#
+#	Table of atlas maps 						       #
+#==============================================================================#
+
+tb <- data.frame(x = c(
+			  "\\citet{mcevedy1996penguin}",
+			  "\\citet{Flint1976}",
+			  "\\citet{Gailey1967}",
+			  "\\citet{Oliver1985}",
+			  "\\citet{Ajayi1985}",
+			  "\\citet{Reid2012}",
+			  "The Times atlas of world history
+			  (\\citeyear{1978TTao})",
+			  "\\citet{Kasule1998}"))
+
+tb$x <- tb[order(tb$x), ]
+
+names(tb) <- "Atlas maps"
+
+xtb <- xtable(tb, caption = "List of maps from historical atlases
+used in the Geo-ISD", label = "atlasmaps", auto = T)
+
+print(xtb, tabular.environment = "tabularx", booktabs = T, width
+      = "\\textwidth", include.rownames = F, file =
+	      "../Output/atlasmaps.tex", sanitize.text.function = function(x) x)
 
 #==============================================================================#
 #	Danger Zone!						      	       #

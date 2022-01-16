@@ -7,21 +7,6 @@
 #                                                                              #
 #==============================================================================#
 
-rm(list = ls())
-
-#==============================================================================#
-#	Setting Working Directory  					       #
-#==============================================================================#
-
-# Only works in Windows
-# Otherwise, consider using the RSTUDIO menu:
-# Session -> Set Working Directory -> To Source File Location
-
-# On linux it just works :)
-
-#library(rstudioapi)
-#setwd(dirname(getActiveDocumentContext()$path))
-
 #==============================================================================#
 #	Loading packages 						       # 
 #==============================================================================#
@@ -139,6 +124,11 @@ prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>%
   capdist = mean(capdist), excluded = mean(excluded), 
   	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
 	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
+
+gpcp <- read_csv('../Data/PRIO-Grid/gpcp.csv') %>% 
+  group_by(gid) %>% summarise(prec_gpcp = mean (prec_gpcp))
+
+prio_grid <- left_join(prio_grid, gpcp, by = c("gid"))
 
 prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
 
@@ -412,7 +402,7 @@ prio_grid_isd$distcoast <- get_closest_distance(prio_grid_isd, coastline)
 rm(coastline)
 
 #==============================================================================#
-#	Plotting to see it looks right					       #
+#	Plotting to see what it looks right				       #
 #==============================================================================#
 
 ggplot() +
@@ -563,8 +553,6 @@ shpPrep <- prio_grid_isd %>%
 	       forest = forest_gc,
 	       mountains = mountains_mean,
 	       water = water_gc,
-	       gcpmer = gcp_mer,
-	       gcpppp = gcp_ppp,
 	       spReach = sp_sum_any,
 	       spSum = sp_sum,
 	       spReachInt = sp_i_sum_any,

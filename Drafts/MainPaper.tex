@@ -118,7 +118,7 @@ a starting point for inclusion. % Why is this a good thing?
 Lastly, it leverages variations in contemporaneous sources to provide a measure
 of fuzzy borders and gradually decreasing state presence.
 
-\section{As yet untitled literature review} 
+\section{Literature review} 
 
 Despite the emerging literature on the outcomes of traditional and pre-colonial
 states and institutions, the nature of the relationship between such historical
@@ -760,7 +760,7 @@ predicted effects were negligible (an increase in pre-colonial state presence by
 across the whole period).
 
 The results of the main model are also robust to using all PRIO grid cells
-regardless of population density.
+regardless of population density (when they converge).
 
 As a further robustness check I also ran models using a measure of state
 presence that counts if there was any maps that included a state in a
@@ -779,20 +779,33 @@ To account for the potential post treatment bias (vis-a-vis potential omitted
 variable bias) controls were added step wise with increasing potential for post
 treatment bias.
 
-The main models presented below are negative binomial models to account for the
-dependent variable being count data (count of deaths (fatalities) and count of
-conflict events (state based)). A fitness test for whether negative binomial or
-Poisson regression is most appropriate, was conducted and confirmed that
-negative binomial produced the best fit.
+To account for the dependent variable being count data (count of deaths
+(fatalities) and count of conflict events (state based)) all model
+specifications reported below are negative binomial regressions. A fitness test
+for whether negative binomial or Poisson regression is most appropriate, was
+conducted and confirmed that negative binomial produced a better fit than
+Poisson.
 
-Because there are a great number of zeroes in the dependent variable, as well
-as for theoretical reasons there it is reasonable to assume that there are a
-number of excess zeros. Hence, a zero inflated negative binomial is the most
-appropriate approach. However, most specifications of the models did not
-converge unless all right hand side variable were normalized to around their
-mean. This complicates interpretations of substantial effects, but signs and
-significance remained unchanged from the main models for all specifications (see
-Online appendix eventually).
+The theoretical expectation is that pre-colonial state presence is conflict
+reducing in areas close to the post independence capital, and conflict inducing
+in more remote areas. In other words that the effect of pre-colonial state
+presence is moderated by distance to capital. I model this relationship using an
+interaction models using the log transformed distance to capital, in order to
+account for skewed data and because I do not expect the relationship to be
+linear the distance to capital is log transformed using the natural logarithm.
+
+The dependent variable contains excess zeros (8937 relative to 100 counts of 1
+fatality, the second most frequent outcome). Additionally, I can not be sure
+that the main independent variable affects affects the likelihood of there being
+any fatalities in a cell (or if it becomes a zero), the same way it might
+influence the severity of conflict once a cell has seen at least one fatality. I
+therefore employ a zero inflated negative binomial model. The first step of this
+two step approach is a logit model that models whether cells experience conflict
+or not. I used the same set of controls as I do not expect any of them to
+exclusively affect conflict severity, nor do I expect their relation to the main
+independent variable to be substantially different for an onset model. The
+second step is an estimation of conflict severity, or the number of fatalities
+in a cell that has seen at least one.
 
 Given what is known about spatial diffusion of conflict, there is reason to
 suspect some spatial autocorrelation. However, controlling for this would
@@ -801,21 +814,41 @@ robustness check I ran some models with queen pattern spatial lags. Most of
 these models did not converge, but those that did remained substantially similar
 to the main models.
 
+\subsection{Testing the mechanism}
+
+Testing the proposed mechanisms explicitly would require data on where elite
+networks and institutions have survived from pre-colonial states, or data on
+rebel groups use of symbols invoking past statehood. Luckily, the differences in
+their approach to colonial governance between Britain and France (in particular)
+could provide a proxy for the former. France sought (more successfully in some
+cases than in others) to fully incorporate and rule their colonies directly,
+dismantling as much of the existing institutions as possible and avoiding a
+reliance on native administrators \citep{Blanton_2001}. Britain on the other
+hand pursued a strategy of indirect rule, preferring to leave local rulers to
+administer their own territories, and relying on their own institutions to do so
+\citep{Blanton_2001}. Former British colonies should therefore be more likely to
+have preserved the elite networks and institutions that could be used to
+mobilize against the state. I therefor ran all the models including controls for
+former French and British colonies. In these models, the North Africa control
+had to be dropped because most of North Africa were French colonies at some
+point.
+
 \section{Results}
 
 Despite the data on conflict starting nearly three decades after most of Africa
-achieved independence, there is a small, but significantly positive relationship
-between state presence and conflict (.12, SE = .01 and .11, SE = .01 in the main
-models) that is robust and stable across all models (see Table
-\ref{statebaseddeaths} and Table \ref{state_based}). All controls have the
-expected signs except distance to coast in Table \ref{state_based}, using state
-based conflict events as the dependent variable. However, the
+achieved independence (at which point the effect of pre-colonial state presence
+on conflict should be most pronounced), there is a small, but significantly
+direct and positive effect of state presence on conflict (.11, SE = .01 and .10,
+SE = .01 in the main models). This effect is robust and stable across all models
+(see Table \ref{statebaseddeaths} and Table \ref{state_based}). All controls
+have the expected signs except distance to coast in Table \ref{state_based},
+using state based conflict events as the dependent variable. However, the
 coefficient indicates a substantially negligible effect, and the statistical
 significance might be more a reflection of the large number of observations
 (9492) rather than any causal effect. The second model in Table
 \ref{statebaseddeaths} indicate that North Africa has experienced more conflict
 fatalities than the rest of Africa comparatively. However, this effect becomes
-smaller and is no longer significant at the $ p < .001 $ level after controlling
+smaller and is no longer significant at the $ p < .01 $ level after controlling
 for population density in 1600, suggesting at least part of the effect could be
 due to higher levels of population density.
 
@@ -823,48 +856,58 @@ However, the results of the interaction models reveal a more nuanced picture. As
 seen in Table \ref{interaction_statebaseddeaths} and Table
 \ref{interaction_state_based}, when controlling for the effect of the
 interaction term between state presence and distance to capital, state presence
-has a significant conflict reducing effect (ranging from -.20, SE = .10, to
--.26, SE = .10). All control variables behave as expected, and similarly as in
-the non interaction models.
+has a conflict reducing effect, albeit a non-significant effect in the
+fatalities models. All control variables behave as expected, and similarly as in
+the non interaction models. Unsurprisingly, distance to capital (log) is
+negative, as there is generally less conflict in and around capital cities. The
+interaction term is significant and positive across all model specifications, in
+line with the theoretical expectations. 
 
-Figure \ref{deaths_int}, which models the predictions of the last model included
-in Table \ref{interaction_statebaseddeaths}, provides a more
-intuitive interpretation of the interaction between state presence and how it
-substantially affects state based conflict. State presence is negatively
-correlated with both conflict measure close to the capital, but becomes positive
-and significant further away from the capital. This is in line with an
-interpretation that state presence can be conflict reducing in those cases where
-it makes a territory less artificial, by providing institutions and elite
-networks on which to build a state. In cases where there is no state presence on
-which to build, the model predicts an additional 40[GET EXACT NR] state based
-fatalities. The effect drops rapidly as state presence increases. The
-biggest effect is non the less the effect of state presence in areas far
-from the post-independence capital. In these areas, the model predicts almost no
-conflict if there is no pre-colonial state presence (similar to high levels of
+In terms of substantial effects Figure \ref{deaths_int}, which models the
+predictions of the second stage ZINB model included in Table \ref{zinb},
+provides a more intuitive interpretation of the interaction between state
+presence and how it affects the severity state based conflict. State presence is
+negatively correlated with both conflict measure close to the capital, but
+becomes positive and significant further away from the capital. This is in line
+with an interpretation that state presence can be conflict reducing in those
+cases where it makes a territory less artificial, by providing institutions and
+elite networks on which to build a state. In cases where there is no state
+presence, the model predicts an additional 406 fatalities from state based
+conflict. The effect drops rapidly as state presence increases. On the other
+hand, in areas with no experience of statehood that are far from the capital,
+the model predicts almost no additional fatalities (similar to high levels of
 state presence in/around the capital). However, as state presence increases, so
-does predicted state based fatalities. For a moderately high level of
-pre-colonial state presence of 200, the main model predicts an additional 160
-[FIND EXACT] state based fatalities with the upper bound reaching above 300.
-Even at the mean distance to capital the predicted effect of 200 state presence
-exceeds the effect of no state presence in the capital area. While this is not a
-test of the specific mechanisms outlined in the theory section, the results do
-indicate that institutions, elite networks or some other legacy of pre-colonial
-statehood raises the potential for conflict when far from the capital area.
-
-% Taken together, the results indicate that the negative effects of higher values
-% of state presence further away from the capitals of Africa outweighs these
-% conflict reducing effects. 
+does predicted fatalities. For a moderately high level of pre-colonial state
+presence of 200, the main model predicts an additional 380 fatalities. While
+this is not a test of the specific mechanisms outlined in the theory section,
+the results do indicate that institutions, elite networks or some other legacy
+of pre-colonial statehood raises the potential for conflict when far from the
+capital area.
 
 %\end{multicols}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=\linewidth]{"../R/Output/deathsIntPlot.pdf"}
+	\includegraphics[width=\linewidth]{"../R/Output/zinbplot.pdf"}
 	\caption{}
-	\label{deaths_int}
+	\label{deaths_zinb}
 \end{figure}
 
 %\begin{multicols}{2}
+
+The results of the models including controls for French and British colonies
+(see Table \ref{zinb} are interesting in that the predicted increase in conflict
+severity in capital areas without prior experience of statehood is at 991
+additional fatalities. The signs of the colonial controls are as
+expected. However, the conflict inducing effect of being a former British
+colony is only significant on conflict onset (the first stage logit
+model). Similarly, the conflict reducing effect of being a former French colony
+is only significant in terms of reducing conflict severity (second stage
+negative binomial count model). These results can not be interpreted with any
+certainty, but do perhaps suggest that French style governance left stronger
+central government that were better equipped to limit the scope of conflicts,
+while the British tradition of indirect rule left a larger number of potential
+rivals to the central government.
 
 \subsection{Alternative explanations}
 
@@ -922,10 +965,11 @@ test whether general trends for Africa hold outside that continent as well.
 \input{"../R/Output/state_based.tex"}
 \input{"../R/Output/interaction_state_based.tex"}
 \input{"../R/Output/atlasmaps.tex"}
+\input{"../R/Output/zinb.tex"}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=\linewidth]{"../R/Output/ggStatePlot.pdf"}
+	\includegraphics[width=\linewidth]{"../R/Output/SBzinbplot.pdf"}
 	\caption{Predicted conflict events per state presence, grouped by
 	distance to capital.}
 	\label{state_int}

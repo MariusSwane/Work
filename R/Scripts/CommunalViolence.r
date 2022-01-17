@@ -22,7 +22,7 @@ library(conflicted)
 library(dplyr)
 library(ggeffects)
 library(ggplot2)
-library(margins)
+#library(margins)
 library(MASS)
 library(pscl)
 library(raster)
@@ -30,6 +30,7 @@ library(sidedata)
 library(spdep)
 library(sf)
 library(stargazer)
+library(terra)
 library(texreg)
 
 #==============================================================================#
@@ -38,6 +39,7 @@ library(texreg)
 
 load("../Data/GeoISDControls.Rdata")
 source("goldenScatterCAtheme.r")
+geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 
 #==============================================================================#
 #	Resolving conflicts 						       #
@@ -45,6 +47,7 @@ source("goldenScatterCAtheme.r")
 
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")
+conflict_prefer("extract", "raster")
 
 #==============================================================================#
 #	Creating New Variables						       #
@@ -346,8 +349,6 @@ uga.ethnic.meta.df <- sidemap2data(uga.ethnic)
 
 names(uga.ethnic) <- uga.ethnic.meta.df$groupname
 
-geoisd <- st_read('../../QGIS/Geo-ISD.shp')
-
 # Add Egypt?
 gisdUga <- filter(geoisd, COWID == 5001 | COWID == 5003 | COWID == 4842 | COWID
 		  == 517)
@@ -356,9 +357,9 @@ gisdUga <- st_make_valid(gisdUga)
 
 crs(uga.ethnic) <- crs(geoisd)
 
-ext <- extent(uga.ethnic)
+ugaext <- extent(uga.ethnic)
 
-ugaData <- raster::extract(uga.ethnic, ext, df = T)
+ugaData <- extract(uga.ethnic, ugaext, df = T)
 ugaData <- ugaData %>% mutate(id_cell = seq_len(nrow(.)))
 
 grid <- st_bbox(ext) %>% 
@@ -371,6 +372,8 @@ result <- cbind(xy, ugaData)
 colnames(result)[1:2] <- c("lon", "lat")
 
 result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
 
 st_crs(result) <- crs(geoisd)
 
@@ -401,24 +404,10 @@ for(i in 1:length(ugaMerged$id_cell.y)) {
 		ugaMerged$other[i]^2))
 }
 
-# Creating population per grid cell
-for(i in 1:length(ugaMerged$id_cell.y)) {
-		ugaMerged$pop[i] =
-		(ugaMerged$acholi[i] +
-		ugaMerged$alur.jopahhola[i] +
-		ugaMerged$baganda[i] + 
-		ugaMerged$bagisu.sabiny[i] +
-		ugaMerged$bakiga[i] +
-		ugaMerged$banyankore[i] +
-		ugaMerged$banyoro[i] +
-		ugaMerged$basoga[i] +
-		ugaMerged$batoro[i] +
-		ugaMerged$iteso[i] +
-		ugaMerged$karimojong[i] +
-		ugaMerged$langi[i] +
-		ugaMerged$lugbara.madi[i] +
-		ugaMerged$other[i])
-}
+#==============================================================================#
+# Kenya
+
+
 
 #==============================================================================#
 # Congo (DRC)
@@ -432,7 +421,7 @@ drc.ethnic <- side_load(country = "Congo (DRC)", year = 2014, marker = "ethnic",
 
 drc.ethnic.meta.df <- sidemap2data(drc.ethnic)
 
-names(drc.ethnic) <- drc.ethnic.meta.df$groupname
+names(drc.ethnic) <- gsub("\\W", "\\1", drc.ethnic.meta.df$groupname)
 
 # Find relevant states
 gisddrc <- filter(geoisd, COWID == 4776	| COWID == 4908 | COWID == 4842 | COWID
@@ -444,27 +433,71 @@ gisddrc <- st_make_valid(gisddrc)
 
 crs(drc.ethnic) <- crs(geoisd)
 
-ext <- extent(drc.ethnic)
+drcext <- extent(drc.ethnic)
 
-drcData <- raster::extract(drc.ethnic, ext, df = T)
+drcData <- extract(drc.ethnic, drcext, df = T)
 drcData <- drcData %>% mutate(id_cell = seq_len(nrow(.)))
-
-grid <- st_bbox(ext) %>% 
-  st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
-  st_set_crs(4326)
-grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
 
 xy <- xyFromCell(drc.ethnic, as.integer(rownames(drcData)))
 result <- cbind(xy, drcData)
 colnames(result)[1:2] <- c("lon", "lat")
 
+sw <- extent(min(result$lon), mean(result$lon), min(result$lat),
+	     mean(result$lat))
+
+nw <- extent(mean(result$lon), max(result$lon), min(result$lat),
+	     mean(result$lat))
+
+se <- extent(min(result$lon), mean(result$lon), mean(result$lat),
+	     max(result$lat))
+
+ne <- extent(min(result$lon), mean(result$lon), mean(result$lat),
+	     max(result$lat))
+
+swgrid <- st_bbox(sw) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+swgrid <- swgrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+nwgrid <- st_bbox(nw) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+nwgrid <- nwgrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+segrid <- st_bbox(se) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+segrid <- segrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+negrid <- st_bbox(ne) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+negrid <- negrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
 result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
 
 st_crs(result) <- crs(geoisd)
 
-grid <- st_join(grid, result, join = st_contains)
+swgrid <- st_join(swgrid, result, join = st_contains)
+	
+swgrid <- na.omit(swgrid)
 
-grid <- na.omit(grid)
+# Creating ethnic fractionalization index
+for(i in 1:length(swgrid$id_cell.y)) {
+		swgrid$ef[i] =
+		(1 - (
+		swgrid$bakongonordsud[i]^2 +
+		swgrid$baselekmanetkivu[i]^2 +
+		swgrid$baskasaietkwilukwngo[i]^2 + 
+		swgrid$cuvettecentral[i]^2 +
+		swgrid$kasaikatangatanganika[i]^2 +
+		swgrid$lunda[i]^2 +
+		swgrid$other[i]^2 +
+		swgrid$ubangietitimbiri[i]^2 +
+		swgrid$uelelacalbert[i]^2))
+}
 
 # Merging SIDE and Geo-ISD
 drcMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisddrc)))
@@ -474,11 +507,15 @@ drcMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisddrc)))
 # Test plot
 
 gridtest <- ggplot() +
-		   geom_sf(data = prio_grid_isd,
+		   geom_sf(data = swgrid,
 			   linetype = 0,
-			   aes(fill = pastor),
-			   show.legend = F) +
-    		   #scale_fill_viridis_c() +
+			   aes(fill = ef),
+			   show.legend = T) +
+    		   scale_fill_viridis_c() +
 		   theme_minimal()
 
+
+pdf("../Output/drcfracsw.pdf",
+    width = 10, height = 10/1.68)
 gridtest
+dev.off()

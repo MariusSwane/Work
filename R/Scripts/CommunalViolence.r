@@ -405,7 +405,7 @@ for(i in 1:length(ugaMerged$id_cell.y)) {
 }
 
 #==============================================================================#
-# Kenya
+# Nigeria
 
 
 
@@ -438,6 +438,7 @@ drcext <- extent(drc.ethnic)
 drcData <- extract(drc.ethnic, drcext, df = T)
 drcData <- drcData %>% mutate(id_cell = seq_len(nrow(.)))
 
+# SOUTH WEST DRC
 xy <- xyFromCell(drc.ethnic, as.integer(rownames(drcData)))
 result <- cbind(xy, drcData)
 colnames(result)[1:2] <- c("lon", "lat")
@@ -445,34 +446,43 @@ colnames(result)[1:2] <- c("lon", "lat")
 sw <- extent(min(result$lon), mean(result$lon), min(result$lat),
 	     mean(result$lat))
 
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
+
+st_crs(result) <- crs(geoisd)
+
+grid <- st_bbox(sw) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_join(grid, result, join = st_contains)
+	
+grid <- na.omit(grid)
+
+# Creating ethnic fractionalization index
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
+		(1 - (
+		grid$bakongonordsud[i]^2 +
+		grid$baselekmanetkivu[i]^2 +
+		grid$baskasaietkwilukwngo[i]^2 + 
+		grid$cuvettecentral[i]^2 +
+		grid$kasaikatangatanganika[i]^2 +
+		grid$lunda[i]^2 +
+		grid$other[i]^2 +
+		grid$ubangietitimbiri[i]^2 +
+		grid$uelelacalbert[i]^2))
+}
+
+# NORTH WEST DRC
+xy <- xyFromCell(drc.ethnic, as.integer(rownames(drcData)))
+result <- cbind(xy, drcData)
+colnames(result)[1:2] <- c("lon", "lat")
+
 nw <- extent(mean(result$lon), max(result$lon), min(result$lat),
 	     mean(result$lat))
-
-se <- extent(min(result$lon), mean(result$lon), mean(result$lat),
-	     max(result$lat))
-
-ne <- extent(min(result$lon), mean(result$lon), mean(result$lat),
-	     max(result$lat))
-
-swgrid <- st_bbox(sw) %>% 
-  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
-  st_set_crs(4326)
-swgrid <- swgrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
-
-nwgrid <- st_bbox(nw) %>% 
-  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
-  st_set_crs(4326)
-nwgrid <- nwgrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
-
-segrid <- st_bbox(se) %>% 
-  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
-  st_set_crs(4326)
-segrid <- segrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
-
-negrid <- st_bbox(ne) %>% 
-  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
-  st_set_crs(4326)
-negrid <- negrid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
 
 result <- st_as_sf(result, coords = c("lon","lat"))
 
@@ -480,24 +490,106 @@ result <- na.omit(result)
 
 st_crs(result) <- crs(geoisd)
 
-swgrid <- st_join(swgrid, result, join = st_contains)
+grid <- st_bbox(nw) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_join(grid, result, join = st_contains)
 	
-swgrid <- na.omit(swgrid)
+grid <- na.omit(grid)
 
 # Creating ethnic fractionalization index
-for(i in 1:length(swgrid$id_cell.y)) {
-		swgrid$ef[i] =
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
 		(1 - (
-		swgrid$bakongonordsud[i]^2 +
-		swgrid$baselekmanetkivu[i]^2 +
-		swgrid$baskasaietkwilukwngo[i]^2 + 
-		swgrid$cuvettecentral[i]^2 +
-		swgrid$kasaikatangatanganika[i]^2 +
-		swgrid$lunda[i]^2 +
-		swgrid$other[i]^2 +
-		swgrid$ubangietitimbiri[i]^2 +
-		swgrid$uelelacalbert[i]^2))
+		grid$bakongonordsud[i]^2 +
+		grid$baselekmanetkivu[i]^2 +
+		grid$baskasaietkwilukwngo[i]^2 + 
+		grid$cuvettecentral[i]^2 +
+		grid$kasaikatangatanganika[i]^2 +
+		grid$lunda[i]^2 +
+		grid$other[i]^2 +
+		grid$ubangietitimbiri[i]^2 +
+		grid$uelelacalbert[i]^2))
 }
+
+# NORTH EAST
+xy <- xyFromCell(drc.ethnic, as.integer(rownames(drcData)))
+result <- cbind(xy, drcData)
+colnames(result)[1:2] <- c("lon", "lat")
+
+se <- extent(mean(result$lon), max(result$lon), mean(result$lat),
+	     max(result$lat))
+
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
+
+st_crs(result) <- crs(geoisd)
+
+grid <- st_bbox(se) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_join(grid, result, join = st_contains)
+	
+grid <- na.omit(grid)
+
+# Creating ethnic fractionalization index
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
+		(1 - (
+		grid$bakongonordsud[i]^2 +
+		grid$baselekmanetkivu[i]^2 +
+		grid$baskasaietkwilukwngo[i]^2 + 
+		grid$cuvettecentral[i]^2 +
+		grid$kasaikatangatanganika[i]^2 +
+		grid$lunda[i]^2 +
+		grid$other[i]^2 +
+		grid$ubangietitimbiri[i]^2 +
+		grid$uelelacalbert[i]^2))
+}
+
+# "SOUTH EAST"
+xy <- xyFromCell(drc.ethnic, as.integer(rownames(drcData)))
+result <- cbind(xy, drcData)
+colnames(result)[1:2] <- c("lon", "lat")
+
+ne <- extent(min(result$lon), mean(result$lon), mean(result$lat),
+	     max(result$lat))
+
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
+
+st_crs(result) <- crs(geoisd)
+
+grid <- st_bbox(ne) %>% 
+  st_make_grid(cellsize = (0.00833334), what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_join(grid, result, join = st_contains)
+	
+grid <- na.omit(grid)
+
+# Creating ethnic fractionalization index
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
+		(1 - (
+		grid$bakongonordsud[i]^2 +
+		grid$baselekmanetkivu[i]^2 +
+		grid$baskasaietkwilukwngo[i]^2 + 
+		grid$cuvettecentral[i]^2 +
+		grid$kasaikatangatanganika[i]^2 +
+		grid$lunda[i]^2 +
+		grid$other[i]^2 +
+		grid$ubangietitimbiri[i]^2 +
+		grid$uelelacalbert[i]^2))
+}
+
 
 # Merging SIDE and Geo-ISD
 drcMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisddrc)))
@@ -507,7 +599,7 @@ drcMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisddrc)))
 # Test plot
 
 gridtest <- ggplot() +
-		   geom_sf(data = swgrid,
+		   geom_sf(data =grid,
 			   linetype = 0,
 			   aes(fill = ef),
 			   show.legend = T) +
@@ -515,7 +607,8 @@ gridtest <- ggplot() +
 		   theme_minimal()
 
 
-pdf("../Output/drcfracsw.pdf",
+pdf("../Output/drcfracne.pdf",
     width = 10, height = 10/1.68)
 gridtest
 dev.off()
+

@@ -315,19 +315,21 @@ org3zinbplot
 dev.off()
 
 # Controlling for French and British colonies
-org3_zinbCol <- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		  logCDist + logBDist + logPopd + nopastor + fra + gbr, data =
+org3_zinbCol <- zeroinfl(org3 ~ sqrtSpAll * gbr+ mountains_mean + water_gc + barren_gc +
+		  logCDist + logBDist + logPopd + nopastor + region3, data =
 		  filter(prio_grid_isd, popd > 0)) 
 summary(org3_zinbCol)
 
-ggorg3zinbCol <- ggpredict(org3_zinbCol, terms = "sqrtSpAll [0:15 by = .5] ")
+ggorg3zinbCol <- ggpredict(org3_zinbCol, terms = c("sqrtSpAll [0:15 by = .5]",
+			   "gbr [0,1]"))
 
-org3zinbplotCol <- ggplot(ggorg3zinbCol, aes(x^2, predicted)) +
-  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
-	      fill = lighten("blue")) +
-  geom_line(color = "blue") +
-  labs(x = 'Precolonial state presence', y = 'Communial violence events') +
-  goldenScatterCAtheme
+org3zinbplotCol <- ggplot(ggorg3zinbCol, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+		    linetype = NA)) + scale_fill_manual(values = pastels) +
+			      geom_line() + labs(x = 'Precolonial state
+						 presence', y = 'Communial
+						 violence events') +
+						 goldenScatterCAtheme
 
 org3zinbplotCol 
 	
@@ -362,7 +364,7 @@ ugaext <- extent(uga.ethnic)
 ugaData <- extract(uga.ethnic, ugaext, df = T)
 ugaData <- ugaData %>% mutate(id_cell = seq_len(nrow(.)))
 
-grid <- st_bbox(ext) %>% 
+grid <- st_bbox(ugaext) %>% 
   st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
   st_set_crs(4326)
 grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
@@ -407,7 +409,82 @@ for(i in 1:length(ugaMerged$id_cell.y)) {
 #==============================================================================#
 # Nigeria
 
+# # The below command only needs to be run once
+# side_download(country = "Nigeria", year = 2013, marker = "ethnic", dest.dir =
+#	      "../Data/", conv.hull = T)
 
+nig.ethnic <- side_load(country = "Nigeria", year = 2013, marker = "ethnic",
+			source.dir = "../Data")
+
+nig.ethnic.meta.df <- sidemap2data(nig.ethnic)
+
+names(nig.ethnic) <- nig.ethnic.meta.df$groupname
+
+gisdnig <- filter(geoisd, COWID == 4798 | COWID == 4752 | COWID == 4521 | COWID
+		  == 4327 | COWID == 4831 | COWID == 4776 | COWID == 4763 | COWID ==
+434 | COWID == 4362 | COWID == 4768 | COWID == 4769 | COWID == 4751 | COWID == 4771 |
+COWID == 4742 | COWID == 4773 | COWID == 4765 | COWID == 4775 | COWID == 4832)
+
+gisdnig <- st_make_valid(gisdnig)
+
+crs(nig.ethnic) <- crs(geoisd)
+
+nigext <- extent(nig.ethnic)
+
+nigData <- extract(nig.ethnic, nigext, df = T)
+nigData <- nigData %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_bbox(nigext) %>% 
+  st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+xy <- xyFromCell(nig.ethnic, as.integer(rownames(nigData)))
+result <- cbind(xy, nigData)
+colnames(result)[1:2] <- c("lon", "lat")
+
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
+
+st_crs(result) <- crs(geoisd)
+
+grid <- st_join(grid, result, join = st_contains)
+
+grid <- na.omit(grid)
+
+# Merging SIDE and Geo-ISD
+grid <- grid %>% mutate(sp = lengths(st_within(grid, gisdnig)))
+
+# Creating ethnic fractionalization index
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
+		(1 - (
+		grid$ebira.igbira[i]^2 +
+		grid$fulfulde[i]^2 +
+		grid$ibibio[i]^2 + 
+		grid$igbo.ibo[i]^2 +
+		grid$kanuri.beriberi[i]^2 +
+		grid$ogoni[i]^2 +
+		grid$tiv[i]^2 +
+		grid$yoruba[i]^2 +
+		grid$annang[i]^2 +
+		grid$esan[i]^2 +
+		grid$gbaju.gbagi[i]^2 +
+		grid$idoma[i]^2 +
+		grid$ijaw.izon[i]^2 +
+		grid$mumuye[i]^2 +
+		grid$urhobo[i]^2 +
+		grid$bini.edo[i]^2 +
+		grid$fulani[i]^2 +
+		grid$hausa[i]^2 +
+		grid$igala[i]^2 +
+		grid$kambari[i]^2 +
+		grid$nupe[i]^2 +
+		grid$tarok[i]^2 +
+		grid$wurkum[i]^2 +
+		grid$other[i]^2))
+}
 
 #==============================================================================#
 # Congo (DRC)
@@ -599,16 +676,29 @@ drcMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisddrc)))
 # Test plot
 
 gridtest <- ggplot() +
-		   geom_sf(data =grid,
+		   geom_sf(data = grid,
 			   linetype = 0,
 			   aes(fill = ef),
-			   show.legend = T) +
+			   show.legend = F) +
     		   scale_fill_viridis_c() +
-		   theme_minimal()
+		   theme_minimal() +
+		   theme(plot.background = element_rect(fill = "white")) 
 
 
-pdf("../Output/drcfracne.pdf",
-    width = 10, height = 10/1.68)
+tiff("../Output/drcswfrac.tiff",
+    width = 10, height = 5, res = 300, units = 'in', compression = 'lzw')
 gridtest
 dev.off()
 
+#==============================================================================#
+# Experimenting with tile package
+
+lp <- lineplot(x = ggorg3zinbCol$x^2, y=ggorg3zinbCol$predicted, lower =
+	 ggorg3zinbCol$conf.low, upper =ggorg3zinbCol$conf.high)
+
+tile(lp)
+
+#==============================================================================#
+# Experimenting with 3D render
+
+plot_gg(gridtest, multicore = T)

@@ -22,7 +22,6 @@ library(conflicted)
 library(dplyr)
 library(ggeffects)
 library(ggplot2)
-#library(margins)
 library(MASS)
 library(pscl)
 library(raster)
@@ -92,7 +91,7 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 #==============================================================================#
 # Negative binomial models function
 
-GeoISDanalysis <- function(dvs, ivs, controls, data, test_label){
+geoISDanalysis <- function(dvs, ivs, controls, data, test_label){
   models_out_j <- NULL
   models_out <- NULL
   for(i in 1:length(dvs)) {
@@ -184,11 +183,13 @@ coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)',
 		'mountains_mean' = 'Mountainous terrain',
 	     	'water_gc' = 'Water (%)', 
 	 	'barren_gc' = 'Barren (%)', 
-	      	'distcoast' = 'Distance to coast',
+	      	'logCDist' = 'Distance to coast (log)',
 		'region3' = 'North Africa',
+		'gbr' = 'Former British colony',
 	      	'logPopd' = 'Population density (log)', 
-		'bdist3' = 'Distance to border', 
+		'logBDist' = 'Distance to border (log)', 
 		'nopastorTRUE' = 'Land not suited for pastorial herding',
+		'sqrtSpAll:gbr' = 'Interaction term',
 		'sqrtSpAll' = 'Precolonial state presence (sqrt)')
 
 
@@ -242,7 +243,7 @@ prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 #	Analysis							       #
 #==============================================================================#
 
-cv_nb_models <- GeoISDanalysis(dvs = cv_dvs, ivs = ivs, controls = controls,
+cv_nb_models <- geoISDanalysis(dvs = cv_dvs, ivs = ivs, controls = controls,
 			       data = filter(prio_grid_isd, popd > 0),
 			       test_label = 'Linear Models')
 
@@ -252,7 +253,7 @@ cv_nb_models <- GeoISDanalysis(dvs = cv_dvs, ivs = ivs, controls = controls,
 
 # Plotting
 org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		  logCDist + logBDist + logPopd + region3, data =
+		  logCDist + logBDist + logPopd + region3 + gbr, data =
 		  filter(prio_grid_isd, popd > 0)) 
 summary(org3_NB)
 
@@ -287,6 +288,7 @@ for (i in 1:length(cv_dvs)) {
          #custom.note = "",
          caption = cv_captions[i],
 	 label = name,
+	 booktabs = T,
          table = T)
 }
 
@@ -295,7 +297,7 @@ for (i in 1:length(cv_dvs)) {
 #==============================================================================#		
 
 org3_zinb <- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		  logCDist + logBDist + logPopd + nopastor, data =
+		  logCDist + logBDist + logPopd + region3, data =
 		  filter(prio_grid_isd, popd > 0)) 
 summary(org3_zinb)
 
@@ -314,13 +316,14 @@ pdf("../Output/CommunalViolenceZinbMargins.pdf",
 org3zinbplot
 dev.off()
 
+
 # Controlling for French and British colonies
-org3_zinbCol <- zeroinfl(org3 ~ sqrtSpAll * gbr+ mountains_mean + water_gc + barren_gc +
+gbrzinb <- zeroinfl(org3 ~ sqrtSpAll * gbr + mountains_mean + water_gc + barren_gc +
 		  logCDist + logBDist + logPopd + nopastor + region3, data =
 		  filter(prio_grid_isd, popd > 0)) 
-summary(org3_zinbCol)
+summary(gbrzinb)
 
-ggorg3zinbCol <- ggpredict(org3_zinbCol, terms = c("sqrtSpAll [0:15 by = .5]",
+ggorg3zinbCol <- ggpredict(gbrzinb, terms = c("sqrtSpAll [0:15 by = .5]",
 			   "gbr [0,1]"))
 
 org3zinbplotCol <- ggplot(ggorg3zinbCol, aes(x^2, predicted, color = group)) +
@@ -331,8 +334,46 @@ org3zinbplotCol <- ggplot(ggorg3zinbCol, aes(x^2, predicted, color = group)) +
 						 violence events') +
 						 goldenScatterCAtheme
 
+# Printing to file
+pdf("../Output/CommunalViolenceZingbrMargins.pdf",
+    width = 10, height = 10/1.68)
 org3zinbplotCol 
+dev.off()
+
+# EAST AFRICA
+eazinb <- zeroinfl(org3 ~ sqrtSpAll * region1 + mountains_mean + water_gc + barren_gc +
+		  logCDist + logBDist + logPopd + nopastor + region3, data =
+		  filter(prio_grid_isd, popd > 0)) 
+summary(eazinb)
+
+eazinbpred <- ggpredict(eazinb, terms = c("sqrtSpAll [0:15 by = .5]",
+			   "region1 [0,1]"))
+
+eazinbplot <- ggplot(eazinbpred, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+		    linetype = NA)) + scale_fill_manual(values = pastels) +
+			      geom_line() + labs(x = 'Precolonial state
+						 presence', y = 'Communial
+						 violence events') +
+						 goldenScatterCAtheme
+
+# Printing to file
+pdf("../Output/cvZinbEAMargins.pdf",
+    width = 10, height = 10/1.68)
+eazinbplot 
+dev.off()
 	
+zinblist <- list(org3_zinb, gbrzinb)
+texreg(zinblist, file = "../Output/cvzinb.tex", 
+       stars = c(0.001, 0.01, 0.05, 0.1), 
+       use.packages = F, 
+       scalebox = .7,
+       #custom.coef.map = coefs_cv,
+       label = "zinb", 
+       table = T,
+       custom.model.names = c('Main model', 'British colony interaction'),
+       booktabs = T)
+
 #==============================================================================#
 #	SIDE data					                       #
 #==============================================================================#

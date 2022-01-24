@@ -11,24 +11,25 @@
 #	Loading Packages						       #
 #==============================================================================#	
 
-library(purrr)
-library(dplyr)
 library(corrplot)
-library(Hmisc)
-library(texreg)
-library(margins)
-library(ggplot2)
-library(RColorBrewer)
-library(ggeffects)
 library(conflicted)
-library(pscl)
-library(readr)
+library(dplyr)
+library(ggplot2)
+library(ggeffects)
+library(Hmisc)
+library(margins)
 library(MASS)
+library(pscl)
+library(purrr)
+library(rayshader)
+library(RColorBrewer)
+library(readr)
+library(raster)
 library(spdep)
 library(sf)
 library(sidedata)
-library(raster)
 library(summarytools)
+library(texreg)
 library(xtable)
 
 #==============================================================================#
@@ -623,3 +624,52 @@ ggAltDPlot <- ggplot(ggAltD, aes(x^2, predicted, color = group)) +
 					 geom_line() + goldenScatterCAtheme
 
 ggAltDPlot 
+
+# 3D plot experiment
+
+geoisd <- st_read('../../QGIS/Geo-ISD.shp')
+
+libya <- filter(geoisd, COWID == 620)
+
+ext <- raster::extent(5,40,15,36)
+
+grid <- st_bbox(ext) %>% 
+  st_make_grid(cellsize = (0.1), what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+libya <- st_make_valid(libya)
+
+grid$sp <- lengths(st_intersects(grid, libya))
+
+#grid <- st_join(grid, libya, join = st_intersects)
+
+grid <- filter(grid, sp > 0)
+
+borders <- read_sf(dsn = "../Data/Shapes/Africa.shp") %>% 
+	filter(ID == 447 | ID == 65)
+
+borders <- st_set_crs(borders, 4326)
+
+gridtest <- ggplot() +
+		   geom_sf(data = grid,
+			   linetype = 0,
+			   aes(fill = sp),
+			   show.legend = F) +
+    		   scale_fill_viridis_c() +
+		   geom_sf(data = borders, fill = NA) +
+		   theme_minimal() +
+		   theme(plot.background = element_rect(fill = "white")) 
+
+gridtest
+
+plot_gg(gridtest, multicore = T)
+
+render_camera(zoom = 0.5)
+
+render_snapshot("../Output/3DLibya")
+
+render_movie(filename = "../Output/Libyathemovie")
+
+#render_snapshot("../Output/3DLibya.html", webshot = T)
+

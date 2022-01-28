@@ -14,17 +14,21 @@
 #   ╚═══╝  ╚═╝ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═══╝ ╚═════╝╚══════╝	       #
 #==============================================================================#
 
+# {{{ Header
 #==============================================================================#
 #	Loading Packages						       #
 #==============================================================================#	
 
+library(acled.api)
 library(conflicted)
 library(dplyr)
 library(ggeffects)
 library(ggplot2)
+library(gridExtra)
 library(MASS)
 library(patchwork)
 library(pscl)
+library(purrr)
 library(raster)
 library(sidedata)
 library(spdep)
@@ -49,6 +53,9 @@ conflict_prefer("filter", "dplyr")
 conflict_prefer("select", "dplyr")
 conflict_prefer("extract", "raster")
 
+# }}}
+
+# {{{ Pre-analysis
 #==============================================================================#
 #	Creating New Variables						       #
 #==============================================================================#
@@ -83,7 +90,8 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				region1 = as.numeric(factor(region)==1),
 				region2 = as.numeric(factor(region)==2),
 				region3 = as.numeric(factor(region)==3),
-				region4 = as.numeric(factor(region)==4))
+				region4 = as.numeric(factor(region)==4),
+				region5 = as.numeric(factor(region)==5))
 
 #==============================================================================#
 #	Functions				    	             	       #
@@ -114,7 +122,7 @@ geoISDanalysis <- function(dvs, ivs, controls, data, test_label){
                data=data)
       models_out_j[[j]] <- list(m1, m2, m3, m4, m5)
     } 
-    models_out[[i]] <- models_out_j %>% purrr::flatten()
+    models_out[[i]] <- models_out_j %>% flatten()
   }
   models_out <- models_out
   final <- list('models'=models_out)
@@ -203,43 +211,9 @@ cv_captions <- c('Non-state conflict events', 'Communal violence events')
 
 ivs <- c('sqrtSpAll')
 
-#==============================================================================#
-#	Set up for spatial analysis				       	       #
-#==============================================================================#
+# }}}
 
-prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
-
-prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
-  as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
-  group_by(gid) %>% 
-  summarise(bdist3 = mean(bdist3),
-  capdist = mean(capdist), excluded = mean(excluded), 
-  	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
-	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
-
-prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables -
-			      2021-06-04.csv') 
-
-# Merging static and aggregated prio data
-prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
-
-# Merging with the grid shape 
-prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
-  filter( (gwno >= 404 & gwno <= 626) | gwno == 651)
-
-prio_sp <- as(prio_grid, Class = "Spatial")
-
-nbQueen <- poly2nb(prio_sp, queen = T, row.names = prio_sp$gid)
-
-lw = nb2listw(nbQueen, style = "W", zero.policy = TRUE)
-
-moran.test(prio_grid_isd$deaths, listw = lw, zero.policy = TRUE)
-
-prio_grid_isd$non_state_l <- lag.listw(lw, prio_grid_isd$non_state, zero.policy
-				       = T)
-
-prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
-
+# {{{ Main analysis
 #==============================================================================#
 #	Analysis							       #
 #==============================================================================#
@@ -292,12 +266,162 @@ for (i in 1:length(cv_dvs)) {
 	 booktabs = T,
          table = T)
 }
+# }}}
 
+# {{{ Spatial analysis
+#==============================================================================#
+#	Set up for spatial analysis				       	       #
+#==============================================================================#
+
+prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
+
+prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
+  as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
+  group_by(gid) %>% 
+  summarise(bdist3 = mean(bdist3),
+  capdist = mean(capdist), excluded = mean(excluded), 
+  	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
+	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
+
+prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables -
+			      2021-06-04.csv') 
+
+# Merging static and aggregated prio data
+prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
+
+# Merging with the grid shape 
+prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
+  filter( (gwno >= 404 & gwno <= 626) | gwno == 651)
+
+prio_sp <- as(prio_grid, Class = "Spatial")
+
+nbQueen <- poly2nb(prio_sp, queen = T, row.names = prio_sp$gid)
+
+lw = nb2listw(nbQueen, style = "W", zero.policy = TRUE)
+
+moran.test(prio_grid_isd$deaths, listw = lw, zero.policy = TRUE)
+
+prio_grid_isd$non_state_l <- lag.listw(lw, prio_grid_isd$non_state, zero.policy
+				       = T)
+
+prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
+
+# }}}
+
+# {{{ ZINB
 #==============================================================================#
 #	ZINB  								       #
 #==============================================================================#		
 
-prio_grid_isd$nig <- as.numeric(prio_grid_isd$gwno == 475)
+# Trying to be clever about it
+
+# Part 1: models
+
+zdvs <- c("org3", "non_state")
+
+ziv <- "sqrtSpAll"
+
+zcontrols <- c("+ mountains_mean + water_gc + barren_gc + logCDist + logBDist +
+	       logPopd + region3")
+
+exclusions <- c(475, 500, 501, 452)
+
+#excluded <- c("Nigeria", "Uganda", "Kenya", "Ghana")
+
+interactions <- c("gbr", "region1", "region5")
+
+titles <- c('Main ZINB model', 'Excluding Nigeria', 'Excluding Uganda',
+	    'Excluding Kenya', 'Excluding Ghana', 'Former British colony
+	    interaction', 'East Africa interaction', 'West Africa interaction')
+
+zinbanalysis <- function(zdvs, zivs, zcontrols, data, test_label){
+  models_out <- NULL
+  for(i in 1:length(zdvs)) {
+    dv <- zdvs[i] 
+# TODO: Do as in the next function to make prettier/more compact/clever
+      m1 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
+               data=data)
+      m2 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)), 
+		     data=filter(data, gwno != 475))
+      m3 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
+               data=filter(data, gwno != 500))
+      m4 <-  zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
+               data=filter(data, gwno != 501))
+      m5 <-  zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
+               data=filter(data, gwno != 452))
+      m6 <- zeroinfl(as.formula(paste(dv, '~', ziv, '*gbr',
+				      zcontrols)), data=data)
+      m7 <- zeroinfl(as.formula(paste(dv, '~', ziv, '*region1',
+				      zcontrols)), data=data)
+      m8 <- zeroinfl(as.formula(paste(dv, '~', ziv, '*region5',
+				      zcontrols)), data=data)
+      models_out[[i]] <- list(m1, m2, m3, m4, m5, m6, m7, m8)
+  }
+  #models_out <- models_out
+  #final <- list('models'=models_out)
+  return(models_out)
+}
+
+zmodels <- zinbanalysis(zdvs = zdvs, zivs = zivs, zcontrols = zcontrols,
+			       data = filter(prio_grid_isd, popd > 0),
+			       test_label = 'ZINB Models')
+
+# Part 2: Figures
+
+figs <- function(models) {
+	figsout <- NULL
+	for(i in 1:length(models)){
+		mainfigs <- NULL
+		mainplots <- NULL
+		for(j in 1:5) {
+			mainfigs[[j]] <- ggpredict(models[[i]][[j]], 
+				terms = "sqrtSpAll [0:15 by = .5]") 
+			mainplots[[j]] <- ggplot(mainfigs[[j]],
+				aes(x^2, predicted)) +
+  				geom_ribbon(aes(ymin = conf.low, 
+					ymax = conf.high),
+	      				fill = lighten("blue")) +
+  				geom_line(color = "blue") +
+  				labs(title = paste(titles[j]),
+					x = 'Precolonial state presence', 
+       					y = 'Communial violence events') +
+  				goldenScatterCAtheme
+		}
+		intfigs <- NULL
+		intplots <- NULL
+		for(k in 1:3) {
+			intfigs[[k]] <- ggpredict(models[[i]][[5+k]],
+				terms = c("sqrtSpAll [0:15 by = .5]",
+					  paste(interactions[k],"[0,1]")))
+			intplots[[k]] <- ggplot(intfigs[[k]],
+				aes(x^2, predicted, color = group)) +
+				geom_ribbon(aes(ymin = conf.low, 
+					ymax = conf.high, fill = group, 
+					linetype = NA)) + 
+				scale_fill_manual(values = pastels) +
+				geom_line() + 
+				labs(title = paste(titles[5+k]),
+					x = 'Precolonial state presence', 
+	     				y = 'Communial violence events') +
+				goldenScatterCAtheme
+		}
+		figsout[[i]] <- flatten(list(mainplots, intplots))
+	}
+    #models_out[[i]] <- models_out_j %>% purrr::flatten()
+	return(figsout)
+}	
+
+plots <- figs(models = zmodels)
+
+org3plots <- do.call("grid.arrange", c(plots[[1]], ncol = 4))
+
+ggsave("../Output/org3plots.pdf", org3plots, width = 15, height = 15/1.68)
+
+nonstateplots <- do.call("grid.arrange", c(plots[[2]], ncol = 4))
+
+ggsave("../Output/nonstateplots.pdf", nonstateplots, width = 15, height = 15/1.68)
+
+###
 
 org3_zinb <- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  logCDist + logBDist + logPopd + region3, data =
@@ -346,8 +470,6 @@ org3zinbplotCol
 dev.off()
 
 # West AFRICA
-prio_grid_isd$region5 <- as.numeric(prio_grid_isd$region == 5)
-
 wazinb <- zeroinfl(org3 ~ sqrtSpAll * region5 + mountains_mean + water_gc + barren_gc +
 		  logCDist + logBDist + logPopd + nopastor + state_based + region3, data =
 		  filter(prio_grid_isd, popd > 0)) 
@@ -480,7 +602,9 @@ texreg(zinblist, file = "../Output/cvzinb.tex",
        custom.model.names = c('Main model', 'British colony interaction'),
        booktabs = T)
 
+# }}}
 
+# {{{ SIDE
 #==============================================================================#
 #	SIDE data					                       #
 #==============================================================================#
@@ -838,6 +962,9 @@ tiff("../Output/drcswfrac.tiff",
 gridtest
 dev.off()
 
+# }}}
+
+# {{{ Footer
 #==============================================================================#
 # Experimenting with tile package
 
@@ -862,3 +989,5 @@ Org3 <- ggplot() +
     theme_minimal()
 
 Org3
+
+# }}}

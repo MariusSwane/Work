@@ -23,6 +23,7 @@ library(dplyr)
 library(ggeffects)
 library(ggplot2)
 library(MASS)
+library(patchwork)
 library(pscl)
 library(raster)
 library(sidedata)
@@ -296,6 +297,8 @@ for (i in 1:length(cv_dvs)) {
 #	ZINB  								       #
 #==============================================================================#		
 
+prio_grid_isd$nig <- as.numeric(prio_grid_isd$gwno == 475)
+
 org3_zinb <- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
 		  logCDist + logBDist + logPopd + region3, data =
 		  filter(prio_grid_isd, popd > 0)) 
@@ -307,7 +310,8 @@ org3zinbplot <- ggplot(ggorg3zinb, aes(x^2, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
 	      fill = lighten("blue")) +
   geom_line(color = "blue") +
-  labs(x = 'Precolonial state presence', y = 'Communial violence events') +
+  labs(title = "Main ZINB model", x = 'Precolonial state presence', 
+       y = 'Communial violence events') +
   goldenScatterCAtheme
 
 # Printing to file
@@ -328,11 +332,12 @@ ggorg3zinbCol <- ggpredict(gbrzinb, terms = c("sqrtSpAll [0:15 by = .5]",
 
 org3zinbplotCol <- ggplot(ggorg3zinbCol, aes(x^2, predicted, color = group)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
-		    linetype = NA)) + scale_fill_manual(values = pastels) +
-			      geom_line() + labs(x = 'Precolonial state
-						 presence', y = 'Communial
-						 violence events') +
-						 goldenScatterCAtheme
+		    linetype = NA)) + 
+	scale_fill_manual(values = pastels) +
+	geom_line() + 
+	labs(title = "Former British colony interaction", 
+	     x = 'Precolonial state presence', y = 'Communial violence events') +
+	goldenScatterCAtheme
 
 # Printing to file
 pdf("../Output/CommunalViolenceZingbrMargins.pdf",
@@ -340,9 +345,29 @@ pdf("../Output/CommunalViolenceZingbrMargins.pdf",
 org3zinbplotCol 
 dev.off()
 
+# West AFRICA
+prio_grid_isd$region5 <- as.numeric(prio_grid_isd$region == 5)
+
+wazinb <- zeroinfl(org3 ~ sqrtSpAll * region5 + mountains_mean + water_gc + barren_gc +
+		  logCDist + logBDist + logPopd + nopastor + state_based + region3, data =
+		  filter(prio_grid_isd, popd > 0)) 
+summary(wazinb)
+
+wazinbpred <- ggpredict(wazinb, terms = c("sqrtSpAll [0:15 by = .5]",
+			   "region5 [0,1]"))
+
+wazinbplot <- ggplot(wazinbpred, aes(x^2, predicted, color = group)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + 
+	scale_fill_manual(values = pastels) +
+	geom_line() + 
+	labs(title = "West Aftica interaction", x = 'Precolonial state presence', 
+	     y = 'Communial violence events') +
+	goldenScatterCAtheme
+
 # EAST AFRICA
 eazinb <- zeroinfl(org3 ~ sqrtSpAll * region1 + mountains_mean + water_gc + barren_gc +
-		  logCDist + logBDist + logPopd + nopastor + region3, data =
+		  logCDist + logBDist + logPopd + nopastor + state_based + region3, data =
 		  filter(prio_grid_isd, popd > 0)) 
 summary(eazinb)
 
@@ -351,11 +376,12 @@ eazinbpred <- ggpredict(eazinb, terms = c("sqrtSpAll [0:15 by = .5]",
 
 eazinbplot <- ggplot(eazinbpred, aes(x^2, predicted, color = group)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
-		    linetype = NA)) + scale_fill_manual(values = pastels) +
-			      geom_line() + labs(x = 'Precolonial state
-						 presence', y = 'Communial
-						 violence events') +
-						 goldenScatterCAtheme
+			linetype = NA)) + 
+	scale_fill_manual(values = pastels) +
+	geom_line() + 
+	labs(title = "East Aftica interaction", x = 'Precolonial state presence', 
+	     y = 'Communial violence events') +
+	goldenScatterCAtheme
 
 # Printing to file
 pdf("../Output/cvZinbEAMargins.pdf",
@@ -363,6 +389,86 @@ pdf("../Output/cvZinbEAMargins.pdf",
 eazinbplot 
 dev.off()
 	
+# Excluding Kenya
+noken<- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		  logCDist + logBDist + logPopd + region3, data =
+		  filter(prio_grid_isd, popd > 0 & gwno != 501)) 
+summary(noken)
+
+nokenpred <- ggpredict(noken, terms = "sqrtSpAll [0:15 by = .5] ")
+
+nokenplot <- ggplot(nokenpred, aes(x^2, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+	      fill = lighten("blue")) +
+  geom_line(color = "blue") +
+  labs(title = "Main model excluding Kenya", x = 'Precolonial state presence', 
+       y = 'Communial violence events') +
+  goldenScatterCAtheme
+
+# Excluding Uganda
+nouga<- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		  logCDist + logBDist + logPopd + region3, data =
+		  filter(prio_grid_isd, popd > 0 & gwno != 500)) 
+summary(nouga)
+
+nougapred <- ggpredict(nouga, terms = "sqrtSpAll [0:15 by = .5] ")
+
+nougaplot <- ggplot(nougapred, aes(x^2, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+	      fill = lighten("blue")) +
+  geom_line(color = "blue") +
+  labs(title = "Main model excluding Uganda", x = 'Precolonial state presence', 
+       y = 'Communial violence events') +
+  goldenScatterCAtheme
+
+# Excluding Nigeria
+nonig<- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		  logCDist + logBDist + logPopd + region3, data =
+		  filter(prio_grid_isd, popd > 0 & gwno != 475)) 
+summary(nonig)
+
+nonigpred <- ggpredict(nonig, terms = "sqrtSpAll [0:15 by = .5] ")
+
+nonigplot <- ggplot(nonigpred, aes(x^2, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+	      fill = lighten("blue")) +
+  geom_line(color = "blue") +
+  labs(title = "Main model excluding Nigeria", x = 'Precolonial state presence', 
+       y = 'Communial violence events') +
+  goldenScatterCAtheme
+
+# Excluding Ghana
+nogha<- zeroinfl(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
+		  logCDist + logBDist + logPopd + region3, data =
+		  filter(prio_grid_isd, popd > 0 & gwno != 452)) 
+summary(nogha)
+
+noghapred <- ggpredict(nogha, terms = "sqrtSpAll [0:15 by = .5] ")
+
+noghaplot <- ggplot(noghapred, aes(x^2, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+	      fill = lighten("blue")) +
+  geom_line(color = "blue") +
+  labs(title = "Main model excluding Ghana", x = 'Precolonial state presence', 
+       y = 'Communial violence events') +
+  goldenScatterCAtheme
+
+# logOrg3
+logOrg3 <- ggplot() +
+	geom_sf(data = filter(prio_grid_isd),
+            linetype = 0,
+            aes(fill = log(org3)),
+            show.legend = FALSE) + 
+    labs(title = "Communal violence (log)") +
+    scale_fill_viridis_c() +
+    theme_minimal()
+
+# FACETS
+facet <- org3zinbplot + org3zinbplotCol + eazinbplot + wazinbplot + nonigplot +
+	nokenplot + nougaplot + noghaplot + logOrg3 + 
+	plot_layout(guides = "collect")
+
+# Regression tables
 zinblist <- list(org3_zinb, gbrzinb)
 texreg(zinblist, file = "../Output/cvzinb.tex", 
        stars = c(0.001, 0.01, 0.05, 0.1), 
@@ -373,6 +479,7 @@ texreg(zinblist, file = "../Output/cvzinb.tex",
        table = T,
        custom.model.names = c('Main model', 'British colony interaction'),
        booktabs = T)
+
 
 #==============================================================================#
 #	SIDE data					                       #
@@ -743,3 +850,15 @@ tile(lp)
 # Experimenting with 3D render
 
 plot_gg(gridtest, multicore = T)
+
+
+###################################
+Org3 <- ggplot() +
+	geom_sf(data = filter(prio_grid_isd, gwno != 452),
+            linetype = 0,
+            aes(fill = logOrg3),
+            show.legend = FALSE) + 
+    scale_fill_viridis_c() +
+    theme_minimal()
+
+Org3

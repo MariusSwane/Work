@@ -663,13 +663,11 @@ gridtest <- ggplot() +
 
 gridtest
 
-plot_gg(gridtest, multicore = T)
-
-render_camera(zoom = 0.5)
+plot_gg(gridtest, verbose = T, zoom = 0.5, multicore = T)
 
 render_snapshot("../Output/3DLibya")
 
-render_movie(filename = "../Output/Libyathemovie")
+render_movie(filename = "../Output/Libyathemovie.gif")
 
 #render_snapshot("../Output/3DLibya.html", webshot = T)
 

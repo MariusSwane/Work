@@ -16,7 +16,7 @@
 	text-transform: uppercase;
 }
 .flip:hover, .flip:active {
-	font-weight: bold;
+	color: gray;
 }
 .flip2 {
   	padding: 16px 51px;

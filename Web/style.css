@@ -1,6 +1,7 @@
 #mh1 {
 	font-weight: 100;
 	text-align: center;
+	display: block;
 	letter-spacing: 50px;
 	font-size: 4vw;
 	font-family: "Times New Roman";

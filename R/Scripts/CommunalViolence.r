@@ -819,4 +819,46 @@ Org3 <- ggplot() +
 
 Org3
 
+# Burkina Faso
+
+geoisd <- st_read('../../QGIS/Geo-ISD.shp')
+
+brk <- filter(geoisd, COWID == 4327 | COWID == 4763 | COWID == 4321 | COWID ==
+	      4751 | COWID == 4751 | COWID == 4325 | COWID == 4392 | COWID ==
+	      4326 | COWID == 4395 | COWID == 4521 | COWID == 4328 | COWID ==
+	      4395 | COWID == 4393 | COWID == 4399 | COWID == 4321 | COWID ==
+	      4396)
+
+ext <- raster::extent(-5.7,2.5,9,15.5)
+
+grid <- st_bbox(ext) %>% 
+  st_make_grid(cellsize = (0.1), what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+brk <- st_make_valid(brk)
+
+grid$sp <- lengths(st_intersects(grid, brk))
+
+
+borders <- read_sf(dsn = "../Data/Shapes/Africa.shp") %>% 
+	filter(ID == 22)
+
+borders <- st_set_crs(borders, 4326)
+
+gridtest <- ggplot() +
+		   geom_sf(data = grid,
+			   linetype = 0,
+			   aes(fill = sp),
+			   show.legend = F) +
+    		   scale_fill_viridis_c() +
+		   geom_sf(data = borders, color = "white", fill = NA) +
+		   theme_minimal() +
+		   theme(plot.background = element_rect(fill = "white")) 
+
+pdf("../Output/burkinafasoSP.pdf",
+    width = 10, height = 10/1.68)
+gridtest
+dev.off()
+
 # }}}

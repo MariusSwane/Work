@@ -507,6 +507,84 @@ for(i in 1:length(ugaMerged$id_cell.y)) {
 		ugaMerged$other[i]^2))
 }
 
+# Adding water to UGA
+
+ugaMerged <- st_join(ugaMerged, select(prio_grid_isd, geometry, water_gc), join
+		     = st_within)
+
+#ugaMerged <- grid %>% mutate(water = st_within(ugaMerged, prio_grid_isd$water_gc))
+
+#==============================================================================#
+# Burkina Faso
+
+# # The below command only needs to be run once
+#side_download(country = "Burkina Faso", year = 1999, marker = "ethnic", dest.dir =
+      #"../Data/", conv.hull = T)
+
+brk.ethnic <- side_load(country = "Burkina Faso", year = 1999, marker = "ethnic",
+			source.dir = "../Data")
+
+brk.ethnic.meta.df <- sidemap2data(brk.ethnic)
+
+names(brk.ethnic) <- brk.ethnic.meta.df$groupname
+
+gisdbrk <- filter(geoisd, COWID == 4327 | COWID == 4763 | COWID == 4321 | COWID ==
+	      4751 | COWID == 4751 | COWID == 4325 | COWID == 4392 | COWID ==
+	      4326 | COWID == 4395 | COWID == 4521 | COWID == 4328 | COWID ==
+	      4395 | COWID == 4393 | COWID == 4399 | COWID == 4321 | COWID ==
+	      4396)
+
+gisdbrk <- st_make_valid(gisdbrk)
+
+crs(brk.ethnic) <- crs(geoisd)
+
+brkext <- extent(brk.ethnic)
+
+brkData <- extract(brk.ethnic, brkext, df = T)
+brkData <- brkData %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_bbox(brkext) %>% 
+  st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+xy <- xyFromCell(brk.ethnic, as.integer(rownames(brkData)))
+result <- cbind(xy, brkData)
+colnames(result)[1:2] <- c("lon", "lat")
+
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
+
+st_crs(result) <- crs(geoisd)
+
+grid <- st_join(grid, result, join = st_contains)
+
+grid <- na.omit(grid)
+
+# Merging SIDE and Geo-ISD
+grid <- grid %>% mutate(sp = lengths(st_within(grid, gisdbrk)))
+
+# Creating ethnic fractionalization index
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
+		(1 - (
+		grid$bissa[i]^2 +
+		grid$bobo[i]^2 +
+		grid$dafing[i]^2 +
+		grid$dagara[i]^2 +
+		grid$dioula[i]^2 +
+		grid$fulfulde.peul[i]^2 + 
+		grid$gourmatche[i]^2 +
+		grid$gourounsi[i]^2 +
+		grid$lobi[i]^2 +
+		grid$mossi[i]^2 +
+		grid$other[i]^2 +
+		grid$other.burkina[i]^2 +
+		grid$samo[i]^2 +
+		grid$senoufo[i]^2))
+}
+
 #==============================================================================#
 # Nigeria
 
@@ -776,20 +854,36 @@ drcMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisddrc)))
 #==============================================================================#
 # Test plot
 
-gridtest <- ggplot() +
-		   geom_sf(data = grid,
+gridtestwater <- ggplot() +
+		   geom_sf(data = na.omit(ugaMerged),
 			   linetype = 0,
-			   aes(fill = ef),
+			   aes(fill = water_gc),
 			   show.legend = F) +
     		   scale_fill_viridis_c() +
 		   theme_minimal() +
 		   theme(plot.background = element_rect(fill = "white")) 
 
 
-tiff("../Output/drcswfrac.tiff",
+tiff("../Output/brkfasoSP.tiff",
     width = 10, height = 5, res = 300, units = 'in', compression = 'lzw')
 gridtest
 dev.off()
+
+ugaplots <-  grid.arrange(gridtestef,gridtestsp, ncol = 2)
+
+ggsave("../Output/ugaplots.tiff", ugaplots,
+       device = "tiff", width = 10, height = 10/1.68, units = "in", dpi = 300,
+       compression = "lzw")
+
+# }}}
+
+# {{{ ACLED
+
+acled <- acled.api(region = c(1:5), add.variables = c("EVENT_TYPE",
+							"LATITUDE", "LONGITUDE",
+							"GEO_PRECISION",
+							"FATALITIES"),
+		   interaction = c(44,47)) 
 
 # }}}
 
@@ -849,14 +943,14 @@ borders <- st_set_crs(borders, 4326)
 gridtest <- ggplot() +
 		   geom_sf(data = grid,
 			   linetype = 0,
-			   aes(fill = sp),
+			   aes(fill = ef),
 			   show.legend = F) +
     		   scale_fill_viridis_c() +
 		   geom_sf(data = borders, color = "white", fill = NA) +
 		   theme_minimal() +
 		   theme(plot.background = element_rect(fill = "white")) 
 
-pdf("../Output/burkinafasoSP.pdf",
+pdf("../Output/burkinafasoEF.pdf",
     width = 10, height = 10/1.68)
 gridtest
 dev.off()

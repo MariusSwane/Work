@@ -578,7 +578,6 @@ ggplot() +
 
 # Alternative measure of state presece
 
-altmodelE <-
 
 altmodelD <- glm.nb(statebaseddeaths ~ sqrtSpAny * logCapdist +
 			mountains_mean + water_gc + barren_gc + logCDist +
@@ -634,15 +633,18 @@ libya <- filter(geoisd, COWID == 620)
 ext <- raster::extent(5,40,15,36)
 
 grid <- st_bbox(ext) %>% 
-  st_make_grid(cellsize = (0.1), what = "polygons") %>%
+  st_make_grid(cellsize = (0.2), what = "polygons") %>%
   st_set_crs(4326)
 grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+centroids <- st_centroid(grid)
+
+grid$lon <- st_coordinates(centroids)[,1]
+grid$lat <- st_coordinates(centroids)[,2]
 
 libya <- st_make_valid(libya)
 
 grid$sp <- lengths(st_intersects(grid, libya))
-
-#grid <- st_join(grid, libya, join = st_intersects)
 
 grid <- filter(grid, sp > 0)
 
@@ -651,17 +653,25 @@ borders <- read_sf(dsn = "../Data/Shapes/Africa.shp") %>%
 
 borders <- st_set_crs(borders, 4326)
 
+# setNames(data.frame(coords[[1]], 
+#                     matrix(unlist(coords[2]), ncol=2, byrow=TRUE)), 
+#          c("ID", "lon", "lat"))
+
 gridtest <- ggplot() +
 		   geom_sf(data = grid,
 			   linetype = 0,
 			   aes(fill = sp),
 			   show.legend = F) +
     		   scale_fill_viridis_c() +
-		   geom_sf(data = borders, fill = NA) +
-		   theme_minimal() +
-		   theme(plot.background = element_rect(fill = "white")) 
+		   geom_contour(data = filter(grid, sp > 1),
+				aes(x = round(lon, 1), y = round(lat, 1), z = sp)) +
+		   geom_sf(data = borders, color = "gray", fill = NA) +
+		   theme_minimal()
 
+pdf("../Output/libya.pdf",
+    width = 10, height = 10/1.683)
 gridtest
+dev.off()
 
 plot_gg(gridtest, verbose = T, zoom = 0.5, multicore = T)
 

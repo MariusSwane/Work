@@ -1,0 +1,34 @@
+digraph G {
+	node [ colorscheme = pastel19 color = 3 style = filled];
+	"Explanatory mechanisms" [ shape = box colorscheme = pastel19 color
+	= 5 style = filled];
+	"Observable implications" [shape = box colorscheme = pastel19 color = 2 style = filled];
+	{rank = same; "Explanatory mechanisms"; "More to earn from interethnic exchange"; }
+	{ rank = same; "Observable implications"; "Building individual reputation for trust"; }
+	"Institutions for enforcing contracts & resolving disputes" -> "Reduced security dilemma & commitment problems";
+	"Forceful reduction of non state violence" -> "Reduced security dilemma & commitment problems";
+	"Reduced security dilemma & commitment problems" -> "Lower risk of conflict";
+	"Reduced security dilemma & commitment problems" -> "Increased trade";
+	"Increased trade" -> "More to earn from interethnic exchange";
+	"Increased trade" -> "Building individual reputation for trust";
+	"Increased trade" -> "Reduced information problems";
+	"Increased trade" -> "Less effective anonymity towards outsiders";
+	"Increased trade" -> "Increasingly mixed settlement patterns";
+	"More to earn from interethnic exchange" -> "Building individual reputation for trust";
+	"Building individual reputation for trust" -> "Reduced information problems";
+ 	"Reduced information problems" -> "Less effective anonymity towards outsiders";
+ 	"Less effective anonymity towards outsiders" -> "Increasingly mixed settlement patterns";
+	"More to earn from interethnic exchange" -> "Lower risk of conflict";
+	"Building individual reputation for trust" -> "Lower risk of conflict";
+ 	"Reduced information problems" -> "Lower risk of conflict";
+ 	"Less effective anonymity towards outsiders" -> "Lower risk of conflict";
+ 	"Increasingly mixed settlement patterns" -> "Lower risk of conflict";
+	"Lower risk of conflict" -> "Increasingly mixed settlement patterns";
+	"Lower risk of conflict" [colorscheme = pastel19 color = 2 style = filled];
+	"Increasingly mixed settlement patterns" [colorscheme = pastel19 color =
+	2 style = filled];
+	"Institutions for enforcing contracts & resolving disputes" [colorscheme
+	= pastel19 color = 5 style = filled];
+	"Forceful reduction of non state violence" [colorscheme = pastel19 color
+	= 5 style = filled];
+}

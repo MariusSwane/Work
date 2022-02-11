@@ -11,6 +11,7 @@
 #	Loading packages 						       # 
 #==============================================================================#
 
+library(acled.api)
 library(conflicted)
 library(dplyr)
 library(ggplot2)
@@ -408,7 +409,7 @@ rm(coastline)
 ggplot() +
 	geom_sf(data = prio_grid_isd,
             linetype = 0,
-            aes_string(fill = "gcp_mer"),
+            aes(fill = acleddead),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()
@@ -496,7 +497,7 @@ prio_grid_isd  <- prio_grid_isd %>%
 	mutate(deaths = ifelse(is.na(deaths), 0, deaths)) 
 
 # Cleaning
-rm(ged, ged201)
+rm(ged)
 
 #==============================================================================#
 #	Adding region dummies						       #
@@ -530,6 +531,27 @@ prio_grid_isd$por <- as.numeric(prio_grid_isd$ColRuler==235)
 prio_grid_isd$nth <- as.numeric(prio_grid_isd$ColRuler==210)
 prio_grid_isd$bel <- as.numeric(prio_grid_isd$ColRuler==211)
 prio_grid_isd$ita <- as.numeric(prio_grid_isd$ColRuler==325)
+
+# {{{ ACLED
+
+acled <- acled.api(region = c(1:5), add.variables = c("EVENT_TYPE",
+							"LATITUDE", "LONGITUDE",
+							"GEO_PRECISION",
+							"FATALITIES"),
+		   interaction = c(44,47)) 
+
+acled <- acled %>% st_as_sf(coords = c("LONGITUDE", "LATITUDE"), crs =
+			    st_crs(prio_grid_isd))
+
+prio_grid_isd$acledev <- lengths(st_contains(prio_grid_isd, acled))
+
+prio_grid_isd$acleddead <- st_contains(prio_grid_isd, acled) %>% 
+	map(~ acled[., ]) %>% 
+	    map(~ .$fatalities) %>% 
+	    map(~ sum(.)) %>% 
+	    unlist()
+
+# }}}
 
 #==============================================================================#
 #	Cleaning variable names 					       #

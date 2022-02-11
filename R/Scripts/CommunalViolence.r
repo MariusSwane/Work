@@ -877,16 +877,6 @@ ggsave("../Output/ugaplots.tiff", ugaplots,
 
 # }}}
 
-# {{{ ACLED
-
-acled <- acled.api(region = c(1:5), add.variables = c("EVENT_TYPE",
-							"LATITUDE", "LONGITUDE",
-							"GEO_PRECISION",
-							"FATALITIES"),
-		   interaction = c(44,47)) 
-
-# }}}
-
 # {{{ Footer
 #==============================================================================#
 # Experimenting with tile package

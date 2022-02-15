@@ -19,7 +19,6 @@
 #	Loading Packages						       #
 #==============================================================================#	
 
-library(acled.api)
 library(conflicted)
 library(dplyr)
 library(ggeffects)
@@ -116,11 +115,7 @@ geoISDanalysis <- function(dvs, ivs, controls, data, test_label){
       m4 <-  glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
 				    extended_controls, even_more, rest)),
                data=data)
-      m5 <-  glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
-				    extended_controls, even_more, rest,
-				    pastoralism)),
-               data=data)
-      models_out_j[[j]] <- list(m1, m2, m3, m4, m5)
+      models_out_j[[j]] <- list(m1, m2, m3, m4)
     } 
     models_out[[i]] <- models_out_j %>% flatten()
   }
@@ -162,21 +157,28 @@ for (i in 1:length(cols)) {
 #==============================================================================#
 
 sumStats <- select(prio_grid_isd, org3, sp_os_i_sum, bdist3, capdist, barren_gc,
-		   mountains_mean, water_gc, distcoast, popd)
+		   mountains_mean, water_gc, distcoast, nopastor, popd)
 
 sumStats <- st_drop_geometry(sumStats)
 
-stargazer(sumStats, median = FALSE, digits=1, title = "Summary Statistics",
-	  column.sep.width = "1pt", label = "summarystats", covariate.labels =
+stargazer(sumStats, median = FALSE, 
+	  digits=1, 
+	  title = "Summary Statistics",
+	  column.sep.width = "1pt", 
+	  label = "summarystats", 
+	  float.env = "sidewaystable",
+	  covariate.labels =
 		  c("Conflict events", "State presence", "Distance to boundary",
 		    "Distance to capital", "Barren", "Mountainous", "Water",
-		    "Distance to coast"), out = "../Output/CVsummaryStats.tex")
+		    "Distance to coast", "Land not suitable for pasotrialism",
+		    "Population density in 1600"),
+	  out = "../Output/CVsummaryStats.tex")
 
 #==============================================================================#
 #	Variables							       #
 #==============================================================================#
 
-controls <- c('+ mountains_mean + water_gc + barren_gc + logCDist')
+controls <- c('+ mountains_mean + water_gc + barren_gc + logCDist + nopastor')
 
 extended_controls <- c('+ region3')
 
@@ -186,24 +188,24 @@ rest <- c('+ logBDist')
 
 pastoralism <- c('+ nopastor')
 
-climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
+#climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
 
 coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)', 
 		'mountains_mean' = 'Mountainous terrain',
 	     	'water_gc' = 'Water (%)', 
 	 	'barren_gc' = 'Barren (%)', 
 	      	'logCDist' = 'Distance to coast (log)',
+		'nopastorTRUE' = 'Land not suited for pastorial herding',
 		'region3' = 'North Africa',
 		'gbr' = 'Former British colony',
 	      	'logPopd' = 'Population density (log)', 
 		'logBDist' = 'Distance to border (log)', 
-		'nopastorTRUE' = 'Land not suited for pastorial herding',
 		'sqrtSpAll:gbr' = 'Interaction term',
 		'sqrtSpAll' = 'Precolonial state presence (sqrt)')
 
 
 control_names_cv <-c('Baseline', 'North Africa', 'Population density', 'Distance
-		     to international boundary', 'Pastoralism')
+		     to international boundary')
 
 cv_dvs <- c('non_state', 'org3')
 
@@ -228,8 +230,9 @@ cv_nb_models <- geoISDanalysis(dvs = cv_dvs, ivs = ivs, controls = controls,
 
 # Plotting
 org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		  logCDist + logBDist + logPopd + region3 + gbr, data =
+		  nopastor + logCDist + logBDist + logPopd + region3, data =
 		  filter(prio_grid_isd, popd > 0)) 
+
 summary(org3_NB)
 
 ggorg3 <- ggpredict(org3_NB, terms = "sqrtSpAll [0:15 by = .5] ")
@@ -238,7 +241,8 @@ org3plot <- ggplot(ggorg3, aes(x^2, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
 	      fill = lighten("blue")) +
   geom_line(color = "blue") +
-  labs(x = 'Precolonial state presence', y = 'Communial violence events') +
+  labs(title = 'Main model', 
+       x = 'Precolonial state presence', y = 'Communial violence events') +
   goldenScatterCAtheme
 
 # Printing to file
@@ -259,7 +263,7 @@ for (i in 1:length(cv_dvs)) {
          custom.model.names = control_names_cv,
          custom.coef.map = coefs_cv,
          stars = c(0.001, 0.01, 0.05, 0.1), 
-         sideways = T, use.packages = F, scalebox = 1,
+         sideways = T, use.packages = F, scalebox = .9,
          #custom.note = "",
          caption = cv_captions[i],
 	 label = name,
@@ -317,16 +321,14 @@ prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 
 # Part 1: models
 
-zdvs <- c("org3", "non_state")
+zdvs <- c("org3", "non_state", "acledev")
 
 ziv <- "sqrtSpAll"
 
-zcontrols <- c("+ mountains_mean + water_gc + barren_gc + logCDist + logBDist +
-	       logPopd + region3")
+zcontrols <- c("+ mountains_mean + water_gc + barren_gc + nopastor + logCDist +
+	       logBDist + logPopd + region3")
 
-exclusions <- c(475, 500, 501, 452)
-
-#excluded <- c("Nigeria", "Uganda", "Kenya", "Ghana")
+#exclusions <- c(475, 500, 501, 452)
 
 interactions <- c("gbr", "region1", "region5")
 
@@ -334,11 +336,14 @@ titles <- c('Main ZINB model', 'Excluding Nigeria', 'Excluding Uganda',
 	    'Excluding Kenya', 'Excluding Ghana', 'Former British colony
 	    interaction', 'East Africa interaction', 'West Africa interaction')
 
+zcaptions <- c('Non-state conflict events', 'Communal violence events', 'ACLED
+	       events')
+
 zinbanalysis <- function(zdvs, zivs, zcontrols, data, test_label){
   models_out <- NULL
   for(i in 1:length(zdvs)) {
     dv <- zdvs[i] 
-# TODO: Do as in the next function to make prettier/more compact/clever
+# TODO: Do as in the figs function to make prettier/more compact/clever
       m1 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
                data=data)
       m2 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)), 
@@ -357,14 +362,30 @@ zinbanalysis <- function(zdvs, zivs, zcontrols, data, test_label){
 				      zcontrols)), data=data)
       models_out[[i]] <- list(m1, m2, m3, m4, m5, m6, m7, m8)
   }
-  #models_out <- models_out
-  #final <- list('models'=models_out)
   return(models_out)
 }
 
 zmodels <- zinbanalysis(zdvs = zdvs, zivs = zivs, zcontrols = zcontrols,
 			       data = filter(prio_grid_isd, popd > 0),
 			       test_label = 'ZINB Models')
+
+# Regression tables
+
+for (i in 1:length(zdvs)) { 
+  name <- zdvs[i]
+  filename <- paste0("../Output/zinb",name,".tex")
+  texreg(zmodels[[i]],
+         file = filename,
+         custom.model.names = titles,
+         #custom.coef.map = coefs_cv,
+         stars = c(0.001, 0.01, 0.05, 0.1), 
+         sideways = T, use.packages = F, scalebox = .5,
+         #custom.note = "",
+         caption = zcaptions[i],
+	 label = paste0("z",name),
+	 booktabs = T,
+         table = T)
+}
 
 # Part 2: Figures
 
@@ -407,7 +428,6 @@ figs <- function(models) {
 		}
 		figsout[[i]] <- flatten(list(mainplots, intplots))
 	}
-    #models_out[[i]] <- models_out_j %>% purrr::flatten()
 	return(figsout)
 }	
 
@@ -420,6 +440,16 @@ ggsave("../Output/org3plots.pdf", org3plots, width = 15, height = 15/1.68)
 nonstateplots <- do.call("grid.arrange", c(plots[[2]], ncol = 4))
 
 ggsave("../Output/nonstateplots.pdf", nonstateplots, width = 15, height = 15/1.68)
+
+acledplots <- do.call("grid.arrange", c(plots[[3]], ncol = 4))
+
+ggsave("../Output/acledplots.pdf", acledplots, width = 15, height = 15/1.68)
+
+mainplots <-  grid.arrange(org3plot, plots[[1]][[1]], ncol = 2)
+
+ggsave("../Output/mainplots.pdf", mainplots, width = 15, height = 15/1.68)
+
+ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
 
 # logOrg3 Plot
 logOrg3 <- ggplot() +

@@ -21,7 +21,6 @@ library(raster)
 library(RColorBrewer)
 library(readr)
 library(sf)
-#library(spdep)
 library(sidedata) # Some conflicts with raster (tail, stack, unstack, head)
 library(sp)
 library(spData)
@@ -409,7 +408,7 @@ rm(coastline)
 ggplot() +
 	geom_sf(data = prio_grid_isd,
             linetype = 0,
-            aes(fill = acleddead),
+            aes(fill = org3nigreldif),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()
@@ -466,6 +465,9 @@ ged <- Nonstate_v21_1 %>%  dplyr::select(conflict_id, org, year) %>%
 ged <- left_join(GEDEvent_v21_1, ged, by = c("conflict_new_id" =
 						"conflict_id"))
 
+nigrel = filter(ged, conflict_new_id == 4895) %>% group_by(priogrid_gid) %>%
+	summarise(nigrel = sum(org == 3))
+
 # Summarising
 gede  <- ged %>% group_by(priogrid_gid) %>% 
 	summarise(state_based = sum(type_of_violence == 1),
@@ -482,6 +484,8 @@ gedd <-  ged %>% group_by(priogrid_gid) %>% filter(type_of_violence == 1) %>%
 
 ged <- left_join(gede, gedd)
 
+ged <- left_join(ged, nigrel)
+
 # Merging
 prio_grid_isd  <- left_join(prio_grid_isd, ged, by = c("gid" = "priogrid_gid"))
 
@@ -493,11 +497,14 @@ prio_grid_isd  <- prio_grid_isd %>%
 	mutate(org1 = ifelse(is.na(org1), 0, org1)) %>%  
 	mutate(org2 = ifelse(is.na(org2), 0, org2)) %>%  
 	mutate(org3 = ifelse(is.na(org3), 0, org3)) %>% 
-	mutate(statebaseddeaths = ifelse(is.na(statebaseddeaths), 0, statebaseddeaths)) %>% 
+	mutate(nigrel = ifelse(is.na(nigrel), 0, nigrel)) %>% 
+	mutate(statebaseddeaths = ifelse(is.na(statebaseddeaths), 0, 
+					 statebaseddeaths)) %>% 
+	mutate(org3nigreldif = ifelse((org3 - nigrel) < 0, 0, org3 - nigrel)) %>% 
 	mutate(deaths = ifelse(is.na(deaths), 0, deaths)) 
 
 # Cleaning
-rm(ged)
+rm(ged, gedd, gede, nigrel)
 
 #==============================================================================#
 #	Adding region dummies						       #
@@ -534,11 +541,15 @@ prio_grid_isd$ita <- as.numeric(prio_grid_isd$ColRuler==325)
 
 # {{{ ACLED
 
-acled <- acled.api(region = c(1:5), add.variables = c("EVENT_TYPE",
-							"LATITUDE", "LONGITUDE",
-							"GEO_PRECISION",
-							"FATALITIES"),
-		   interaction = c(44,47)) 
+# acled <- acled.api(region = c(1:5), add.variables = c("EVENT_TYPE",
+# 							"LATITUDE", "LONGITUDE",
+# 							"GEO_PRECISION",
+# 							"FATALITIES"),
+# 		   interaction = c(44,47)) 
+# 	
+# save(acled, file = "../Data/acled.Rdata")
+
+load("../Data/acled.Rdata")
 
 acled <- acled %>% st_as_sf(coords = c("LONGITUDE", "LATITUDE"), crs =
 			    st_crs(prio_grid_isd))

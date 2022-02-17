@@ -85,7 +85,12 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				SpAllXCapDist = logSpAll*capdist,
 				SpAnyXCapDist = logSpAny*capdist,
 				SpAll10 = sp_os_i_sum*10,
-				nopastor = as.factor(prec_gpcp > 400),
+				jos = as.numeric(gid == 142937),
+				nig = as.numeric(gwno == 475),
+				uga = as.numeric(gwno == 500),
+				ken = as.numeric(gwno == 501),
+				gha = as.numeric(gwno == 452),
+				nopastor = as.numeric(prec_gpcp > 400),
 				region1 = as.numeric(factor(region)==1),
 				region2 = as.numeric(factor(region)==2),
 				region3 = as.numeric(factor(region)==3),
@@ -195,7 +200,7 @@ coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)',
 	     	'water_gc' = 'Water (%)', 
 	 	'barren_gc' = 'Barren (%)', 
 	      	'logCDist' = 'Distance to coast (log)',
-		'nopastorTRUE' = 'Land not suited for pastorial herding',
+		'nopastor' = 'Land not suited for pastorial herding',
 		'region3' = 'North Africa',
 		'gbr' = 'Former British colony',
 	      	'logPopd' = 'Population density (log)', 
@@ -229,9 +234,9 @@ cv_nb_models <- geoISDanalysis(dvs = cv_dvs, ivs = ivs, controls = controls,
 #==============================================================================#
 
 # Plotting
-org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc +
-		  nopastor + logCDist + logBDist + logPopd + region3, data =
-		  filter(prio_grid_isd, popd > 0)) 
+org3_NB <- glm.nb(org3nigreldif ~ sqrtSpAll + mountains_mean + water_gc + barren_gc + 
+		  + nopastor + logCDist + logBDist + logPopd + region3, data =
+			  filter(prio_grid_isd, popd > 0)) 
 
 summary(org3_NB)
 
@@ -321,7 +326,7 @@ prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 
 # Part 1: models
 
-zdvs <- c("org3", "non_state", "acledev")
+zdvs <- c("org3", "non_state", "acledev", "org3nigreldif")
 
 ziv <- "sqrtSpAll"
 
@@ -330,37 +335,32 @@ zcontrols <- c("+ mountains_mean + water_gc + barren_gc + nopastor + logCDist +
 
 #exclusions <- c(475, 500, 501, 452)
 
-interactions <- c("gbr", "region1", "region5")
+interactions <- c("nig", "ken", "gha", "gbr", "region1", "region5")
 
-titles <- c('Main ZINB model', 'Excluding Nigeria', 'Excluding Uganda',
-	    'Excluding Kenya', 'Excluding Ghana', 'Former British colony
-	    interaction', 'East Africa interaction', 'West Africa interaction')
+titles <- c('Main ZINB model', 'Excluding Jos', 'Excluding Uganda', 'Nigeria',
+	    'Kenya', 'Ghana', 'Former British colony interaction', 'East Africa
+	    interaction', 'West Africa interaction')
 
-zcaptions <- c('Non-state conflict events', 'Communal violence events', 'ACLED
-	       events')
+zcaptions <- c('Communal violence events', 'Non-state conflict events', 'ACLED
+	       events', 'Communal violence events excluding religious violence
+	       in Nigeria')
 
 zinbanalysis <- function(zdvs, zivs, zcontrols, data, test_label){
   models_out <- NULL
   for(i in 1:length(zdvs)) {
-    dv <- zdvs[i] 
-# TODO: Do as in the figs function to make prettier/more compact/clever
-      m1 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
-               data=data)
-      m2 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)), 
-		     data=filter(data, gwno != 475))
-      m3 <- zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
-               data=filter(data, gwno != 500))
-      m4 <-  zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
-               data=filter(data, gwno != 501))
-      m5 <-  zeroinfl(as.formula(paste(dv, '~', ziv, zcontrols)),
-               data=filter(data, gwno != 452))
-      m6 <- zeroinfl(as.formula(paste(dv, '~', ziv, '*gbr',
-				      zcontrols)), data=data)
-      m7 <- zeroinfl(as.formula(paste(dv, '~', ziv, '*region1',
-				      zcontrols)), data=data)
-      m8 <- zeroinfl(as.formula(paste(dv, '~', ziv, '*region5',
-				      zcontrols)), data=data)
-      models_out[[i]] <- list(m1, m2, m3, m4, m5, m6, m7, m8)
+  m <- NULL
+      m1 <- zeroinfl(as.formula(paste(zdvs[i], '~', ziv, zcontrols)),
+               data = data)
+      m2 <- zeroinfl(as.formula(paste(zdvs[i], '~', ziv, zcontrols)),
+               data = filter(data, jos != 1)) 
+      m3 <- zeroinfl(as.formula(paste(zdvs[i], '~', ziv, zcontrols)),
+               data = filter(data, gwno != 500)) 
+      for(j in 1:length(interactions)) {
+      m[[j]] <- zeroinfl(as.formula(paste(zdvs[i], '~', ziv, '*', interactions[j],
+				     zcontrols)), data = data)
+      }
+      li <- list(m1, m2, m3)
+      models_out[[i]] <- flatten(list(li, m))
   }
   return(models_out)
 }
@@ -394,7 +394,7 @@ figs <- function(models) {
 	for(i in 1:length(models)){
 		mainfigs <- NULL
 		mainplots <- NULL
-		for(j in 1:5) {
+		for(j in 1:3) {
 			mainfigs[[j]] <- ggpredict(models[[i]][[j]], 
 				terms = "sqrtSpAll [0:15 by = .5]") 
 			mainplots[[j]] <- ggplot(mainfigs[[j]],
@@ -410,8 +410,8 @@ figs <- function(models) {
 		}
 		intfigs <- NULL
 		intplots <- NULL
-		for(k in 1:3) {
-			intfigs[[k]] <- ggpredict(models[[i]][[5+k]],
+		for(k in 1:length(interactions)) {
+			intfigs[[k]] <- ggpredict(models[[i]][[3+k]],
 				terms = c("sqrtSpAll [0:15 by = .5]",
 					  paste(interactions[k],"[0,1]")))
 			intplots[[k]] <- ggplot(intfigs[[k]],
@@ -421,7 +421,7 @@ figs <- function(models) {
 					linetype = NA)) + 
 				scale_fill_manual(values = pastels) +
 				geom_line() + 
-				labs(title = paste(titles[5+k]),
+				labs(title = paste(titles[3+k]),
 					x = 'Precolonial state presence', 
 	     				y = 'Communial violence events') +
 				goldenScatterCAtheme
@@ -433,17 +433,22 @@ figs <- function(models) {
 
 plots <- figs(models = zmodels)
 
-org3plots <- do.call("grid.arrange", c(plots[[1]], ncol = 4))
+org3plots <- do.call("grid.arrange", c(plots[[1]], ncol = 3))
 
 ggsave("../Output/org3plots.pdf", org3plots, width = 15, height = 15/1.68)
 
-nonstateplots <- do.call("grid.arrange", c(plots[[2]], ncol = 4))
+nonstateplots <- do.call("grid.arrange", c(plots[[2]], ncol = 3))
 
 ggsave("../Output/nonstateplots.pdf", nonstateplots, width = 15, height = 15/1.68)
 
-acledplots <- do.call("grid.arrange", c(plots[[3]], ncol = 4))
+acledplots <- do.call("grid.arrange", c(plots[[3]], ncol = 3))
 
 ggsave("../Output/acledplots.pdf", acledplots, width = 15, height = 15/1.68)
+
+noreligioninnigplots <- do.call("grid.arrange", c(plots[[4]], ncol = 3))
+
+ggsave("../Output/noreligioninnigplots.pdf", noreligioninnigplots, width = 15,
+       height = 15/1.68)
 
 mainplots <-  grid.arrange(org3plot, plots[[1]][[1]], ncol = 2)
 
@@ -452,14 +457,16 @@ ggsave("../Output/mainplots.pdf", mainplots, width = 15, height = 15/1.68)
 ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
 
 # logOrg3 Plot
-logOrg3 <- ggplot() +
-	geom_sf(data = filter(prio_grid_isd),
+logOrg32 <- ggplot() +
+	geom_sf(data = filter(prio_grid_isd, gwno == 475),
             linetype = 0,
-            aes(fill = log(org3)),
+            aes(fill = log(org3 + 1)),
             show.legend = FALSE) + 
     labs(title = "Communal violence (log)") +
     scale_fill_viridis_c() +
     theme_minimal()
+
+logOrg3
 
 # }}}
 
@@ -882,12 +889,89 @@ drcMerged <- grid %>% mutate(sp = lengths(st_within(grid, gisddrc)))
 
 
 #==============================================================================#
+# Ghana
+
+# # The below command only needs to be run once
+#side_download(country = "Ghana", year = 1999, marker = "ethnic", dest.dir =
+#		"../Data/", conv.hull = T)
+
+gha.ethnic <- side_load(country = "Ghana", year = 1999, marker = "ethnic",
+			source.dir = "../Data")
+
+gha.ethnic.meta.df <- sidemap2data(gha.ethnic)
+
+names(gha.ethnic) <- gha.ethnic.meta.df$groupname
+
+gisdgha <- filter(geoisd, COWID == 434 | COWID == 4327 | COWID == 4392 | COWID ==
+	      4393 | COWID == 4395 | COWID == 4399 | COWID == 4521 | COWID ==
+	      4751 | COWID == 4776 | COWID == 4798)
+
+gisdgha <- st_make_valid(gisdgha)
+
+crs(gha.ethnic) <- crs(geoisd)
+
+ghaext <- extent(gha.ethnic)
+
+ghaData <- extract(gha.ethnic, ghaext, df = T)
+ghaData <- ghaData %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_bbox(ghaext) %>% 
+  st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+xy <- xyFromCell(gha.ethnic, as.integer(rownames(ghaData)))
+result <- cbind(xy, ghaData)
+colnames(result)[1:2] <- c("lon", "lat")
+
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
+
+st_crs(result) <- crs(geoisd)
+
+grid <- st_join(grid, result, join = st_contains)
+
+grid <- na.omit(grid)
+
+# Merging SIDE and Geo-ISD
+grid <- grid %>% mutate(sp = lengths(st_within(grid, gisdgha)))
+
+# Creating ethnic fractionalization index
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
+		(1 - (
+		grid$akwapim[i]^2 +
+		grid$asante[i]^2 +
+		grid$dagarti[i]^2 +
+		grid$ewe[i]^2 +
+		grid$fante[i]^2 +
+		grid$ga.adangbe[i]^2 + 
+		grid$gruma[i]^2 +
+		grid$grussi[i]^2 +
+		grid$guan[i]^2 +
+		grid$hausa[i]^2 +
+		grid$mole.dagbani[i]^2 +
+		grid$other[i]^2 +
+		grid$other.akan[i]^2))
+}
+
+#==============================================================================#
 # Test plot
 
-gridtestwater <- ggplot() +
-		   geom_sf(data = na.omit(ugaMerged),
+gridtestef <- ggplot() +
+		   geom_sf(data = na.omit(grid),
 			   linetype = 0,
-			   aes(fill = water_gc),
+			   aes(fill = ef),
+			   show.legend = F) +
+    		   scale_fill_viridis_c() +
+		   theme_minimal() +
+		   theme(plot.background = element_rect(fill = "white")) 
+
+gridtestsp <- ggplot() +
+		   geom_sf(data = na.omit(grid),
+			   linetype = 0,
+			   aes(fill = sp),
 			   show.legend = F) +
     		   scale_fill_viridis_c() +
 		   theme_minimal() +
@@ -899,9 +983,9 @@ tiff("../Output/brkfasoSP.tiff",
 gridtest
 dev.off()
 
-ugaplots <-  grid.arrange(gridtestef,gridtestsp, ncol = 2)
+grid.arrange(logOrg3,logOrg32, ncol = 2)
 
-ggsave("../Output/ugaplots.tiff", ugaplots,
+ggsave("../Output/ghaplots.tiff", ghaplots,
        device = "tiff", width = 10, height = 10/1.68, units = "in", dpi = 300,
        compression = "lzw")
 

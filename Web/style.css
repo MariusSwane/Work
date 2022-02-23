@@ -8,13 +8,20 @@
 	font-stretch: ultra-condensed;
 	margin-top: 300px;
 	margin-bottom 250;
+	width: 60vw;
 	text-transform: uppercase;
 }
 .flip {
   	padding: 16px 51px;
-	width: 9vw;
+	width: 6vw;
   	text-align: center;
 	text-transform: uppercase;
+	margin-bottom 250;
+}
+.miniflip {
+  	text-align: center;
+	text-transform: uppercase;
+	margin-bottom 250;
 }
 .flip:hover, .flip:active {
 	color: gray;
@@ -58,3 +65,17 @@ h2 {
 	font-family: "Times New Roman";
 	text-transform: uppercase;
 }
+a {
+	font-weight: normal;
+	font-family: "Times New Roman";
+}
+a:hover {
+	color:gray;
+}
+hr.new1 {
+	width: 60%;
+}
+hr.new2 {
+	width: 30%;
+}
+

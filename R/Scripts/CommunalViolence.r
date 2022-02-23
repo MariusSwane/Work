@@ -50,7 +50,7 @@ geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")
-conflict_prefer("extract", "raster")
+conflict_prefer("extract", "terra")
 
 # }}}
 
@@ -497,9 +497,16 @@ gisdUga <- st_make_valid(gisdUga)
 
 crs(uga.ethnic) <- crs(geoisd)
 
-ugaext <- extent(uga.ethnic)
+ugaextent <- extent(uga.ethnic)
 
-ugaData <- extract(uga.ethnic, ugaext, df = T)
+ugaext <- ext(uga.ethnic)
+
+ugarast <- rast(uga.ethnic)
+
+rastresult <- spatSample(ugarast, size  = length(uga.ethnic), values = T, cells = T, xy = T)
+
+ugaData <- extract(uga.ethnic, ugaextent, df = T)
+
 ugaData <- ugaData %>% mutate(id_cell = seq_len(nrow(.)))
 
 grid <- st_bbox(ugaext) %>% 
@@ -511,7 +518,7 @@ xy <- xyFromCell(uga.ethnic, as.integer(rownames(ugaData)))
 result <- cbind(xy, ugaData)
 colnames(result)[1:2] <- c("lon", "lat")
 
-result <- st_as_sf(result, coords = c("lon","lat"))
+result <- st_as_sf(rastresult, coords = c("x","y"))
 
 result <- na.omit(result)
 
@@ -957,10 +964,78 @@ for(i in 1:length(grid$id_cell.y)) {
 }
 
 #==============================================================================#
+# Kenya
+
+# # The below command only needs to be run once
+#side_download(country = "Kenya", year = 2003, marker = "ethnic", dest.dir =
+#		"../Data/", conv.hull = T)
+
+ken.ethnic <- side_load(country = "Kenya", year = 2003, marker = "ethnic",
+			source.dir = "../Data")
+
+ken.ethnic.meta.df <- sidemap2data(ken.ethnic)
+
+names(ken.ethnic) <- ken.ethnic.meta.df$groupname
+
+gisdken <- filter(geoisd, COWID == 530 | COWID == 511)
+
+gisdken <- st_make_valid(gisdken)
+
+crs(ken.ethnic) <- crs(geoisd)
+
+kenext <- extent(ken.ethnic)
+
+kenData <- raster::extract(ken.ethnic, kenext, df = T)
+kenData <- kenData %>% mutate(id_cell = seq_len(nrow(.)))
+
+grid <- st_bbox(kenext) %>% 
+  st_make_grid(cellsize = 0.00833334, what = "polygons") %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+
+xy <- xyFromCell(ken.ethnic, as.integer(rownames(kenData)))
+result <- cbind(xy, kenData)
+colnames(result)[1:2] <- c("lon", "lat")
+
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+result <- na.omit(result)
+
+st_crs(result) <- crs(geoisd)
+
+grid <- st_join(grid, result, join = st_contains)
+
+grid <- na.omit(grid)
+
+# Merging SIDE and Geo-ISD
+grid <- grid %>% mutate(sp = lengths(st_within(grid, gisdken)))
+
+# Creating ethnic fractionalization index
+for(i in 1:length(grid$id_cell.y)) {
+		grid$ef[i] =
+		(1 - (
+		grid$embu[i]^2 +
+		grid$kalenjin[i]^2 +
+		grid$kamba[i]^2 +
+		grid$kikuyu[i]^2 +
+		grid$kisii[i]^2 +
+		grid$kuria[i]^2 + 
+		grid$luhya[i]^2 +
+		grid$luo[i]^2 +
+		grid$masai[i]^2 +
+		grid$meru[i]^2 +
+		grid$mijikenda.swahili[i]^2 +
+		grid$other[i]^2 +
+		grid$somali[i]^2 +
+		grid$taita.tavate[i]^2 +
+		grid$turkana[i]^2))
+}
+
+#==============================================================================#
 # Test plot
 
 gridtestef <- ggplot() +
-		   geom_sf(data = na.omit(grid),
+		   geom_sf(data = ugaMerged,
 			   linetype = 0,
 			   aes(fill = ef),
 			   show.legend = F) +
@@ -978,14 +1053,9 @@ gridtestsp <- ggplot() +
 		   theme(plot.background = element_rect(fill = "white")) 
 
 
-tiff("../Output/brkfasoSP.tiff",
-    width = 10, height = 5, res = 300, units = 'in', compression = 'lzw')
-gridtest
-dev.off()
+kenplots <- grid.arrange(gridtestef,gridtestsp, ncol = 2)
 
-grid.arrange(logOrg3,logOrg32, ncol = 2)
-
-ggsave("../Output/ghaplots.tiff", ghaplots,
+ggsave("../Output/kenplots.tiff", kenplots,
        device = "tiff", width = 10, height = 10/1.68, units = "in", dpi = 300,
        compression = "lzw")
 

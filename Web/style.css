@@ -18,6 +18,11 @@
 	text-transform: uppercase;
 	margin-bottom 250;
 }
+.megaflip {
+  	padding: 1px 30px;
+	width: 20vw;
+  	text-align: center;
+}
 .miniflip {
   	text-align: center;
 	text-transform: uppercase;
@@ -66,7 +71,6 @@ h2 {
 	text-transform: uppercase;
 }
 a {
-	font-weight: normal;
 	font-family: "Times New Roman";
 }
 a:hover {
@@ -77,5 +81,28 @@ hr.new1 {
 }
 hr.new2 {
 	width: 30%;
+}
+.bottom {
+	margin-bottom: 5cm;
+}
+.info img {
+	display: inline-block;
+    	margin-left: auto;
+    	margin-right: auto;
+	padding: 35px;
+}
+.info p {
+	display: inline-block;
+    	margin-left: auto;
+    	margin-right: auto;
+	width: 40%;
+	text-align:justify;
+	vertical-align: top;
+}
+.info a {
+	font-size:inherit;
+}
+.info {
+	text-align: center;
 }
 

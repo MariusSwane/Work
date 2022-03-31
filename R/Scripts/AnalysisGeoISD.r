@@ -32,6 +32,7 @@ library(sidedata)
 library(summarytools)
 library(texreg)
 library(xtable)
+library(notifier)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -666,30 +667,41 @@ ggAltDPlot
 
 geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 
-libya <- filter(geoisd, COWID == 620)
+gisdnig <- filter(geoisd, COWID == 4798 | COWID == 4752 | COWID == 4521 | COWID
+		  == 4327 | COWID == 4831 | COWID == 4776 | COWID == 4763 | COWID ==
+434 | COWID == 4362 | COWID == 4768 | COWID == 4769 | COWID == 4751 | COWID == 4771 |
+COWID == 4742 | COWID == 4773 | COWID == 4765 | COWID == 4775 | COWID == 4832)
 
-ext <- raster::extent(5,40,15,36)
+gisdnig <- st_make_valid(gisdnig)
+
+borders <- read_sf(dsn = "../Data/Shapes/Africa.shp") %>% 
+	filter(ID == 626)
+
+borders <- st_set_crs(borders, 4326)
+
+ext <- extent(borders)
 
 grid <- st_bbox(ext) %>% 
-  st_make_grid(cellsize = (0.2), what = "polygons") %>%
+  st_make_grid(cellsize = (0.05), what = "polygons", flat_topped = T) %>%
   st_set_crs(4326)
 grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+notify(msg = c("Done!") # Comment this out if larger cell size
+
 
 centroids <- st_centroid(grid)
 
 grid$lon <- st_coordinates(centroids)[,1]
 grid$lat <- st_coordinates(centroids)[,2]
 
-libya <- st_make_valid(libya)
+#grid$sp1 <- lengths(st_intersects(grid, gisdnig))
 
-grid$sp <- lengths(st_intersects(grid, libya))
+#grid <- filter(grid, sp > 0)
 
-grid <- filter(grid, sp > 0)
+grid <- grid %>% mutate(sp2 = lengths(st_within(grid, gisdnig)))
+notify(msg = c("Done!") # Comment this out if larger cell size
 
-borders <- read_sf(dsn = "../Data/Shapes/Africa.shp") %>% 
-	filter(ID == 447 | ID == 65)
-
-borders <- st_set_crs(borders, 4326)
+grid <- na.omit(grid)
+notify(msg = c("Done!") # Comment this out if larger cell size
 
 # setNames(data.frame(coords[[1]], 
 #                     matrix(unlist(coords[2]), ncol=2, byrow=TRUE)), 
@@ -698,22 +710,22 @@ borders <- st_set_crs(borders, 4326)
 gridtest <- ggplot() +
 		   geom_sf(data = grid,
 			   linetype = 0,
-			   aes(fill = sp),
+			   aes(fill = sp2),
 			   show.legend = F) +
     		   scale_fill_viridis_c() +
-		   geom_contour(data = filter(grid, sp > 1),
-				aes(x = round(lon, 1), y = round(lat, 1), z = sp)) +
-		   geom_sf(data = borders, color = "gray", fill = NA) +
+		   #geom_contour(data = filter(grid, sp2 > 1),
+				#aes(x = round(lon, 1), y = round(lat, 1), z = sp2)) +
+		   #geom_sf(data = borders, color = "gray", fill = NA) +
 		   theme_minimal()
 
-pdf("../Output/libya.pdf",
+pdf("../Output/nigeriatest.pdf",
     width = 10, height = 10/1.683)
-gridtest
+gridtest 
 dev.off()
 
-plot_gg(gridtest, verbose = T, zoom = 0.5, multicore = T)
+plot_gg(gridtest, pointcontract = 1, scale = 100, offset_edges = F, triangulate = F, verbose = T, zoom = 0.5, multicore = T)
 
-render_snapshot("../Output/3DLibya")
+render_snapshot("../Output/3DNigeria")
 
 render_movie(filename = "../Output/Libyathemovie.gif")
 

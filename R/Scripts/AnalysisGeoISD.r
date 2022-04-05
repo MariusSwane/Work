@@ -556,6 +556,21 @@ print(xtb, tabular.environment = "tabularx", booktabs = T, width
 	      "../Output/atlasmaps.tex", sanitize.text.function = function(x) x)
 # }}}
 
+#{{{ 2 X 2 prediction tables
+#==============================================================================#
+#	2 X 2 prediction tables				       		       #
+#==============================================================================#
+
+twoXtwo <- data.frame(mechanism = c("sc", "sc", "as", "as", "as", "as", "cb", "cb",
+			       "en", "sym"),
+	statePresence = c("low", "high", "high", "high", "low", "low", "high",
+			  "high", "high", "high"),
+	distanceToCapital = c("low", "low", "low", "high", "low", "high", "low",
+	"high", "high", "high"),
+	conflict = c("+", "-", "-", "+", "+", "+", "-", "-", "+", "+"))
+
+#}}}
+
 # {{{ Random sh*t
 #==============================================================================#
 #	Danger Zone!						      	       #

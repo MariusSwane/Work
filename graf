@@ -1,6 +1,6 @@
 
 digraph G {
-	rankdir="Lr";
+	rankdir="LR";
 	"Historical states" -> "Ethnic power relations";
 	"Historical states" -> "Colonialism, democracy and weak statehood";
 	"Historical states" -> Symbols;

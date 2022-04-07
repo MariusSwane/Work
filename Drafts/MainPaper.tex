@@ -543,7 +543,7 @@ mediators between ethnic groups and the central state \citep{boone2014property,
 Englebert2002}, and have been an important sources of legitimacy for current
 institutions \citep{Wig2016}\footnote{According to \citet{mamdani2018citizen}
 	colonial authorities also felt the need to legitimize their rule through
-	ties to pre-colonial institutions, at times going as far as to invent
+	ties to pre-colonial institutions, at times went as far as to invent
 pre-colonial roots.}. Nevertheless, some have argued that pre-colonial states
 have represented competitors to the central state as well \citep{Herbst2014}.
 There is also a growing literature on the role of pre-colonial states and
@@ -558,68 +558,80 @@ and their corresponding `jurisdictional hierarchy' index of political
 organization is one of the most frequently used data sources for constructing
 per-ethnic-group measures of statehood. However, this data has a number of
 issues (as enumerated by \citet{Michalopoulos2018}), such as lack of potential
-overlap between ethnic groups, static borders, relatively short time
-span and a lack of within-group variation. A further disadvantage of this approach
-is that by using ethnic groups (and not states) as a starting point, there is a
-substantial potential for missingness (as not all states are easily tied to a
-specific ethnic group). For example, \citet{Paine2019}, despite using a `low bar'
-for statehood and consulting numerous sources, only codes 28 groups in
-Sub-Saharan Africa as having ties to a pre-colonial state.\footnote{This is
-partially also a result of the criteria of `independence on the eve of
-colonization'.} Using a similar approach \citet{Wig2016} identifies 45 state
-groups in the same region. Using the State Antiquity Index
-\citep{Bockstette2012} as a starting point, \citet{Depetris-Chauvin2016} avoids
-the limitation of only including state with clear ties to ethnic groups.
-Nevertheless, his data only includes 54 states in the 1800-1850+ period, as
-compared to 104 in the ISD version 2, despite using less strict criteria for
-statehood.
+overlap between ethnic groups, static borders, relatively short time span and a
+lack of within-group variation, and misrepresentation in cases where state
+control and ethnic settlement patterns do not align. An example of this is the
+Mossi and the Mossi states in Burkina Faso, where about half of the area with
+majority Mossi population lies outside the historical presence of the Mossi
+states (primarily Ouagodogou), and about half the area of the state is outside
+majority Mossi settlements. A further disadvantage of this approach is that by
+using ethnic groups (and not states) as a starting point, there is a substantial
+potential for missingness (as not all states are easily tied to a specific
+ethnic group). For example, \citet{Paine2019}, despite using a `low bar' for
+statehood and consulting numerous sources, only codes 28 groups in Sub-Saharan
+Africa as having ties to a pre-colonial state.\footnote{This is partially also a
+result of the criteria of `independence on the eve of colonization'.} Using a
+similar approach \citet{Wig2016} identifies 45 state groups in the same region.
+Using the State Antiquity Index \citep{Bockstette2012} as a starting point,
+\citet{Depetris-Chauvin2016} avoids the limitation of only including states with
+clear ties to ethnic groups. Nevertheless, his data only includes 54 states in
+the 1800-1850+ period, as compared to 104 in the ISD version 2, despite using
+less strict criteria for statehood. Additionally, aggregating experiences of
+statehood to the country level is potentially problematic. The problem is
+twofold. First, as discussed in the section \ref{State capacity}, experiences
+are unlikely to accumulate uniformly to the country level. State antiquities
+tries to address this with a weighting scheme, but it only solves differences in
+how centralised states were, how long they ruled and whether they were
+indigenous to the country. Second, aggregating to current boundaries raises
+endogeneity concerns, as even in Africa boundaries are in large part a result of
+the borders of old states.
 
-For this paper, as part of the Geo-ISD project consisting of Charles Butcher,
-research assistant Eirin Haugseth and myself, constructed a novel data set,
-which geocodes independent African states in the ISD v2 \citep{Butcher2020}. The
-ISD v2 picks up a large number of states that are missed by similar data sets,
-while avoiding the use of arbitrary criteria for statehood such as recognition by
-European powers \citep{Butcher2020}. The Geo-ISD builds on the original data set
-by geocoding the borders of the included states. It also introduces an
-innovative method for capturing the historical presence of pre-colonial states
-that addresses some of the weaknesses of the existing geocoded data, namely the
-number of states identified, static borders, lack of overlap and implied
-uniformity in state control across territory.
+This paper introduces the Geo-ISD, which geocodes the borders of independent
+African states in the ISD v2 \citep{Butcher2020}. The ISD v2 picks up a large
+number of states that are missed by similar data sets, while avoiding the use of
+arbitrary criteria for statehood such as recognition by European powers
+\citep{Butcher2020}. The Geo-ISD introduces an innovative method for going
+beyond the Cartesian model of representing states as a flat, uniform sovereign
+territory, by capturing the topographical historical presence of pre-colonial
+states. In this way the Geo-ISD addresses some of the weaknesses of the existing
+geocoded data, namely the number of states identified, static borders across
+time, lack of overlapping or contested rule, and implied uniformity in state
+control across territory.
 
 The Geo-ISD uses historically contemporary maps, as close to the primary sources
-as possible, and containing the borders of states, to determine the extent of
-different states as close to yearly as possible. Maps were georeferenced in QGIS
-by connecting recognizable features in the maps (cities, distinctive capes,
-islands, etc) to their real locations when compared to satellite imagery
-containing exact location data. The result is a version of the map that is
-slightly distorted to better fit reality, as can be seen in Figure
-\ref{Arrowsmith}.\footnote{The exact specifications for the georeferencing and
-subsequent transformation will be supplied in the code book, included in the
-online supplemental material.} Shapes of the states included in the ISD v2 for
-the given year, that were depicted in the map were traced in QGIS. For example,
-Bornou would be included, but not the neighboring Howssa in Figure
-\ref{Arrowsmith}, as the shape drawn could potentially refer to either the
-Haussa ethnic group (a common occurrence in these maps) or the multiple Houssa
-states, neither of which qualify as states in the ISD in that year. This process
-was repeated for all the maps included in \href{https://www.davidrumsey.com}{the
-David Rumsey project} data base of historical maps, matching the region of
-Africa in the period 1800 to 1914. The start date was chosen due to the
-limitations of the ISD v2 which only extends back to 1816 (but includes the
-founding date of states going further back), and the fact that the quality of
-contemporaneous maps becomes substantially worse prior to the nineteenth century
-\citep{Bassett_1994}. To control for some of the potential biases of relying on
-maps drawn a long time ago, and by non indigenous (mostly Western)
-mapmakers,\footnote{Discussed further below.} the same process was repeated
-using historical atlases compiled by later historians (several of which were
-also consulted by \citet{Depetris-Chauvin2016} and \citet{Paine2019}). The
-result was over 3400 polygons (state-shape-years) covering the period 1800 to
-1914 for continental Africa and Madagascar. For some pre-colonial states in the
-ISD there were no maps for any years, some are covered only for some of the
-years they are in the ISD, but a number of them are covered by multiple maps for
-many years. Of the 109 states included for Africa in the ISD v2, the Geo-ISD
-includes at least one set of borders for 82 states. This is a considerable
-improvement on previous data sets, yet still not capturing the universe of
-independent African states in the period.
+as possible. That contain the borders of states, to determine the presence of
+different states. 
+% Maps were georeferenced in QGIS by connecting recognizable features in the
+% maps (cities, distinctive capes, islands, etc) to their real locations when
+% compared to satellite imagery containing exact location data. The result is a
+% version of the map that is slightly distorted to better fit reality, as can be
+% seen in Figure \ref{Arrowsmith}.\footnote{The exact specifications for the
+% georeferencing and subsequent transformation will be supplied in the code
+% book, included in the online supplemental material.} 
+Shapes of the states included in the ISD v2 for the given year, that were
+depicted in the map were traced in QGIS. For example, Bornou would be included,
+but not the neighboring Howssa in Figure \ref{Arrowsmith}, as the shape drawn
+could potentially refer to either the Haussa ethnic group (a common occurrence
+in these maps) or the multiple Houssa states, neither of which qualify as states
+in the ISD in that year. This process was repeated for all the maps included in
+\href{https://www.davidrumsey.com}{the David Rumsey project} data base of
+historical maps, matching the region of Africa in the period 1800 to 1914. The
+start date was chosen due to the limitations of the ISD v2 which only extends
+back to 1816 (but includes the founding date of states going further back), and
+the fact that the quality of contemporaneous maps becomes substantially worse
+prior to the nineteenth century \citep{Bassett_1994}. To control for some of the
+potential biases of relying on maps drawn a long time ago, and by non indigenous
+(mostly Western) mapmakers,\footnote{This issue is discussed further below.} the
+same process was repeated using historical atlases compiled by later historians
+(several of which were also consulted by \citet{Depetris-Chauvin2016} and
+\citet{Paine2019}). The result was over 3400 polygons (state-shape-years)
+covering the period 1800 to 1914 for continental Africa and Madagascar. 
+% For some pre-colonial states in the ISD there were no maps for any years, some
+% are covered only for some of the years they are in the ISD, but a number of
+% them are covered by multiple maps for many years. Of the 109 states included
+% for Africa in the ISD v2, the Geo-ISD includes at least one set of borders for
+% 82 states. This is a considerable improvement on previous data sets, yet still
+% not capturing the universe of independent African states in the period.
 
 %\end{multicols}
 
@@ -658,8 +670,8 @@ borders of a polity at the time. I also expect errors to be replicated by other
 maps, before eventually being corrected. One example of this is the nonexistent
 Mountains of Kong, which can be seen in Figure \ref{Arrowsmith} as the mountain
 range stretching across most of the continent from East to West. These mountains
-were replicated in maps for the better part of the nineteenth century before
-being finally wiped from the map \citep{Bassett_1991}.
+were replicated for the better part of the nineteenth century before
+eventually being wiped from the map \citep{Bassett_1991}.
 
 While the quote above might lead one to expect considerable measurement error,
 by my estimate this error only amounts to 36.9km on average for the shapes
@@ -681,16 +693,16 @@ potentially affect standard error estimates.
 Although I have not been able to find sources discussing specifically how
 cartographers determined the borders of different polities, it is probable that
 they in large part relied on local verbal sources (word of mouth). An example of
-this can be glimpsed when the explorer Mungo Park effectively dubbed the
-mountains of Kong.\footnote{`I gained the summit of a hill, from whence I had an
-	extensive view of the country. Towards the south-east, appeared some
-	very distant mountains, which I had formerly seen from an eminence near
-	Marraboo, where the people informed me, that these mountains were
-	situated in a large and powerful kingdom called Kong; the sovereign of
-	which could raise a much greater army than the King of Bambarra.'
+this can be glimpsed in the exchange where the explorer Mungo Park effectively
+dubbed the mountains of Kong.\footnote{`I gained the summit of a hill, from
+	whence I had an extensive view of the country. Towards the south-east,
+	appeared some very distant mountains, which I had formerly seen from an
+	eminence near Marraboo, where the people informed me, that these
+	mountains were situated in a large and powerful kingdom called Kong; the
+sovereign of which could raise a much greater army than the King of Bambarra.'
 \citep[CHAPTER XVIII]{ParkMungo2015Titi}.} Or from when expeditions such as
 Park's were escorted by representatives of the rulers of the various polities
-they passed through until reaching \textit{frontier towns}, where they would be
+they passed through, until reaching \textit{frontier towns}, where they would be
 met by representative of the next ruler \citep{ParkMungo2015Titi}. In the maps
 resulting from such encounters, both their sources as well as the cartographers
 themselves could have introduced bias to the resulting maps. Sources were likely
@@ -702,10 +714,13 @@ governments prospective colonies, and vice versa. Another possibility is that
 colonial cartographers under reported state sizes to declare `terra nullius'.
 However, I did not observe any systematic differences between the maps based on
 their nationality.\footnote{If drawing borders was driven by colonial ambitions,
-	there should be observable differences between the different colonial
-powers in line with their differing colonial ambitions.} In fact, their colonial
-ambitions could just as easily have promoted accuracy, as any potential military
+there should be observable differences between the different colonial powers in
+line with their differing colonial ambitions.} In fact, their colonial ambitions
+could just as easily have promoted accuracy, as any potential military
 expedition would benefit from accurate information \citep{Bassett_1994}.
+
+\subsection{A topographical representation of the state} 
+\label{A topographical representation of the state}
 
 At the very least there should be heterogeneity in the conceptualization of
 territoriality. What determines where a given source (or the cartographer in the
@@ -727,6 +742,8 @@ further credence. Figure \ref{libya} demonstrates how the estimate
 of the Libyan state's presence gradually faded into the desert, that the
 Benghazi/Cyraneica region was not always or fully under the control of Tripoli,
 and that it had even more tenuous hold on the Fezzan region to the south.
+[Should be changed to Nigeria].
+
 %\end{multicols}
 
 \begin{figure}[htpb]
@@ -739,25 +756,25 @@ and that it had even more tenuous hold on the Fezzan region to the south.
 
 %\begin{multicols}{2}
 
-To counter balance some of the potential bias in the historically
-contemporaneous maps a number of maps from historical atlases were included.
-These are works compiled by historians with both the accumulated knowledge of
-history and modern instruments of cartography at their disposal. These sources
-should be able to reduce problems of the historically contemporaneous maps, such
-as word of mouth sources exaggerating the extent of polities.\footnote{Although
-	they should also be more accurate in terms measurement error, I found
-that this was not always the case. For example \citep{Kasule1998} completely
-misplaces Wadai, putting the capital of Wara (and thus the rest of the polity
-with it) at least 200km North West of its actual position.} The historical
-atlases were scanned, then georeferenced and polities traced in the same manner
-as the pre-colonial states in the historically contemporaneous maps. The
-historical atlases frequently depicted the borders of states over a period of
-years in a single map. In these cases the resulting state shapes were duplicated
-for each year in the period. This has the benefit of placing a larger emphasis
-on the historical atlases, at the cost of being more static.\footnote{Implicitly
-assuming constant borders, and in the absence of other sources implying uniform
-control across territory.} Figure \ref{atlasmaps} in the appendix lists the
-historical atlases used in the Geo-ISD.
+% To counter balance some of the potential bias in the historically
+% contemporaneous maps a number of maps from historical atlases were included.
+% These are works compiled by historians with both the accumulated knowledge of
+% history and modern instruments of cartography at their disposal. These sources
+% should be able to reduce problems of the historically contemporaneous maps, such
+% as word of mouth sources exaggerating the extent of polities.\footnote{Although
+% 	they should also be more accurate in terms measurement error, I found
+% that this was not always the case. For example \citep{Kasule1998} completely
+% misplaces Wadai, putting the capital of Wara (and thus the rest of the polity
+% with it) at least 200km North West of its actual position.} The historical
+% atlases were scanned, then georeferenced and polities traced in the same manner
+% as the pre-colonial states in the historically contemporaneous maps. The
+% historical atlases frequently depicted the borders of states over a period of
+% years in a single map. In these cases the resulting state shapes were duplicated
+% for each year in the period. This has the benefit of placing a larger emphasis
+% on the historical atlases, at the cost of being more static.\footnote{Implicitly
+% assuming constant borders, and in the absence of other sources implying uniform
+% control across territory.} Figure \ref{atlasmaps} in the appendix lists the
+% historical atlases used in the Geo-ISD.
 
 The resulting data can be compiled in different ways, to provide different
 insights. For the analysis in this paper I rely on a measure of `state
@@ -767,13 +784,12 @@ presence', similar in concept to that of `state history' introduced by
 	grid cells, only includes Sub Saharan Africa, includes fewer states
 	despite going further back in time, usually only includes one shape per
 state, which implies static borders and uniform presence throughout the
-territory.} I measure `state presence' the as number of maps that indicate that
-a state was present there, counting only those of the state most often present
-in that cell. If a cell bordering Tunisia and Libya contains 40 shapes of
-Tunisia and 7 shapes of Libya/Tripoli, only the Tunisian shapes are counted.
-Including the Libyan shapes would risk over counting, as it most likely does not
-represent additional state presence, but rather overlapping or contested state
-presence. 
+territory.} I measure `state presence' the as number of state-shape-years that
+indicate that a state was present in a cell, counting only those of the state
+most often present in that cell. If a cell contains 40 shapes of the Sokoto
+Caliphate and 7 shapes of Borno, only the Sokoto shapes are counted. Including
+the Borno shapes would risk over counting, as it most likely does not represent
+additional state presence, but rather overlapping or contested sovereignty.
 
 %\end{multicols}
 
@@ -796,7 +812,7 @@ The units of analysis are PRIO 0.5 by 0.5 decimal degree grid cells with a
 non-zero population density in 1600,\footnote{This primarily excludes the Sahara
 and Kalahari deserts.} which equals about 55 by 55km at the equator
 \citep{Tollefsen2012}. Due to the explanatory variable being time-invariant, the
-analysis is a cross section. The dependent variable is state based conflict
+analysis is a cross section. The main dependent variable is state based conflict
 related fatalities per grid cell over the period 1989-2020, from the GED project
 \citep{Sundberg2013}. This is a measure of the overall level of conflict in the
 post cold war period. The start date of 1989 was dictated by availability rather
@@ -808,12 +824,12 @@ importance with the passing of time.
 As an alternative to combat related fatalities, I also ran models using the
 count of state based conflict events. This captures much of the same general
 level of conflict during the period as the fatalities measure does, but the
-focus is slightly different. Fatalities captures the severity of conflict,
-whereas the number of conflict events captures the frequency of conflict. This
-would be the difference between few, or short, but highly lethal conflicts,
-versus lengthy conflict of relatively low intensity, or recurring conflicts. I
-do not expect there to be a substantial difference in the results from these
-measures based on the theory presented above.
+focus is slightly different. Fatalities more so captures the severity of
+conflict, whereas the number of conflict events more so captures the frequency
+of conflict. This would be the difference between few, or short, but highly
+lethal conflicts, versus lengthy conflict of relatively low intensity, or
+recurring conflicts. I do not expect there to be a substantial difference in the
+results from these measures based on the theory presented above.
 
 % While some of the theoretical mechanisms discussed above might be more closely
 % related to a specific type of state-based conflict, such as wars of secession,
@@ -823,10 +839,7 @@ measures based on the theory presented above.
 % \citet{Wishman2021a} finds that pre-colonial state presence has a negative
 % effect on communal violence events. 
 
-\subsection{Independent variable} \label{Independent variable}
-
-The first explanatory variable is the per grid cell state presence, as defined in
-section \ref{The Geo-ISD}.
+\subsection{Independent variables} \label{Independent variable}
 
 % However, only the state that has the most presence overall in that grid cell is
 % included, so as to avoid over counting in cases of overlap (contested
@@ -839,15 +852,28 @@ section \ref{The Geo-ISD}.
 Because I do not expect the relationship between pre-colonial state presence and
 civil conflict to be linear, and because the data is heavily skewed, the
 variable is square root transformed. While log transformation is more often
-employed in the previous literature, the variable contains zeros which means
-adding a constant to all values. This could potentially introduce bias, and
-complicates the interpretation of the results \citep{Ekwaru_2018}. I therefore
-present the more conservative approach of reporting square root transformation
-as the main findings. This has the benefit of not having to add a constant, but
-produces a less evenly distributed variable. In addition to the square root
-transformed version of the main independent variable, I also ran models using
-the more common log transformation. The results remained substantially the same
-(see online appendix?). 
+employed in the previous literature, the variable contains zeros. This is
+usually solved by adding a constant to all values. However, this could
+potentially introduce bias, and complicates the interpretation of the results
+\citep{Ekwaru_2018}. I therefore present the more conservative approach of using
+a square root transformation for the main models.\footnote{In addition to the
+	square root transformed version of the main independent variable, I also
+	ran models using the more common log transformation. The results
+remained substantially the same, but with larger effect sizes.} This has the
+benefit of not having to add a constant, but produces a less evenly distributed
+variable. 
+
+The main explanatory variable is an interaction between pre-colonial state
+presence (square root transformed) and distance to capital (log transformed).
+The theoretical expectation is that pre-colonial state presence is conflict
+reducing in areas close to the post independence capital, and conflict inducing
+in more remote areas. In other words that the effect of pre-colonial state
+presence is moderated by distance to capital. Distance to capital is log
+transformed because I do not anticipate a linear effect. Because the variable is
+measured by distance from the center of each grid cell to a point indicating the
+capital, there are no zeros and log transformation can be done without adding a
+constant. Distance to capital is sourced from the PRIO-grid data set, but
+originally from \citet{Weidmann2010a}.
 
 As a further robustness check I also ran models using a measure of state
 presence that sums if there ware any maps that included a state in a
@@ -860,24 +886,12 @@ to proximity). As with the main measure of state presence, only the shapes of
 the state that was most present in that grid cell throughout the sample period
 were traced. Results remain substantially the same for all specifications.
 
-The main explanatory variable is an interaction between per grid state presence
-(square root transformed) and distance to capital (log transformed). The
-theoretical expectation is that pre-colonial state presence is conflict reducing
-in areas close to the post independence capital, and conflict inducing in more
-remote areas. In other words that the effect of pre-colonial state presence is
-moderated by distance to capital. Distance to capital is log transformed because
-I do not anticipate a linear effect. Because the variable is measured by
-distance from the center of each grid cell to a point indicating the capital,
-there are no zeros and log transformation is unproblematic. Distance to capital
-is sourced from the PRIO-grid data set, but originally from
-\citet{Weidmann2010a}.
-
 \subsection{Controls} \label{Controls}
 
 Because the treatment variable in this case predates the outcome by a long
 period of time, there is a substantial risk of introducing post treatment bias
 when including control variables. In choosing which control variables to
-include, I therefore balanced a trade off between potential post treatment bias
+include, I try to balanced a trade off between potential post treatment bias
 and omitted variable bias. 
 
 Mountains facilitate early state formation by providing protection and limiting the
@@ -888,7 +902,7 @@ data is from the PRIO-grid data set, but originally from \citet{Blyth2002}, and
 measures the percentage of the cell with mountainous terrain based on elevation,
 slope and local elevation range.
 
-Water is essential for state formation. States typically formed either as
+Water is essential for state formation. States typically formed either around
 coastal cities, close to navigable rivers or by the shores of great lakes.
 People still tend to live next to a source of water, thus this acts as a proxy
 for population density, and fighting usually happens where there are (at least
@@ -897,20 +911,20 @@ PRIO-grid data set, but originally from the European Space Agency
 \citep{Bontemps2009}.
 
 Distance to the coast could affect both state presence and conflict in a number
-of ways. First, as stated above, states were more likely form along the
-coast as it connected cities and people. A special case for Africa is also the
-existence of slave raiding/trading states that formed along the eastern and
-western coasts of the continent. These state's raison d'être was raiding slaves
-from tribes and peoples inland and selling them to coastal traders (European in
-the West and Arab in the east). \citet{Nunn2008} argues that this state of
-affairs left legacies of mistrust and antagonism, which has resulted in
-increased levels of current day conflict. Distance to the coast could also be
-related to the measure of state presence through the fact that our measure is
-based on European observations (maps), which undoubtedly had better coverage
-along the coast, especially for the earlier periods. Distance to the coast could
-further be related to conflict through lower levels of development. The distance
-to coast data is from \citet{Wessel1996}. The variable was log transformed to
-account for a non-linear relationship.
+of ways. First, as stated above, states were more likely form along the coast as
+it connected cities and people. A special case for Africa is also the existence
+of slave raiding/trading states that formed along the eastern and western coasts
+of the continent. These state's raison d'être was raiding slaves from tribes and
+peoples inland and selling them to coastal traders (European in the West and
+Arab in the east). \citet{Nunn2008} argues that this state of affairs left
+legacies of mistrust and antagonism, which has resulted in increased levels of
+current day conflict. Distance to the coast could also be related to the measure
+of state presence through the fact that our measure is based on European
+observations (maps), which undoubtedly had better coverage along the coast,
+especially for the earlier periods. Distance to the coast could further be
+related to conflict through lower levels of economic development inland. The
+distance to coast data is from \citet{Wessel1996}. The variable was log
+transformed to account for a non-linear relationship.
 
 As with water, barren terrain could be a (negative) pre-condition for state
 building as well as proxy for later population densities, and thus could
@@ -921,17 +935,17 @@ The states of North Africa are overrepresented in the Geo-ISD data, due to the
 geographical proximity, and the accompanying historical familiarity to European
 map makers. This affects Morocco most particularly, as can be seen in Figure
 \ref{Sp_i}. The reason this affects Morocco in particular is that the remaining
-North African states were under Ottoman suzerainty for much of the period,
-meaning more time for more maps to accumulate. If North Africa is also more or less
-conflict prone than the rest of Africa on average, the inflated values of state
-presence would bias the estimated coefficients. Accordingly, a dummy variable
-for the region of North Africa was included.
+North African states were under Ottoman suzerainty for much of the period. If
+North Africa is also more or less conflict prone than the rest of Africa on
+average, the inflated values of state presence would bias the estimated
+coefficients. Accordingly, I included a dummy variable for the region of North
+Africa.
 
-Population density is added as an extended control despite the stronger
-theoretical expectation that it could be a confounding variable. There
-are few accurate measures of population densities that predate most of the
-states in the Geo-ISD. The best available estimates come from the HYDE project
-\citep{Goldewijk2016}, and I use the estimates from 1600.
+Population density is added due to the theoretical expectation that it could be
+a confounding variable. There are few accurate measures of population densities
+that predate most of the states in the Geo-ISD. The best available estimates
+come from the HYDE project \citep{Goldewijk2016}, and I use the estimates from
+1600.
 
 Distance to international boundaries could be related to state presence because,
 despite their reputation, African borders were not drawn completely at random
@@ -947,8 +961,10 @@ originally from \citet{Weidmann2010a}.
 
 To account for the potential post treatment bias (vis-a-vis potential omitted
 variable bias) controls were added step wise with increasing potential for post
-treatment bias. The baseline model only geographic variables, and subsequent
-models add controls according to likelihood of introducing post treatment bias.
+treatment bias. The baseline model only includes geographic variables, which
+should safely pre-date any states and thus be free of post-treatment bias.
+Subsequent models add controls according to likelihood of introducing post
+treatment bias.
 
 To account for the dependent variable being count data (count of deaths
 (fatalities) and count of conflict events (state based)) all model
@@ -958,21 +974,21 @@ Poisson regression is most appropriate, was conducted and confirmed that
 negative binomial produced a better fit than Poisson.
 
 The dependent variable contains excess zeros (8937 zeros relative to 100 counts
-of 1 fatality, the second most frequent outcome). Additionally, I cannot be
-sure that the main independent variable affects affects the likelihood of there
-being any fatalities in a cell (or if it remains a zero), the same way it might
-influence the severity of conflict once a cell has seen at least one fatality. I
-therefore employ a zero inflated negative binomial model. The first step of this
-two step approach is a logit model that models whether cells experience conflict
-or not. I used the same set of controls as I do not expect any of them to
-exclusively affect conflict severity, nor do I expect their relation to the main
-independent variable to be substantially different for an onset model. The
-second step is a negative binomial estimation of conflict severity, or the
-number of fatalities in a cell that has seen at least one.
+of 1 fatality, the second most frequent outcome). Additionally, I cannot be sure
+that the main independent variable affects the likelihood of there being any
+fatalities in a cell (or if it remains a zero), the same way it might influence
+the severity of conflict once a cell has seen at least one fatality. I therefore
+employ a zero inflated negative binomial model. The first step of this two step
+approach is a logit that models the likelihood that a cell experiences conflict.
+I used the same set of controls as I do not expect any of them to exclusively
+affect conflict severity, nor do I expect their relation to the main independent
+variable to be substantially different for an onset model. The second step is a
+negative binomial estimation of conflict severity, or the number of
+fatalities/events in a cell that has seen at least one fatality/event.
 
 Given what is known about spatial diffusion of conflict, there is reason to
 suspect some spatial autocorrelation. However, controlling for this would
-introduce a source of post treatment bias. Nevertheless, as an additional
+introduce a source of post treatment bias. [why?] Nevertheless, as an additional
 robustness check I ran some models with queen pattern spatial lags. Most of
 these models did not converge, but those that did remained substantially similar
 to the main models.
@@ -981,20 +997,26 @@ to the main models.
 
 Testing the proposed mechanisms explicitly would require data on where elite
 networks and institutions have survived from pre-colonial states, or data on
-rebel groups use of symbols invoking past statehood. Fortunately, the
-differences in the approach to colonial governance between Britain and France
-could provide a proxy for the elite networks and institutions mechanisms. France
-generally sought (more successfully in some cases than in others) to fully
-incorporate and rule their colonies directly, dismantling existing institutions
-and avoiding a reliance on native administrators \citep{Blanton_2001}. Britain,
-on the other hand, pursued a strategy of indirect rule, preferring to leave
-local rulers to administer their own territories, and relying on their own
-institutions to do so \citep{Blanton_2001}. Former British colonies should
-therefore be more likely to have preserved the elite networks and institutions
-that could be used to mobilize against the state. I therefor ran all the models
-including controls for former French and British colonies. In these models, the
-North Africa control had to be dropped because most of North Africa were French
-colonies at some point and models would not converge with both included. 
+rebel groups use of symbols invoking past statehood. Collecting such data lies
+outside the scope of this paper. Fortunately, the differences in the approach to
+colonial governance between Britain and France could provide a proxy for the
+elite networks and institutions mechanisms. France generally sought (more
+successfully in some cases than in others) to fully incorporate and rule their
+colonies directly, dismantling existing institutions and avoiding a reliance on
+native administrators \citep{Blanton_2001}. Britain, on the other hand, pursued
+a strategy of indirect rule, preferring to leave local rulers to administer
+their own territories, and relying on their own institutions to do so
+\citep{Blanton_2001}. Former British colonies should therefore be more likely to
+have preserved the elite networks and institutions that could be used to
+mobilize against the state. I therefor ran all the models including controls for
+former French and British colonies. [Theory implies interaction, but three-way
+interactions are a impossible to interpret, perhaps better to re-run main models
+on French and British sub samples.] In these models, the North Africa control had
+to be dropped because most of North Africa were French colonies at some point
+and models would not converge with both included. 
+
+[Territorial disputes far from the capital and government disputes close to
+capital?]
 
 \section{Results} \label{Results}
 
@@ -1008,7 +1030,7 @@ have the expected signs except distance to coast in Table \ref{state_based},
 using state based conflict events as the dependent variable. However, the
 coefficient indicates a substantially negligible effect, and the statistical
 significance might be more a reflection of the large number of observations
-(9492) rather than any causal effect. The second model in Table
+(9492) rather than any underlying causality. The second model in Table
 \ref{statebaseddeaths} indicates that North Africa has experienced more conflict
 fatalities than the rest of Africa comparatively. However, this effect becomes
 smaller and is no longer significant at the $ p < .01 $ level after controlling
@@ -1022,7 +1044,7 @@ presence and distance to capital, state presence has a conflict reducing effect,
 albeit a non-significant effect in the fatalities models. All control variables
 behave as expected, and similarly as in the non interaction models.
 Unsurprisingly, distance to capital (log) is negative, as there is generally
-less conflict in and around capital cities. The interaction term is significant
+less conflict close to capital cities. The interaction term is significant
 and positive across all model specifications, in line with the theoretical
 expectations. 
 
@@ -1030,22 +1052,23 @@ In terms of substantial effects Figure \ref{deaths_zinb}, which models the
 predictions of the second stage ZINB model included in Table \ref{zinb},
 provides a more intuitive interpretation of the interaction between state
 presence and how it affects the severity state based conflict. State presence is
-negatively correlated with both conflict measure close to the capital, but
+negatively correlated with both conflict measures close to the capital, but
 becomes positive and significant further away from the capital. This is in line
 with an interpretation that state presence can be conflict reducing in those
-cases where it makes a territory less artificial, by providing institutions and
+areas where it makes a territory less artificial, by providing institutions and
 elite networks on which to build a state. In cases where there is no state
 presence in capital areas, the model predicts an additional 406 fatalities from
 state based conflict. The effect drops rapidly as state presence increases. On
 the other hand, in areas with no experience of statehood that are far from the
 capital, the model predicts almost no additional fatalities (similar to high
 levels of state presence in/around the capital). However, as state presence
-increases, so does predicted fatalities. For a moderately high level of
-pre-colonial state presence of 200, the main model predicts an additional 380
+increases, so does predicted fatalities. For a mean plus one standard deviations
+level of pre-colonial state presence of 138, the main model predicts an
+additional 250+ [find exact]
 fatalities. While this is not a test of the specific mechanisms outlined in the
-theory section, the results do indicate that institutions, elite networks or
+theory section, the results do indicate that symbols, elite networks or
 some other legacy of pre-colonial statehood raises the scope of conflict
-when far from the capital area.
+in areas remote to the capital.
 
 %\end{multicols}
 
@@ -1070,7 +1093,9 @@ negative binomial count model). These results can not be interpreted with any
 certainty, but do perhaps suggest that French style governance left stronger
 central government that were better equipped to limit the scope of conflicts,
 while the British tradition of indirect rule left a larger number of potential
-rivals to the central government.
+rivals to the central government. [This needs to be adjusted according to
+results of sub sample model results] [Results of territorial and governmental
+conflict]
 
 \subsection{Alternative explanations} \label{Alternative explanations}
 
@@ -1078,7 +1103,7 @@ An alternative interpretation of the results could be that this is a
 story of more coherent ethnic groups being more likely to be associated with
 states, and more likely to (perhaps better able to) challenge the government
 when situated far from the capital. However, getting closer to the real
-causality requires untangling, in each case, if a given conflict is related to
+causality requires untangling, for each case, if a given conflict is related to
 an ethnic group's ties to a pre-colonial state or not. This lies outside the
 scope of this paper, if it is even possible.
 
@@ -1089,16 +1114,19 @@ knowledge the \citet{Brecke1999} data set is the most complete. Even so, it
 relies on written histories of which there is little for pre-colonial
 sub-Saharan Africa. What is worse, the missing will be considerably biased
 because kings and states are far more likely to chronicle their warfare in the
-form of written records.
+form of written records. [Icing: use data Charles got for the other data]
 
 \section{Conclusion} \label{Conclusion}
 
 Drawing on the emerging literature on pre-colonial states \citep{Paine2019,
 Depetris-Chauvin2016}, institutions \citep{Wig2016, Englebert2002,
 Michalopoulos2018} and civil conflict, and on newly compiled data, this paper
-reexamined the relationship between pre-colonial states and civil conflict. I
-find support for a conflict reducing effect of pre-colonial state presence, but
-this is conditioned on proximity to the post-independence capital. On the other
+re-examined the relationship between pre-colonial states and civil conflict. I
+find a general conflict inducing effect of pre-colonial state presence on local
+levels of state-based conflict. However, I also find support for a conflict
+reducing effect of pre-colonial state presence, but this is conditioned on the
+relationship between the pre-colonial state(s) and the post-independence state,
+as [proxied] by the distance to the post-independence capital. On the other
 hand, I find strong evidence for a conflict inducing effect, particularly in
 areas far from the post-independence capital. These results are robust to
 alternative measurements and model specifications.
@@ -1108,9 +1136,13 @@ pre-colonial states can be a blessing or a curse depending on whether they form
 the basis of the modern state or a point of opposition to it. Second, that local
 political histories matter, and should be taken into consideration by
 policymakers and scholars alike. Finally, these results suggests that wherever
-colonizers left novel constellations of pre-existing polities, they potentially
+colonizers left novel constellations of pre-existing polities, they unknowingly
 sowed the seeds of future conflict. More research using global data is needed to
 test whether general trends for Africa hold outside that continent as well.
+[Somewhere in this section fit in the prediction that there is potential for
+violence in places where the central government has not yet extended its reach
+into areas with high degree of pre-colonial state presence, most notably in
+Puntland, Somalia.]
 
 %\end{multicols}
 

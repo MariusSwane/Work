@@ -20,6 +20,7 @@ library(ggeffects)
 library(Hmisc)
 library(margins)
 library(MASS)
+library(notifier)
 library(pscl)
 library(purrr)
 library(rayshader)
@@ -32,7 +33,6 @@ library(sidedata)
 library(summarytools)
 library(texreg)
 library(xtable)
-library(notifier)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -54,7 +54,9 @@ conflict_prefer("select", "dplyr")
 #	Creating New Variables						       #
 #==============================================================================#
 
-prio_grid_isd <- prio_grid_isd %>% mutate(
+prio_grid_isd <- prio_grid_isd %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651 & gwno !=
+			 581 & gwno != 590) %>% 
+	mutate(
 				sqrtDeaths = sqrt(deaths),
 				sqrtSBDeaths = sqrt(statebaseddeaths),
 				sqrtState_based = sqrt(state_based),
@@ -83,7 +85,7 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				region1 = as.numeric(factor(region)==1),
 				region2 = as.numeric(factor(region)==2),
 				region3 = as.numeric(factor(region)==3),
-				region4 = as.numeric(factor(region)==4))
+				region4 = as.numeric(factor(region)==4)) 
 
 #==============================================================================#
 #	Functions				    	             	       #
@@ -361,28 +363,32 @@ for (i in 1:length(dvs)) {
 #	Spatial analysis					       	       #
 #==============================================================================#
 
-prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
+# prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
+# 
+# prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
+#   as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651 & gwno !=
+# 			 581 & gwno != 590) %>% 
+#   group_by(gid) %>% 
+#   summarise(bdist3 = mean(bdist3),
+#   capdist = mean(capdist), excluded = mean(excluded), 
+#   	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
+# 	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
+# 
+# prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
+# 
+# # Merging static and aggregated prio data
+# prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
+# 
+# # Merging with the grid shape 
+# prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
+#   filter( (gwno >= 404 & gwno <= 626) | gwno == 651 & gwno !=
+# 			 581 & gwno != 590)
+# 
+# prio_sp <- as(prio_grid, Class = "Spatial")
+# 
+# nbQueen <- poly2nb(prio_sp, queen = T, row.names = prio_sp$gid)
 
-prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
-  as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
-  group_by(gid) %>% 
-  summarise(bdist3 = mean(bdist3),
-  capdist = mean(capdist), excluded = mean(excluded), 
-  	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
-	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
-
-prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
-
-# Merging static and aggregated prio data
-prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
-
-# Merging with the grid shape 
-prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
-  filter( (gwno >= 404 & gwno <= 626) | gwno == 651)
-
-prio_sp <- as(prio_grid, Class = "Spatial")
-
-nbQueen <- poly2nb(prio_sp, queen = T, row.names = prio_sp$gid)
+nbQueen <- poly2nb(prio_grid_isd, queen = T, row.names = prio_grid_isd$gid)
 
 lw = nb2listw(nbQueen, style = "W", zero.policy = TRUE)
 
@@ -395,6 +401,36 @@ prio_grid_isd$state_based_l <- lag.listw(lw, prio_grid_isd$state_based, zero.pol
 prio_grid_isd$non_state_l <- lag.listw(lw, prio_grid_isd$non_state, zero.policy = T)
 
 prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
+
+# Spatial analysis
+
+zinb_spatial_deaths <- zeroinfl(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
+			deaths_l + region3 + water_gc + logCDist + logPopd +
+			logBDist, data = filter(prio_grid_isd, popd > 0), dist =
+			"negbin")
+
+summary(zinb_spatial_deaths)
+
+ggzinb <- ggpredict(zinb_spatial_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 6.27, 7.817]"))
+
+ggzinbPlot <- ggplot(ggzinb, aes(x^2, predicted)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + 
+		scale_fill_manual(values = pastels,
+			name = 'Distance to capital', labels = c('Minimum',
+				 'Mean', 'Maximum')) +
+		xlab('State presence') +
+		ylab('Predicted fatalities') +
+		geom_line(aes(x^2, predicted, color = group),
+			  show.legend = F) +
+		goldenScatterCAtheme
+
+pdf("../Output/spatialzinbdeathsplot.pdf",
+    width = 10, height = 10/1.68)
+ggzinbPlot
+dev.off()
+
 # }}}
 
 # {{{ ZINB analysis
@@ -556,21 +592,6 @@ print(xtb, tabular.environment = "tabularx", booktabs = T, width
 	      "../Output/atlasmaps.tex", sanitize.text.function = function(x) x)
 # }}}
 
-#{{{ 2 X 2 prediction tables
-#==============================================================================#
-#	2 X 2 prediction tables				       		       #
-#==============================================================================#
-
-twoXtwo <- data.frame(mechanism = c("sc", "sc", "as", "as", "as", "as", "cb", "cb",
-			       "en", "sym"),
-	statePresence = c("low", "high", "high", "high", "low", "low", "high",
-			  "high", "high", "high"),
-	distanceToCapital = c("low", "low", "low", "high", "low", "high", "low",
-	"high", "high", "high"),
-	conflict = c("+", "-", "-", "+", "+", "+", "-", "-", "+", "+"))
-
-#}}}
-
 # {{{ Random sh*t
 #==============================================================================#
 #	Danger Zone!						      	       #
@@ -696,12 +717,13 @@ borders <- st_set_crs(borders, 4326)
 
 ext <- extent(borders)
 
-grid <- st_bbox(ext) %>% 
+ext2 <- extent(2.17, 15.1, 3.7, 14.4)
+
+grid <- st_bbox(ext2) %>% 
   st_make_grid(cellsize = (0.05), what = "polygons", flat_topped = T) %>%
   st_set_crs(4326)
 grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
-notify(msg = c("Done!") # Comment this out if larger cell size
-
+notify(msg = c("Done!")) # Comment this out if larger cell size
 
 centroids <- st_centroid(grid)
 
@@ -713,10 +735,10 @@ grid$lat <- st_coordinates(centroids)[,2]
 #grid <- filter(grid, sp > 0)
 
 grid <- grid %>% mutate(sp2 = lengths(st_within(grid, gisdnig)))
-notify(msg = c("Done!") # Comment this out if larger cell size
+notify(msg = c("Done!")) # Comment this out if larger cell size
 
-grid <- na.omit(grid)
-notify(msg = c("Done!") # Comment this out if larger cell size
+#grid <- na.omit(grid)
+#notify(msg = c("Done!")) # Comment this out if larger cell size
 
 # setNames(data.frame(coords[[1]], 
 #                     matrix(unlist(coords[2]), ncol=2, byrow=TRUE)), 
@@ -728,17 +750,18 @@ gridtest <- ggplot() +
 			   aes(fill = sp2),
 			   show.legend = F) +
     		   scale_fill_viridis_c() +
-		   #geom_contour(data = filter(grid, sp2 > 1),
-				#aes(x = round(lon, 1), y = round(lat, 1), z = sp2)) +
-		   #geom_sf(data = borders, color = "gray", fill = NA) +
+		   geom_contour(data = filter(grid, sp2 > 1),
+				aes(x = round(lon, 1), y = round(lat, 1), z = sp2)) +
+		   geom_sf(data = borders, color = "gray", size = 2, fill = NA) +
 		   theme_minimal()
 
-pdf("../Output/nigeriatest.pdf",
+pdf("../Output/nigeria.pdf",
     width = 10, height = 10/1.683)
 gridtest 
 dev.off()
 
 plot_gg(gridtest, pointcontract = 1, scale = 100, offset_edges = F, triangulate = F, verbose = T, zoom = 0.5, multicore = T)
+notify(msg = c("Done!"))
 
 render_snapshot("../Output/3DNigeria")
 

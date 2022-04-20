@@ -48,25 +48,27 @@ urlcolor=blue
 \begin{abstract}
 
 This paper examines the relationship between the presence of pre-colonial states
-and post cold war civil conflict, and finds a significant overall conflict
-inducing effect to pre-colonial states at the local level. However, I argue this
-effect is conditional on the relationship between the pre-colonial and
-post-independence states, as captured/proxied by the distance from the pre-colonial
-state to the post-independence capital. I find that higher levels of pre-colonial
-state presence are conflict reducing in areas surrounding modern capital cities,
+and post cold war civil conflict. I argue that pre-colonial states can be
+conflict inducing or peace inducing depending on the relationship between the
+pre-colonial and post-independence states. To test this argument the paper
+introduces the Geo-ISD data set, which maps the borders of 82 independent states
+in Africa in the 1800-1914 period. I use this data to create a topographic
+measure of state presence. Proxying the relationship between the pre-colonial
+and post-independence state using the distance from the post-independence
+capital, the article finds that higher levels of pre-colonial state presence are
+conflict reducing in areas surrounding modern capital cities, which is
 consistent with greater continuity of traditions and institutions associated
-with statehood that are inherently conflict reducing. While in areas further
-away from the post-independence capital higher levels of pre-colonial statehood is
-conflict inducing, where state legacies can leave/produce/provide powerful
-symbols of independence useful for mobilization, and regional elite networks
-with the potential to violently resist state expansion into their sphere of
-influence. Additionally, the paper introduces the Geo-ISD data set, which
-dynamically maps the borders of 82 independent states in Africa in the 1800-1914
-period. 
+with statehood that are inherently conflict reducing. In areas further away from
+the post-independence capital, higher levels of pre-colonial statehood are found
+to be conflict inducing. In these cases, state legacies can represent powerful
+symbols of past independence useful for mobilization, and leave behind regional
+elite networks with the potential to violently resist the influence of national
+governments. The paper also finds an overall conflict inducing effect of
+pre-colonial state presence.
 
 \end{abstract}
 
-\keywords{Conflict, civil war, pre-colonial states, GIS, ZINB, historical state
+\keywords{Conflict, civil war, pre-colonial states, GIS, historical state
 entities}
 
 %tableofcontents
@@ -82,46 +84,49 @@ entities}
 \section{Introduction} \label{Introduction}
 
 Only a handful of recent studies have looked at how independent pre-colonial
-African polities have shaped post independence conflict, despite their
-simultaneous or immediately preceding existence. Within this emerging
-literature, the effect of pre-colonial states on civil conflict appears
-contradictory. While some find a conflict inducing effect due to differences
-between ethnic groups with and without histories of statehood
-\citep{Englebert2002, Paine2019}, others find a conflict reducing effect from
-institutions inherited from these states \citep{Depetris-Chauvin2016, Wig2016}.
+African polities have shaped post independence conflict. Within this emerging
+literature, the effect of pre-colonial states on modern civil conflict appears
+contradictory. Some find a conflict inducing effect due to differences between
+ethnic groups with and without histories of statehood \citep{Englebert2002,
+Paine2019}. Others find a conflict reducing effect from institutions generated
+by these states \citep{Depetris-Chauvin2016, Wig2016}.
 
 This paper addresses this puzzle by arguing that the effect of pre-colonial
-states on civil conflict, at the local level, is determined by the relationship
-between the pre-colonial and post-independence states. On the one hand, the
-degree to which one or more pre-colonial states forms the basis of the
-post-independence state. And, on the other hand, if pre-colonial states form the
-basis of regional competitors to the post-independence state. I argue that this
-can be [proxied] by the distance to the post-independence capital. Close to
-capitals, high levels of pre-colonial state presence reflects a degree of
-continuation of rule, providing legitimacy and institutions that are inherently
-peace inducing. Conversely, low levels of state presence reflect a lack of
-foundation for the modern state, and is an indication of capitals created by and
-for colonial administration. Outside capital areas the story is reversed. In
-such/these areas pre-colonial states leave behind powerful symbols of
-independence useful for mobilization, as well as regional elite networks with
-the potential to violently resist state expansion into their sphere of
-influence.
+states on civil conflict, at the local level, is conditioned by the relationship
+between the pre-colonial and post-independence states. On the one hand,
+pre-colonial states can form the basis of the post-independence state. On the
+other hand, pre-colonial states can form the basis of regional competitors to
+the post-independence state. I argue that whether a pre-colonial state is likely
+to contribute to the former or the latter, can be proxied by the distance to the
+post-independence capital. Close to capitals, high levels of pre-colonial state
+presence reflects a degree of continuation of rule, providing legitimacy and
+institutions that are inherently peace inducing. Conversely, low levels of state
+presence reflect a lack of foundation for the modern state, and is an indication
+of capitals created by and for colonial administration. Outside of capital areas
+the story is reversed. In these areas pre-colonial states leave behind powerful
+symbols of independence useful for mobilization, as well as regional elite
+networks with the potential to violently resist state expansion into their
+sphere of influence. Pre-colonial states leave these in capital areas as well,
+but are more easily co-opted by the government, or are themselves in control of
+the government.
 
-Nigeria provides an illustrative example of some of these [mechanisms]. Northern
-Nigeria is [dominated by] the two former empires of the Sokoto Caliphate (and
-its [twin/sibling state] Adamawa) and Borno (also referred to as
-Kanem-Borno)[see figure X, when it gets here], which form the basis of the
-Muslim-North--Christian-South division of the country. The North has seen a lot
-of state based violence in the post-cold war period. Boko Haram, who has been
-responsible for the majority of this violence, draw their inspiration and
-legitimacy from the jihad which led to the establishment of the Sokoto
-Caliphate, and seek to implement this style of caliphate the current Borno state
-\citep{Pieri2016}. To the South, the capital of Lagos lies within the borders of
-multiple pre-colonial Yoruba states such as Oyo [and? Are there multiple?]. In
-contrast to the North the areas surrounding Lagos have seen no state-based
-violence in the post-cold war period. [Tensions between the North and the South
-were also at the core of the 1967-70 civil war, but that falls outside sample
-period.]
+Nigeria provides an illustrative example. Northern Nigeria is dominated by the
+two former empires of the Sokoto Caliphate (and its twin state Adamawa) and
+Borno (also referred to as Kanem-Borno), which form the basis of the
+Muslim-North--Christian-South division of the country (see figure
+\ref{nigeria}). The North has seen much state based violence in the post-cold
+war period. Boko Haram, who has been responsible for the majority of this
+violence, draw their inspiration and legitimacy from the jihad which led to the
+establishment of the Sokoto Caliphate, and seek to implement this style of
+caliphate the current Borno state \citep{Pieri2016}. To the South, the
+post-independence capital of Lagos\footnote{Lagos was the capital of Nigeria
+until 1991, when the capital was moved to Abuja, specifically to be closer to
+the North and serve as neutral ground in the deeply divided country
+\citep{Moore_1984}.} lies within the borders of multiple pre-colonial Yoruba
+states such as Oyo, Ibadan, Ife and others. In contrast to the North the areas
+surrounding Lagos have seen no state-based violence in the post-cold war period.
+While it falls outside sample period, tensions between the North and the South
+were also at the core of the 1967-70 civil war.
 
 To test the overall effect of pre-colonial state presence on local levels of
 state-based violence, as well as how this relationship is moderated by distance
@@ -130,7 +135,7 @@ pre-colonial statehood in Africa. The data leverages variations in how both
 primary and secondary sources conceptualized and mapped statehood, to go beyond
 the Cartesian model of mapping states, and provide a topographical measure of
 historical state presence. Instead of a uniform measure of states' territories
-with `hard' boundaries, I propose one of gradually dissipating state presence
+with ``hard" boundaries, I propose one of gradually dissipating state presence
 outside core areas and fuzzy borders. Additionally, the data covers more states
 than comparative data sets, without compromising on the inclusion criteria for
 statehood. Finally, it geocodes individual pre-colonial states, as opposed to
@@ -138,9 +143,9 @@ aggregating to current administrative levels or ties to settlement patterns of
 related ethnic groups, both of which introduce issues of post treatment bias
 [footnote elaboration]. 
 
-The paper finds that there is a significant overall conflict inducing effect of
+The paper finds that there is a significant conflict inducing effect of
 pre-colonial states. However, this effect is conditioned on the distance to
-current capitals. In line with theoretical expectations I find a substantial
+current capitals. In line with theoretical expectations, I find a substantial
 conflict reducing effect at moderate levels of pre-colonial statehood near
 post-independence capitals, from an initially high level of conflict in cases of
 no, or very low levels of statehood. I find that low levels of pre-colonial
@@ -150,31 +155,31 @@ capitals, while high levels of state presence are conflict inducing.
 \section{The legacies of pre-colonial states} 
 \label{The legacies of pre-colonial states}
 
-[Literature section]
+[Literature section][Make it flow better and point more clearly toward the RQ]
 
 Despite the emerging literature on the impacts of traditional and pre-colonial
 states and institutions, the nature of the relationship between such legacies
 and conflict remains disputed. According to a game theoretical perspective like
-that of \citet{Fearon1995}, pre-colonial institutions should be
-conflict reducing. Groups who interact with the (modern) state through
-(traditional or otherwise) institutions reduce the uncertainty of future
-behaviour relative to groups who bargain through individuals, who are inherently
-more unpredictable and more prone to spoilers \citep{Wig2016}. Additionally,
-institutions are able to make credible commitments by putting restraints on
-their leaders through imposing violation costs. If a leader reneges on a
-commitment ratified by an institution, it reduces the legitimacy of the
-institutions and thus other laws passed by it. Pre-colonial or traditional
-institutions could also be conflict reducing by improving local state capacity,
-which could have a direct effect on the states ability to impose and preserve
-order as well as an indirect effect through economic development
+that of \citet{Fearon1995}, pre-colonial institutions should be conflict
+reducing. Groups who interact with the (modern) state through (traditional or
+otherwise) institutions reduce the uncertainty of future behaviour relative to
+groups who bargain through individuals, who are inherently more unpredictable
+and more prone to spoilers \citep{Wig2016}. Additionally, institutions are able
+to make credible commitments by putting restraints on their leaders through
+imposing violation costs. If a leader reneges on a commitment ratified by an
+institution, it reduces the legitimacy of the institutions and thus other laws
+passed by it. There is also evidence in the literature that pre-colonial or
+traditional institutions could be conflict reducing by improving local state
+capacity, which could have a direct effect on the states ability to impose and
+preserve order as well as an indirect effect through economic development
 \citep{Depetris-Chauvin2016}, and better public goods provision
 \citep{Wilfahrt_2021}. 
 
 On the other hand, authors like \citet{Englebert2002} and \citet{Alesina2011}
-have emphasized how countries as a whole are affected by multiple pre-colonial
-state. \citet{Englebert2002} argues that colonial boundaries that bundled
-together multiple ethnic groups with different historical experiences of
-political organization, led to a `suffocation' effect. In such an environment,
+have emphasized how countries are affected by multiple pre-colonial states.
+\citet{Englebert2002} argues that colonial boundaries that bundled together
+multiple ethnic groups with different historical experiences of political
+organization, led to a `suffocation' effect. In such an environment,
 post-independent states found it difficult to create a sense of nationality,
 cohesion or solidarity among its population, leading to higher levels of
 conflict \citep{Englebert2002}. This argument ties in to the larger literature
@@ -187,16 +192,14 @@ having no pre-colonial states, as well as having more than one, could be
 considered artificial.\footnote{At least when these states were incorporated
 	into the current boundaries by external force (such as colonizers), as
 opposed to `indigenously' (as for example the 100+ states of Germany being
-unified by Prussia).} 
-
-In cases where there are multiple groups with similar claims to pre-colonial
-independence, this can make conflict a rational option for the state
-\footnote{Conflict is otherwise assumed to be the outcome of miscalculations due
-to information problems in most game theory models.}. Choosing to accommodate
-one claims-making group in such an environment could lead to further claims by
-similar groups \citep{Walter2009}. This makes the option of punishing any group
-who makes demands relatively cheaper, and thus makes conflict a more likely
-outcome \citep{Wishman}.
+unified by Prussia).} In cases where there are multiple groups with similar
+claims to pre-colonial independence, this can make conflict a rational option
+for the state \footnote{Conflict is otherwise assumed to be the outcome of
+miscalculations due to information problems in most game theory models.}.
+Choosing to accommodate one claims-making group in such an environment could
+lead to further claims by similar groups \citep{Walter2009}. This makes the
+option of punishing any group who makes demands relatively cheaper, and thus
+makes conflict a more likely outcome \citep{Wishman}.
 
 Ethnic groups with a history of statecraft, are likely to be have an over sized
 share of power in government \citep{Wucherpfennig2016}. This can come about
@@ -238,8 +241,6 @@ name refers to a short lived kingdom in Eastern Libya, and the group elected a
 descendent of the former king as their leader \citep{Ahram2019}. [Should I
 mention that this example falls just outside the sample period?]
 
- [Include resistance to Western influences/institutions?]
-
 \section{Determining mechanisms} \label{Determining mechanisms} 
 
 [This section is a first draft rewrite]
@@ -272,9 +273,9 @@ coups with an end to this domination.
 
 A counter example of this is Ghana, where the post-independence capital of Accra
 lies on the fringes of the pre-colonial state of Ashanti. Following independence
-Ashanti reached a power sharing agreement with the government [source on this
-Charles?], and while Ghana has suffered several coups and non-state conflicts,
-there has been little state-based violence.
+Ashanti reached a power sharing agreement with the government
+\citep{Apter_1960}, and while Ghana has suffered several coups and non-state
+conflicts, there has been little state-based violence.
 
 I argue that, while groups with ties to pre-colonial states are likely to have
 greater representation in post-independence government \citep{Paine2019}, only

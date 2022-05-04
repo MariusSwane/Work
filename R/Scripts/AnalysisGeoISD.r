@@ -30,8 +30,10 @@ library(raster)
 library(spdep)
 library(sf)
 library(sidedata)
+library(stargazer)
 library(summarytools)
 library(texreg)
+library(viridis)
 library(xtable)
 
 #==============================================================================#
@@ -59,6 +61,8 @@ prio_grid_isd <- prio_grid_isd %>% filter( (gwno >= 404 & gwno <= 626) | gwno ==
 	mutate(
 				sqrtDeaths = sqrt(deaths),
 				sqrtSBDeaths = sqrt(statebaseddeaths),
+				sqrtInterDeaths = sqrt(interdeaths),
+				sqrtboth = sqrt(both),
 				sqrtState_based = sqrt(state_based),
 				sqrtSpAll = sqrt(sp_os_i_sum),
 				sqrtSpAny = sqrt(sp_i_sum_any),
@@ -98,8 +102,7 @@ analysis <- function(dvs, ivs, controls, data, test_label){
   for(i in 1:length(dvs)) {
     dv <- dvs[i] 
     for(j in 1:length(ivs)) {
-      m1 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls)),
-               data=data)
+      m1 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls)), data=data)
       m2 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
 				    extended_controls)), data=data)
       m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
@@ -136,11 +139,11 @@ lighten <- function (col, pct = 0.75, alpha = .8)
     pcol
 }
 
-cols <- c("red", "green", "blue")
+virs <- viridis(3)
 
 pastels <- NULL
 for (i in 1:length(cols)) {
-	pastels[i] <- lighten(cols[i])
+	pastels[i] <- lighten(virs[i])
 }
 
 #==============================================================================#
@@ -157,7 +160,7 @@ rest <- c('+ logBDist')
 
 climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
 
-coefs <- list('sqrtSpAll' = 'Precolonial state presence (sqrt)', 
+coefs <- list(
 		'mountains_mean' = 'Mountainous terrain',
 	     	'water_gc' = 'Water (%)', 
 	 	'barren_gc' = 'Barren (%)', 
@@ -194,9 +197,9 @@ control_names_int <-c('Baseline', 'Extended Controls')
 control_names <-c('Geography', 'North Africa', 'Population densisty', 'Distance
 		  to border')
 
-dvs <- c('statebaseddeaths', 'state_based')
+dvs <- c('interdeaths', 'both')
 
-captions <- c('Fatalities', 'State based conflict events')
+captions <- c('Fatalities', 'Internal and internationalized conflict events')
 
 captions_int <- c('Fatalities * Distance to capital', 'Conflict events *
 		  Distance to capital')
@@ -234,7 +237,7 @@ corrplot(corrdata_mat$r, method='color', diag=F, addCoef.col = "black",
 
 # Summary Statistics
 
-sumStats <- select(prio_grid_isd, statebaseddeaths, state_based, sp_os_i_sum,
+sumStats <- select(prio_grid_isd, interdeaths, both, sp_os_i_sum,
 		   bdist3, capdist, barren_gc, mountains_mean, water_gc,
 		   distcoast, popd)
 
@@ -256,6 +259,7 @@ stargazer(sumStats, median = FALSE, digits=1, title = "Summary Statistics",
 #	Analysis							       #
 #==============================================================================#
 
+# TODO: does not converge atm
 main_models <- analysis(dvs = dvs, ivs = ivs, controls = controls, data =
 			filter(prio_grid_isd, popd > 0), test_label = 'Linear
 		Models')
@@ -266,17 +270,23 @@ interaction_models <- analysis(dvs = dvs, ivs = interactions, controls =
 
 #==============================================================================#
 # Controlling for French and British colonies
+# TODO: run sub-samples instead
 
-deathscol <- glm.nb(statebaseddeaths ~ sqrtSpAll * logCapdist + logPopd +
-		    mountains_mean + water_gc + logCDist + logBDist + fra + gbr,
-	    filter(prio_grid_isd, prio_grid_isd$popd > 0))
-summary(deathscol)
+deathsnogbr <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist + logPopd +
+		    mountains_mean + water_gc + logCDist + logBDist,
+	    filter(prio_grid_isd, prio_grid_isd$popd > 0 & prio_grid_isd$gbr == 0))
+summary(deathsnogbr)
+
+deathsnofra <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist + logPopd +
+		    mountains_mean + water_gc + logCDist + logBDist,
+	    filter(prio_grid_isd, prio_grid_isd$popd > 0 & prio_grid_isd$fra == 0))
+summary(deathsnofra)
 
 #==============================================================================#
 #	Marginal interacation plots 					       #
 #==============================================================================#
 
-deatsMainInt <- glm.nb(statebaseddeaths ~ sqrtSpAll * logCapdist +
+deathsMainInt <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist +
 		       mountains_mean + region3 + water_gc + barren_gc +
 		       logCDist + logPopd + logBDist, data =
 		       filter(prio_grid_isd, prio_grid_isd$popd > 0))
@@ -285,37 +295,47 @@ deatsMainInt <- glm.nb(statebaseddeaths ~ sqrtSpAll * logCapdist +
 ggDeathsInt <- ggpredict(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
-ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted, color = group)) +
+ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
-			linetype = NA)) + scale_fill_manual(values = pastels) +
-		    name = 'Distance to capital', labels = c('Minimum', 'Mean',
-							     'Maximum')) +
-					xlab('State presence') +
-					ylab('Predicted fatalities') +
-					 geom_line() + goldenScatterCAtheme
+			linetype = NA)) + 
+			scale_fill_manual(values = pastels, 
+					  name = 'Distance to capital', 
+					  labels = c('Minimum', 'Mean', 'Maximum')) +
+			xlab('State presence') +
+			ylab('Predicted fatalities') +
+			geom_line(aes(x^2, predicted, color = group), 
+				      show.legend = F) +
+			scale_color_manual(values = virs) +
+			goldenScatterCAtheme
 
-pdf("../Output/deathsIntPlot.pdf",
+pdf("../Output/deathsInterPlot.pdf",
     width = 10, height = 10/1.68)
 ggDeathsIntPlot 
 dev.off()
 
-ggStateBased <- glm.nb(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
-		   region3 + water_gc + barren_gc + logCDist + logPopd + logBDist, data =
-		    filter(prio_grid_isd, prio_grid_isd$popd > 0))
+ggboth <- glm.nb(both ~ sqrtSpAll * logCapdist + mountains_mean +
+		   region3 + water_gc + barren_gc + logCDist + logPopd + logBDist, 
+	   data = filter(prio_grid_isd, prio_grid_isd$popd > 0))
 
-ggStateEffect <- ggeffect(ggStateBased, terms = c("sqrtSpAll [0:15]", "logCapdist
+ggBothEffect <- ggeffect(ggboth, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
-ggStatePlot <- ggplot(ggStateEffect, aes(x^2, predicted, color = group)) +
+ggBothPlot <- ggplot(ggBothEffect, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
-			linetype = NA)) + scale_fill_manual(values = pastels,
-		    name = 'Distance to capital', labels = c('Minimum', 'Mean',
-							     'Maximum')) +
-					 geom_line() + goldenScatterCAtheme
+				linetype = NA)) + 
+		scale_fill_manual(values = pastels, 
+				  name = 'Distance to capital', 
+				  labels = c('Minimum', 'Mean', 'Maximum')) +
+		xlab('State presence') +
+		ylab('Predicted conflict events') +
+		geom_line(aes(x^2, predicted, color = group), 
+				show.legend = F) +
+		scale_color_manual(values = virs) +
+		goldenScatterCAtheme
 
-pdf("../Output/ggStatePlot.pdf",
+pdf("../Output/ggBothPlot.pdf",
     width = 10, height = 10/1.68)
-ggStatePlot 
+ggBothPlot 
 dev.off()
 
 
@@ -348,7 +368,7 @@ for (i in 1:length(dvs)) {
   texreg(interaction_models$models[[i]],
          file = filename,
          custom.model.names = control_names,
-         custom.coef.map = coefs,
+         #custom.coef.map = coefs,
          stars = c(0.001, 0.01, 0.05, 0.1), 
          sideways = T, use.packages = F, scalebox = 1,
          caption = captions_int[i],
@@ -392,11 +412,11 @@ nbQueen <- poly2nb(prio_grid_isd, queen = T, row.names = prio_grid_isd$gid)
 
 lw = nb2listw(nbQueen, style = "W", zero.policy = TRUE)
 
-moran.test(prio_grid_isd$deaths, listw = lw, zero.policy = TRUE)
+moran.test(prio_grid_isd$interdeaths, listw = lw, zero.policy = TRUE)
 
-prio_grid_isd$deaths_l <- lag.listw(lw, prio_grid_isd$deaths, zero.policy = T)
+prio_grid_isd$deaths_l <- lag.listw(lw, prio_grid_isd$interdeaths, zero.policy = T)
 
-prio_grid_isd$state_based_l <- lag.listw(lw, prio_grid_isd$state_based, zero.policy = T)
+prio_grid_isd$both_l <- lag.listw(lw, prio_grid_isd$both, zero.policy = T)
 
 prio_grid_isd$non_state_l <- lag.listw(lw, prio_grid_isd$non_state, zero.policy = T)
 
@@ -404,17 +424,17 @@ prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 
 # Spatial analysis
 
-zinb_spatial_deaths <- zeroinfl(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
+zinb_spatial_deaths <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
 			deaths_l + region3 + water_gc + logCDist + logPopd +
 			logBDist, data = filter(prio_grid_isd, popd > 0), dist =
 			"negbin")
 
 summary(zinb_spatial_deaths)
 
-ggzinb <- ggpredict(zinb_spatial_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
+gglagzinb <- ggpredict(zinb_spatial_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
-ggzinbPlot <- ggplot(ggzinb, aes(x^2, predicted)) +
+gglagzinbPlot <- ggplot(gglagzinb, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + 
 		scale_fill_manual(values = pastels,
@@ -428,7 +448,7 @@ ggzinbPlot <- ggplot(ggzinb, aes(x^2, predicted)) +
 
 pdf("../Output/spatialzinbdeathsplot.pdf",
     width = 10, height = 10/1.68)
-ggzinbPlot
+gglagzinbPlot
 dev.off()
 
 # }}}
@@ -438,20 +458,18 @@ dev.off()
 #	ZINB  								       #
 #==============================================================================#		
 
-zinb_deaths <- zeroinfl(deaths ~ sqrtSpAll * logCapdist + mountains_mean +
+zinb_deaths <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
 			region3 + water_gc + logCDist + logPopd + logBDist, data
 		= filter(prio_grid_isd, popd > 0), dist = "negbin")
-
 summary(zinb_deaths)
 
 
-zinb_sb <- zeroinfl(state_based ~ sqrtSpAll * logCapdist + mountains_mean +
+zinb_both <- zeroinfl(both ~ sqrtSpAll * logCapdist + mountains_mean +
  			water_gc + logCDist + logPopd + logBDist, data =
 			filter(prio_grid_isd, popd > 0), dist = "negbin")
+summary(zinb_both)
 
-summary(zinb_sb)
-
-ggzinb<- ggpredict(zinb_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
+ggzinb <- ggpredict(zinb_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
 ggzinbPlot <- ggplot(ggzinb, aes(x^2, predicted)) +
@@ -461,21 +479,21 @@ ggzinbPlot <- ggplot(ggzinb, aes(x^2, predicted)) +
 			name = 'Distance to capital', labels = c('Minimum',
 				 'Mean', 'Maximum')) +
 		xlab('State presence') +
-		ylab('Predicted fatalities') +
+		ylab('Predicted additional fatalities') +
 		geom_line(aes(x^2, predicted, color = group),
 			  show.legend = F) +
+		scale_color_manual(values = virs) +
 		goldenScatterCAtheme
 
-pdf("../Output/zinbplot.pdf",
+pdf("../Output/interdeathszinbplot.pdf",
     width = 10, height = 10/1.68)
 ggzinbPlot
 dev.off()
 
-ggzinbSB <- ggpredict(zinb_sb, terms = c("sqrtSpAll [0:15]", "logCapdist
+ggzinbboth <- ggpredict(zinb_both, terms = c("sqrtSpAll [0:15]", "logCapdist
 						 [1.309, 6.27, 7.817]"))
 
-
-ggzinbSBPlot <- ggplot(ggzinbSB, aes(x^2, predicted)) +
+ggzinbbothPlot <- ggplot(ggzinbboth, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + 
 		scale_fill_manual(values = pastels, 
@@ -485,11 +503,12 @@ ggzinbSBPlot <- ggplot(ggzinbSB, aes(x^2, predicted)) +
 		ylab('Predicted additional events') +
 		geom_line(aes(x^2, predicted, color = group),
 			  show.legend = F) +
+		scale_color_manual(values = virs) +
 		goldenScatterCAtheme
 
-pdf("../Output/sbzinbplot.pdf",
+pdf("../Output/bothzinbplot.pdf",
     width = 10, height = 10/1.68)
-ggzinbSBPlot
+ggzinbbothPlot
 dev.off()
 
 # Controlling for france and gbr
@@ -533,17 +552,16 @@ dev.off()
 
 # Outputting regression tables
 
-zinblist <- list(zinb_deaths, zinb_sb, zinbDcol)
+zinblist <- list(zinb_deaths, zinb_both)
 
 texreg(zinblist, file = "../Output/zinb.tex", 
        stars = c(0.001, 0.01, 0.05, 0.1), 
        use.packages = F, 
        scalebox = .7,
-       custom.coef.map = zinbcoefs,
+       #custom.coef.map = zinbcoefs,
        label = "zinb", 
        table = T,
-       custom.model.names = c('Fatalities', 'Conflict events', 'Fatalities
-			      (colonial controls)'),
+       custom.model.names = c('Fatalities', 'Conflict events'),
        booktabs = T)
 # }}}
 

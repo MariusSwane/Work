@@ -130,7 +130,8 @@ gpcp <- read_csv('../Data/PRIO-Grid/gpcp.csv') %>%
 
 prio_grid <- left_join(prio_grid, gpcp, by = c("gid"))
 
-prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
+prio_grid_static  <- 
+	read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
 
 # Merging static and aggregated prio data
 prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
@@ -408,7 +409,7 @@ rm(coastline)
 ggplot() +
 	geom_sf(data = prio_grid_isd,
             linetype = 0,
-            aes(fill = org3nigreldif),
+            aes(fill = esdeaths),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()
@@ -426,7 +427,7 @@ popdr  <- raster_to_pg(popdr, aggregation_function = "mean")
 # Converting to tibble with PG-id
 popdr  <- raster_to_tibble(popdr, add_pg_index = TRUE)
 
-# Tidying -- not working
+# Tidying 
 popdr  <- popdr %>% rename(popd = popd_1600AD, gid = pgid) %>% dplyr::select(popd, gid)
 
 # Merging
@@ -455,15 +456,22 @@ rm(popdr)
 # Loading data
 load("../Data/GEDEvent_v21_1.RData")
 load("../Data/ucdp-nonstate-211.rdata")
+load("../Data/ucdp-prio-acd-211.rdata")
 
 # Filtering
-ged <- Nonstate_v21_1 %>%  dplyr::select(conflict_id, org, year) %>%  
+gedns <- Nonstate_v21_1 %>%  dplyr::select(conflict_id, org, year) %>%  
 	mutate(conflict_id = as.integer(conflict_id)) %>% 
 	mutate(org = as.integer(org))
 
+gedsb <- UcdpPrioConflict_v21_1 %>%  dplyr::select(conflict_id, type_of_conflict, year) %>%  
+	mutate(conflict_id = as.integer(conflict_id)) %>% 
+	mutate(sb = as.integer(type_of_conflict))
+
 # Merging
-ged <- left_join(GEDEvent_v21_1, ged, by = c("conflict_new_id" =
+ged <- left_join(GEDEvent_v21_1, gedns, by = c("conflict_new_id" =
 						"conflict_id"))
+
+ged <- left_join(ged, gedsb, by = c("conflict_new_id" = "conflict_id"))
 
 nigrel = filter(ged, conflict_new_id == 4895) %>% group_by(priogrid_gid) %>%
 	summarise(nigrel = sum(org == 3))
@@ -476,13 +484,33 @@ gede  <- ged %>% group_by(priogrid_gid) %>%
 	org1 = sum(org == 1),
 	org2 = sum(org == 2),
 	org3 = sum(org == 3),
+	extrastate = sum(sb == 1),
+	interstate = sum(sb == 2),
+	internal = sum(sb == 3),
+	internationalized  = sum(sb ==4),
+	both = sum(sb == 3 | sb == 4),
 	deaths = sum(best))
 
 # TODO: add org3 deaths as well
+extrastate <-  ged %>% group_by(priogrid_gid) %>% filter(sb == 1) %>% 
+	summarise(esdeaths = sum(best))
+
+interstate <-  ged %>% group_by(priogrid_gid) %>% filter(sb == 2) %>% 
+	summarise(isdeaths = sum(best))
+
+gedid <-  ged %>% group_by(priogrid_gid) %>% filter(sb == 3 | sb ==4) %>% 
+	summarise(interdeaths = sum(best))
+
 gedd <-  ged %>% group_by(priogrid_gid) %>% filter(type_of_violence == 1) %>% 
 	summarise(statebaseddeaths = sum(best))
 
 ged <- left_join(gede, gedd)
+
+ged <- left_join(ged, gedid)
+
+ged <- left_join(ged, interstate)
+
+ged <- left_join(ged, extrastate)
 
 ged <- left_join(ged, nigrel)
 
@@ -497,6 +525,15 @@ prio_grid_isd  <- prio_grid_isd %>%
 	mutate(org1 = ifelse(is.na(org1), 0, org1)) %>%  
 	mutate(org2 = ifelse(is.na(org2), 0, org2)) %>%  
 	mutate(org3 = ifelse(is.na(org3), 0, org3)) %>% 
+	mutate(isdeaths = ifelse(is.na(isdeaths), 0, isdeaths)) %>% 
+	mutate(esdeaths = ifelse(is.na(esdeaths), 0, esdeaths)) %>% 
+	mutate(interdeaths = ifelse(is.na(interdeaths), 0, interdeaths)) %>% 
+	mutate(both = ifelse(is.na(both), 0, both)) %>% 
+	mutate(interstate = ifelse(is.na(interstate), 0, interstate)) %>% 
+	mutate(extrastate = ifelse(is.na(extrastate), 0, extrastate)) %>% 
+	mutate(internationalized = ifelse(is.na(internationalized), 0, 
+					  internationalized)) %>% 
+	mutate(internal = ifelse(is.na(internal), 0, internal)) %>% 
 	mutate(nigrel = ifelse(is.na(nigrel), 0, nigrel)) %>% 
 	mutate(statebaseddeaths = ifelse(is.na(statebaseddeaths), 0, 
 					 statebaseddeaths)) %>% 
@@ -571,7 +608,8 @@ prio_grid_isd$acleddead <- st_contains(prio_grid_isd, acled) %>%
 names(prio_grid_isd)
 
 shpPrep <- prio_grid_isd %>% 
-	rename(xcoordx = xcoord.x,
+	rename(
+	       xcoordx = xcoord.x,
 	       ycoordy = ycoord.y,
 	       ycoordx = ycoord.x,
 	       xcoordy = xcoord.y,

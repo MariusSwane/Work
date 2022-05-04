@@ -1,0 +1,217 @@
+% ANUfinalexam.tex (Version 2.0)
+% ===============================================================================
+% Australian National University Final Exam LaTeX template.
+% 2004; 2009, Timothy Kam, ANU School of Economics
+% Licence type: Free as defined in the GNU General Public Licence: http://www.gnu.org/licenses/gpl.html
+
+\documentclass[a4paper,12pt,fleqn]{article}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue
+}
+
+% Insert your course information here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\institution}{Department of sociology and political science}
+\newcommand{\institusjon}{Institutt for sosiologi og statsvitenskap}
+\newcommand{\titlehd}{POL 2012: Theories and Models in Political Economy}
+\newcommand{\tittelhd}{POL 2012: Teorier og modeller i politisk økonomi}
+\newcommand{\examtype}{Fall Semester Examination}
+\newcommand{\examdate}{10.05.2022}
+\newcommand{\examcode}{POL 2012}
+\newcommand{\examtime}{15:00-19:00}
+\newcommand{\materials}{None}
+\newcommand{\lastwords}{End of Examination}
+\newcommand{\sisteord}{Slutt på Eksamen}
+\newcommand{\sisteordnn}{Slut på Eksamen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\setcounter{MaxMatrixCols}{10}
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+
+% ANU Exams Office mandated margins and footer style
+\setlength{\topmargin}{0cm}
+\setlength{\textheight}{9.25in}
+\setlength{\oddsidemargin}{0.0in}
+\setlength{\evensidemargin}{0.0in}
+\setlength{\textwidth}{16cm}
+\pagestyle{fancy}
+\lhead{} 
+\chead{} 
+\rhead{} 
+\lfoot{} 
+\cfoot{\footnotesize{Page \thepage \ of \pageref{finalpage} -- \titlehd \ (\examcode)}} 
+\rfoot{} 
+
+
+\renewcommand{\headrulewidth}{0pt} %Do not print a rule below the header
+\renewcommand{\footrulewidth}{0pt}
+
+
+\begin{document}
+
+\begin{center}
+%\vspace{5cm}
+\large\textbf{\institusjon}
+\end{center}
+\vspace{.5cm}
+
+\begin{center}
+\large\textbf{\tittelhd}
+\end{center}
+
+\begin{center}
+\textit{Dato \examdate}
+\end{center}
+
+\begin{center}
+\textit{Eksamenstid: \examtime}
+\end{center}
+
+\vspace{.5cm}
+
+\begin{center}
+	\textbf{Tillatte hjelpemidler:} A / Alle hjelpemidler tillatt
+\end{center}
+
+\begin{center}
+	\textbf{Faglig kontakt under eksamen:} Marius Swane Wishman
+	\textbf{Tlf:} 470 56 893
+\end{center}
+
+\begin{center}
+	\textbf{Teknisk hjelp under eksamen:} NTNU Orakel
+	\textbf{Tlf:} 735 91 600
+\end{center}
+
+
+Får du tekniske problemer underveis i eksamen, må du ta kontakt for teknisk
+hjelp snarest mulig, og senest \underline{innen eksamenstida løper
+ut/prøven stenger.} Kommer du ikke gjennom umiddelbart, hold linja til du får
+svar.
+
+\vspace{.5cm}
+
+\begin{center}
+	\textbf{ANNEN INFORMASJON:}
+\end{center}
+
+\paragraph{\textbf{Ikke ha Inspera åpen i flere faner, eller vær pålogget på
+flere enheter, samtidig,}} da dette kan medføre feil med lagring/levering av
+besvarelsen din.
+
+\paragraph{\textbf{Skaff deg overblikk over oppgavesettet}} før du begynner på
+besvarelsen din.
+
+\paragraph{\textbf{Les oppgavene nøye,}} gjør dine egne antagelser og presiser i
+besvarelsen hvilke forutsetninger du har lagt til grunn i tolkning/avgrensing av
+oppgaven. Faglig kontaktperson kan kontaktes dersom du mener det er feil
+eller mangler i oppgavesettet. 
+
+\paragraph{\textbf{Juks/plagiat:}} Eksamen skal være et individuelt, selvstendig
+arbeid. Det er tillatt å bruke hjelpemidler, men vær obs på at du må følge
+eventuelle anvisningen om kildehenvisninger under. Under eksamen er det ikke
+tillatt å kommunisere med andre personer om oppgaven eller å distribuere utkast
+til svar. Slik kommunikasjon er å anse som juks. Alle besvarelser
+blir kontrollert for plagiat.
+\href{https://innsida.ntnu.no/wiki/-/wiki/Norsk/Juks+p\%C3\%A5\%20eksamen}{Du
+kan lese mer om juks og plagiering på eksamen her.} 
+
+\paragraph{\textbf{Kildehenvisninger:}} Før kilder i henhold til APA-stil.
+\href{https://i.ntnu.no/wiki/-/wiki/Norsk/Bruke+referansestilen+APA}{Du kan lese
+mer om APA-stil her.}
+
+\paragraph{\textbf{Varslinger:}} Hvis det oppstår behov for å gi beskjeder til
+kandidatene underveis i eksamen (f.eks. ved feil i oppgavesettet), vil dette bli
+gjort via varslinger i Inspera. Et varsel vil dukke opp som en dialogboks på
+skjermen i Inspera. Du kan finne igjen varselet ved å klikke på bjella øverst i
+høyre hjørne på skjermen. Det vil i tillegg bli sendt SMS til alle kandidater
+for å sikre at ingen går glipp av viktig informasjon. Ha mobiltelefonen din
+tilgjengelig.
+
+\begin{center}
+	\textbf{BESVARE OG LEVERE}
+\end{center}
+
+\paragraph{\textbf{Besvare i Inspera:}} Hvis oppgavesettet inneholder oppgaver
+som ikke er av typen filopplasting, skal de besvares direkte i Inspera. I
+Inspera lagres svarene dine automatisk hvert 15. sekund.
+
+NB! Klipp og lim fra andre programmer frarådes, da dette kan medføre at
+formatering og elementer (bilder, tabeller etc.) vil kunne gå tapt.
+
+\paragraph{\textbf{Automatisk innlevering:}} Besvarelsen din leveres automatisk
+når eksamenstida er ute og prøven stenger, forutsatt at minst én oppgave er
+besvart. Dette skjer selv om du ikke har klikket ``Lever og gå tilbake til
+Dashboard" på siste side i oppgavesettet. Du kan gjenåpne og redigere
+besvarelsen din så lenge prøven er åpen. Dersom ingen oppgaver er besvart ved
+prøveslutt, blir ikke besvarelsen din levert. Dette vil anses som “ikke møtt”
+til eksamen.
+
+\paragraph{\textbf{Trekk fra/avbrutt eksamen:}} Blir du syk under eksamen, eller
+av andre grunner ønsker å levere blankt/avbryte eksamen, gå til
+``hamburgermenyen" i øvre høyre hjørne og velg `Lever blankt'. Dette kan
+\underline{ikke} angres selv om prøven fremdeles er åpen.
+
+\paragraph{\textbf{Tilgang til besvarelse:}}  Du finner din besvarelse i Arkiv
+etter at sluttida for eksamen er passert.
+
+\clearpage
+
+\section*{Bokmål}
+
+\bigskip
+
+\begin{quote} \textit{Svar på \textbf{BEGGE} de to følgende oppgavene. Det
+forventes at studentene er i stand til å identifisere hvilke teorier/teoretiske
+perspektiver (merk: flertall) som er relevante for hver oppgave. Oppgavene
+vektes likt.} \end{quote}
+
+\bigskip
+
+\paragraph{\textbf{Spørsmål 1:}}
+
+Diskuter økonomisk ulikhet ut i fra \underline{relevant teori fra pensum}.
+
+\paragraph{\textbf{Spørsmål 2:}}
+
+Som følge av krigen i Ukraina er det flere aktører i Norge som har argumentert
+for å bedre matsikkerhet gjennom økt proteksjonisme. \underline{Bruk relevant
+teori} \underline{fra pensum} for å diskutere fordeler og ulemper ved en slik
+(proteksjonistisk) politikk.
+
+\begin{center}
+\vspace{3cm}
+--------- \textit{\sisteord} ---------
+\end{center}
+
+\label{finalpage}
+
+\end{document}

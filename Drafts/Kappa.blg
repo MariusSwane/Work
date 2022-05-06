@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Kappa.aux
+The style file: apalike.bst
+Database file #1: ../lib.bib
+Warning--empty journal in Fearon2014
+Warning--empty journal in Murdock1967
+Warning--empty journal in Sundberg2013
+You've used 49 entries,
+            1935 wiz_defined-function locations,
+            796 strings with 11329 characters,
+and the built_in function-call counts, 18072 in all, are:
+= -- 1826
+> -- 573
+< -- 43
++ -- 196
+- -- 180
+* -- 1468
+:= -- 3114
+add.period$ -- 146
+call.type$ -- 49
+change.case$ -- 325
+chr.to.int$ -- 49
+cite$ -- 52
+duplicate$ -- 735
+empty$ -- 1322
+format.name$ -- 257
+if$ -- 3553
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 57
+newline$ -- 245
+num.names$ -- 147
+pop$ -- 262
+preamble$ -- 1
+purify$ -- 335
+quote$ -- 0
+skip$ -- 603
+stack$ -- 0
+substring$ -- 1361
+swap$ -- 108
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 272
+warning$ -- 3
+while$ -- 156
+width$ -- 0
+write$ -- 628
+(There were 3 warnings)

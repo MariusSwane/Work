@@ -243,13 +243,13 @@ sumStats <- select(prio_grid_isd, interdeaths, both, sp_os_i_sum,
 
 sumStats <- st_drop_geometry(sumStats)
 
-stargazer(sumStats, median = FALSE, digits=1, title = "Summary Statistics",
+stargazer(sumStats, median = FALSE, iqr = T, digits=1, title = "Summary Statistics",
 	  column.sep.width = "1pt",
 	  label = "summarystats",
 	  covariate.labels = c("Fatalities", "Conflict events", "State presence", 
 			       "Distance to boundary", "Distance to capital", 
 			       "Barren", "Mountainous", "Water",
-			       "Distance to coast"),
+			       "Distance to coast", "Population density 1600"),
 	  float.env = "sidewaystable",
 	  out = "../Output/summaryStats.tex")
 # }}}

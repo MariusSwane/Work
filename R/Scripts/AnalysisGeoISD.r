@@ -40,10 +40,7 @@ library(xtable)
 #	Loading Data and functions					       #
 #==============================================================================#	
 
-load("../Data/GeoISDControls.Rdata")
-source("goldenScatterCAtheme.r")
-
-#==============================================================================#
+load("../Data/GeoISDControls.Rdata") source("goldenScatterCAtheme.r") #==============================================================================#
 #	Resolving conflicts 						       #
 #==============================================================================#		
 
@@ -142,7 +139,7 @@ lighten <- function (col, pct = 0.75, alpha = .8)
 virs <- viridis(3)
 
 pastels <- NULL
-for (i in 1:length(cols)) {
+for (i in 1:length(virs)) {
 	pastels[i] <- lighten(virs[i])
 }
 
@@ -160,22 +157,17 @@ rest <- c('+ logBDist')
 
 climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
 
-coefs <- list(
+coefs <- list(	'(Intercept)' = NA,
 		'mountains_mean' = 'Mountainous terrain',
 	     	'water_gc' = 'Water (%)', 
 	 	'barren_gc' = 'Barren (%)', 
 	      	'logCDist' = 'Distance to coast (log)',
+		'region3' = 'North Africa',
 	      	'logPopd' = 'Population density (log)', 
 		'logBDist' = 'Distance to international boundary (log)', 
-		'temp_sd' = 'Temperature (SD)',
-	      	'temp' = 'Temperature (mean)', 
-		'prec_sd' = 'Precipitation (SD)', 
-		'prec_gpcc' = 'Precipitation (mean)', 
-		'SpAll10' = 'Precolonial state presence (10)',
-		'fra' = 'Former French colony',
-		'gbr' = 'Former British colony',
-		'region3' = 'North Africa',
-		'sqrtSpAll' = 'Precolonial state presence (sqrt)')
+	      	'logCapdist' = 'Distance to capital (log)',
+		'sqrtSpAll' = 'Precolonial state presence (sqrt)',
+		'sqrtSpAll:logCapdist' = 'Interaction term')
 
 # countcoefs <- list()
 # 
@@ -191,8 +183,6 @@ coefs <- list(
 # }
 # 
 # zinbcoefs <- c(logitcoefs, countcoefs)
-
-control_names_int <-c('Baseline', 'Extended Controls')
 
 control_names <-c('Geography', 'North Africa', 'Population densisty', 'Distance
 		  to border')
@@ -341,7 +331,6 @@ dev.off()
 
 #==============================================================================#
 # Regression tables
-# TODO: Add coefficient maps for proper names in regression tables
 
 for (i in 1:length(dvs)) { 
   name <- dvs[i]
@@ -368,10 +357,10 @@ for (i in 1:length(dvs)) {
   texreg(interaction_models$models[[i]],
          file = filename,
          custom.model.names = control_names,
-         #custom.coef.map = coefs,
+         custom.coef.map = coefs,
          stars = c(0.001, 0.01, 0.05, 0.1), 
          sideways = T, use.packages = F, scalebox = 1,
-         caption = captions_int[i],
+         caption = captions[i],
 	 label = intlabel,
 	 booktabs = T,
          table = T)
@@ -444,11 +433,40 @@ gglagzinbPlot <- ggplot(gglagzinb, aes(x^2, predicted)) +
 		ylab('Predicted fatalities') +
 		geom_line(aes(x^2, predicted, color = group),
 			  show.legend = F) +
+		scale_color_manual(values = virs) +
 		goldenScatterCAtheme
 
 pdf("../Output/spatialzinbdeathsplot.pdf",
     width = 10, height = 10/1.68)
 gglagzinbPlot
+dev.off()
+
+zinb_spatial_both <- zeroinfl(both ~ sqrtSpAll * logCapdist + mountains_mean +
+			both_l + region3 + water_gc + logCDist + logPopd +
+			logBDist, data = filter(prio_grid_isd, popd > 0), dist =
+			"negbin")
+
+summary(zinb_spatial_both)
+
+bothlagzinb <- ggpredict(zinb_spatial_both, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 6.27, 7.817]"))
+
+bothspatzinbPlot <- ggplot(bothlagzinb, aes(x^2, predicted)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + 
+		scale_fill_manual(values = pastels,
+			name = 'Distance to capital', labels = c('Minimum',
+				 'Mean', 'Maximum')) +
+		xlab('State presence') +
+		ylab('Predicted fatalities') +
+		geom_line(aes(x^2, predicted, color = group),
+			  show.legend = F) +
+		scale_color_manual(values = virs) +
+		goldenScatterCAtheme
+
+pdf("../Output/spatialzinbbothplot.pdf",
+    width = 10, height = 10/1.68)
+bothspatzinbPlot
 dev.off()
 
 # }}}

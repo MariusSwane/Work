@@ -20,12 +20,15 @@
 #==============================================================================#	
 
 library(conflicted)
+library(countrycode)
 library(dplyr)
 library(ggeffects)
 library(ggplot2)
 library(gridExtra)
 library(MASS)
+library(notifier)
 library(patchwork)
+library(priogrid)
 library(pscl)
 library(purrr)
 library(raster)
@@ -35,6 +38,7 @@ library(sf)
 library(stargazer)
 library(terra)
 library(texreg)
+library(viridis)
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -150,7 +154,7 @@ lighten <- function (col, pct = 0.75, alpha = .8)
 }
 
 # Creating colors, and pastels
-cols <- c("red", "green", "blue")
+cols <- viridis(3)
 
 pastels <- NULL
 for (i in 1:length(cols)) {
@@ -401,8 +405,8 @@ figs <- function(models) {
 				aes(x^2, predicted)) +
   				geom_ribbon(aes(ymin = conf.low, 
 					ymax = conf.high),
-	      				fill = lighten("blue")) +
-  				geom_line(color = "blue") +
+	      				fill = lighten("#440154FF")) +
+  				geom_line(color = "#440154FF") +
   				labs(title = paste(titles[j]),
 					x = 'Precolonial state presence', 
        					y = 'Communial violence events') +
@@ -410,17 +414,19 @@ figs <- function(models) {
 		}
 		intfigs <- NULL
 		intplots <- NULL
-		for(k in 1:length(interactions)) {
+	for(k in 1:length(interactions)) {
 			intfigs[[k]] <- ggpredict(models[[i]][[3+k]],
 				terms = c("sqrtSpAll [0:15 by = .5]",
 					  paste(interactions[k],"[0,1]")))
 			intplots[[k]] <- ggplot(intfigs[[k]],
-				aes(x^2, predicted, color = group)) +
+				aes(x^2, predicted)) +
 				geom_ribbon(aes(ymin = conf.low, 
 					ymax = conf.high, fill = group, 
 					linetype = NA)) + 
 				scale_fill_manual(values = pastels) +
-				geom_line() + 
+				geom_line(aes(x^2, predicted, color = group),
+			  		show.legend = F) +
+	       			scale_color_manual(values = cols) +
 				labs(title = paste(titles[3+k]),
 					x = 'Precolonial state presence', 
 	     				y = 'Communial violence events') +
@@ -450,14 +456,14 @@ noreligioninnigplots <- do.call("grid.arrange", c(plots[[4]], ncol = 3))
 ggsave("../Output/noreligioninnigplots.pdf", noreligioninnigplots, width = 15,
        height = 15/1.68)
 
-mainplots <-  grid.arrange(org3plot, plots[[1]][[1]], ncol = 2)
+#mainplots <-  grid.arrange(org3plot, plots[[1]][[1]], ncol = 2)
 
-ggsave("../Output/mainplots.pdf", mainplots, width = 15, height = 15/1.68)
+#ggsave("../Output/mainplots.pdf", mainplots, width = 15, height = 15/1.68)
 
-ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
+#ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
 
 # logOrg3 Plot
-logOrg32 <- ggplot() +
+logOrg3 <- ggplot() +
 	geom_sf(data = filter(prio_grid_isd, gwno == 475),
             linetype = 0,
             aes(fill = log(org3 + 1)),
@@ -503,7 +509,7 @@ ugaext <- ext(uga.ethnic)
 
 ugarast <- rast(uga.ethnic)
 
-rastresult <- spatSample(ugarast, size  = length(uga.ethnic), values = T, cells = T, xy = T)
+#rastresult <- spatSample(ugarast, size  = length(uga.ethnic), values = T, cells = T, xy = T)
 
 ugaData <- extract(uga.ethnic, ugaextent, df = T)
 
@@ -518,7 +524,9 @@ xy <- xyFromCell(uga.ethnic, as.integer(rownames(ugaData)))
 result <- cbind(xy, ugaData)
 colnames(result)[1:2] <- c("lon", "lat")
 
-result <- st_as_sf(rastresult, coords = c("x","y"))
+result <- st_as_sf(result, coords = c("lon","lat"))
+
+#result <- st_as_sf(rastresult, coords = c("x","y"))
 
 result <- na.omit(result)
 
@@ -1012,8 +1020,7 @@ grid <- grid %>% mutate(sp = lengths(st_within(grid, gisdken)))
 
 # Creating ethnic fractionalization index
 for(i in 1:length(grid$id_cell.y)) {
-		grid$ef[i] =
-		(1 - (
+		grid$ef[i] = (1 - (
 		grid$embu[i]^2 +
 		grid$kalenjin[i]^2 +
 		grid$kamba[i]^2 +
@@ -1129,4 +1136,176 @@ pdf("../Output/burkinafasoEF.pdf",
 gridtest
 dev.off()
 
+# }}}
+
+# {{{	SIDE ANALYSIS							       #
+#==============================================================================#
+
+# Getting all the data
+#=====================
+
+BEN <- side_load(country = "Benin", year = 2001, marker = "ethnic",
+		     source.dir = "../Data")
+
+BFA <- side_load(country = "Burkina Faso", year = 1999, marker = "ethnic",
+			source.dir = "../Data")
+
+CMR <- side_load(country = "Cameroon", year = 2004, marker = "ethnic",
+		     source.dir = "../Data")
+
+CAF <- side_load(country = "Central African Republic", year = 1995,
+	      marker = "ethnic", source.dir = "../Data")
+
+COD <- side_load(country = "Congo (DRC)", year = 2014, marker = "ethnic",
+		     source.dir = "../Data")
+
+ETH <- side_load(country = "Ethiopia", year = 2003, marker = "ethnic",
+	      source.dir = "../Data")
+
+GAB <- side_load(country = "Gabon", year = 2012, marker = "ethnic",
+	      source.dir = "../Data")
+
+GHA <- side_load(country = "Ghana", year = 1999, marker = "ethnic",
+	      source.dir = "../Data")
+
+GIN <- side_load(country = "Guinea", year = 2012, marker = "ethnic",
+	      source.dir = "../Data")
+
+CIV <- side_load(country = "Ivory Coast", year = 2012, marker = "ethnic",
+	      source.dir = "../Data")
+
+KEN <- side_load(country = "Kenya", year = 2003, marker = "ethnic",
+	      source.dir = "../Data")
+
+LBR <- side_load(country = "Liberia", year = 2013, marker = "ethnic",
+	      source.dir = "../Data")
+
+MWI <- side_load(country = "Malawi", year = 2012, marker = "ethnic",
+	      source.dir = "../Data")
+
+MLI <- side_load(country = "Mali", year = 2006, marker = "ethnic",
+	      source.dir = "../Data")
+
+MOZ <- side_load(country = "Mozambique", year = 2011, marker = "ethnic",
+	      source.dir = "../Data")
+
+NAM <- side_load(country = "Namibia", year = 2000, marker = "ethnic",
+	      source.dir = "../Data")
+
+NER <- side_load(country = "Niger", year = 1998, marker = "ethnic",
+	      source.dir = "../Data")
+
+NGA <- side_load(country = "Nigeria", year = 2013, marker = "ethnic",
+	      source.dir = "../Data")
+
+SEN <- side_load(country = "Senegal", year = 2013, marker = "ethnic",
+	      source.dir = "../Data")
+
+SLE <- side_load(country = "Sierra Leone", year = 2013, marker = "ethnic",
+	      source.dir = "../Data")
+
+TGO <- side_load(country = "Togo", year = 2014, marker = "ethnic",
+	      source.dir = "../Data")
+
+UGA <- side_load(country = "Uganda", year = 2010, marker = "ethnic",
+	      source.dir = "../Data")
+
+ZMB <- side_load(country = "Zambia", year = 2007, marker = "ethnic",
+	      source.dir = "../Data")
+
+# Creating list of loaded countries
+
+countries <- c(BEN, BFA, CMR, CAF, COD, ETH, GAB, GHA, GIN, CIV, KEN, LBR, MWI,
+	       MLI, MOZ, NAM, NER, NGA, SEN, SLE, TGO, UGA, ZMB)
+
+cntrynames <- c( "BEN", "BFA", "CMR", "CAF", "COD", "ETH", "GAB", "GHA", "GIN",
+		"CIV", "KEN", "LBR", "MWI", "MLI", "MOZ", "NAM", "NER", "NGA",
+		"SEN", "SLE", "TGO", "UGA", "ZMB")
+
+# Create loop (or function?) for assembling data from SIDE to PRIO-grid Needs
+# string of countries in is3c and sidedata to be formatted to named accordingly
+# Data needs to be manually loaded from side (as above) because available years
+# are a bit random
+
+sideprio <- prio_grid_isd
+for(i in 1:length(countries)){
+	meta <- sidemap2data(countries[[i]])
+	names(countries[[i]]) <- meta$groupname
+	cntry <- raster_to_pg(countries[[i]], aggregation_function = "mean")
+	cntry <- raster_to_tibble(cntry, add_pg_index = T)
+	colnames(cntry)[colnames(cntry) == "other"] <-
+		paste0("other",cntrynames[i])
+	colnames(cntry)[colnames(cntry) == "pgid"] <- "gid"
+	cntry <- subset(cntry, select = -c(x,y))
+	sideprio <- left_join(sideprio, cntry, by = c("gid"))
+}
+sidecountries <- countrycode(cntrynames, "iso3c", "gwn")
+sideprio <- sideprio %>% filter(gwno %in% sidecountries)
+notify("Done!")
+
+# Creating list of ethnic groups
+
+ethnics <- names(sideprio)[-which(names(sideprio) %in% names(prio_grid_isd))]
+
+# Creating a version of sideprio without geometry
+spnog <- st_drop_geometry(sideprio)
+
+spnog <- spnog %>% mutate_at(colnames(spnog[colnames(spnog) %in% ethnics]), ~
+		    ifelse(is.na(.), 0, .))
+         
+# Creating sequential grid cell id's
+
+sideprio$cellid <- 1:length(sideprio$gid)
+spnog$cellid <- 1:length(spnog$gid)
+
+# Creating frac index
+
+ethsum <- NULL
+for(i in 1:length(sideprio$cellid)) {
+	spnogcell <- subset(spnog, cellid == cellid[i])
+	for(j in 1:length(ethnics)) {
+		ethsum[j] = spnogcell[colnames(spnogcell) == ethnics[j]]^2
+	}
+	sideprio$ef[i] = (1 - (Reduce("+", ethsum)))
+}
+notify("Done!")
+
+# Testplot
+ethplot <- ggplot() + 
+	geom_sf(data = filter(
+			      sideprio, gwno != 565,
+			      ef != 1, ef >= 0),
+		linetype = 0, aes(fill = ef), show.legend = T) +
+	scale_fill_viridis_c() +
+	theme_minimal() + 
+	theme(plot.background = element_rect(fill = "white")) 
+
+pdf(file = "../Output/ethplot.pdf", 
+    width = 10, height = 10/1.68)
+ethplot
+dev.off()
+
+ethbase <- lm(data = filter(sideprio, gwno != 565, ef != 1, ef >= 0),
+	  ef ~ sqrtSpAll + water_gc + barren_gc)
+summary(ethbase)
+
+ethext <- lm(data = filter(sideprio, gwno != 565, ef != 1, ef >= 0),
+	  ef ~ sqrtSpAll + water_gc + barren_gc + logPopd)
+summary(ethext)
+
+eth = list(ethbase, ethext)
+
+texreg(eth,
+       file = "../Output/side.tex",
+       custom.model.names = c("Baseline", "Extended controls"),
+       custom.coef.names = c("Intercept", "Pre-colonial state presence (squared)", "Water
+			     (%)", "Barren", "Population density"),
+       stars = c(0.001, 0.01, 0.05, 0.1), 
+       sideways = T, use.packages = F, scalebox = .9,
+       #custom.note = "",
+       caption = "Ethnic fractionalization",
+       label = "sidetable",
+       booktabs = T,
+       digits = 3,
+       table = T)
 # }}}

@@ -121,10 +121,10 @@ geoISDanalysis <- function(dvs, ivs, controls, data, test_label){
       m3 <- glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
 				    extended_controls, even_more)),
                data=data)
-      m4 <-  glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
-				    extended_controls, even_more, rest)),
-               data=data)
-      models_out_j[[j]] <- list(m1, m2, m3, m4)
+      #m4 <-  glm.nb(as.formula(paste(dv, '~', ivs[j], controls,
+				    #extended_controls, even_more, rest)),
+               #data=data)
+      models_out_j[[j]] <- list(m1, m2, m3)
     } 
     models_out[[i]] <- models_out_j %>% flatten()
   }
@@ -165,7 +165,7 @@ for (i in 1:length(cols)) {
 #	Descriptive Statistics                                         	       #
 #==============================================================================#
 
-sumStats <- select(prio_grid_isd, org3, sp_os_i_sum, bdist3, capdist, barren_gc,
+sumStats <- select(filter(prio_grid_isd, popd > 0), org3, sp_os_i_sum, barren_gc,
 		   mountains_mean, water_gc, distcoast, nopastor, popd)
 
 sumStats <- st_drop_geometry(sumStats)
@@ -177,9 +177,9 @@ stargazer(sumStats, median = FALSE,
 	  label = "summarystats", 
 	  float.env = "sidewaystable",
 	  covariate.labels =
-		  c("Conflict events", "State presence", "Distance to boundary",
-		    "Distance to capital", "Barren", "Mountainous", "Water",
-		    "Distance to coast", "Land not suitable for pasotrialism",
+		  c("Conflict events", "State presence", "Barren", "Mountainous",
+		    "Water", "Distance to coast", 
+		    "Land not suitable for pasotrialism",
 		    "Population density in 1600"),
 	  out = "../Output/CVsummaryStats.tex")
 
@@ -193,9 +193,9 @@ extended_controls <- c('+ region3')
 
 even_more <- c('+ logPopd')
 
-rest <- c('+ logBDist')
+# rest <- c('+ logBDist')
 
-pastoralism <- c('+ nopastor')
+# pastoralism <- c('+ nopastor')
 
 #climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
 
@@ -208,13 +208,12 @@ coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)',
 		'region3' = 'North Africa',
 		'gbr' = 'Former British colony',
 	      	'logPopd' = 'Population density (log)', 
-		'logBDist' = 'Distance to border (log)', 
+		#'logBDist' = 'Distance to border (log)', 
 		'sqrtSpAll:gbr' = 'Interaction term',
 		'sqrtSpAll' = 'Precolonial state presence (sqrt)')
 
 
-control_names_cv <-c('Baseline', 'North Africa', 'Population density', 'Distance
-		     to international boundary')
+control_names_cv <-c('Baseline', 'North Africa', 'Population density')
 
 cv_dvs <- c('non_state', 'org3')
 
@@ -231,25 +230,26 @@ ivs <- c('sqrtSpAll')
 
 cv_nb_models <- geoISDanalysis(dvs = cv_dvs, ivs = ivs, controls = controls,
 			       data = filter(prio_grid_isd, popd > 0),
-			       test_label = 'Linear Models')
+			       test_label = 'Main Models')
 
 #==============================================================================#
 #	Marginal interacation plots 					       #
 #==============================================================================#
 
 # Plotting
-org3_NB <- glm.nb(org3nigreldif ~ sqrtSpAll + mountains_mean + water_gc + barren_gc + 
-		  + nopastor + logCDist + logBDist + logPopd + region3, data =
+org3_NB <- glm.nb(org3 ~ sqrtSpAll + mountains_mean + water_gc + barren_gc + 
+		  nopastor + logCDist + logPopd + region3, data =
 			  filter(prio_grid_isd, popd > 0)) 
 
 summary(org3_NB)
 
-ggorg3 <- ggpredict(org3_NB, terms = "sqrtSpAll [0:15 by = .5] ")
+ggorg3 <- ggpredict(org3_NB, terms = "sqrtSpAll [0:15 by = .5]", condition =
+		    c(nopastor = 1, region3 = 0))
 
 org3plot <- ggplot(ggorg3, aes(x^2, predicted)) +
   geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
-	      fill = lighten("blue")) +
-  geom_line(color = "blue") +
+	      fill = pastels[1]) +
+  geom_line(color = cols[1]) +
   labs(title = 'Main model', 
        x = 'Precolonial state presence', y = 'Communial violence events') +
   goldenScatterCAtheme
@@ -334,8 +334,8 @@ zdvs <- c("org3", "non_state", "acledev", "org3nigreldif")
 
 ziv <- "sqrtSpAll"
 
-zcontrols <- c("+ mountains_mean + water_gc + barren_gc + nopastor + logCDist +
-	       logBDist + logPopd + region3")
+zcontrols <- c("+ mountains_mean + water_gc + barren_gc + logCDist + nopastor + 
+	       logPopd + region3")
 
 #exclusions <- c(475, 500, 501, 452)
 
@@ -374,7 +374,7 @@ zmodels <- zinbanalysis(zdvs = zdvs, zivs = zivs, zcontrols = zcontrols,
 			       test_label = 'ZINB Models')
 
 # Regression tables
-
+# TODO: Still too big!
 for (i in 1:length(zdvs)) { 
   name <- zdvs[i]
   filename <- paste0("../Output/zinb",name,".tex")
@@ -383,7 +383,7 @@ for (i in 1:length(zdvs)) {
          custom.model.names = titles,
          #custom.coef.map = coefs_cv,
          stars = c(0.001, 0.01, 0.05, 0.1), 
-         sideways = T, use.packages = F, scalebox = .5,
+         sideways = F, use.packages = F, scalebox = .5,
          #custom.note = "",
          caption = zcaptions[i],
 	 label = paste0("z",name),
@@ -400,13 +400,14 @@ figs <- function(models) {
 		mainplots <- NULL
 		for(j in 1:3) {
 			mainfigs[[j]] <- ggpredict(models[[i]][[j]], 
-				terms = "sqrtSpAll [0:15 by = .5]") 
+				terms = "sqrtSpAll [0:15 by = .5]", condition =
+			c(nopastor = 1, region3 = 0)) 
 			mainplots[[j]] <- ggplot(mainfigs[[j]],
 				aes(x^2, predicted)) +
   				geom_ribbon(aes(ymin = conf.low, 
 					ymax = conf.high),
-	      				fill = lighten("#440154FF")) +
-  				geom_line(color = "#440154FF") +
+	      				fill = pastels[1]) +
+  				geom_line(color = cols[1]) +
   				labs(title = paste(titles[j]),
 					x = 'Precolonial state presence', 
        					y = 'Communial violence events') +
@@ -417,7 +418,9 @@ figs <- function(models) {
 	for(k in 1:length(interactions)) {
 			intfigs[[k]] <- ggpredict(models[[i]][[3+k]],
 				terms = c("sqrtSpAll [0:15 by = .5]",
-					  paste(interactions[k],"[0,1]")))
+					  paste(interactions[k],"[0,1]")),
+					  condition = c(nopastor = 1, 
+							region3 = 0))
 			intplots[[k]] <- ggplot(intfigs[[k]],
 				aes(x^2, predicted)) +
 				geom_ribbon(aes(ymin = conf.low, 
@@ -456,11 +459,11 @@ noreligioninnigplots <- do.call("grid.arrange", c(plots[[4]], ncol = 3))
 ggsave("../Output/noreligioninnigplots.pdf", noreligioninnigplots, width = 15,
        height = 15/1.68)
 
-#mainplots <-  grid.arrange(org3plot, plots[[1]][[1]], ncol = 2)
+mainplots <-  grid.arrange(org3plot, plots[[1]][[1]], ncol = 2)
 
-#ggsave("../Output/mainplots.pdf", mainplots, width = 15, height = 15/1.68)
+ggsave("../Output/mainplots.pdf", mainplots, width = 15, height = 15/1.68)
 
-#ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
+ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
 
 # logOrg3 Plot
 logOrg3 <- ggplot() +
@@ -1298,7 +1301,7 @@ eth = list(ethbase, ethext)
 texreg(eth,
        file = "../Output/side.tex",
        custom.model.names = c("Baseline", "Extended controls"),
-       custom.coef.names = c("Intercept", "Pre-colonial state presence (squared)", "Water
+       custom.coef.names = c("Intercept", "Pre-colonial state presence (sqrt)", "Water
 			     (%)", "Barren", "Population density"),
        stars = c(0.001, 0.01, 0.05, 0.1), 
        sideways = T, use.packages = F, scalebox = .9,

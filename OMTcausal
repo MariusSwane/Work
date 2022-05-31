@@ -1,8 +1,7 @@
 digraph G {
-	node [ colorscheme = pastel19 color = 3 style = filled];
-	"Explanatory mechanisms" [ shape = box colorscheme = pastel19 color
-	= 5 style = filled];
-	"Observable implications" [shape = box colorscheme = pastel19 color = 2 style = filled];
+	node [ color = "#FFF9C9CC" style = filled];
+	"Explanatory mechanisms" [ shape = box color = "#D0C0D4CC" style = filled];
+	"Observable implications" [shape = box color = "#C8E3E2CC" style = filled];
 	{rank = same; "Explanatory mechanisms"; "More to earn from interethnic exchange"; }
 	{ rank = same; "Observable implications"; "Building individual reputation for trust"; }
 	"Institutions for enforcing contracts & resolving disputes" -> "Reduced security dilemma & commitment problems";
@@ -24,11 +23,10 @@ digraph G {
  	"Less effective anonymity towards outsiders" -> "Lower risk of conflict";
  	"Increasingly mixed settlement patterns" -> "Lower risk of conflict";
 	"Lower risk of conflict" -> "Increasingly mixed settlement patterns";
-	"Lower risk of conflict" [colorscheme = pastel19 color = 2 style = filled];
-	"Increasingly mixed settlement patterns" [colorscheme = pastel19 color =
-	2 style = filled];
-	"Institutions for enforcing contracts & resolving disputes" [colorscheme
-	= pastel19 color = 5 style = filled];
-	"Forceful reduction of non state violence" [colorscheme = pastel19 color
-	= 5 style = filled];
+	"Lower risk of conflict" [color = "#C8E3E2CC" style = filled];
+	"Increasingly mixed settlement patterns" [color =
+	"#C8E3E2CC" style = filled];
+	"Institutions for enforcing contracts & resolving disputes" [color = "#D0C0D4CC" style = filled];
+	"Forceful reduction of non state violence" [color
+	= "#D0C0D4CC" style = filled];
 }

@@ -656,3 +656,20 @@ load("../Data/GeoISDControls.Rdata")
 
 # Shape file
 write_sf(shpPrep, "../Data/GeoISDControls.shp")
+
+#==============================================================================#
+#	Here be monsters!						       #
+#==============================================================================#
+
+epr <- read_csv("../Data/EPR-2021.csv")
+
+ken <- filter(Nonstate_v21_1, location == "Kenya", org == 3)
+
+kenEpr <- filter(epr, to > 1988, statename == "Kenya")
+
+nig <- filter(Nonstate_v21_1, location == "Nigeria")
+
+nigEpr <- filter(epr, to > 1988, statename == "Nigeria")
+
+ed <- read_csv("../Data/ED-2021.csv")
+

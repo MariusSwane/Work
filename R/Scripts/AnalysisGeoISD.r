@@ -249,19 +249,6 @@ interaction_models <- analysis(dvs = dvs, ivs = interactions, controls =
 			       controls, data = filter(prio_grid_isd, popd > 0),
 		       test_label = 'Interaction Models')
 
-#==============================================================================#
-# Controlling for French and British colonies
-# TODO: run sub-samples instead
-
-deathsnogbr <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist + logPopd +
-		    mountains_mean + water_gc + logCDist + logBDist,
-	    filter(prio_grid_isd, prio_grid_isd$popd > 0 & prio_grid_isd$gbr == 0))
-summary(deathsnogbr)
-
-deathsnofra <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist + logPopd +
-		    mountains_mean + water_gc + logCDist + logBDist,
-	    filter(prio_grid_isd, prio_grid_isd$popd > 0 & prio_grid_isd$fra == 0))
-summary(deathsnofra)
 
 #==============================================================================#
 #	Marginal interacation plots 					       #
@@ -274,14 +261,14 @@ deathsMainInt <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist +
 
 
 ggDeathsInt <- ggpredict(deathsMainInt, terms = c("sqrtSpAll [0:15]", "logCapdist
-						 [1.309, 6.27, 7.817]"))
+						 [1.309, 7.817]"))
 
 ggDeathsIntPlot <- ggplot(ggDeathsInt, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + 
 			scale_fill_manual(values = pastels, 
 					  name = 'Distance to capital', 
-					  labels = c('Minimum', 'Mean', 'Maximum')) +
+					  labels = c('Minimum', 'Maximum')) +
 			xlab('State presence') +
 			ylab('Predicted fatalities') +
 			geom_line(aes(x^2, predicted, color = group), 
@@ -299,14 +286,14 @@ ggboth <- glm.nb(both ~ sqrtSpAll * logCapdist + mountains_mean +
 	   data = filter(prio_grid_isd, prio_grid_isd$popd > 0))
 
 ggBothEffect <- ggeffect(ggboth, terms = c("sqrtSpAll [0:15]", "logCapdist
-						 [1.309, 6.27, 7.817]"))
+						 [1.309, 7.817]"))
 
 ggBothPlot <- ggplot(ggBothEffect, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 				linetype = NA)) + 
 		scale_fill_manual(values = pastels, 
 				  name = 'Distance to capital', 
-				  labels = c('Minimum', 'Mean', 'Maximum')) +
+				  labels = c('Minimum', 'Maximum')) +
 		xlab('State presence') +
 		ylab('Predicted conflict events') +
 		geom_line(aes(x^2, predicted, color = group), 
@@ -622,13 +609,34 @@ texreg(robustlist, file = "../Output/robustz.tex",
        scalebox = .9,
        custom.coef.map = coefs,
        include.count = F,
-       label = "zinbz", 
+       label = "robustz", 
        table = T,
-       caption = "ZINB models (zero)",
+       caption = "Additional models (zero)",
        custom.model.names = c('EPR groups', 'Alternativ IV', 
 			      'Excluding former British colonies', 
 			      'Excluding former French colonies'),
        booktabs = T)
+
+# Prior conflict
+
+conf <- read_tsv("../Data/dfo_historical_conflict_data_ehdr.tab")
+
+conf <- subset(conf, conf$continent == "Sub-Saharan Africa" | conf$continent ==
+	       "North Africa")
+
+conf$gwno <- countrycode(conf$country, "country.name", "gwn") 
+
+conf %>% group_by(gwno) %>% summarise(confls = length(gwno))
+
+gisd_cntry %>% prio_grid_isd %>% group_by(gwno) %>% 
+	summarise(interdeaths = sum(interdeaths),
+		  spm = mean(sqrtSpAll),
+		  sps = sum(sqrrtSpAll),
+
+
+zinbepr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
+		     region3 + logCDist + logPopd + logBDist + excluded, data =
+		     filter(prio_grid_isd, popd > 0), dist = "negbin")
 # }}}
 
 # {{{ Histogram

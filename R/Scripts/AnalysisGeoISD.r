@@ -617,7 +617,7 @@ texreg(robustlist, file = "../Output/robustz.tex",
 			      'Excluding former French colonies'),
        booktabs = T)
 
-# Prior conflict
+# Prior conflict (🚧 WIP 🚧)
 
 conf <- read_tsv("../Data/dfo_historical_conflict_data_ehdr.tab")
 

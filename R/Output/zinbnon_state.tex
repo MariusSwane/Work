@@ -1,12 +1,23 @@
 
-\begin{table}
 \begin{center}
-\scalebox{0.5}{
-\begin{tabular}{l c c c c c c c c c}
+\begin{longtable}{l c c c c c c c c c}
 \toprule
  & Main ZINB model & Excluding Jos & Excluding Uganda & Nigeria & Kenya & Ghana & Former British colony interaction & East Africa
 	    interaction & West Africa interaction \\
 \midrule
+\endfirsthead
+\toprule
+ & Main ZINB model & Excluding Jos & Excluding Uganda & Nigeria & Kenya & Ghana & Former British colony interaction & East Africa
+	    interaction & West Africa interaction \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\multicolumn{10}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\cdot}p<0.1$}}\\
+\caption{Non-state conflict events}
+\label{znon_state}
+\endlastfoot \\
 Count model: (Intercept)       & $4.55^{***}$  & $4.57^{***}$  & $4.53^{***}$  & $4.88^{***}$    & $4.57^{***}$  & $4.54^{***}$    & $4.56^{***}$    & $5.05^{***}$  & $4.84^{***}$  \\
                                & $(0.03)$      & $(0.03)$      & $(0.03)$      & $(0.03)$        & $(0.03)$      & $(0.03)$        & $(0.03)$        & $(0.03)$      & $(0.03)$      \\
 Count model: sqrtSpAll         & $-0.01^{***}$ & $-0.01^{***}$ & $-0.01^{***}$ & $-0.07^{***}$   & $-0.01^{***}$ & $-0.01^{***}$   & $-0.10^{***}$   & $0.02^{***}$  & $-0.06^{***}$ \\
@@ -95,11 +106,5 @@ Zero model: sqrtSpAll:region5  &               &               &               &
 AIC                            & $125208.22$   & $124320.33$   & $124296.47$   & $119285.37$     & $124863.07$   & $125035.37$     & $109437.46$     & $113399.58$   & $119272.13$   \\
 Log Likelihood                 & $-62586.11$   & $-62142.17$   & $-62130.24$   & $-59620.68$     & $-62409.53$   & $-62495.69$     & $-54696.73$     & $-56677.79$   & $-59614.07$   \\
 Num. obs.                      & $9492$        & $9491$        & $9419$        & $9492$          & $9492$        & $9492$          & $9492$          & $9492$        & $9492$        \\
-\bottomrule
-\multicolumn{10}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\cdot}p<0.1$}}
-\end{tabular}
-}
-\caption{Non-state conflict events}
-\label{znon_state}
+\end{longtable}
 \end{center}
-\end{table}

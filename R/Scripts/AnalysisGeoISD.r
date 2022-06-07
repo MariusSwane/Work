@@ -40,7 +40,8 @@ library(xtable)
 #	Loading Data and functions					       #
 #==============================================================================#	
 
-load("../Data/GeoISDControls.Rdata") source("goldenScatterCAtheme.r")
+load("../Data/GeoISDControls.Rdata") 
+source("goldenScatterCAtheme.r")
 
 #==============================================================================#
 #	Resolving conflicts 						       #
@@ -157,34 +158,24 @@ even_more <- c('+ logPopd')
 
 rest <- c('+ logBDist')
 
-climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
+extra <- c('+ excluded')
 
-coefs <- list(	'(Intercept)' = NA,
+#climate_controls <- c('+ temp_sd + temp + prec_sd + prec_gpcc')
+
+coefs <- list('sqrtSpAll' = 'Precolonial state presence (sqrt)',
+	      'sqrtSpAny' = 'Precolonial state presence (sqrt)(alt)',
+	      	'logCapdist' = 'Distance to capital (log)',
+		'sqrtSpAll:logCapdist' = 'Interaction term',
+		'sqrtSpAny:logCapdist' = 'Interaction term (alt)',
 		'mountains_mean' = 'Mountainous terrain',
 	     	'water_gc' = 'Water (%)', 
 	 	'barren_gc' = 'Barren (%)', 
 	      	'logCDist' = 'Distance to coast (log)',
 		'region3' = 'North Africa',
 	      	'logPopd' = 'Population density (log)', 
-		'logBDist' = 'Distance to international boundary (log)', 
-	      	'logCapdist' = 'Distance to capital (log)',
-		'sqrtSpAll' = 'Precolonial state presence (sqrt)',
-		'sqrtSpAll:logCapdist' = 'Interaction term')
-
-# countcoefs <- list()
-# 
-# for( i in 1:length(coefs)) {
-# 	names(countcoefs) <- names(coefs) 
-# 	countcoefs[i] <- paste('Count model: ',coefs[i])
-# }
-# 
-# logitcoefs <- list()
-# 
-# for( i in 1:length(coefs)) {
-# 	logitcoefs[i] <- paste('Zero model: ',coefs[i])
-# }
-# 
-# zinbcoefs <- c(logitcoefs, countcoefs)
+		'logBDist' = 'Distance to international boundary (log)',
+		'excluded' = 'Number of EPR excluded groups'
+		)
 
 control_names <-c('Geography', 'North Africa', 'Population densisty', 'Distance
 		  to border')
@@ -209,23 +200,21 @@ interactions <- c('sqrtSpAll * logCapdist')
 #==============================================================================#
 # Correlation Matrix Plot
 
-corrdata <- prio_grid_isd %>% select(bdist3, capdist, barren_gc, mountains_mean,
-				     water_gc, sp_os_i_sum, distcoast, popd,
-				     state_based, non_state, org3, deaths)
+#corrdata <- prio_grid_isd %>% select(bdist3, capdist, barren_gc, mountains_mean,
+#				     water_gc, sp_os_i_sum, distcoast, popd,
+#				     state_based, non_state, org3, deaths)
+#
+#corrdata$geometry <- NULL
+#
+#corrdata_mat <- cor(corrdata, method = c("spearman"), 
+#                     use="pairwise.complete.obs")
+#
+#corrdata_mat <- rcorr(as.matrix(corrdata))
 
-corrdata$geometry <- NULL
+#corrplot(corrdata_mat$r, method='color', diag=F, addCoef.col = "black", 
+#         p.mat = corrdata_mat$P, insig = "blank", tl.col = "black",
+#         tl.srt = 45)
 
-corrdata_mat <- cor(corrdata, method = c("spearman"), 
-                     use="pairwise.complete.obs")
-
-corrdata_mat <- rcorr(as.matrix(corrdata))
-
-# TODO: Print to file
-corrplot(corrdata_mat$r, method='color', diag=F, addCoef.col = "black", 
-         p.mat = corrdata_mat$P, insig = "blank", tl.col = "black",
-         tl.srt = 45)
-
-# TODO: Print to file
 
 # Summary Statistics
 
@@ -374,31 +363,6 @@ for (i in 1:length(dvs)) {
 #	Spatial analysis					       	       #
 #==============================================================================#
 
-# prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
-# 
-# prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
-#   as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651 & gwno !=
-# 			 581 & gwno != 590) %>% 
-#   group_by(gid) %>% 
-#   summarise(bdist3 = mean(bdist3),
-#   capdist = mean(capdist), excluded = mean(excluded), 
-#   	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
-# 	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
-# 
-# prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables - 2021-06-04.csv') 
-# 
-# # Merging static and aggregated prio data
-# prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
-# 
-# # Merging with the grid shape 
-# prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
-#   filter( (gwno >= 404 & gwno <= 626) | gwno == 651 & gwno !=
-# 			 581 & gwno != 590)
-# 
-# prio_sp <- as(prio_grid, Class = "Spatial")
-# 
-# nbQueen <- poly2nb(prio_sp, queen = T, row.names = prio_sp$gid)
-
 nbQueen <- poly2nb(prio_grid_isd, queen = T, row.names = prio_grid_isd$gid)
 
 lw = nb2listw(nbQueen, style = "W", zero.policy = TRUE)
@@ -413,7 +377,7 @@ prio_grid_isd$non_state_l <- lag.listw(lw, prio_grid_isd$non_state, zero.policy 
 
 prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
 
-# Spatial analysis
+# Analysis
 
 zinb_spatial_deaths <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
 			deaths_l + region3 + water_gc + logCDist + logPopd +
@@ -423,14 +387,14 @@ zinb_spatial_deaths <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains
 summary(zinb_spatial_deaths)
 
 gglagzinb <- ggpredict(zinb_spatial_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
-						 [1.309, 6.27, 7.817]"))
+						 [1.309, 7.817]"))
 
 gglagzinbPlot <- ggplot(gglagzinb, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + 
 		scale_fill_manual(values = pastels,
 			name = 'Distance to capital', labels = c('Minimum',
-				 'Mean', 'Maximum')) +
+				 'Maximum')) +
 		xlab('State presence') +
 		ylab('Predicted fatalities') +
 		geom_line(aes(x^2, predicted, color = group),
@@ -450,15 +414,42 @@ zinb_spatial_both <- zeroinfl(both ~ sqrtSpAll * logCapdist + mountains_mean +
 
 summary(zinb_spatial_both)
 
+spatiallist <- list(zinb_spatial_deaths, zinb_spatial_both)
+
+texreg(spatiallist,
+        file = "../Output/spatial_count.tex",
+        custom.model.names = c("Fatalities", "Events"),
+        custom.coef.map = coefs,
+	include.zero = F,
+        stars = c(0.001, 0.01, 0.05, 0.1), 
+        sideways = F, use.packages = F, scalebox = 1,
+        caption = "Spatial lag models (count)",
+	label = "spatialCount",
+	booktabs = T,
+        table = T)
+
+texreg(spatiallist,
+        file = "../Output/spatial_zero.tex",
+        custom.model.names = c("Fatalities", "Events"),
+        custom.coef.map = coefs,
+	include.count = F,
+        stars = c(0.001, 0.01, 0.05, 0.1), 
+        sideways = F, use.packages = F, scalebox = 1,
+        caption = "Spatial lag models (zero)",
+	label = "spatialZero",
+	booktabs = T,
+        table = T)
+
+
 bothlagzinb <- ggpredict(zinb_spatial_both, terms = c("sqrtSpAll [0:15]", "logCapdist
-						 [1.309, 6.27, 7.817]"))
+						 [1.309, 7.817]"))
 
 bothspatzinbPlot <- ggplot(bothlagzinb, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + 
 		scale_fill_manual(values = pastels,
 			name = 'Distance to capital', labels = c('Minimum',
-				 'Mean', 'Maximum')) +
+				 'Maximum')) +
 		xlab('State presence') +
 		ylab('Predicted fatalities') +
 		geom_line(aes(x^2, predicted, color = group),
@@ -490,14 +481,14 @@ zinb_both <- zeroinfl(both ~ sqrtSpAll * logCapdist + mountains_mean +
 summary(zinb_both)
 
 ggzinb <- ggpredict(zinb_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
-						 [1.309, 6.27, 7.817]"))
+						 [1.309, 7.817]"))
 
 ggzinbPlot <- ggplot(ggzinb, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + 
 		scale_fill_manual(values = pastels,
 			name = 'Distance to capital', labels = c('Minimum',
-				 'Mean', 'Maximum')) +
+				 'Maximum')) +
 		xlab('State presence') +
 		ylab('Predicted additional fatalities') +
 		geom_line(aes(x^2, predicted, color = group),
@@ -511,14 +502,14 @@ ggzinbPlot
 dev.off()
 
 ggzinbboth <- ggpredict(zinb_both, terms = c("sqrtSpAll [0:15]", "logCapdist
-						 [1.309, 6.27, 7.817]"))
+						 [1.309, 7.817]"))
 
 ggzinbbothPlot <- ggplot(ggzinbboth, aes(x^2, predicted)) +
 	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
 			linetype = NA)) + 
 		scale_fill_manual(values = pastels, 
 				  name = 'Distance to capital', labels = 
-					  c('Minimum', 'Mean', 'Maximum')) +
+					  c('Minimum', 'Maximum')) +
 		xlab('State presence') +
 		ylab('Predicted additional events') +
 		geom_line(aes(x^2, predicted, color = group),
@@ -531,57 +522,112 @@ pdf("../Output/bothzinbplot.pdf",
 ggzinbbothPlot
 dev.off()
 
-# Controlling for france and gbr
-zinbgbr <- zeroinfl(deaths ~ sqrtSpAll * gbr + mountains_mean + water_gc +
-		     region3 + logCDist + logPopd + logBDist, data =
-		     filter(prio_grid_isd, popd > 0), dist = "negbin")
-
-ggzinbgbr <- ggpredict(zinbgbr, terms = c("sqrtSpAll [0:15]", "gbr
-						 [1, 0]"))
-
-ggzinbgbrPlot <- ggplot(ggzinbgbr, aes(x^2, predicted, color = group)) +
-	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
-			linetype = NA)) + scale_fill_manual(values = pastels) +
-					xlab('State presence') +
-					ylab('Predicted fatalities') +
-					 geom_line() + goldenScatterCAtheme
-
-pdf("../Output/gbrzinbplot.pdf",
-    width = 10, height = 10/1.68)
-ggzinbgbrPlot
-dev.off()
-
-zinbfra <- zeroinfl(deaths ~ sqrtSpAll * fra + mountains_mean + water_gc +
-		     region3 + logCDist + logPopd + logBDist, data =
-		     filter(prio_grid_isd, popd > 0), dist = "negbin")
-
-ggzinbfra <- ggpredict(zinbfra, terms = c("sqrtSpAll [0:15]", "fra
-						 [1, 0]"))
-
-ggzinbfraPlot <- ggplot(ggzinbfra, aes(x^2, predicted, color = group)) +
-	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
-			linetype = NA)) + scale_fill_manual(values = pastels) +
-					xlab('State presence') +
-					ylab('Predicted fatalities') +
-					 geom_line() + goldenScatterCAtheme
-
-pdf("../Output/frazinbplot.pdf",
-    width = 10, height = 10/1.68)
-ggzinbfraPlot
-dev.off()
-
 # Outputting regression tables
 
 zinblist <- list(zinb_deaths, zinb_both)
 
-texreg(zinblist, file = "../Output/zinb.tex", 
+texreg(zinblist, file = "../Output/zinbc.tex", 
        stars = c(0.001, 0.01, 0.05, 0.1), 
        use.packages = F, 
-       scalebox = .7,
-       #custom.coef.map = zinbcoefs,
-       label = "zinb", 
+       scalebox = 1,
+       custom.coef.map = coefs,
+       include.zero = F,
+       label = "zinbc", 
        table = T,
+       caption = "ZINB models (count)",
        custom.model.names = c('Fatalities', 'Conflict events'),
+       booktabs = T)
+
+texreg(zinblist, file = "../Output/zinbz.tex", 
+       stars = c(0.001, 0.01, 0.05, 0.1), 
+       use.packages = F, 
+       scalebox = 1,
+       custom.coef.map = coefs,
+       include.count = F,
+       label = "zinbz", 
+       table = T,
+       caption = "ZINB models (zero)",
+       custom.model.names = c('Fatalities', 'Conflict events'),
+       booktabs = T)
+
+# }}}
+
+# {{{ Robustness checks
+
+# EPR groups
+
+zinbepr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
+		     region3 + logCDist + logPopd + logBDist + excluded, data =
+		     filter(prio_grid_isd, popd > 0), dist = "negbin")
+summary(zinbepr)
+
+# Alternative IV
+
+zinbaiv <- zeroinfl(interdeaths ~ sqrtSpAny * logCapdist + mountains_mean + water_gc +
+		     region3 + logCDist + logPopd + logBDist, data =
+		     filter(prio_grid_isd, popd > 0), dist = "negbin")
+summary(zinbaiv)
+
+ggaivzinb <- ggpredict(zinbaiv, terms = c("sqrtSpAny [0:10]", "logCapdist
+						 [1.309, 7.817]"))
+
+ggzinbaivPlot <- ggplot(ggaivzinb, aes(x^2, predicted)) +
+	geom_ribbon(aes(ymin = conf.low, ymax = conf.high, fill = group,
+			linetype = NA)) + 
+		scale_fill_manual(values = pastels,
+			name = 'Distance to capital', labels = c('Minimum',
+				 'Maximum')) +
+		xlab('State presence') +
+		ylab('Predicted fatalities') +
+		geom_line(aes(x^2, predicted, color = group),
+			  show.legend = F) +
+		scale_color_manual(values = virs) +
+		goldenScatterCAtheme
+ggzinbaivPlot
+
+# Subsamples for france and gbr
+
+zinbgbr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
+		     region3 + logCDist + logPopd + logBDist, data =
+		     filter(prio_grid_isd, popd > 0 & gbr == 0), dist = "negbin")
+summary(zinbgbr)
+
+
+zinbfra <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
+		     region3 + logCDist + logPopd + logBDist, data =
+		     filter(prio_grid_isd, popd > 0 & fra == 0), dist = "negbin")
+summary(zinbfra)
+
+robustlist <- list(zinbepr, zinbaiv, zinbgbr, zinbfra)
+
+texreg(robustlist, file = "../Output/robust.tex", 
+       stars = c(0.001, 0.01, 0.05, 0.1), 
+       use.packages = F, 
+       sideways = T,
+       scalebox = .9,
+       custom.coef.map = coefs,
+       include.zero = F,
+       label = "robustc", 
+       table = T,
+       caption = "Additional models (count)",
+       custom.model.names = c('EPR groups', 'Alternativ IV', 
+			      'Excluding former British colonies', 
+			      'Excluding former French colonies'),
+       booktabs = T)
+
+texreg(robustlist, file = "../Output/robustz.tex", 
+       stars = c(0.001, 0.01, 0.05, 0.1), 
+       use.packages = F, 
+       sideways = T,
+       scalebox = .9,
+       custom.coef.map = coefs,
+       include.count = F,
+       label = "zinbz", 
+       table = T,
+       caption = "ZINB models (zero)",
+       custom.model.names = c('EPR groups', 'Alternativ IV', 
+			      'Excluding former British colonies', 
+			      'Excluding former French colonies'),
        booktabs = T)
 # }}}
 

@@ -1,12 +1,24 @@
 
-\begin{table}
 \begin{center}
-\scalebox{0.5}{
-\begin{tabular}{l c c c c c c c c c}
+\begin{longtable}{l c c c c c c c c c}
 \toprule
  & Main ZINB model & Excluding Jos & Excluding Uganda & Nigeria & Kenya & Ghana & Former British colony interaction & East Africa
 	    interaction & West Africa interaction \\
 \midrule
+\endfirsthead
+\toprule
+ & Main ZINB model & Excluding Jos & Excluding Uganda & Nigeria & Kenya & Ghana & Former British colony interaction & East Africa
+	    interaction & West Africa interaction \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\multicolumn{10}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\cdot}p<0.1$}}\\
+\caption{Communal violence events excluding religious violence
+	       in Nigeria}
+\label{zorg3nigreldif}
+\endlastfoot \\
 Count model: (Intercept)       & $-1.04^{**}$   & $-1.04^{**}$   & $-1.14^{**}$   & $0.18$          & $-0.91^{*}$    & $-1.19^{**}$    & $-0.25$         & $-1.37^{***}$   & $0.36$         \\
                                & $(0.35)$       & $(0.35)$       & $(0.36)$       & $(0.33)$        & $(0.37)$       & $(0.36)$        & $(0.34)$        & $(0.35)$        & $(0.32)$       \\
 Count model: sqrtSpAll         & $-0.05^{***}$  & $-0.05^{***}$  & $-0.05^{***}$  & $-0.17^{***}$   & $0.01^{\cdot}$ & $-0.05^{***}$   & $-0.04^{**}$    & $0.06^{***}$    & $-0.19^{***}$  \\
@@ -95,12 +107,5 @@ Zero model: sqrtSpAll:region5  &                &                &              
 AIC                            & $6495.53$      & $6495.42$      & $6365.95$      & $5882.19$       & $6003.41$      & $6463.19$       & $5640.39$       & $5935.02$       & $5890.78$      \\
 Log Likelihood                 & $-3229.77$     & $-3229.71$     & $-3164.97$     & $-2919.09$      & $-2979.71$     & $-3209.59$      & $-2798.19$      & $-2945.51$      & $-2923.39$     \\
 Num. obs.                      & $9492$         & $9491$         & $9419$         & $9492$          & $9492$         & $9492$          & $9492$          & $9492$          & $9492$         \\
-\bottomrule
-\multicolumn{10}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\cdot}p<0.1$}}
-\end{tabular}
-}
-\caption{Communal violence events excluding religious violence
-	       in Nigeria}
-\label{zorg3nigreldif}
+\end{longtable}
 \end{center}
-\end{table}

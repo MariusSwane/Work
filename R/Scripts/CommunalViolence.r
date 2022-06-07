@@ -32,6 +32,7 @@ library(priogrid)
 library(pscl)
 library(purrr)
 library(raster)
+library(readr)
 library(sidedata)
 library(spdep)
 library(sf)
@@ -55,6 +56,7 @@ geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")
 conflict_prefer("extract", "terra")
+conflict_prefer("last", "dplyr")
 
 # }}}
 
@@ -282,42 +284,32 @@ for (i in 1:length(cv_dvs)) {
 # }}}
 
 # {{{ Spatial analysis
-#==============================================================================#
-#	Set up for spatial analysis				       	       #
-#==============================================================================#
+# Set up 
 
-prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
-
-prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
-  as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
-  group_by(gid) %>% 
-  summarise(bdist3 = mean(bdist3),
-  capdist = mean(capdist), excluded = mean(excluded), 
-  	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
-	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
-
-prio_grid_static  <- read_csv('../Data/PRIO-Grid/PRIO-GRID Static Variables -
-			      2021-06-04.csv') 
-
-# Merging static and aggregated prio data
-prio_grid  <- left_join(prio_grid, prio_grid_static, by = c("gid")) 
-
-# Merging with the grid shape 
-prio_grid <- left_join(prio_grid_shp, prio_grid, by = c("gid")) %>% 
-  filter( (gwno >= 404 & gwno <= 626) | gwno == 651)
-
-prio_sp <- as(prio_grid, Class = "Spatial")
-
-nbQueen <- poly2nb(prio_sp, queen = T, row.names = prio_sp$gid)
+nbQueen <- poly2nb(prio_grid_isd, queen = T, row.names = prio_grid_isd$gid)
 
 lw = nb2listw(nbQueen, style = "W", zero.policy = TRUE)
 
-moran.test(prio_grid_isd$deaths, listw = lw, zero.policy = TRUE)
+moran.test(prio_grid_isd$org3, listw = lw, zero.policy = TRUE)
 
 prio_grid_isd$non_state_l <- lag.listw(lw, prio_grid_isd$non_state, zero.policy
 				       = T)
 
 prio_grid_isd$org3_l <- lag.listw(lw, prio_grid_isd$org3, zero.policy = T)
+
+# Analysis
+
+zinb_spatial_org3 <- zeroinfl(org3 ~ sqrtSpAll + org3_l + barren_gc + mountains_mean +
+			water_gc + nopastor + logCDist + region3 + logPopd +
+			logBDist, data = filter(prio_grid_isd, popd > 0), dist =
+			"negbin")
+summary(zinb_spatial_org3)
+
+zinb_spatial_non_state <- zeroinfl(non_state ~ sqrtSpAll + non_state_l + barren_gc + mountains_mean +
+			water_gc + nopastor + logCDist + region3 + logPopd +
+			logBDist, data = filter(prio_grid_isd, popd > 0), dist =
+			"negbin")
+summary(zinb_spatial_non_state)
 
 # }}}
 
@@ -345,9 +337,17 @@ titles <- c('Main ZINB model', 'Excluding Jos', 'Excluding Uganda', 'Nigeria',
 	    'Kenya', 'Ghana', 'Former British colony interaction', 'East Africa
 	    interaction', 'West Africa interaction')
 
-zcaptions <- c('Communal violence events', 'Non-state conflict events', 'ACLED
-	       events', 'Communal violence events excluding religious violence
-	       in Nigeria')
+zccaptions <- c('Communal violence events (count-model)', 
+		'Non-state conflict events (count-model)',
+		'ACLED events (count-model)', 
+		'Communal violence events excluding 
+		religious violence in Nigeria (count-model)')
+
+zzcaptions <- c('Communal violence events (zero-model)', 
+		'Non-state conflict events (zero-model)',
+		'ACLED events (zero-model)', 
+		'Communal violence events excluding 
+		religious violence in Nigeria (zero-model)')
 
 zinbanalysis <- function(zdvs, zivs, zcontrols, data, test_label){
   models_out <- NULL
@@ -374,22 +374,41 @@ zmodels <- zinbanalysis(zdvs = zdvs, zivs = zivs, zcontrols = zcontrols,
 			       test_label = 'ZINB Models')
 
 # Regression tables
-# TODO: Still too big!
+# Count models
 for (i in 1:length(zdvs)) { 
   name <- zdvs[i]
-  filename <- paste0("../Output/zinb",name,".tex")
+  filename <- paste0("../../../ARC_Project Dropbox/Marius Wishman/Apps/Overleaf/Communal violence and precolonial states/R/Output/czinb",name,".tex")
   texreg(zmodels[[i]],
          file = filename,
          custom.model.names = titles,
-         #custom.coef.map = coefs_cv,
+         custom.coef.map = coefs_cv,
          stars = c(0.001, 0.01, 0.05, 0.1), 
-         sideways = F, use.packages = F, scalebox = .5,
-         #custom.note = "",
-         caption = zcaptions[i],
+         sideways = T, use.packages = F, scalebox = .6,
+         caption = zccaptions[i],
+	 include.zero = F,
 	 label = paste0("z",name),
 	 booktabs = T,
          table = T)
 }
+
+# Zero models
+for (i in 1:length(zdvs)) { 
+  name <- zdvs[i]
+  filename <- paste0("../../../ARC_Project Dropbox/Marius Wishman/Apps/Overleaf/Communal violence and precolonial states/R/Output/zzinb",name,".tex")
+  texreg(zmodels[[i]],
+         file = filename,
+         custom.model.names = titles,
+         custom.coef.map = coefs_cv,
+         stars = c(0.001, 0.01, 0.05, 0.1), 
+         sideways = T, use.packages = F, scalebox = .6,
+         caption = zzcaptions[i],
+	 #include.zero = T,
+	 include.count = F,
+	 label = paste0("z",name),
+	 booktabs = T,
+         table = T)
+}
+
 
 # Part 2: Figures
 
@@ -410,7 +429,7 @@ figs <- function(models) {
   				geom_line(color = cols[1]) +
   				labs(title = paste(titles[j]),
 					x = 'Precolonial state presence', 
-       					y = 'Communial violence events') +
+       					y = 'Additional communal violence events') +
   				goldenScatterCAtheme
 		}
 		intfigs <- NULL
@@ -432,7 +451,7 @@ figs <- function(models) {
 	       			scale_color_manual(values = cols) +
 				labs(title = paste(titles[3+k]),
 					x = 'Precolonial state presence', 
-	     				y = 'Communial violence events') +
+	     				y = 'Additional communal violence events') +
 				goldenScatterCAtheme
 		}
 		figsout[[i]] <- flatten(list(mainplots, intplots))

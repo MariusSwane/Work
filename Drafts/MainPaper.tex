@@ -106,8 +106,7 @@ used for mobilization, as well as regional elite networks. As African states
 gradually expand their reach into their own territories, they threaten the
 autonomy of regional elites. The threat to autonomy triggers commitment
 problems, historic roots and vertical networks provide capabilities, and when in
-remote areas information is scares and bargaining breakdowns can occur. [Too
-bargaining focused?]
+remote areas information is scares and bargaining breakdowns can occur. 
 
 Nigeria provides an illustrative example. Northern Nigeria is dominated by the
 two former empires of the Sokoto Caliphate (and its twin state Adamawa) and
@@ -130,11 +129,17 @@ were also at the heart of the 1967-70 civil war.
 The literature has emphasized a number of determinants of conflict severity.
 Lack of democracy \citep{Lacina_2006}, oil- and gas production and gemstone
 mining in conflict zones \citep{Lujala_2008}, among others. Related to severity
-is civil conflict recurrence \citep{Collier2003b}. This literature has stressed
-the importance of rebel or military victory \citep{Quinn2007, }, peacekeeping
-forces following peace agreement \citep{Collier_2008, Quinn2007}, post-conflict
-economic recovery \citep{Collier_2008, Quinn2007}, political opportunities
-\citep{Walter_2004}, and security-sector reform \citep{Toft_2009}. 
+(when aggregated over time) is civil conflict recurrence \citep{Collier2003b}.
+This strand of the civil conflict literature has stressed the importance of
+rebel or military victory \citep{Luttwak_1999, Quinn2007, Toft_2010},
+peacekeeping forces following peace agreement \citep{Collier_2008, Quinn2007},
+post-conflict economic recovery \citep{Collier_2008, Quinn2007}, political
+opportunities \citep{Walter_2004}, and security-sector reform \citep{Toft_2009}.
+Yet, to date there is limited research of how pre-colonial states affect
+cumulative conflict, as the research on state histories and conflict has
+primarily focused on conflict onsets. This paper partially addresses this gap by
+examining the overall effect of pre-colonial state presence on local levels of
+state-based violence, through cumulative combat deaths and events. 
 
 To test the overall effect of pre-colonial state presence on local levels of
 state-based violence, as well as how this relationship is moderated by distance
@@ -886,7 +891,6 @@ to an international boundary has also been found to predict conflict
 \citep{Buhaug2002}. I use the measure included in the PRIO grid data, which is
 originally from \citet{Weidmann2010a}.
 
-
 \subsection{Modelling} \label{Modelling}
 
 To account for the potential post treatment bias (vis-a-vis potential omitted
@@ -919,12 +923,9 @@ fatality/event.
 Given what is known about spatial diffusion of conflict, there is reason to
 suspect some spatial autocorrelation. However, controlling for this would
 introduce a source of post treatment bias. Nevertheless, as an additional
-robustness check I ran models with queen pattern spatial lags. While the main
-model using fatalities as the depending variable does not converge, the main
-model for conflict events remains largely unchanged.
-
-[Territorial disputes far from the capital and government disputes close to
-capital?]
+robustness check I ran models with queen pattern spatial lags (Tables
+\ref{spatialCount} and \ref{spatialZero}). The main results hold, albeit at the
+10 percent significance level for the fatalities model.
 
 \section{Results} \label{Results}
 
@@ -947,7 +948,7 @@ expected.
 As discussed in Section \ref{Research design}, the data on fatalities contain
 excess zeros, and a zero inflation model is probably a more correct
 specification. Figure \ref{deaths_zinb} models the predictions of the second
-stage ZINB model included in Table \ref{zinb}, which predicts the number of
+stage ZINB model included in Tables \ref{zinbc} and \ref{zinbz}, which predicts the number of
 fatalities in grid cells with at least one fatality. Taken together with the
 negative binomial interaction (in Figure \ref{interdeaths}), it appears that
 little-to-no pre-colonial state presence in the capital does not, by itself lead
@@ -996,28 +997,31 @@ knowledge the \citet{Brecke1999} data set is the most complete. Even so, it
 relies on written histories of which there is little for pre-colonial
 sub-Saharan Africa. What is worse, the missing will be considerably biased
 because kings and states are far more likely to chronicle their warfare in the
-form of written records. [Icing: use Besley and Reynal-Querol data]
+form of written records. What is more, there is good reason to believe that the
+Tillyan notion that war made states, does not hold for Africa
+\citep{Dincecco_2019}. Nevertheless, 
 
 \section{Conclusion} \label{Conclusion}
 
 Drawing on the emerging literature on pre-colonial states \citep{Paine2019,
 Depetris-Chauvin2016}, institutions \citep{Wig2016, Englebert2002,
 Michalopoulos2018} and civil conflict, and on newly compiled data, this paper
-has re-examined the relationship between pre-colonial states and civil conflict. I
-find support for both hypotheses. Overall, effect sizes are substantial,
-indicating that levels of pre-colonial state presence has potentially had a considerable
-impact on post cold war levels of civil conflict in Africa. While armed conflict
-in capital areas is always a serious threat to the state, the results in Table
-\ref{zinb} and Figure \ref{deaths_zinb}, paint a far more dire picture in
-areas with little or no pre-colonial state presence, perhaps reflecting state
-collapse. Pre-colonial state presence can be conflict reducing, as suggested by
-some of the existing literature, but only by providing states with a local
-foundation for state building, which I argue made capital areas more robust to
-civil conflict. On the other hand, in areas far from the capital that have high
-levels of pre-colonial state presence, the central state is not able to build on
-these existing institutions and source of legitimacy. Instead, states struggle to
-integrate these areas without provoking a violent response. The results are
-robust to alternative measurements and model specifications.
+has re-examined the relationship between pre-colonial states and civil conflict.
+I find support for both hypotheses. Overall, effect sizes are substantial,
+indicating that levels of pre-colonial state presence has potentially had a
+considerable impact on post cold war levels of civil conflict in Africa. While
+armed conflict in capital areas is always a serious threat to the state, the
+results in Tables \ref{zinbc} and \ref{zinbz}, and Figure \ref{deaths_zinb},
+paint a far more dire picture in areas with little or no pre-colonial state
+presence, perhaps reflecting state collapse. Pre-colonial state presence can be
+conflict reducing, as suggested by some of the existing literature, but only by
+providing states with a local foundation for state building, which I argue made
+capital areas more robust to civil conflict. On the other hand, in areas far
+from the capital that have high levels of pre-colonial state presence, the
+central state is not able to build on these existing institutions and source of
+legitimacy. Instead, states struggle to integrate these areas without provoking
+a violent response. The results are robust to alternative measurements and model
+specifications.
 
 An interesting case for the next decade is the relationship between Puntland and
 Somalia. Puntland corresponds to the borders of the Majarteen sultanate and is
@@ -1062,7 +1066,12 @@ outside that continent as well.
 \input{"../R/Output/interaction_interdeaths.tex"}
 \input{"../R/Output/interaction_both.tex"}
 \input{"../R/Output/atlasmaps.tex"}
-\input{"../R/Output/zinb.tex"}
+\input{"../R/Output/zinbc.tex"}
+\input{"../R/Output/zinbz.tex"}
+\input{"../R/Output/spatial_count.tex"}
+\input{"../R/Output/spatial_zero.tex"}
+\input{"../R/Output/robust.tex"}
+\input{"../R/Output/robustz.tex"}
 
 \begin{figure}[htpb]
 	\centering
@@ -1080,14 +1089,14 @@ outside that continent as well.
 	\label{bothzinb_int}
 \end{figure}
 
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=\linewidth]{"../R/Output/spatialzinbbothplot.pdf"}
-	\caption{Predicted conflict events per state presence, grouped by
-	distance to capital, in cells with at least one conflict event,
-controlling for spatial diffusion.}
-	\label{spatbothzinb_int}
-\end{figure}
+%\begin{figure}[htpb]
+%	\centering
+%	\includegraphics[width=\linewidth]{"../R/Output/spatialzinbbothplot.pdf"}
+%	\caption{Predicted conflict events per state presence, grouped by
+%	distance to capital, in cells with at least one conflict event,
+%controlling for spatial diffusion.}
+%	\label{spatbothzinb_int}
+%\end{figure}
 
 \end{document}
 

@@ -1,12 +1,23 @@
 
-\begin{table}
 \begin{center}
-\scalebox{0.5}{
-\begin{tabular}{l c c c c c c c c c}
+\begin{longtable}{l c c c c c c c c c}
 \toprule
  & Main ZINB model & Excluding Jos & Excluding Uganda & Nigeria & Kenya & Ghana & Former British colony interaction & East Africa
 	    interaction & West Africa interaction \\
 \midrule
+\endfirsthead
+\toprule
+ & Main ZINB model & Excluding Jos & Excluding Uganda & Nigeria & Kenya & Ghana & Former British colony interaction & East Africa
+	    interaction & West Africa interaction \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\bottomrule
+\multicolumn{10}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\cdot}p<0.1$}}\\
+\caption{Communal violence events}
+\label{zorg3}
+\endlastfoot \\
 Count model: (Intercept)       & $-2.41^{***}$ & $-1.34^{***}$ & $-2.47^{***}$ & $0.25$        & $-1.89^{***}$   & $-2.50^{***}$   & $-0.95^{**}$  & $-1.82^{***}$  & $0.41$        \\
                                & $(0.37)$      & $(0.34)$      & $(0.37)$      & $(0.31)$      & $(0.37)$        & $(0.38)$        & $(0.35)$      & $(0.33)$       & $(0.31)$      \\
 Count model: sqrtSpAll         & $-0.01^{***}$ & $-0.03^{***}$ & $-0.01^{***}$ & $-0.17^{***}$ & $0.05^{***}$    & $-0.01^{***}$   & $-0.04^{***}$ & $0.11^{***}$   & $-0.18^{***}$ \\
@@ -95,11 +106,5 @@ Zero model: sqrtSpAll:region5  &               &               &               &
 AIC                            & $7791.50$     & $6898.84$     & $7650.49$     & $6739.71$     & $7190.38$       & $7731.83$       & $6627.24$     & $6876.25$      & $6756.55$     \\
 Log Likelihood                 & $-3877.75$    & $-3431.42$    & $-3807.24$    & $-3347.85$    & $-3573.19$      & $-3843.91$      & $-3291.62$    & $-3416.12$     & $-3356.28$    \\
 Num. obs.                      & $9492$        & $9491$        & $9419$        & $9492$        & $9492$          & $9492$          & $9492$        & $9492$         & $9492$        \\
-\bottomrule
-\multicolumn{10}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\cdot}p<0.1$}}
-\end{tabular}
-}
-\caption{Communal violence events}
-\label{zorg3}
+\end{longtable}
 \end{center}
-\end{table}

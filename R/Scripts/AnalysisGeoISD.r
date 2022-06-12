@@ -860,5 +860,44 @@ render_snapshot("../Output/3DNigeria")
 render_movie(filename = "../Output/Libyathemovie.gif")
 
 #render_snapshot("../Output/3DLibya.html", webshot = T)
+
+
+#==============================================================================#
+#	Log and sqrt transformed DV					       #
+#==============================================================================#		
+
+
+logmod <- lm(log(interdeaths+1) ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
+		     region3 + logCDist + logPopd + logBDist, data =
+		     filter(prio_grid_isd, popd > 0))
+summary(logmod)
+
+logpred <- ggeffect(logmod, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 7.817]"))
+
+logplot <- ggplot(logpred, aes(x^2, exp(predicted), color = group)) +
+	geom_ribbon(aes(ymin = exp(conf.low), ymax = exp(conf.high), fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
+					 geom_line() + goldenScatterCAtheme
+logplot
+
+sqrtmod <- lm(sqrt(interdeaths) ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
+		     region3 + logCDist + logPopd + logBDist, data =
+		     filter(prio_grid_isd, popd > 0))
+summary(sqrtmod)
+
+sqrtpred <- ggeffect(sqrtmod, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 7.817]"))
+
+sqrtplot <- ggplot(sqrtpred, aes(x^2, predicted^2, color = group)) +
+	geom_ribbon(aes(ymin = conf.low^2, ymax = conf.high^2, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
+					 geom_line() + goldenScatterCAtheme
+sqrtplot
+
 # }}}
 

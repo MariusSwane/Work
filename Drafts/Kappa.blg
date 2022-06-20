@@ -1,49 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Kappa.aux
-The style file: apalike.bst
+The style file: apsr.bst
 Database file #1: ../lib.bib
-Warning--to sort, need author or key in barth1969
-Warning--empty journal in Fearon2014
-You've used 104 entries,
-            1935 wiz_defined-function locations,
-            1143 strings with 19107 characters,
-and the built_in function-call counts, 37730 in all, are:
-= -- 3808
-> -- 1164
-< -- 91
-+ -- 395
-- -- 364
-* -- 3127
-:= -- 6542
-add.period$ -- 308
-call.type$ -- 104
-change.case$ -- 682
-chr.to.int$ -- 103
-cite$ -- 107
-duplicate$ -- 1497
-empty$ -- 2813
-format.name$ -- 527
-if$ -- 7369
-int.to.chr$ -- 2
+You've used 105 entries,
+            2874 wiz_defined-function locations,
+            1368 strings with 22424 characters,
+and the built_in function-call counts, 407077 in all, are:
+= -- 66799
+> -- 4155
+< -- 3
++ -- 30966
+- -- 1516
+* -- 34484
+:= -- 81959
+add.period$ -- 420
+call.type$ -- 105
+change.case$ -- 1366
+chr.to.int$ -- 104
+cite$ -- 105
+duplicate$ -- 1628
+empty$ -- 3504
+format.name$ -- 1648
+if$ -- 73043
+int.to.chr$ -- 6
 int.to.str$ -- 0
 missing$ -- 118
-newline$ -- 517
-num.names$ -- 309
-pop$ -- 516
+newline$ -- 497
+num.names$ -- 1164
+pop$ -- 451
 preamble$ -- 1
-purify$ -- 702
+purify$ -- 1575
 quote$ -- 0
-skip$ -- 1189
+skip$ -- 1332
 stack$ -- 0
-substring$ -- 2942
-swap$ -- 168
-text.length$ -- 6
+substring$ -- 94099
+swap$ -- 249
+text.length$ -- 1473
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 582
-warning$ -- 2
-while$ -- 344
+type$ -- 378
+warning$ -- 0
+while$ -- 2439
 width$ -- 0
-write$ -- 1331
-(There were 2 warnings)
+write$ -- 1490

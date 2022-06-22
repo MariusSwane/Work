@@ -3,44 +3,46 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Kappa.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
-You've used 116 entries,
+Warning--can't use both author and editor fields in barth1969
+You've used 120 entries,
             2874 wiz_defined-function locations,
-            1426 strings with 23857 characters,
-and the built_in function-call counts, 437241 in all, are:
-= -- 71664
-> -- 4363
+            1446 strings with 24309 characters,
+and the built_in function-call counts, 452228 in all, are:
+= -- 74091
+> -- 4535
 < -- 3
-+ -- 33080
-- -- 1603
-* -- 36963
-:= -- 88187
-add.period$ -- 464
-call.type$ -- 116
-change.case$ -- 1509
-chr.to.int$ -- 114
-cite$ -- 116
-duplicate$ -- 1796
-empty$ -- 3892
-format.name$ -- 1760
-if$ -- 78426
++ -- 34196
+- -- 1665
+* -- 38251
+:= -- 91207
+add.period$ -- 480
+call.type$ -- 120
+change.case$ -- 1561
+chr.to.int$ -- 118
+cite$ -- 121
+duplicate$ -- 1860
+empty$ -- 4045
+format.name$ -- 1826
+if$ -- 81110
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 131
-newline$ -- 546
-num.names$ -- 1273
-pop$ -- 488
+missing$ -- 136
+newline$ -- 563
+num.names$ -- 1319
+pop$ -- 492
 preamble$ -- 1
-purify$ -- 1740
+purify$ -- 1800
 quote$ -- 0
-skip$ -- 1466
+skip$ -- 1520
 stack$ -- 0
-substring$ -- 100885
-swap$ -- 272
-text.length$ -- 1627
+substring$ -- 104315
+swap$ -- 282
+text.length$ -- 1683
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 418
-warning$ -- 0
-while$ -- 2688
+type$ -- 434
+warning$ -- 1
+while$ -- 2787
 width$ -- 0
-write$ -- 1643
+write$ -- 1699
+(There was 1 warning)

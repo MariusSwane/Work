@@ -2,6 +2,9 @@
 #	Loading Packages						       #
 #==============================================================================#	
 
+library(VennDiagram)
+library(viridis)
+
 
 #==============================================================================#
 #	Loading Data and functions					       #
@@ -97,3 +100,37 @@ pdf("../Output/sp_sum_any_plot.pdf",
     width = 10, height = 10/1.68)
 sp_sum_any_plot
 dev.off()
+
+# Create the Venn diagram
+# some random data
+foo <- c('a','b','c','d')
+baa <- c('a','e','f','g')
+
+# Generate plot
+v <- venn.diagram(list(foo=foo, baa=baa),
+                  fill = viridis(2),
+                  alpha = c(0.5, 0.5), 
+		  cat.cex = 2, 
+		  cat.pos = 1,
+		  cex=1.2,
+                  filename=NULL)
+
+# Over-write labels (5 to 7 chosen by manual check of labels)
+# in left only
+v[[5]]$label  <- paste("Non-violent dissent")  
+# in right only
+v[[6]]$label <- paste("Interstate conflict and
+all non-state conflict 
+including communal violence")  
+# intesection
+v[[7]]$label <- paste("Violent dissent: 
+intrastate- extrastate-
+and internationalized 
+conflicts")  
+# Left blob
+v[[8]]$label <- paste("Maximalist dissent")
+# Right blob
+v[[9]]$label <- paste("Organized violence")
+
+ggsave("../Output/venn.pdf", width = 10, height = 10/1.683, v)
+

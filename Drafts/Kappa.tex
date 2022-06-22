@@ -10,6 +10,7 @@
 \usepackage[british]{datetime2}
 \usepackage{hyperref}
 \usepackage{tabularx}
+\usepackage{multirow}
 \usepackage{booktabs}
 
 \hypersetup{
@@ -39,14 +40,16 @@ urlcolor=blue
 
 % }}}
 
+% Thesis title ideas: "Janus-faced: Historical statehood and organized violence"
+
 \section{Introduction}
 
 In North West Indonesia, 1976, GAM (Gerkan Aceh Merdeka: Free Aceh Movement)
-declared independence for the province of Aceh, under the leadership of Hasan di
-Tiro, a descendent of the last Sultan of the Aceh region. Initially the movement
-consisted of the remnants of an old religious network, with its roots in the old
-Sultanate and armed struggle against the Dutch. The resulting
-conflict lasted until 2005 and resulted in an estimated 3402 combat related
+declared the independence of the province of Aceh under the leadership of Hasan
+di Tiro, a descendent of the last Sultan of the Aceh region. Initially the
+movement consisted of the remnants of an old religious network, with its roots
+in the old Sultanate and armed struggle against the Dutch. The resulting
+conflict lasted until 2005 and resulted in an estimated 3,402 combat related
 fatalities after 1989 \citep{Aspinall2009, Pettersson2018, Sundberg2013}.
 
 In Ethiopia in 1975, the Dirge regime tried to arrest the Sultan of Aussa. However,
@@ -57,12 +60,12 @@ trained in Somalia. The heavy handed response of the Ethiopian military left
 over a thousand civilian casualties \citep{UCDPconflict363}.
 
 In 1960, in the newly formed Republic of the Congo (Léopoldville) (current
-Democratic Republic of the Congo) South Kasai declares unilaterally to have
+Democratic Republic of the Congo) South Kasai declared unilaterally to have
 seceded from the nascent Republic under the leadership of traditional chief
 Albert Kalonji \citep{Nzongola2002}. He then preceded to have his father
 declared the new Mulopwe, thus resurrecting the royal title of the Luba kingdom
-(1585-1889). His father promptly abdicated handing the title to Kalonji (now
-styling himself Albert Ditunga, ``homeland''). South Kasai fought for independence
+(1585-1889). His father promptly abdicated, handing the title to Kalonji (now
+styling himself Albert Ditunga, `homeland'). South Kasai fought for independence
 for just over two years, provoking a campaign by the Congolese armed forces that
 at the time was characterized by UN Secretary-General Dag Hammarskjöld as an act
 of genocide \citep{Nzongola2002}.
@@ -165,6 +168,11 @@ violence.\\
 \subsection{Correlates of civil war and non-state conflicts} 
 \label{Correlates of civil war and non-state conflicts}
 
+\citep{Hegre2001} ` intermediate regimes are most prone to civil war, even when
+they have had time to stabilize from a regime change. In the long run, since
+intermediate regimes are less stable than autocracies, which in turn are less
+stable than democracies'
+
 *** Non-state scraps *** 
 Relative to the civil conflict literature the literature on non-state violence
 is still in its infancy. Nevertheless, works have examined subjects ranging from
@@ -202,6 +210,9 @@ separated into the economic and political outcomes, which I will briefly
 summarise below, and conflict outcomes, which I will cover in Section
 \ref{Theoretical/conceptual framework}.
 
+Some more on the violent pre-state past? Similarities between this violence and
+communal violence.
+
 \subsubsection{Economic legacies} \label{Economic legacies}
 
 How states are composed today clearly matter for economic development, levels of
@@ -218,6 +229,8 @@ of this literature has examined the effects of past statehood
 \citep{Michalopoulos2013, Michalopoulos2018, Englebert2000} and largely agree on
 a positive effect of statehood and institutions \citep{Nunn_2020,
 Michalopoulos2016}, although there are notable exceptions \citep{Acemoglu_2002}.
+
+\citep{Grosjean_2011, Mazzuca_2021}
 
 \subsubsection{Political legacies} \label{Political legacies}
 
@@ -266,6 +279,8 @@ civil wars, political instability and secession attempts. Following
 ethnic partitioning and civil conflict \citep{Ito2020}, as well as links between
 resulting trans-border ethnic kin relations and conflict \citep{Cederman2013,
 Salehyan2009, Weidmann2015}. [Tie back to (limited) degrees of statehood]
+
+\citet{Englebert2002, Paine2019, Wig2016, Wig2018, Depetris-Chauvin2016}
 
 \subsection{Moving beyond the literature} \label{Moving beyond}
 % Filling the gaps, addressing the puzzles
@@ -521,10 +536,19 @@ conflict) and communal violence.\footnote{Historical state entities could matter
 	African sample and the continent have seen only one interstate conflict
 and no extrastate conflicts in the time period covered in the papers.} 
 
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=.9\textwidth]{../R/Output/venn.pdf}
+	\caption{Categories of violence and dissent}
+	\label{venn}
+\end{figure}
+
 \section{Theoretical/conceptual framework}
 \label{Theoretical/conceptual framework}
 
-\subsection{Grievance} \label{Grievance}
+\subsection{Models} \label{Models}
+
+\subsubsection{Grievance} \label{Grievance}
 
 There is a substantial literature explaining the occurrence (and re-occurrence)
 of civil conflict. This literature can be traced back to a handful of classic
@@ -534,12 +558,6 @@ relative deprivation and the related `revolution of rising expectations'
 ground for revolution. This grievance and deprivation focus was later applied to
 structural inequalities as well \citep{Muller_1985, Muller_1987,
 ScottJamesC1977TMEo}. 
-
-The emphasis placed on grievances was not without critics. Charles Tilly and
-others questioned the lack of empirical support of grievance based arguments
-\citep{Oberschall_1978, Brush_1996}. Specifically there seemed to be a
-discrepancy between the proliferation of grievances and relative rare events of
-civil conflict \citep{Snyder_1972, TillyCharles1978Fmtr, Skocpol_1979}. 
 
 The response to this criticism was to shift to meso/group level mechanisms,
 moving away from strict Marxist/materialist explanations at class or country
@@ -558,23 +576,6 @@ drive to address this gap was lead by Gurr and the minorities at risk (MAR)
 project \citet{GurrTedRobert1993Mar:}. In response to Tilly's earlier
 critique he also added some opportunity to the general argument of grievance in
 the resulting work \citep{Gurr_1993}. 
-
-Seemingly unaware of the existing critiques \citet{Collier2004} explicitly frame
-their paper around the `Greed versus grievance' debate, and forcefully reiterate
-the previous argument that if grievances caused civil war, then there would be
-civil war everywhere. Instead they painted a picture of civil conflict being
-driven by cynical and greedy conflict entrepreneurs, backed by a solid, albeit
-over simplified (see below), systematic empirical investigation. By the time
-they revisited their initial article the picture had become more nuanced, using
-the term opportunities in the place of greed \citep{Collier2009}. Yet, the
-fundamental argument and criticism of the grievance motivated literature
-remained largely unchanged. Also [taking the side of] opportunities
-\citet{Fearon2003} emphasized how fighting in peripheries, rough terrain, state
-weakness and corruption due to oil evened the odds in favor of rebel groups.
-Like \citet{Collier2009} \citet{Fearon_2004} nuanced their initial stance in
-their follow up work on civil conflict duration, echoing
-\citet{WeinerMyron1978SotS} `Sons of the soil', they argued that concentrated
-peripheral ethnic groups react violently to perceived incursions.
 
 Responding to this \citet{Kalyvas2006} and others turned to radical
 disaggregation in an effort to tighten the logic of causal inference. Examining
@@ -597,36 +598,58 @@ increases the likelihood of conflict \citep{CedermanLars-Erik2013Igac}. [a bit
 more]
 
 [The role of climate and environmental factors \citep{Detges_2017,
-von_Uexkull_2021}]
+von_Uexkull_2021}] % Grievance or bargaining focused?
 
-[Other new trends in conflict research?]
+\subsubsection{Opportunities} \label{Opportunities}
 
-\subsection{Opportunities} \label{Opportunities}
+The emphasis placed on grievances was not without critics. Charles Tilly and
+others questioned the lack of empirical support of grievance based arguments
+\citep{Oberschall_1978, Brush_1996}. Specifically there seemed to be a
+discrepancy between the proliferation of grievances and relative rare events of
+civil conflict \citep{Snyder_1972, TillyCharles1978Fmtr, Skocpol_1979}. 
 
-\subsection{Bargaining} \label{Bargaining}
+Seemingly unaware of the existing critiques \citet{Collier2004} explicitly frame
+their paper around the `Greed versus grievance' debate, and forcefully reiterate
+the previous argument that if grievances caused civil war, then there would be
+civil war everywhere. Instead they painted a picture of civil conflict being
+driven by cynical and greedy conflict entrepreneurs, backed by a solid, albeit
+over simplified (see below), systematic empirical investigation. By the time
+they revisited their initial article the picture had become more nuanced, using
+the term opportunities in the place of greed \citep{Collier2009}. Yet, the
+fundamental argument and criticism of the grievance motivated literature
+remained largely unchanged. Also [taking the side of] opportunities
+\citet{Fearon2003} emphasized how fighting in peripheries, rough terrain, state
+weakness and corruption due to oil evened the odds in favor of rebel groups.
+Like \citet{Collier2009} \citet{Fearon_2004} nuanced their initial stance in
+their follow up work on civil conflict duration, echoing
+\citet{WeinerMyron1978SotS} `Sons of the soil', they argued that concentrated
+peripheral ethnic groups react violently to perceived incursions.
 
-****
+\citet{Weinstein_2005} natural resources provide opportunities for short term
+rewards, while in poor surroundings rebel leaders must make credible promises of
+future rewards based on political reform.
+
+\subsubsection{Bargaining} \label{Bargaining}
+
+The likes of \citet{Fearon1995} and \citet{Powell2006} introduced bargaining
+theory to international relations. \citet{WalterBarbaraF2002CtPT, Walter2006,
+Walter2009} and \citet{Cunningham2006, Cunningham2013c, Cunningham_2013} brought
+it to civil conflict.
+
+\citep{Buhaug2009, Cunningham2006, Cunningham2013c, Cunningham_2013, Walter2006,
+Walter2009}
+
+\citet{Denny2014} Unifies all! Ethnic groups are likely to have grievances, are
+better able to organize (opportunity) and are more likely to face bargaining
+issues.
+
+\subsection{The conditional [effects] of historical statehood}
+\label{The conditional [effects] of historical statehood}
 
 The theoretical goal of this thesis is to examine connection(s) between the two
 overarching concepts of past states and organized violence. To this end, I turn
 no to the question of what links have already been found between the two, and
 what is this thesis adding to this literature? 
-
-
-What then of conflict?
-
-% Past states -> past conflict -> current conflict
-Living up to the second part of the quote attributed to Charles Tilly, `War
-made the state, and the state made war.', past states also left legacies of
-conflict. Historical levels conflict in Africa has been found to positively
-affect modern levels of conflict \citep{Besley2014}, although the direction of
-the relationship is does not hold in a global sample, and depends on colonial
-experiences and wars of liberation (extra systemic conflicts)
-\citep{Fearon2014}. 
-
-\citet{Dincecco_2019}
-
-%%%%%
 
 Main `thrust' is that `it depends'. Expand on the answer to the puzzle in the
 introduction. It depends on the relationship between the modern state and old
@@ -634,8 +657,19 @@ state(s), and on the type of violence.
 
 Some more prior literature: \citet{Griffiths2016} \citet{Ahram2019}
 
-Some more on the violent pre-state past? Similarities between this violence and
-communal violence.
+\begin{table}
+\begin{tabularx}{.9\textwidth}{XX|X|X}
+    & & {Low levels of state presence} & {High levels of state presence} \\
+\midrule
+     \multirow{2}{=}{State based violence} & Near capital & Conflict &  Peace \\
+     \cmidrule{2-4}
+     & Far from capital & \ Peace & Conflict \\
+\midrule
+     Communal violence & & Conflict & Peace \\
+\end{tabularx}
+\caption{The conditional effects of historical statehood}
+\end{table}
+
 
 \section{Analytical approach} \label{Analytical approach}
 

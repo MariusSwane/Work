@@ -4,45 +4,45 @@ The top-level auxiliary file: Kappa.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
 Warning--can't use both author and editor fields in barth1969
-You've used 122 entries,
+You've used 124 entries,
             2874 wiz_defined-function locations,
-            1456 strings with 24576 characters,
-and the built_in function-call counts, 461235 in all, are:
-= -- 75583
-> -- 4637
+            1470 strings with 24981 characters,
+and the built_in function-call counts, 469446 in all, are:
+= -- 76916
+> -- 4742
 < -- 3
-+ -- 34903
-- -- 1701
-* -- 39019
-:= -- 93009
-add.period$ -- 488
-call.type$ -- 122
-change.case$ -- 1587
-chr.to.int$ -- 120
-cite$ -- 123
-duplicate$ -- 1889
-empty$ -- 4107
-format.name$ -- 1862
-if$ -- 82728
++ -- 35526
+- -- 1738
+* -- 39729
+:= -- 94658
+add.period$ -- 496
+call.type$ -- 124
+change.case$ -- 1613
+chr.to.int$ -- 122
+cite$ -- 125
+duplicate$ -- 1919
+empty$ -- 4179
+format.name$ -- 1901
+if$ -- 84199
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 138
-newline$ -- 571
-num.names$ -- 1343
-pop$ -- 501
+missing$ -- 140
+newline$ -- 581
+num.names$ -- 1367
+pop$ -- 506
 preamble$ -- 1
-purify$ -- 1830
+purify$ -- 1860
 quote$ -- 0
-skip$ -- 1546
+skip$ -- 1571
 stack$ -- 0
-substring$ -- 106419
-swap$ -- 285
-text.length$ -- 1711
+substring$ -- 108306
+swap$ -- 289
+text.length$ -- 1739
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 442
+type$ -- 450
 warning$ -- 1
-while$ -- 2835
+while$ -- 2884
 width$ -- 0
-write$ -- 1724
+write$ -- 1754
 (There was 1 warning)

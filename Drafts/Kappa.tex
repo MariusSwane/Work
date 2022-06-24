@@ -10,6 +10,7 @@
 \usepackage[british]{datetime2}
 \usepackage{hyperref}
 \usepackage{tabularx}
+\usepackage{makecell}
 \usepackage{multirow}
 \usepackage{booktabs}
 
@@ -85,26 +86,28 @@ working for peace, mediation and reconciliation. For example, in Burkina Faso
 the Mogho Naba of the Mossi kingdom of Ouagadougou served as a mediator
 following a coup, and apparently was instrumental in preserving the peace
 (\href{https://www.bbc.com/news/world-africa-34340704}{BBC}). [Another example
-of peace inducing]. The nascent academic literature on organized violence and
-the legacies of past statehood reflects these diverging sets of examples. While
-some, in line with the examples given above, find a conflict inducing effect of
-past states \citep{Englebert2002, Paine2019}, others argue that past experience
-of statehood provides experience and institutions that are peace inducing
-\citep{Wig2016, Wig2018, Depetris-Chauvin2016}. Yet, all but one of these
-articles conceptualize states in terms of currently (politically relevant)
-ethnic groups and the degree to which these groups have connections to past states.
-This risks excluding states that are not readily tied to a current politically
-relevant ethnic group. It further risks discounting experiences of statehood of
-groups who have lived as a part of states for hundreds of years, without being the
-dominant ethnic group. Additionally, this literature has been almost exclusively
-limited to Africa. The diverging conclusions in the literature could in part be
-a result of the paucity of quantitative data on past statehood. The literature
-has been limited to using either the Murdoch map, which codes `jurisdictional
-hierarchy' of ethnic groups, or the State Antiquities Index, which measures
-country level experience of statehood (including from foreign rule). In summary,
-there is a need for more and better data, in order to answer the puzzle of
-whether there is a positive or negative association between state histories and
-organized violence. Potentially, both statements are true, but vary according to
+of peace inducing]. 
+
+The nascent academic literature on organized violence and the legacies of past
+statehood reflects these diverging sets of examples. While some, in line with
+the examples given above, find a conflict inducing effect of past states
+\citep{Englebert2002, Paine2019}, others argue that past experience of statehood
+provides experience and institutions that are peace inducing \citep{Wig2016,
+Wig2018, Depetris-Chauvin2016}. Yet, all but one of these articles conceptualize
+states in terms of currently (politically relevant) ethnic groups and the degree
+to which these groups have connections to past states. This risks excluding
+states that are not readily tied to a current politically relevant ethnic group.
+It further risks discounting experiences of statehood of groups who have lived
+as a part of states for hundreds of years, without being the dominant ethnic
+group. Additionally, this literature has been almost exclusively limited to
+Africa. The diverging conclusions in the literature could in part be a result of
+the paucity of quantitative data on past statehood. The literature has been
+limited to using either the Murdoch map, which codes `jurisdictional hierarchy'
+of ethnic groups, or the State Antiquities Index, which measures country level
+experience of statehood (including from foreign rule). In summary, there is a
+need for more and better data, in order to answer the puzzle of whether there is
+a positive or negative association between state histories and organized
+violence. Potentially, both statements are true, but vary according to
 circumstances. In which case, what determines when and where past statehood is
 conflict inducing or peace inducing?
 
@@ -224,9 +227,8 @@ legal systems \citep{Eck2014}, marginalisation and corruption
 \subsection{Historical legacies} \label{Historical legacies}
 
 The literature on the long term effects of past statehood can broadly be
-separated into the economic and political outcomes, which I will briefly
-summarise below, and conflict outcomes, which I will cover in Section
-\ref{Theoretical/conceptual framework}.
+separated into the economic, political, and conflict outcomes, which I will
+briefly summarise below.
 
 \subsubsection{Economic legacies} \label{Economic legacies}
 
@@ -267,31 +269,81 @@ dismantling of pre-existing institutions \citep{Wilfahrt_2021}.
 \subsubsection{Legacies of violence and contention} 
 \label{Legacies of violence and contention}
 
-This limited statehood has been linked to a number of empirical outcomes. For
-example, \citet{Alesina2011} uses `squigglyness' of international boundaries as
-a measure/instrument for whether the boundaries were drawn with local knowledge
-(endogenously), or not (exogenously). They find that straightness of
-international boundaries, what they term artificial borders, are linked with
-lower levels of economic development. The presumed mechanism (which is not
-tested) is that artificial borders, borders drawn by an exogenous process, group
-together multiple ethnic groups and split others. These ethnic constellations
-then make it difficult for the state to create a sense of nationhood and get
-people to work toward common goals. \citet{Englebert2002} tests this more
-explicitly and find that states whose borders split ethnic groups more, are more
-often involved in international disputes. They also find that countries whose
-boundaries group together ethnic groups with more different forms pre-colonial
-political organization\footnote{As measured by the standard deviation of
-\citet{Murdock1967}'s jurisdictional hierarchy index.}, are more susceptible to
-civil wars, political instability and secession attempts. Following
-\citet{Englebert2002} the conflict-literature has also uncovered links between
-ethnic partitioning and civil conflict \citep{Ito2020}, as well as links between
-resulting trans-border ethnic kin relations and conflict \citep{Cederman2013,
-Salehyan2009, Weidmann2015}. [Tie back to (limited) degrees of statehood]
+Living up to the second part of the quote attributed to Charles Tilly, `War
+made the state, and the state made war.', past states can leave legacies of
+conflict. Historical levels conflict in Africa have been found to positively
+affect modern levels of conflict \citep{Besley2014}, although the direction of
+the relationship is does not hold in a global sample, and depends on colonial
+experiences and wars of colonial liberation \citep{Fearon2014}. 
 
-\citet{Englebert2002, Paine2019, Wig2016, Wig2018, Depetris-Chauvin2016}
+%\citet{Dincecco_2019}
+
+Similar to \citet{Clapham1996}'s notion of limited statehood, another branch of
+literature has emphasized how African boundaries reflected colonial competition
+between European powers, rather than the local ethnic, geographic or political
+situation. For example, \citet{Alesina2011} uses `squigglyness' of international
+boundaries as a measure/instrument for whether the boundaries were drawn with
+local knowledge (endogenously), or not (exogenously). They find that
+straightness of international boundaries, what they term artificial borders, are
+linked with lower levels of economic development. The presumed mechanism (which
+is not tested) is that artificial borders, borders drawn by an exogenous
+process, group together multiple ethnic groups and split others. These ethnic
+constellations then make it difficult for the state to create a sense of
+nationhood and get people to work toward common goals. \citet{Englebert2002}
+tests this more explicitly and find that states whose borders split ethnic
+groups more, are more often involved in international disputes. They also find
+that countries whose boundaries group together ethnic groups with more different
+forms pre-colonial political organization\footnote{As measured by the standard
+deviation of \citet{Murdock1967}'s jurisdictional hierarchy index.}, are more
+susceptible to civil wars, political instability and secession attempts.
+Following \citet{Englebert2002} the conflict-literature has also uncovered links
+between ethnic partitioning and civil conflict \citep{Ito2020,
+Michalopoulos2016}, as well as links between resulting trans-border ethnic kin
+relations and conflict \citep{Cederman2013, Salehyan2009, Weidmann2015}. 
+
+A handful of recent studies have examined how legacies of statehood can shape
+violence and contention even to this day. \citet{Wig2016} finds that African
+ethnic groups with more centralized pre-colonial institutions are less likely to
+be involved in ethnic conflicts. He argues that many of these institutions are
+persistent, and that institutions reduce commitment problems by reducing
+uncertainty and imposing constraints on leaders \citep{Wig2016}. Similarly,
+\citet{Depetris-Chauvin2016} finds that areas with more long run exposure to
+statehood have experienced fewer years of post-cold war conflict (of any type
+coded by the GED). He attributes this to better equipped with mechanisms to
+establish and preserve order, and supports this by showing that individuals in
+countries with more state history are more favorable to state institutions and
+traditional leaders, and that such ares are more resistant to the conflict
+inducing effect of negative economic shocks \citep{Depetris-Chauvin2016}.
+
+On the other hand, \citet{Paine2019} examined ethnic groups in Africa organized
+as pre-colonial states (PCS-groups), and how relate to non-PCS-Groups. He finds
+that PCS-groups are likely to be in power, and that while in power they tend to
+exclude other ethnic groups, increasing the risk of internal coups and civil
+conflict from other groups \citep{Paine2019}. Overall, he finds that non-PCS
+groups in countries with a PCS-group participated in major civil wars 4.9 times
+more frequently than non-PSC-groups in countries without a PCS-group. Indeed, of
+the thirty-two ethnic group-level major civil war onsets after 1989, thirty
+occurred in countries with a PCS-group.
+
+Studying communal conflicts \citet{Wig2018} employ bargaining theory from state
+based conflict studies to demonstrate that institutions (like ones stemming form
+former statehood) can provide credible non-violent bargains between groups. They
+find that the more institutions an ethnic group has, the better it is able to
+avoid conflict. They also find a conflict reducing effect of more inclusive,
+democracy-like, institutions \citep{Wig2018}.
 
 \subsection{Moving beyond the literature} \label{Moving beyond}
 % Filling the gaps, addressing the puzzles
+
+% Wig only dyadic and only ethnic conflict.
+% Both rely on the Murdock map and EPR
+
+% DP LARGE grid cells, limited sample of states and state borders, strange
+% measure of conflict (proportions of years with ANY type conflict).
+
+% Pain does not directly contradict DP and Wig, but does present a puzzle.
+% Especially coupled with the artificial states literature.
+% Limited sample of states. No country has multiple state groups
 
 \section{Concepts} \label{Concepts}
 % Concepts and literature
@@ -461,7 +513,7 @@ following discussion will provide more details.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=.9\textwidth]{../R/Output/venn.pdf}
+	\includegraphics[width=\textwidth]{../R/Output/venn.pdf}
 	\caption{Categories of violence and dissent}
 	\label{venn}
 \end{figure}
@@ -683,14 +735,14 @@ state(s), and on the type of violence.
 Some more prior literature: \citet{Griffiths2016} \citet{Ahram2019}
 
 \begin{table}
-\begin{tabularx}{.9\textwidth}{XX|X|X}
+\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X}
     & & {Low levels of state presence} & {High levels of state presence} \\
 \midrule
-     \multirow{2}{=}{State based violence} & Near capital & Conflict &  Peace \\
+     \multirow{2}{=}{\centering State based violence} & Near capital & Conflict &  Peace \\
      \cmidrule{2-4}
-     & Far from capital & \ Peace & Conflict \\
+					   & \makecell{Far from \\ capital} & \ Peace & Conflict \\
 \midrule
-     Communal violence & & Conflict & Peace \\
+     \makecell{Communal\\ violence} & & Conflict & Peace \\
 \end{tabularx}
 \caption{The conditional effects of historical statehood}
 \end{table}
@@ -698,13 +750,26 @@ Some more prior literature: \citet{Griffiths2016} \citet{Ahram2019}
 
 \section{Analytical approach} \label{Analytical approach}
 
-Data narrative (inductive/deductive). Empirical tradition.
+% Data narrative (inductive/deductive). Empirical tradition.
 
-Discussion of maps to uncover the state?
+\subsection{Data on historical states} \label{Data on historical states}
 
-Discussion of `state presence'?
+Repeat (to some extent) what has been done previously.
+
+ISD -> EJIR article 
+
+\subsection{Geo-ISD: moving beyond two dimensions} 
+\label{Geo-ISD}
 
 \section{Article summaries} \label{Article summaries}
+
+\subsection{Paper 1} \label{Paper 1}
+
+\subsection{Paper 2} \label{Paper 2}
+
+\subsection{Paper 3} \label{Paper 3}
+
+\subsection{Paper 4} \label{Paper 4}
 
 \section{Concluding remarks} \label{Concluding remarks}
 

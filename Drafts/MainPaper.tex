@@ -3,18 +3,19 @@
 
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage[round]{natbib}
+\usepackage{natbib}
 \usepackage{authblk}
 \usepackage[utf8]{inputenc}
 \usepackage{setspace}
 \usepackage{rotating}
 \usepackage[british]{datetime2}
 \usepackage{hyperref}
+\usepackage{import}
 \usepackage{tabularx}
 %\usepackage{xcolor}
 \usepackage{booktabs}
-\usepackage{multicol}
-\usepackage{dcolumn}
+%\usepackage{multicol}
+%\usepackage{dcolumn}
 \usepackage[top=28truemm,bottom=26.5truemm,left=25.5truemm,right=25.5truemm]{geometry}
 
 \hypersetup{
@@ -44,7 +45,9 @@ urlcolor=blue
 \maketitle
 %}}}
 
-%{{{ Abstract
+%\chapter{Pre-colonial states in Africa and civil conflict}
+
+{{{ Abstract
 \begin{abstract}
 
 [Alternative titles: "Distance does not make the heart grow fonder: Subtitle"
@@ -73,12 +76,10 @@ centralisation efforts of national governments.
 \keywords{Conflict, civil war, pre-colonial states, GIS, historical state
 entities}
 
-%tableofcontents
-%\pagebreak
+tableofcontents
+\pagebreak
 
 \onehalfspacing
-
-%\begin{multicols}{2}
 
 \newpage
 %}}}
@@ -1144,23 +1145,24 @@ general trends for Africa hold outside that continent as well.
 %\end{multicols}
 
 \pagebreak
+\begin{singlespacing}
+\bibliographystyle{apsr}
+\bibliography{lib.bib}
+\end{singlespacing}
 
-\bibliographystyle{apalike}
-\bibliography{../lib.bib}
-
-\pagebreak
 \section*{Appendix}
 
-\input{"../R/Output/summaryStats.tex"}
-\input{"../R/Output/interaction_interdeaths.tex"}
-\input{"../R/Output/interaction_both.tex"}
-\input{"../R/Output/atlasmaps.tex"}
-\input{"../R/Output/zinbc.tex"}
-\input{"../R/Output/zinbz.tex"}
-\input{"../R/Output/spatial_count.tex"}
-\input{"../R/Output/spatial_zero.tex"}
-\input{"../R/Output/robust.tex"}
-\input{"../R/Output/robustz.tex"}
+\pagebreak
+\import{../R/Output/}{summaryStats.tex}
+\import{../R/Output/}{interaction_interdeaths.tex}
+\import{../R/Output/}{interaction_both.tex}
+\import{../R/Output/}{atlasmaps.tex}
+\import{../R/Output/}{zinbc.tex}
+\import{../R/Output/}{zinbz.tex}
+\import{../R/Output/}{spatial_count.tex}
+\import{../R/Output/}{spatial_zero.tex}
+\import{../R/Output/}{robust.tex}
+\import{../R/Output/}{robustz.tex}
 
 %\begin{figure}[htpb]
 %	\centering
@@ -1188,5 +1190,3 @@ general trends for Africa hold outside that continent as well.
 %\end{figure}
 
 \end{document}
-
-

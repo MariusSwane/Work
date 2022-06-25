@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: Kappa.aux
+The style file: apsr.bst
+A level-1 auxiliary file: StatePresenceCivilConflict.aux
+Illegal, another \bibstyle command---line 157 of file StatePresenceCivilConflict.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict.aux
+ : \bibdata
+ :         {../lib.bib}
+I'm skipping whatever remains of this command
+Database file #1: ../lib.bib
+Warning--I didn't find a database entry for "multiple"
+Warning--can't use both author and editor fields in barth1969
+Warning--can't use both author and editor fields in Gennaioli2007a
+You've used 193 entries,
+            2874 wiz_defined-function locations,
+            1901 strings with 36556 characters,
+and the built_in function-call counts, 738334 in all, are:
+= -- 120834
+> -- 7808
+< -- 10
++ -- 56070
+- -- 2839
+* -- 62509
+:= -- 148889
+add.period$ -- 772
+call.type$ -- 193
+change.case$ -- 2512
+chr.to.int$ -- 189
+cite$ -- 195
+duplicate$ -- 2973
+empty$ -- 6443
+format.name$ -- 3086
+if$ -- 132419
+int.to.chr$ -- 9
+int.to.str$ -- 0
+missing$ -- 224
+newline$ -- 911
+num.names$ -- 2153
+pop$ -- 844
+preamble$ -- 1
+purify$ -- 2895
+quote$ -- 0
+skip$ -- 2391
+stack$ -- 0
+substring$ -- 170099
+swap$ -- 427
+text.length$ -- 2712
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 682
+warning$ -- 2
+while$ -- 4482
+width$ -- 0
+write$ -- 2761
+(There were 2 error messages)

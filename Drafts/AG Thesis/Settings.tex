@@ -1,0 +1,211 @@
+% GEOMETRY
+\usepackage[twoside, margin=1.5in]{geometry}
+%\usepackage[twoside,margin=1.45in,bindingoffset=0.1in]{geometry}
+%\usepackage[twoside,bindingoffset=6mm,verbose]{geometry}%
+%\usepackage[twoside, margin=1.42in,bindingoffset=0.4in]{geometry}
+
+% APA BIBLIOGRAPHY/REFERENCES
+\usepackage[natbibapa, nodoi]{apacite} 
+\renewcommand*{\bibfont}{\small}
+%Dieter: %https://ctan.math.illinois.edu/macros/latex/contrib/apacite/apacite.pdf
+%\usepackage[round,authoryear]{natbib}   % ORIGINALLY NATBIB WAS USED - I CHANGED TO APACITE. IF YOU USE NATBIB AGAIN, ACTIVATE TWO LINES BELOW (USEPACKAGE NATBIB AND BIBPUNCT)
+\usepackage{etoolbox}
+\renewenvironment{APACrefURL}[1][]{}{}
+\AtBeginEnvironment{APACrefURL}{\renewcommand{\url}[1]{}}
+\renewcommand{\doiprefix}{doi:~\kern-1pt}
+%Amélie: I removed the doi's and URL's from the references. For websites, I "hacked" the code a bit and put the url into the publisher's argument so that it was printed. It's ugly but it works ;-)
+
+% TOC SETTINGS
+\usepackage[nottoc]{tocbibind}  % adds index/table of contents automatically
+% add: [notlot,notlof] if you want to exclude list of tables and figures from TOC as well.
+\setcounter{secnumdepth}{2} % increases/decreases the amount of subsections that are numbered.
+\setcounter{tocdepth}{1} % only includes chapter (0) & section (1) titles in toc.
+\makeatletter % gets rid of spacing between T or Fs from different chapters
+% \patchcmd{<cmd>}{<search>}{<replace>}{<succes>}{<failure>}
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}% LoF
+\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}% LoT
+\makeatother
+
+
+% GENERAL SETTINGS
+\usepackage[T1]{fontenc}  % to add the accent on Amélie ;-) and other accents etc.
+\usepackage{lettrine}
+\usepackage{rotating}   % performs all the different sorts of rotation one might like
+\usepackage{setspace}  % setting the spacing between lines in a document
+\frenchspacing % no space behind full stop
+\usepackage{url}
+\usepackage{enumitem} % to delete spacing between itemize/enumerate
+\usepackage{verbatim} % for block comments
+\usepackage[all]{nowidow} % geen losse lijntjes op het einde of begin van een pagina (!) 
+\newenvironment{myquote}{\begin{quote} \small}{\end{quote}} % sets long quotes in small(er) font
+\usepackage{epigraph}
+\setlength\epigraphwidth{.8\textwidth}
+\setlength\epigraphrule{0pt}
+% distance between paragraphs and indentation:
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1pt}
+% distance between (sub)section titles and text:
+\usepackage{titlesec}
+\titlespacing*{\section}
+  {0pt}{1.5\baselineskip}{0.5\baselineskip}
+\titlespacing*{\subsection}
+  {0pt}{1.5\baselineskip}{0.5\baselineskip}
+%Indents
+%\parindent0em
+%\parskip\baselineskip
+
+% LESSONS LEARNED BOX
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\newtcolorbox{Box1}[2][]{
+                lower separated=false,
+                colback=white!80!gray,
+colframe=white, fonttitle=\bfseries,
+colbacktitle=white!50!gray,
+coltitle=black,
+enhanced,
+attach boxed title to top left={xshift=0.5cm,yshift=-2mm},
+title=#2,#1}
+\usepackage[linewidth=1pt]{mdframed} % to put boxes around things
+
+% SETTINGS APPENDIX
+\usepackage[]{appendix}
+
+% MATHTOOLS
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{algorithm2e}
+
+% HYPERLINKS
+\usepackage{xcolor,hyperref} 
+\hypersetup{
+    colorlinks=TRUE,
+    linkcolor=black,
+    filecolor=black,      
+    urlcolor=black,
+    citecolor=black,
+    citebordercolor=black,     % color of links to bibliography
+    }
+\usepackage{fancyref}
+
+% TABLES AND FIGURES:
+\usepackage{longtable}  % long tables: continue on next page
+\usepackage{lscape} % wide tables: landscape
+\usepackage{pdflscape}
+\usepackage[usestackEOL]{stackengine}   % to use "Centerstack" instead of "shortstack"
+\usepackage{booktabs} % for well-spaced horizontal rules
+\usepackage{supertabular} % for supertables (?)
+\usepackage{multirow}
+\usepackage{tabularx} % for tables
+\usepackage{graphicx}
+\usepackage[flushleft]{threeparttable} % for tables with footnotes
+\usepackage{threeparttablex} % for "ThreePartTable" environment
+\usepackage{float}
+\usepackage{adjustbox}  % for centering
+\usepackage{array}
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D..{#1}}
+\newcommand\MC[1]{\multicolumn{1}{c}{#1}} 
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\usepackage{makecell}  % voor lange cellen
+\renewcommand\theadalign{vl}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+\usepackage{subcaption}
+\usepackage[labelfont=bf,textfont=normalfont,labelsep=period,singlelinecheck=off,justification=raggedright]{caption} % captions of tables and figures
+% caption label is bold, the caption text normal.
+% period after caption label.
+% justification is raggedright (i.e. left aligned).
+% singlelinecheck=off means that the justification setting is used even when the caption is only a single line long. if singlelinecheck=on, then caption is always centered when the caption is only one line.
+\newcommand{\tabitem}{~~\llap{\textbullet}~~}
+\newcommand\mulcol[2]
+  {%
+    \mulcolA{#1}#2\endmulcolsecarg
+  }
+\newcommand\mulcolA{}
+\long\def\mulcolA#1#2#{\mulcolB{#1}{#2}}
+\newcommand\mulcolB{}
+\long\def\mulcolB#1#2#3#4\endmulcolsecarg
+  {%
+    \multicolumn
+      {#1}
+      {%
+        #2%
+        {%
+          \dimexpr
+            #3%
+            +#1\tabcolsep+#1\tabcolsep-2\tabcolsep
+            +#1\arrayrulewidth-\arrayrulewidth
+          \relax
+        }%
+        #4%
+      }%
+  }
+
+% FANCY HEADERS
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+% Make sure headers are uppercase
+\renewcommand{\chaptermark}[1]{\markboth{\uppercase{#1}}{\uppercase{#1}}}
+\renewcommand{\sectionmark}[1]{\markright{\uppercase{#1}}}
+\fancyhf{}
+\fancyhead[RO]{\scriptsize\sf\rightmark\ \hrulefill\ \thepage}
+\fancyhead[RE]{\scriptsize\sf\thepage\ \hrulefill\ \leftmark}
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{
+\fancyhf{}
+\fancyfoot[C]{\scriptsize\sf\thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+%====to remove the header====
+\fancypagestyle{nofooter}{%
+\fancyfoot{}%
+}
+\fancypagestyle{noheader}{%
+\fancyhead{}%
+}
+
+
+% FANCY FOOTNOTES
+\usepackage[bottom,norule,hang]{footmisc}
+\setlength{\footnotemargin}{0.9em}
+
+% LAY-OUT START CHAPTERS
+% 1. Remove headers and footers on pages between chapters
+\usepackage{emptypage}
+% 2. Add decorative quote at the beginning of each chapter
+\usepackage{quotchap}   
+% 3. Lay-out chapter number and title
+\makeatletter
+%\renewcommand*{\sectfont}{\bfseries} % title in bold
+\renewcommand*{\chapnumfont}{%
+  \usefont{T1}{\@defaultcnfont}{b}{n}\fontsize{80}{100}\selectfont % Spacing default: 100/130
+  \color{chaptergrey}%
+}
+\makeatother
+% 4. Add abstract at the beginning of each chapter
+\usepackage{changepage}% http://ctan.org/pkg/changepage
+\makeatletter
+\newenvironment{chapabstract}{%
+    \par\setlength{\leftskip}{0.7cm}\noindent\ignorespaces
+    \par\setlength{\rightskip}{0.7cm}\noindent\ignorespaces
+    \small  
+    \begin{center}%
+        \bfseries Abstract
+    \end{center}}%
+   {\par}
+\makeatother
+
+%ADD BLANK END PAGE
+\usepackage{afterpage}
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}

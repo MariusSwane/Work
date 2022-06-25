@@ -1,0 +1,14 @@
+\setcounter {tocdepth}{1}
+\gdef \the@ipfilectr {@-1}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Categories of violence and dissent\relax }}{13}{figure.caption.4}%
+\gdef \the@ipfilectr {}
+\gdef \the@ipfilectr {@-2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Example of georeferenced map\relax }}{46}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Pre-colonial state presence in Nigeria (1800-1914).\relax }}{50}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces State presence (sqrt transformed) with interpolated years based on historical atlases.\relax }}{51}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces \relax }}{56}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces \relax }}{57}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Predicted conflict events per state presence, grouped by distance to capital, in cells with at least one conflict event.\relax }}{69}{figure.caption.21}%
+\gdef \the@ipfilectr {}

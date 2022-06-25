@@ -1,0 +1,168 @@
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% PhD thesis typesetting in Latex                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% -----------------------------------------------------
+% Preamble %
+% -----------------------------------------------------
+\documentclass[a4,11pt,multi,twoside,openright]{book}
+% -----------------------------------------------------
+% Different beautiful SF fonts
+%\usepackage{libertinus}
+%\usepackage{marcellus}
+%\usepackage{lmodern}
+%\renewcommand*\familydefault{\sfdefault}
+%\usepackage{sansmathfonts}
+%\renewcommand*\familydefault{\sfdefault} 
+
+
+% -----------------------------------------------------
+\usepackage{import}
+\import{./}{Settings.tex}
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% Set Title and Author % 
+% -----------------------------------------------------
+\title{How the Idea of Terrorism Is Changing Us}
+\author{Amélie Godefroidt}
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% Corpus %
+% -----------------------------------------------------
+\begin{document}
+\frontmatter
+\import{}{Titlepage.tex}
+\import{}{Acknowledgements.tex} % Acknowledgments
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% TOC, Tables, & Figures %
+% WITH DIFFERENT DEPTH FOR CORPUS VS. APPENDICES
+% -----------------------------------------------------
+% no appendix sections in toc
+\appto\appendix{\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}}
+% reinstate the correct level for list of tables and figures
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
+\appto\listoftables{\addtocontents{lot}{\protect\setcounter{tocdepth}{1}}}
+% make toc, tob, and tof
+\tableofcontents
+\listoftables
+\listoffigures
+\onehalfspacing % Line Spacing 1,5 starting from here 
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% Preface & Acknowledgments % 
+% -----------------------------------------------------
+%\import{PhD/}{Preface.tex} % Preface
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% Chapters  % 
+% -----------------------------------------------------
+\mainmatter
+% -----------------------------------------------------
+\import{Chapter_1/}{main1.tex} % Introduction: How terrorism is changing us
+\import{Chapter_2/}{main2.tex} % Does terror destroy trust?
+\import{Lessons Learned/}{article1.tex} % Lessons Learned 1
+\import{Chapter_3/}{main3.tex} % How to make peace with your enemies?
+\import{Lessons Learned/}{article2.tex} % Lessons Learned 2
+\import{Chapter_4/}{main4.tex} % "They are not Muslims"!
+\import{Lessons Learned/}{article3.tex} % Lessons Learned 3
+\import{Chapter_5/}{main5.tex} % Does terror really affect attitudes?
+\import{Lessons Learned/}{article4.tex} % Lessons Learned 4
+\import{Chapter_6/}{main6.tex} % Conclusion: How the idea of terrorism is changing us
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% Bibliography %
+% -----------------------------------------------------
+\clearpage % New page for full bibliography
+\begin{singlespacing} % If you want smaller spacing
+\interlinepenalty 10000
+\renewcommand{\bibname}{Bibliography} % Otherwise the title of this section is "references"
+\bibliography{AmeliePhD}
+\bibliographystyle{apacite}
+\end{singlespacing}
+\backmatter
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% Summaries %
+% -----------------------------------------------------
+%\import{PhD/}{Summaries.tex}
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% Appendices %
+% -----------------------------------------------------
+\backmatter % book mode only
+\appendix
+\appendixpage
+% relabel sections, tables, and figures
+% appendix A
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{\thesection}
+\renewcommand*{\theHsubsection}{\thesubsection}
+\renewcommand{\thesection}{A.\arabic{section}}
+\renewcommand*{\theHtable}{\thetable}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A.\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A.\arabic{figure}}
+\import{Appendices/Appendix_chapter_1/}{Appendix_chapter_1.tex}
+
+% appendix B
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{\thesection}
+\renewcommand*{\theHsubsection}{\thesubsection}
+\renewcommand{\thesection}{B.\arabic{section}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{B.\arabic{table}}
+\import{Appendices/Appendix_chapter_2/}{Appendix_chapter_2.tex}
+
+% appendix C
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{\thesection}
+\renewcommand*{\theHsubsection}{\thesubsection}
+\renewcommand{\thesection}{C.\arabic{section}}
+\setcounter{table}{0}
+\renewcommand{\thetable}{C.\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{C.\arabic{figure}}
+\import{Appendices/Appendix_chapter_3/}{Appendix_chapter_3.tex}
+
+% appendix D
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{\thesection}
+\renewcommand*{\theHsubsection}{\thesubsection}
+\renewcommand{\thesection}{D.\arabic{section}}
+\setcounter{table}{0}
+\renewcommand*{\theHtable}{\thetable}
+\renewcommand{\thetable}{D.\arabic{table}}
+\import{Appendices/Appendix_chapter_4/}{Appendix_chapter_4.tex}
+
+% appendix E
+\setcounter{section}{0}
+\renewcommand*{\theHsection}{\thesection}
+\renewcommand*{\theHsubsection}{\thesubsection}
+\renewcommand{\thesection}{E.\arabic{section}}
+\setcounter{table}{0}
+\renewcommand*{\theHtable}{\thetable}
+\renewcommand{\thetable}{E.\arabic{table}}
+\import{Appendices/Appendix_chapter_5/}{Appendix_chapter_5.tex}
+%\import{Appendices/Appendix_chapter_6/}{Appendix_chapter_6.tex}
+% -----------------------------------------------------
+
+% -----------------------------------------------------
+% List of PhD's at FSW
+% -----------------------------------------------------
+\setlength{\parskip}{10pt}  % Add some space between each listed element of list of PhD's
+%\import{Dissertation}{Lijst_doctoraten.tex}
+% -----------------------------------------------------
+% -----------------------------------------------------
+\afterpage{\blankpage}
+\afterpage{\blankpage}
+\afterpage{\blankpage}
+\end{document}

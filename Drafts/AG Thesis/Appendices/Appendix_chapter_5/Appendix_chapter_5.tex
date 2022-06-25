@@ -1,0 +1,268 @@
+
+\chapter[Appendix E]{Appendix E}
+
+\section{Information on and Deviations from Preregistration}
+\label{app:E1}
+The hypotheses and review protocol were preregistered before analyzing the data. To increase research transparency and reproducibility, any inaccuracy in or deviation from the preregistration should be reported and substantiated \citep{NHB2020}. Several things are worth noting in this respect:
+
+\begin{enumerate}[noitemsep, nolistsep]
+\item \textit{Regarding the hypotheses:} The out-group hostility (H1) and conservative shift (H2) hypotheses were preregistered, but the rally-around-the-flag hypothesis was not. An initial review of the sample (yet, still before conducting the inferential tests), revealed that this was an important sub-field in the literature and I therefore added the rally-around-the-flag tests to this chapter \textit{after} preregistration. Importantly, the hypothesis on the moderators was preregistered an exploratory hypothesis (i.e., ``the overall effect size of terrorism on public opinion will be moderated by several theoretical and methodological moderators''). Yet, although the vast majority of moderators was examined in an exploratory fashion, I did preregister that feelings of anger would elicit stronger attitudinal shifts (H3; based on affective intelligence theory) and that the relationship between terrorism and out-group hostility would also be stronger when there is an overlap between the ideology of terrorism and the particular out-group studied (H4; based on the notion of `guilt-by-association').
+
+
+\item \textit{Regarding the data collection protocol:} The originally preregistered search string was refined as the original one resulted in too much ineligible reports. Particularly the terms related to the outcome variables of interest (i.e., “effects” OR “impact” OR “attitudes” OR “opinion”) needed to be more clearly specified (see footnote 2 in the Chapter for the actual search string used).
+
+\item \textit{Regarding the data analysis protocol:} The three-level random effects models used in this chapter were only registered at osf (hence, during data collection). Only then it was clear that the sample would entail various effect sizes clustered within studies. This was left open in the PROSPERO preregistration (hence, before data collection) as I had no idea yet about how the data structure would look like when preregistering the original review protocol. Additionally, how to handle missing data was not specified in the preregistration. By default, the used R functions apply listwise deletion \citep{Cheung2015}. As a result, the likelihood ratio tests, comparing the intercept-only model with a moderated model, could not be conducted when there were missing values on the moderator variable because, in that case, moderated models are not nested within the full-sample intercept-only model.
+\end{enumerate}
+
+\newpage
+
+\section{Meta-Analysis Codebook}
+\label{app:E2}
+
+\begingroup
+\small
+\begin{longtable}{@{}cL{2.5cm}L{9.5cm}@{}}
+\caption{Meta-Analysis Codebook}
+\label{tab:art4-app-tab1}\\
+\toprule
+\hline
+Variable & Label & Notes \\* \midrule
+\endfirsthead
+%
+\multicolumn{3}{c}%
+{{Table \thetable\ continued \dots}} \\
+\toprule
+Variable & Label & Notes \\* \midrule
+\endhead
+\hline
+\multicolumn{3}{r}{\textit{Continued on next page}} \\
+\endfoot
+\hline
+\multicolumn{3}{l}{\textit{Note:} Several variables are re-coded for analytical efficiency (see R syntax for more info).}
+\endlastfoot\\
+%
+R1 & Report ID & Identification number of the report \\
+R2 & Author & Name of authors (up until three authors). Use the following convention: \\
+ &  & * Author1 \\
+ &  & * Author1 \& Author2 \\
+ &  & * Author1, Author2 \& Author3 \\
+ &  & * Author1 et al. (for more than three authors) \\
+R3 & Year & Publication year of the report \\
+R4 & Type Report & Type of the report. Use the following convention: \\
+ &  & * 1 = Journal article \\
+ &  & * 2 = Book or book chapter \\
+ &  & * 3 = PhD or Master thesis \\
+ &  & * 4 = Conference paper \\
+ &  & * 5 = Other (incl. unpublished datasets) \\
+R5 & Impact Factor & If the report is a journal article, note the impact factor of the journal of one year before the publication year. Enter 0 if journal does not have an impact factor. \\
+R6A-C & Theory\_1/2/3 & Enter the main theory/theories used to ground the analyses, up to three theories. NA if no specific theory is mentioned. \\
+R7 & Hypotheses & This indicates whether one or more clear hypothesis/-es were formulated in the article. (note: Hypothesis should concern the relationship of this meta-analysis) \\
+ &  & * 0 = No \\
+ &  & * 1 = Yes, explicitly stated hypothesis \\
+ &  & * 2 = More or less implicit hypothesis/-es \\
+S3 & Definition & This indicates whether a clear and explicit definition of terrorism war formulated in the article. \\
+ &  & * 1 = Yes \\
+ &  & * 0 = No \\
+S1 & Sample/study ID: per study & Identification number of the sample(s)/studies within the report. (Note: Each time another sample is used, enter a new ID\_S) \\
+S2 & Sample/study ID: unique & Unique code to indicate each unique sample. (Note: Entered automatically via = ID\_R + ID\_S) \\
+S3 & Preregistration & This indicates whether the study was preregistered or not \\
+ &  & * 1 = Yes \\
+ &  & * 0 = No \\
+S4 & Type Study & Type of the study. Use the following convention: \\
+ &  & * 1 = Experiment \\
+ &  & * 2 = Natural experiment \\
+ &  & * 3 = Correlational \\
+ &  & * 4 = Longitudinal/panel study \\
+ &  & * 5 = Other \\
+S5 & Country & Country were the sample was taken from. \\
+S6 & Study year & Year the actual study was conducted, if reported \\
+S7 & Sample size & Number of respondents in sample (as given in the sample description). The Effective Sample Size (ESS) is calculated via the Effect Size function in R. \\
+S8 & \multirow[t]{4}{2cm}{General population} & This indicates whether the general population was sampled via a random sampling procedure, or not. \\
+ &  & * 2 = Convenience sample on general population (e.g., online opt-in panels like Mturk, snowball sampling, social media sampling) \\
+ &  & * 1 = Yes, random sample on general population \\
+ &  & * 0 = No \\
+S9 & \multirow[t]{3}{2cm}{Student population} & This indicates whether a student population was used, or not. \\
+ &  & * 1 = Yes \\
+ &  & * 0 = No \\
+S10 & Sample Exact & Short explanation of the exact sample used \\
+S11 & NR/AT Bias & This indicates whether non-response or attrition bias was addressed in the study or not. \\
+ &  & * 1 = Yes \\
+ &  & * 0 = No \\
+S12 & NR/AT \% & If non-response or attrition was addressed, add exact percentage (i.e., response rate) \\
+S13 & Age Mean & Mean age in the sample or subsample \\
+S14 & Age SD & Standard deviation of mean age in the sample or subsample \\
+S15 & Age Range & Range of age in the sample \\
+S16 & Gender & Percentage of females in the sample \\
+S17 & Liberals \% & Percentage of liberals in the sample \\
+S18 & Liberals Mean & Mean political ideology (liberalism/democrat vs. conservatism/republican) in the sample \\
+S19 & Liberals SD & Standard deviation political ideology (liberalism/democrat vs. conservatism/republican) in the sample \\
+S20 & Liberals Range & Range of political ideology (liberalism/democrat vs. conservatism/republican) in the sample \\
+S21 & Liberals & Mean on the ideology scale divided by number of scale points \\
+S22 & \multirow[t]{6}{2cm}{Liberals Category} & Proportion of liberals in the sample \\
+ &  & * 1 = Liberal majority sample \\
+  &  & (\textgreater{}= 50\% Democrats or =\textless 0,40 on S21) \\
+ &  & * 2 = Liberal minority sample \\
+  &  & (\textless 50\% Democrats or \textless 0,40 on S21) \\
+ &  & * 3 = Mixed sample \\
+ &  & * 4 = Cannot tell \\
+S23 & Whites \% & Percentage of Whites in the sample \\
+S24 & Muslims \% & Percentage of Muslims in the sample \\
+S25 & \multirow[t]{5}{2cm}{Ethnicity Category} & Proportion of minorities in the sample (based on S23) \\
+ &  & * 1 = \textgreater 75\% Minority \\
+ &  & * 2 = \textgreater 75\% Majority \\
+ &  & * 3 = Mixed (none more than 75\%) \\
+ &  & * 4 = Cannot tell \\
+IV1 & IV ID & Identification number of the independent variable (IV) used within the study \\
+IV2 & Exact IV & Independent variable written in full \\
+IV3 & \multirow[t]{17}{2cm}{IV Code} & Type of the independent variable. Use the following convention: \\
+ &  & * 1 = Attack (i.e., pre- versus post-attack, exposed versus non-exposed) \\
+ &  & * 2 = News report about an attack \\
+ &  & * 3 = Manipulated threat - personal \\
+ &  & * 4 = Manipulated threat - national \\
+ &  & * 5 = Other terrorism-related experimental stimulus \\
+ &  & * 6 = Self-reported direct exposure to terrorism (e.g., witnessed an attack, being injured themselves) \\
+ &  & * 7 = Self-reported indirect exposure to terrorism (via friends and family) \\
+ &  & * 8 = Self-reported media exposure to terrorism \\
+ &  & * 9 = Concern/threat/likelihood for terrorism (cognitive) - personal \\
+ &  & * 10 = Concern/threat/likelihood for terrorism (cognitive) - national or local \\
+ &  & * 11 = Fear/anxiety for terrorism (affective) \\
+ &  & * 12 = Anger/hostility for terrorism (affective) \\
+ &  & * 13 = General emotional arousal (i.e., combination of various emotional reactions) \\
+ &  & * 14 = PTSD and psycho-social distress \\
+ &  & * 15 = Loss of resources (e.g., property damage, economic losses, etc.) because of terrorism \\
+ &  & * 16 = Other \\
+IV4 & IV Quality & Quality of the independent variable \\
+ &  & * 1 = Yes: Random assignment, matching procedures, or high reliability multi-item scale \\
+ &  & * 0 = No: No random assignment, matching procedure, or a single-item variable \\
+IV5 & Attack & Indicates whether the measurement/manipulation used in the study refers to a specific attack that happened in the past. \\
+ &  & * 1 = Yes \\
+ &  & * 0 = No \\
+IV6 & Exact Attack & If an attack was mentioned, indicate which attack was referred to in the study. \\
+IV7 & \multirow[t]{8}{2cm}{Attack Type} & This indicates whether the measurement/manipulation used in the study refers to an ideology. (note: This is possible without referring to a specific attack). \\
+ &  & * 0 = No reference to an attack/ideology \\
+ &  & * 1 = Islamist \\
+ &  & * 2 = Extreme right \\
+ &  & * 3 = Extreme left \\
+ &  & * 4 = Single issue \\
+ &  & * 5 = State terror \\
+ &  & * 6 = Other; unclear; mixed \\
+IV8 & Distance & Indicates whether the attack/threat under investigation happened in the sample city/country of the respondents, or not. \\
+ &  & * 0 = No reference to an attack/place indication \\
+ &  & * 1 = Different country \\
+ &  & * 2 = Same country \\
+ &  & * 3 = Same city \\
+IV9 & Casualties & Number of casualties in the attack under investigation \\
+IV10 & \multirow[t]{5}{2cm}{Casualties Category} & Casualties \\
+ &  & * 2 = More than 100 \\
+ &  & * 1 = More than 10 \\
+ &  & * 0 = Less than 10 \\
+ &  & * -99 = Not applicable \\
+IV11 & \multirow[t]{4}{2cm}{Domestic Terrorism} & Domestic vs. Transnational Terrorism (as classified by GTD, if unclear) \\
+ &  & * 1 = Domestic \\
+ &  & * 0 = Transnational \\
+ &  & * -99 = Not applicable \\
+IV12 & \multirow[t]{4}{2cm}{Control Condition} & Information about the control condition, if experimental design \\
+ &  & * 1 = Threatening but non-terrorism control group \\
+ &  & * 0 = Pure/neutral control group \\
+ &  & * -99 = Not applicable (no experimental design) \\
+IV12 & IV\_2 & Moderator variable (second independent variable) as addressed in the primary study. \\
+DV1 & DV ID & Identification number of the dependent variable (DV) used within the study \\
+DV2 & Exact DV & Dependent variable written in full \\
+DV3 & DV Time & Time (in days) between measurement IV and DV (if simultaneous, enter 0; if unclear, enter 1; if multiple time points, enter last one) \\
+DV4 & \multirow[t]{6}{2cm}{Time Category} & Time between measurement IV and DV categorized \\
+ &  & * 0 = Simultaneously \\
+ &  & * 1 = Within the same week \\
+ &  & * 2 = Within the same month \\
+ &  & * 3 = Within the same half-year \\
+ &  & * 4 = More than one year in between measurement IV and DV \\
+DV5 & \multirow[t]{4}{2cm}{DV Code} & Type of social cohesion outcome variable \\
+ &  & * 1 = Political outcome variable \\
+ &  & * 2 = Out-group outcome variable \\
+ &  & * 3 = Combination (e.g., anti-immigrant policies, racial profiling policies, civil liberties restrictions/exclusion of certain group etc.) \\
+DV6 & Alpha & Reliability coefficient of outcome measure, if reported. \\
+DV7 & \multirow[t]{4}{2cm}{DV Quality} & Quality of the dependent variable \\
+ &  & * 1 = Single-item \\
+ &  & * 2 = Multi-item scale with two items or three or more items with unreported or low reliability (alpha \textless .70) \\
+ &  & * 3 = Multi-item scale with three or more items with high reliability (alpha \textgreater .70) \\
+OA1 & \multirow[t]{6}{2cm}{Outgroup Attitudes (OA) Category} & Category of the dependent (out-group) variable \\
+ &  & * 1 = Affective attitudes (i.e., positive or negative emotions/feelings toward the out-group, such as hatred/disgust/fear/anxiety or liking/warmth/sympathy/happiness) \\
+ &  & * 2 = Cognitive attitudes (i.e., beliefs, stereotypes, evaluations, opinions, or thoughts about the out-group, including out-group threat measures) \\
+ &  & * 3 = Behavioral attitudes (i.e., actual, intended, and self-reported actions toward the out-group or members thereof, such as helping, harming, social distance, avoidance) \\
+ &  & * 4 = Political attitudes (i.e., support for policies commonly associated with prejudice, such as immigration or confirmative action policies) \\
+ &  & * 5 = Other (i.e., mixture of or unclear attitudes, including out-group trust) \\
+OA2A & OA Target & The target group of the out-group attitudes \\
+ &  & * 1 = Members of other racial and ethnic groups \\
+ &  & * 2 = Immigrants and foreign nationals \\
+ &  & * 3 = Members of other religious groups (including Arabs) \\
+ &  & * 4 = LGBTQ and women \\
+ &  & * 5 = Other or mixed \\
+OA3 & OA Similarity & Does the out-group displays similarities with the perpetrator of the attack? \\
+ &  & * 2 = Yes, a lot (e.g., Muslims/Arabs as target group, and reference to Islamist terrorist attack as DV) \\
+ &  & * 1 = Yes, a little bit (e.g., Immigrants/refugees as target group, and reference Islamist terrorist attack as DV) \\
+ &  & * 0 = No (e.g., no reference to Muslims/immigrants/Arabs, and/or no reference to ideology) \\
+PA1A & \multirow[t]{9}{2cm}{Political Attitudes (PA) Category\_A} & Category of the dependent (political) variable \\
+ &  & * 0 = Domestic (counter-terrorism) policies \\
+ &  & * 1 = Foreign (counter-terrorism) policies \\
+ &  & * 2 = Politicians (e.g., Bush approval) \\
+ &  & * 3 = Political ideology (e.g., RWA, SDO, conservatism, left-right/liberal-conservative self-placement) \\
+ &  & * 4 = Political trust and national identification (e.g., pride, patriotism) \\
+ &  & * 5 = Vote turnout \\
+ &  & * 6 = Policies including an out-group (e.g., immigration policies) \\
+ &  & * 7 = Other \\
+PA1B & \multirow[t]{12}{2cm}{Political Attitudes (PA) Category\_B} & Category of the independent variable (different, more appropriate, categorization) \\
+ &  & * 1 = Nationalism, patriotism, national pride \\
+ &  & * 2 = Political and institutional trust (both national and international) \\
+ &  & * 3 = Political participation, incl. vote turnout \\
+ &  & * 4 = Rally around a leader/politician \\
+ &  & * 5 = RWA or other measures of authoritarianism/cultural conservatism \\
+ &  & * 6 = SDO or other measures of socio-economic conservatism \\
+ &  & * 7 = General measures of political ideology \\
+ &  & * 8 = Support for hawkish/military policies (as opposed to diplomatic solutions) \\
+ &  & * 9 = Support for policies related to civil liberties/privacy \\
+ &  & * 10 = Support for policies pertaining an out-group (e.g., immigration policies) \\
+ &  & * 11 = Other \\
+PA2 & Politician's name & If politician, enter last name \\
+PA3 & Incumbent & If politician, indicate whether he is the incumbent president (1) or not (0) \\
+PA4 & Republican & If politician, indicate whether (s)he is part of the republican party (1) or not (0) \\
+PA5 & Gender & If politician, indicate whether it is a male (0) or female (1) politician \\
+T1 & ES ID & Identification number of the effect size (ES) within the study \\
+T2 & Place Information & Exact place where the information on the effect sizes was found \\
+T3 & Test Statistic & Test statistic used to calculate the effect size \\
+T4-13 & Statistics & Statistical information of interest \\
+T8 & Direction & Direction of the relationship between terrorism and social cohesion \\
+ &  & * Negative = breakdown of social cohesion \\
+ &  & * Positive = stimulation of social cohesion \\
+T9 & Regression & Dummy to indicate whether a standardized regression coefficient was used to calculate the common effect size \\
+ &  & * 0 = No regression coefficient used (or regression without any control variables) \\
+ &  & * 1 = Standardized regression coefficient used, controlled for socio-demographics \\
+ &  & * 2 = Standardized regression coefficient used, controlled for socio-demographics and other covariates \\* \bottomrule
+\end{longtable}
+\endgroup
+
+\newpage
+\section{Publication Bias Tests}
+\label{app:E3}
+
+Several publication bias tests were performed. More specifically, in Table \ref{tab:art4-app-tab2}, I examine the moderating impact of publication status and sample size on the results and conduct two Egger’s regression tests. Egger's regressions formally test for publication bias or, more correctly, asymmetry of the funnel plot by regressing the standardized effect size on precision (usually on the inverse of the standard error). Below, I regress the effect size on the inverse of both the standard error and the variance using three-level models. The more the intercept deviates from zero, the more pronounced the asymmetry and, hence, the indication of publication bias \citep{Sterne2005}. In the main chapter, also constructed a funnel plot to visually detect publication bias. A funnel plot is a scatterplot of the estimate of effect from each study in the meta-analysis against a measure of its precision, usually 1/SE \citep{Borenstein2009}.
+
+
+\vspace{3mm}
+\begin{table}[H]
+\caption{Publication Bias Tests}
+\label{tab:art4-app-tab2}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+& Out-Group Hostility & Conservative Shift & Rally-Around-The-Flag \\ \midrule
+Published (1=yes) & $\beta = .091$ & $\beta = .049$ & $\beta = .084$ \\
+ & $p = .159$ & $p = .246$ & $p = .212$ \\
+Effective sample size & $\beta = -.001$ & $\beta = -.010$ & $\beta = -.008$ \\
+ & $p = .901$ & $p = .237$ & $p = .411$ \\
+Inverse standard error & $\beta = -.005$ & $\beta = -.017$ & $\beta = -.015$ \\
+ & $p = .561$ & $p = .037$ & $p = .208$ \\
+Inverse variance & $\beta = -.001$ & $\beta = -.010$ & $\beta = -.008$ \\
+ & $p = .893$ & $p = .239$ & $p = .411$ \\ \bottomrule
+\end{tabular}
+\end{table}
+
+\clearpage

@@ -1,0 +1,76 @@
+
+\chapter[Appendix B]{Appendix B}
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Descriptive Statistics}
+\label{app:B1}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Table B.1
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{table}[H]
+\caption{Descriptive Statistics of Control Variables}
+\label{tab:art1-app-tab1}
+\begin{tabular}{@{}C{0.3cm}lC{1.5cm}C{1.5cm}C{1cm}C{1cm}@{}}
+\toprule
+\hline
+\multicolumn{2}{l}{Variable} & Mean & Std. dev. & Min. & Max. \\ \midrule
+\multicolumn{6}{l}{Individual level (N=76,254)} \\
+ & Age & 41.77 & 16.339 & 16 & 98 \\
+ & Sex & 0.483 & 0.500 & 0 & 1 \\
+ & Education & 5.723 & 2.385 & 1 & 9 \\
+ & Employment & 0.461 & 0.499 & 0 & 1 \\
+ & Political interest & 1.397 & 0.969 & 0 & 3 \\
+ & Newspaper consumption & 2.252 & 1.583 & 0 & 4 \\
+ & TV news consumption & 3.513 & 1.027 & 0 & 4 \\ [0.5ex]
+\multicolumn{6}{l}{Country level (N=54)} \\
+ & Wealth (ln GDP) & 9.007 & 1.227 & 6.41 & 11.13 \\
+ & Economic inequality (Gini) & 39.51 & 8.664 & 24.9 & 58.50 \\
+ & Democratization (PolityIV) & 6.528 & 3.048 & 0.25 & 10 \\ \hline
+\bottomrule
+\end{tabular}
+\end{table}
+
+\newpage
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\section{Robustness Check}
+\label{app:B2}
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% Table B.2
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+\begin{table}[H]
+\caption{Group-mean Centered Robustness Check of Model 3}
+\label{tab:art1-app-tab2}
+\begin{tabular}{@{}C{0.3cm}lC{3.3cm}C{3.3cm}@{}}
+\toprule
+\hline
+\multicolumn{2}{l}{Parameter} & \multicolumn{2}{c}{Group-mean centered model} \\ \midrule
+ &  & $B(SE)$ & $\beta(SE)$ \\ \cmidrule(l){3-4} 
+ &  & \multicolumn{2}{c}{Fixed effects} \\ \cmidrule(l){3-4} 
+\multicolumn{2}{l}{Intercept} & $-1.43$ (0.11)\textsuperscript{***} & $-1.43$ (0.11)\textsuperscript{***} \\ [0.5ex]
+\multicolumn{2}{l}{Level 1: Individuals} &  &  \\
+ & Fearing terrorism & $-0.25$ (0.02)\textsuperscript{***} & $-0.10$ (0.02)\textsuperscript{***} \\
+ & Gender (ref.=Female) & 0.01 (0.02) & 0.01 (0.01) \\
+ & Age & 0.00 (0.00)\textsuperscript{***} & 0.07 (0.01)\textsuperscript{***} \\
+ & Education & 0.06 (0.00)\textsuperscript{***} & 0.14 (0.01)\textsuperscript{***} \\
+ & Unemployed & $-0.05$ (0.02)\textsuperscript{**} & $-0.02$ (0.01)\textsuperscript{*} \\
+ & Political interest & 0.09 (0.01)\textsuperscript{***} & 0.08 (0.01)\textsuperscript{***} \\
+ & TV news consumption & $-0.07$ (0.01)\textsuperscript{***} & $-0.07$ (0.01)\textsuperscript{***} \\
+ & Newspaper consumption & 0.03 (0.01)\textsuperscript{***} & 0.04 (0.01)\textsuperscript{***} \\ [0.5ex]
+\multicolumn{2}{l}{Level 2: Countries} &  &  \\
+ & GTI & 0.09 (0.05)\textsuperscript{0.055} & 0.23 (0.12)\textsuperscript{0.054} \\
+ & (ln)GDP & 0.44 (0.10)\textsuperscript{***} & 0.54 (0.13)\textsuperscript{***} \\
+ & Gini & $-0.05$ (0.13)\textsuperscript{***} & $-0.44$ (0.11)\textsuperscript{***} \\
+ & PolityIV & $-0.08$ (0.04)\textsuperscript{0.052} & $-0.22$ (0.12)\textsuperscript{0.053} \\ [0.5ex]
+\multicolumn{2}{l}{Cross-level interaction} &  &  \\
+ & Fear*PolityIV & $-0.04$ (0.02)\textsuperscript{*} & $-0.06$ (0.02)\textsuperscript{*} \\ \cmidrule(l){3-4} 
+\multicolumn{2}{l}{} & \multicolumn{2}{c}{Random effects} \\ \cmidrule(l){3-4} 
+\multicolumn{2}{l}{Variance (Intercept)} & 0.64 & 0.64 \\
+\multicolumn{2}{l}{Variance (Fear)} & 0.12 & 0.02 \\
+\multicolumn{2}{l}{Covariance} & $-0.03$ & $-0.04$ \\
+\multicolumn{2}{l}{AIC} & 73354.3 & 73309.0 \\
+\multicolumn{2}{l}{BIC} & 73511.4 & 73466.1 \\
+\multicolumn{2}{l}{Log Likelihood} & $-36660.1$ & $-36637.5$ \\ \hline
+\bottomrule
+\end{tabular}
+\end{table}

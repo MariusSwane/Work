@@ -1,0 +1,96 @@
+% Setting document style
+\documentclass[a4,multi,twoside,openright,12pt]{book}
+
+% Loading packages
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage[british]{datetime2}
+\usepackage{emptypage}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{import}
+\usepackage[utf8]{inputenc}
+\usepackage{makecell}
+%\usepackage{multibib}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage[sectionbib]{chapterbib}
+\usepackage{rotating}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{titlesec}
+\usepackage[nottoc]{tocbibind}  % adds index/table of contents automatically
+
+% Setting up headers
+\pagestyle{fancy}
+
+\fancyhead{} % Clearing formatting
+
+\renewcommand{\chaptermark}[1]{ \markboth{#1}{} }
+\renewcommand{\sectionmark}[1]{ \markright{#1}{} }
+
+\fancyhead[OR]{\leftmark}
+\fancyhead[EL]{\rightmark}
+\fancyfoot[C]{\thepage}
+
+% Color choices for links
+\hypersetup{
+colorlinks=true,
+citecolor=black,
+urlcolor=black,
+linkcolor=black,
+}
+
+% Chapter headers
+
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{}{0pt}{\Huge}
+\titlespacing*{\chapter}
+  {0pt}{10pt}{40pt}
+
+% Fix URLS
+\renewcommand{\harvardurl}{URL: \url}
+
+% Smaller affiliation font
+\renewcommand\Affilfont{\itshape\small}
+
+\title{Janus-faced: Historical statehood and organized violence}
+\author{Marius Swane Wishman}
+
+\date{\today}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+% Thesis title ideas: "Janus-faced: Historical statehood and organized violence"
+% The Legacy: ... "
+
+%\import{}{Acknowledgements.tex} % Acknowledgments
+
+\appto\listoffigures{\addtocontents{lof}{\protect\setcounter{tocdepth}{1}}}
+\appto\listoftables{\addtocontents{lot}{\protect\setcounter{tocdepth}{1}}}
+\tableofcontents
+\listoftables
+\listoffigures
+
+\mainmatter
+
+%\subimport{./}{Kappa.tex}
+%\subimport{./}{StatePresenceCivilConflict.tex}
+
+\include{Kappa}
+\include{StatePresenceCivilConflict}
+
+\pagebreak
+
+%\begin{singlespacing}
+%\bibliographystyle{apsr}
+%\bibliography{lib.bib}
+%\end{singlespacing}
+
+\end{document}

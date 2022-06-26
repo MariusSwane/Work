@@ -1,0 +1,71 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: Kappa/Kappa.aux
+The style file: apsr.bst
+A level-1 auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+Illegal, another \bibstyle command---line 157 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+ : \bibdata
+ :         {../lib.bib}
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: CommunalViolence/OMT.aux
+Illegal, another \bibstyle command---line 161 of file CommunalViolence/OMT.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 162 of file CommunalViolence/OMT.aux
+ : \bibdata
+ :         {../lib.bib}
+I'm skipping whatever remains of this command
+Reallocated field_info (elt_size=8) to 10592 items from 5000.
+Database file #1: ../lib.bib
+Warning--I didn't find a database entry for "multiple"
+Warning--can't use both author and editor fields in barth1969
+Warning--can't use both author and editor fields in Gennaioli2007a
+Warning--can't use both author and editor fields in tilly_1985
+You've used 232 entries,
+            2874 wiz_defined-function locations,
+            2132 strings with 42593 characters,
+and the built_in function-call counts, 864477 in all, are:
+= -- 141289
+> -- 9066
+< -- 10
++ -- 65366
+- -- 3312
+* -- 72945
+:= -- 174701
+add.period$ -- 929
+call.type$ -- 232
+change.case$ -- 3020
+chr.to.int$ -- 227
+cite$ -- 235
+duplicate$ -- 3580
+empty$ -- 7725
+format.name$ -- 3622
+if$ -- 155009
+int.to.chr$ -- 10
+int.to.str$ -- 0
+missing$ -- 272
+newline$ -- 1099
+num.names$ -- 2568
+pop$ -- 1053
+preamble$ -- 1
+purify$ -- 3480
+quote$ -- 0
+skip$ -- 2858
+stack$ -- 0
+substring$ -- 198603
+swap$ -- 511
+text.length$ -- 3258
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 812
+warning$ -- 3
+while$ -- 5363
+width$ -- 0
+write$ -- 3318
+(There were 4 error messages)

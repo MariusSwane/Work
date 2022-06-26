@@ -1,6 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: Kappa.aux
+The top-level auxiliary file: Kappa/Kappa.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
 Warning--I didn't find a database entry for "multiple"
@@ -8,7 +8,7 @@ Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 You've used 127 entries,
             2874 wiz_defined-function locations,
-            1495 strings with 25576 characters,
+            1495 strings with 25588 characters,
 and the built_in function-call counts, 479984 in all, are:
 = -- 78616
 > -- 4860

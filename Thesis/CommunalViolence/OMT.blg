@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: CommunalViolence/OMT.aux
+The style file: apsr.bst
+Database file #1: ../lib.bib
+Warning--can't use both author and editor fields in barth1969
+Warning--can't use both author and editor fields in tilly_1985
+You've used 66 entries,
+            2874 wiz_defined-function locations,
+            1100 strings with 15983 characters,
+and the built_in function-call counts, 225305 in all, are:
+= -- 36648
+> -- 2306
+< -- 1
++ -- 16767
+- -- 856
+* -- 18803
+:= -- 45902
+add.period$ -- 265
+call.type$ -- 66
+change.case$ -- 859
+chr.to.int$ -- 65
+cite$ -- 68
+duplicate$ -- 1006
+empty$ -- 2183
+format.name$ -- 953
+if$ -- 40356
+int.to.chr$ -- 6
+int.to.str$ -- 0
+missing$ -- 78
+newline$ -- 317
+num.names$ -- 713
+pop$ -- 333
+preamble$ -- 1
+purify$ -- 990
+quote$ -- 0
+skip$ -- 782
+stack$ -- 0
+substring$ -- 51251
+swap$ -- 131
+text.length$ -- 925
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 226
+warning$ -- 2
+while$ -- 1507
+width$ -- 0
+write$ -- 939
+(There were 2 warnings)

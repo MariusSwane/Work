@@ -2,7 +2,8 @@
 
 pdflatex main
 bibtex main
-bibtex Kappa
-bibtex StatePresenceCivilConflict
+bibtex Kappa/Kappa
+bibtex StatePresenceCivilConflict/StatePresenceCivilConflict
+bibtex CommunalViolence/OMT
 pdflatex main
 pdflatex main

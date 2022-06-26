@@ -1,0 +1,38 @@
+
+\begin{table}
+\begin{center}
+\scalebox{1}{
+\begin{tabular}{l c c}
+\toprule
+ & Fatalities & Conflict events \\
+\midrule
+Precolonial state presence (sqrt)        & $-0.38^{***}$ & $-0.46^{***}$   \\
+                                         & $(0.08)$      & $(0.10)$        \\
+Distance to capital (log)                & $-0.36^{***}$ & $-0.24^{\cdot}$ \\
+                                         & $(0.11)$      & $(0.12)$        \\
+Interaction term                         & $0.06^{***}$  & $0.07^{***}$    \\
+                                         & $(0.01)$      & $(0.02)$        \\
+Mountainous terrain                      & $1.90^{***}$  & $0.84^{***}$    \\
+                                         & $(0.23)$      & $(0.20)$        \\
+Water (\%)                               & $0.01$        & $-0.02^{**}$    \\
+                                         & $(0.01)$      & $(0.01)$        \\
+Distance to coast (log)                  & $-0.04^{*}$   & $-0.08^{**}$    \\
+                                         & $(0.02)$      & $(0.02)$        \\
+North Africa                             & $0.67^{***}$  &                 \\
+                                         & $(0.12)$      &                 \\
+Population density (log)                 & $0.31^{***}$  & $0.46^{***}$    \\
+                                         & $(0.08)$      & $(0.08)$        \\
+Distance to international boundary (log) & $0.10^{*}$    & $0.08^{\cdot}$  \\
+                                         & $(0.04)$      & $(0.05)$        \\
+\midrule
+AIC                                      & $37130.06$    & $11055.71$      \\
+Log Likelihood                           & $-18544.03$   & $-5508.85$      \\
+Num. obs.                                & $9492$        & $9492$          \\
+\bottomrule
+\multicolumn{3}{l}{\scriptsize{$^{***}p<0.001$; $^{**}p<0.01$; $^{*}p<0.05$; $^{\cdot}p<0.1$}}
+\end{tabular}
+}
+\caption{ZINB models (count)}
+\label{zinbc}
+\end{center}
+\end{table}

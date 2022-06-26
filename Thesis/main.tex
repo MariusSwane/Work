@@ -16,6 +16,7 @@
 \usepackage{hyperref}
 \usepackage{import}
 \usepackage[utf8]{inputenc}
+\usepackage{lscape}
 \usepackage{longtable}
 \usepackage{makecell}
 \usepackage{multirow}
@@ -61,10 +62,27 @@ linkcolor=black,
 % Smaller affiliation font
 \renewcommand\Affilfont{\itshape\small}
 
+\providecommand{\keywords}[1]
+{
+	\small	
+	\textbf{\textit{Keywords---}} #1
+}
+
+% Abstract
+
+\newenvironment{abstract}[1]{%
+\begin{center}\normalfont\textbf{Abstract}\end{center}
+\begin{quotation} #1 \end{quotation}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \title{Janus-faced: Historical statehood and organized violence}
 \author{Marius Swane Wishman}
 
 \date{\today}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
@@ -89,6 +107,7 @@ linkcolor=black,
 %\subimport{./}{StatePresenceCivilConflict.tex}
 
 \include{Kappa/Kappa}
+\include{ARC/main_text_jpr_final}
 \include{StatePresenceCivilConflict/StatePresenceCivilConflict}
 \include{CommunalViolence/OMT}
 

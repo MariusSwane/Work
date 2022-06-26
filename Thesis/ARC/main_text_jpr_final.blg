@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ARC/main_text_jpr_final.aux
+The style file: apsr.bst
+Database file #1: jpr_bibliography_final.bib
+You've used 76 entries,
+            2874 wiz_defined-function locations,
+            1084 strings with 17192 characters,
+and the built_in function-call counts, 362847 in all, are:
+= -- 59970
+> -- 4099
+< -- 1
++ -- 28531
+- -- 1453
+* -- 31291
+:= -- 72062
+add.period$ -- 304
+call.type$ -- 76
+change.case$ -- 988
+chr.to.int$ -- 76
+cite$ -- 76
+duplicate$ -- 1183
+empty$ -- 2547
+format.name$ -- 1538
+if$ -- 65223
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 99
+newline$ -- 334
+num.names$ -- 865
+pop$ -- 371
+preamble$ -- 1
+purify$ -- 1140
+quote$ -- 0
+skip$ -- 940
+stack$ -- 0
+substring$ -- 85356
+swap$ -- 154
+text.length$ -- 1065
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 250
+warning$ -- 0
+while$ -- 1771
+width$ -- 0
+write$ -- 1078

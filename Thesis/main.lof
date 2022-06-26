@@ -5,26 +5,34 @@
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-2}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Example of georeferenced map\relax }}{46}{figure.caption.6}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Pre-colonial state presence in Nigeria (1800-1914).\relax }}{50}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces State presence (sqrt transformed) with interpolated years based on historical atlases.\relax }}{51}{figure.caption.8}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces \relax }}{56}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces \relax }}{57}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Predicted conflict events per state presence, grouped by distance to capital, in cells with at least one conflict event.\relax }}{69}{figure.caption.21}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces ARC ties example\relax }}{41}{figure.caption.7}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Egypt 2011$^g$ \footnotesize {$^g$Node sizes are proportional to degree centrality. Ideological positions were generated with text-matching on the organization-goals variable (see Appendix). Named organizations have a centrality score over $>0.6$ or an estimated membership size of more than 100,000} \relax }}{46}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces ARC organizations over time and space\relax }}{48}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Visualizations: Main Results in the Text, Structural Variables\relax }}{72}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Visualizations: Clustering of Organization Types in Country-Years\relax }}{73}{figure.caption.16}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Causal diagram\relax }}{89}{figure.caption.22}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Main model predictions\relax }}{102}{figure.caption.23}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Communal violence events (log)\relax }}{102}{figure.caption.24}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces ZINB count model excluding Nigeria\relax }}{103}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Ethnic fractionalization\relax }}{105}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Uganda\relax }}{106}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Nigeria\relax }}{107}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Ghana\relax }}{107}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Kenya\relax }}{108}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Communal violence ZINB-count models\relax }}{119}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Non-state violence ZINB-count models\relax }}{120}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Communal violence ZINB-count models (excluding Christian-Muslim dyad in Nigeria)\relax }}{121}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Communal violence ZINB-count models (ACLED events)\relax }}{122}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of georeferenced map\relax }}{95}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Pre-colonial state presence in Nigeria (1800-1914).\relax }}{99}{figure.caption.18}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces State presence (sqrt transformed) with interpolated years based on historical atlases.\relax }}{101}{figure.caption.19}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces \relax }}{109}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces \relax }}{109}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Predicted conflict events per state presence, grouped by distance to capital, in cells with at least one conflict event.\relax }}{126}{figure.caption.32}%
+\gdef \the@ipfilectr {}
+\gdef \the@ipfilectr {@-4}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Causal diagram\relax }}{150}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Main model predictions\relax }}{168}{figure.caption.34}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Communal violence events (log)\relax }}{168}{figure.caption.35}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces ZINB count model excluding Nigeria\relax }}{169}{figure.caption.36}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Ethnic fractionalization\relax }}{172}{figure.caption.37}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Uganda\relax }}{173}{figure.caption.38}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Nigeria\relax }}{173}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Ghana\relax }}{174}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Kenya\relax }}{175}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Communal violence ZINB-count models\relax }}{188}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Non-state violence ZINB-count models\relax }}{189}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Communal violence ZINB-count models (excluding Christian-Muslim dyad in Nigeria)\relax }}{190}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Communal violence ZINB-count models (ACLED events)\relax }}{191}{figure.caption.46}%
 \gdef \the@ipfilectr {}

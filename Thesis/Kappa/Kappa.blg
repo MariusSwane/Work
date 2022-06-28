@@ -6,45 +6,45 @@ Database file #1: ../lib.bib
 Warning--I didn't find a database entry for "multiple"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
-You've used 127 entries,
+You've used 128 entries,
             2874 wiz_defined-function locations,
-            1495 strings with 25588 characters,
-and the built_in function-call counts, 479984 in all, are:
-= -- 78616
-> -- 4860
+            1508 strings with 25900 characters,
+and the built_in function-call counts, 475308 in all, are:
+= -- 77796
+> -- 4768
 < -- 4
-+ -- 36298
-- -- 1781
-* -- 40615
-:= -- 96782
-add.period$ -- 508
-call.type$ -- 127
-change.case$ -- 1652
-chr.to.int$ -- 124
-cite$ -- 129
-duplicate$ -- 1978
-empty$ -- 4300
-format.name$ -- 1946
-if$ -- 86105
-int.to.chr$ -- 8
++ -- 35855
+- -- 1754
+* -- 40117
+:= -- 95992
+add.period$ -- 513
+call.type$ -- 128
+change.case$ -- 1665
+chr.to.int$ -- 126
+cite$ -- 130
+duplicate$ -- 1989
+empty$ -- 4313
+format.name$ -- 1925
+if$ -- 85244
+int.to.chr$ -- 7
 int.to.str$ -- 0
 missing$ -- 146
-newline$ -- 597
-num.names$ -- 1401
-pop$ -- 516
+newline$ -- 605
+num.names$ -- 1405
+pop$ -- 542
 preamble$ -- 1
-purify$ -- 1905
+purify$ -- 1920
 quote$ -- 0
-skip$ -- 1613
+skip$ -- 1612
 stack$ -- 0
-substring$ -- 110667
-swap$ -- 304
-text.length$ -- 1782
+substring$ -- 109407
+swap$ -- 300
+text.length$ -- 1796
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 458
+type$ -- 460
 warning$ -- 2
-while$ -- 2958
+while$ -- 2968
 width$ -- 0
-write$ -- 1801
+write$ -- 1818
 (There were 3 warnings)

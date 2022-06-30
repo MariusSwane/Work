@@ -12,15 +12,6 @@ Illegal, another \bibdata command---line 71 of file ARC/main_text_jpr_final.aux
  : \bibdata
  :         {jpr_bibliography_final.bib}
 I'm skipping whatever remains of this command
-A level-1 auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
-Illegal, another \bibstyle command---line 157 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
- : \bibstyle
- :          {apsr}
-I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
- : \bibdata
- :         {../lib.bib}
-I'm skipping whatever remains of this command
 A level-1 auxiliary file: CommunalViolence/OMT.aux
 Illegal, another \bibstyle command---line 161 of file CommunalViolence/OMT.aux
  : \bibstyle
@@ -30,7 +21,16 @@ Illegal, another \bibdata command---line 162 of file CommunalViolence/OMT.aux
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
-Reallocated field_info (elt_size=8) to 12416 items from 5000.
+A level-1 auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+Illegal, another \bibstyle command---line 157 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+ : \bibdata
+ :         {../lib.bib}
+I'm skipping whatever remains of this command
+Reallocated field_info (elt_size=8) to 12440 items from 5000.
 Database file #1: ../lib.bib
 Warning--I didn't find a database entry for "multiple"
 Warning--I didn't find a database entry for "Haggard2016"
@@ -107,45 +107,45 @@ Warning--I didn't find a database entry for "Djuve2020"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--can't use both author and editor fields in tilly_1985
-You've used 237 entries,
+You've used 238 entries,
             2874 wiz_defined-function locations,
-            2305 strings with 45129 characters,
-and the built_in function-call counts, 876272 in all, are:
-= -- 143183
-> -- 9146
+            2310 strings with 45295 characters,
+and the built_in function-call counts, 883186 in all, are:
+= -- 144338
+> -- 9229
 < -- 10
-+ -- 66193
-- -- 3347
-* -- 73837
-:= -- 177223
-add.period$ -- 950
-call.type$ -- 237
-change.case$ -- 3085
-chr.to.int$ -- 233
-cite$ -- 240
-duplicate$ -- 3653
-empty$ -- 7870
-format.name$ -- 3667
-if$ -- 157106
++ -- 66760
+- -- 3375
+* -- 74458
+:= -- 178557
+add.period$ -- 954
+call.type$ -- 238
+change.case$ -- 3098
+chr.to.int$ -- 234
+cite$ -- 241
+duplicate$ -- 3668
+empty$ -- 7906
+format.name$ -- 3698
+if$ -- 158353
 int.to.chr$ -- 9
 int.to.str$ -- 0
-missing$ -- 278
-newline$ -- 1125
-num.names$ -- 2618
-pop$ -- 1102
+missing$ -- 279
+newline$ -- 1129
+num.names$ -- 2629
+pop$ -- 1104
 preamble$ -- 1
-purify$ -- 3555
+purify$ -- 3570
 quote$ -- 0
-skip$ -- 2902
+skip$ -- 2916
 stack$ -- 0
-substring$ -- 201175
-swap$ -- 513
-text.length$ -- 3328
+substring$ -- 202847
+swap$ -- 515
+text.length$ -- 3342
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 826
+type$ -- 830
 warning$ -- 3
-while$ -- 5466
+while$ -- 5489
 width$ -- 0
-write$ -- 3391
+write$ -- 3406
 (There were 6 error messages)

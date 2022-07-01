@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: BeyondEthnicity/hse_main.aux
+The style file: apsr.bst
+Database file #1: ArtificialBorders.bib
+Warning--there's a number but no volume in Barkindo2016
+You've used 101 entries,
+            2874 wiz_defined-function locations,
+            1275 strings with 21327 characters,
+and the built_in function-call counts, 432932 in all, are:
+= -- 71411
+> -- 4430
+< -- 2
++ -- 33622
+- -- 1607
+* -- 36992
+:= -- 86484
+add.period$ -- 405
+call.type$ -- 101
+change.case$ -- 1314
+chr.to.int$ -- 101
+cite$ -- 102
+duplicate$ -- 1559
+empty$ -- 3353
+format.name$ -- 1758
+if$ -- 77691
+int.to.chr$ -- 5
+int.to.str$ -- 0
+missing$ -- 127
+newline$ -- 441
+num.names$ -- 1097
+pop$ -- 467
+preamble$ -- 1
+purify$ -- 1515
+quote$ -- 0
+skip$ -- 1240
+stack$ -- 0
+substring$ -- 101425
+swap$ -- 196
+text.length$ -- 1416
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 342
+warning$ -- 1
+while$ -- 2307
+width$ -- 0
+write$ -- 1420
+(There was 1 warning)

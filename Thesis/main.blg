@@ -19,15 +19,7 @@ Illegal, another \bibstyle command---line 190 of file BeyondEthnicity/hse_main.a
 I'm skipping whatever remains of this command
 Illegal, another \bibdata command---line 191 of file BeyondEthnicity/hse_main.aux
  : \bibdata
- :         {../ArtificialBorders.bib}
-I'm skipping whatever remains of this command
-Illegal, another \bibstyle command---line 288 of file BeyondEthnicity/hse_main.aux
- : \bibstyle
- :          {aspr}
-I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 289 of file BeyondEthnicity/hse_main.aux
- : \bibdata
- :         {../ArtificialBorders.bib}
+ :         {ArtificialBorders.bib}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: CommunalViolence/OMT.aux
 Illegal, another \bibstyle command---line 161 of file CommunalViolence/OMT.aux
@@ -188,4 +180,4 @@ warning$ -- 3
 while$ -- 6291
 width$ -- 0
 write$ -- 3894
-(There were 10 error messages)
+(There were 8 error messages)

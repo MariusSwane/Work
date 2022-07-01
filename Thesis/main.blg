@@ -12,6 +12,23 @@ Illegal, another \bibdata command---line 71 of file ARC/main_text_jpr_final.aux
  : \bibdata
  :         {jpr_bibliography_final.bib}
 I'm skipping whatever remains of this command
+A level-1 auxiliary file: BeyondEthnicity/hse_main.aux
+Illegal, another \bibstyle command---line 190 of file BeyondEthnicity/hse_main.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 191 of file BeyondEthnicity/hse_main.aux
+ : \bibdata
+ :         {../ArtificialBorders.bib}
+I'm skipping whatever remains of this command
+Illegal, another \bibstyle command---line 288 of file BeyondEthnicity/hse_main.aux
+ : \bibstyle
+ :          {aspr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 289 of file BeyondEthnicity/hse_main.aux
+ : \bibdata
+ :         {../ArtificialBorders.bib}
+I'm skipping whatever remains of this command
 A level-1 auxiliary file: CommunalViolence/OMT.aux
 Illegal, another \bibstyle command---line 161 of file CommunalViolence/OMT.aux
  : \bibstyle
@@ -30,9 +47,8 @@ Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
-Reallocated field_info (elt_size=8) to 12440 items from 5000.
+Reallocated field_info (elt_size=8) to 13832 items from 5000.
 Database file #1: ../lib.bib
-Warning--I didn't find a database entry for "multiple"
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
 Warning--I didn't find a database entry for "Cunningham2017a"
@@ -104,48 +120,72 @@ Warning--I didn't find a database entry for "Chang2008"
 Warning--I didn't find a database entry for "Kreutz2010"
 Warning--I didn't find a database entry for "Goemans2009"
 Warning--I didn't find a database entry for "Djuve2020"
+Warning--I didn't find a database entry for "Mazzuca2021"
+Warning--I didn't find a database entry for "Wimmer2018"
+Warning--I didn't find a database entry for "Acemoglu2011"
+Warning--I didn't find a database entry for "Grosjean2011"
+Warning--I didn't find a database entry for "Grosfeld2013"
+Warning--I didn't find a database entry for "Banerjee2005"
+Warning--I didn't find a database entry for "Nunn2011"
+Warning--I didn't find a database entry for "Richards1995"
+Warning--I didn't find a database entry for "Gordon1993"
+Warning--I didn't find a database entry for "Gleditsch1999"
+Warning--I didn't find a database entry for "Teorell2017"
+Warning--I didn't find a database entry for "Grewal1998"
+Warning--I didn't find a database entry for "Ying2020"
+Warning--I didn't find a database entry for "Ziblatt2008"
+Warning--I didn't find a database entry for "Lewis2001"
+Warning--I didn't find a database entry for "Cinelli2020"
+Warning--I didn't find a database entry for "Coppedge2021"
+Warning--I didn't find a database entry for "Lyall2020"
+Warning--I didn't find a database entry for "Pettersson2021"
+Warning--I didn't find a database entry for "Soloshcheva2017"
+Warning--I didn't find a database entry for "Barkindo2016"
+Warning--I didn't find a database entry for "Zenn2013"
+Warning--I didn't find a database entry for "Tuminez2007"
+Warning--I didn't find a database entry for "OFahey2008"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--can't use both author and editor fields in tilly_1985
-You've used 238 entries,
+You've used 273 entries,
             2874 wiz_defined-function locations,
-            2310 strings with 45295 characters,
-and the built_in function-call counts, 883186 in all, are:
-= -- 144338
-> -- 9229
-< -- 10
-+ -- 66760
-- -- 3375
-* -- 74458
-:= -- 178557
-add.period$ -- 954
-call.type$ -- 238
-change.case$ -- 3098
-chr.to.int$ -- 234
-cite$ -- 241
-duplicate$ -- 3668
-empty$ -- 7906
-format.name$ -- 3698
-if$ -- 158353
-int.to.chr$ -- 9
+            2551 strings with 51110 characters,
+and the built_in function-call counts, 1003680 in all, are:
+= -- 163989
+> -- 10425
+< -- 12
++ -- 75739
+- -- 3820
+* -- 84461
+:= -- 203065
+add.period$ -- 1095
+call.type$ -- 273
+change.case$ -- 3553
+chr.to.int$ -- 267
+cite$ -- 276
+duplicate$ -- 4230
+empty$ -- 9071
+format.name$ -- 4188
+if$ -- 179982
+int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 279
-newline$ -- 1129
-num.names$ -- 2629
-pop$ -- 1104
+missing$ -- 323
+newline$ -- 1282
+num.names$ -- 3012
+pop$ -- 1273
 preamble$ -- 1
-purify$ -- 3570
+purify$ -- 4095
 quote$ -- 0
-skip$ -- 2916
+skip$ -- 3377
 stack$ -- 0
-substring$ -- 202847
-swap$ -- 515
-text.length$ -- 3342
+substring$ -- 230281
+swap$ -- 609
+text.length$ -- 3834
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 830
+type$ -- 948
 warning$ -- 3
-while$ -- 5489
+while$ -- 6291
 width$ -- 0
-write$ -- 3406
-(There were 6 error messages)
+write$ -- 3894
+(There were 10 error messages)

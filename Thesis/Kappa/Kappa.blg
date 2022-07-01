@@ -3,12 +3,11 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Kappa/Kappa.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
-Warning--I didn't find a database entry for "multiple"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 You've used 131 entries,
             2874 wiz_defined-function locations,
-            1525 strings with 26341 characters,
+            1524 strings with 26333 characters,
 and the built_in function-call counts, 487558 in all, are:
 = -- 79791
 > -- 4918
@@ -47,4 +46,4 @@ warning$ -- 2
 while$ -- 3038
 width$ -- 0
 write$ -- 1862
-(There were 3 warnings)
+(There were 2 warnings)

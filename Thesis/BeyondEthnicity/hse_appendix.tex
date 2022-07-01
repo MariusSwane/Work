@@ -1,0 +1,225 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[semicolon]{natbib}
+\usepackage{authblk}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{xltabular}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{rotating}
+% \usepackage{float}
+\usepackage[british]{datetime2}
+%\usepackage{float}
+\usepackage[labelsep=period]{caption}
+\captionsetup[table]{name=Table}
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand\Affilfont{\itshape\small}
+
+\title{Artificial States and Civil Conflict Revisited}
+\author[1]{Marius Swane Wishman}
+\author[1]{Charles Butcher}
+\affil[1]{Department of Sociology and Political Science, NTNU}
+\date{}
+
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Keywords---}} #1
+}
+
+%\linespread{1.5}
+
+\begin{document}
+
+
+\tableofcontents
+
+\pagebreak
+
+\singlespacing
+
+
+\section{Appendix}
+
+\subsection{Main Results: Armed conflict onset rate}
+
+    \input{img/Onsets}
+    
+\clearpage    
+
+\subsection{Main Results: Armed conflict onset rate, Government}
+
+    \input{img/Onsets_gov}
+    
+        
+\clearpage    
+  
+\subsection{Main Results: Armed conflict onset rate, Territory}
+
+    \input{img/Onsets_terr}
+    
+    
+\clearpage        
+
+\subsection{Main Results: Armed conflict onset rate, 1946-1988}
+
+    \input{img/Onsets_46_88}
+ 
+    
+\clearpage     
+  
+\subsection{Main Results: Armed conflict onset rate, 1989-2000}
+
+    \input{img/Onsets_89_00}
+    
+    
+\clearpage    
+
+
+\subsection{Main Results: Armed conflict onset rate, 2001-2019}
+
+    \input{img/Onsets_01_19}
+    
+    
+\clearpage    
+
+\subsection{Alternative Measures of State History}
+
+    \input{img/sh_models}
+    
+
+    
+\clearpage    
+
+
+\subsection{Regional Subsets}
+
+    \input{img/Onsets_Regional_ISD}
+
+
+    
+\clearpage    
+
+\subsection{First Stage Mediation Equations}
+
+    \input{img/med_models.tex}
+    
+    
+\clearpage
+ 
+ 
+\subsection{Second Stage Mediation Equations}
+
+
+\clearpage
+    \input{img/med_2_models.tex}
+\clearpage  
+ 
+
+\subsection{Models with alternative dependent variables}
+
+
+
+    \input{img/alt_dvs.tex}
+\clearpage  
+
+
+\subsection{Sensitivity test}
+
+Figure \ref{Fig: Sens} shows how much of the variance in the conflict onset rate and the number of HSEs a potential omitted variable would have to explain in order to render the results insignificant at the $p<0.05$ level. While similar to an Imbens test, \citet{Cinelli2020} point to several important differences. This test was run on the model using the main control variables, including region fixed effects. Not even a confounder with three times the strength of the mean number of EPR ethnic groups would render the HSE results insignificant. Any omitted confounder would have to be several times stronger than the best predictors of conflict and HSEs in our models.
+
+% This is cool, but a lot of text gets bundled on top of each other and sometimes falls outside the graph for the ln_total_epr_groups_mean. Any way you can fix that?
+
+    \begin{figure}[!htb] \hspace{-0,5cm} \includegraphics[width=\textwidth,
+    height=\textheight, keepaspectratio]{img/hse_sens_main.png} \caption{Sensitivity test} \label{Fig: Sens} \end{figure}
+
+\subsection{Additional tests of the state weakness mechanism}
+
+% The reference below is not working, and I can't figure out why!
+Table \ref{MediationRob} shows associations between the number of ISD states and alternative measures of state weakness to further explore these mechanisms. We use the ``State authority over territory" (Territorial capacity), ``State fiscal source of revenue" (Fiscal capacity) and ``Criteria for appointment decisions in the state administration" (Administrative capacity) variables from the VDEM dataset \citep{Coppedge2021} as indicators of various dimensions of state capacity. The territorial capacity variable captures the extent to which states control their territories. Higher scores on the fiscal capacity variable indicate movements towards direct taxation of property or income. Lower scores indicate the inability to generate taxation revenue or dependence on natural resource extraction or international aid. Higher scores on the administrative capacity variable indicate movements towards an increasingly impartial recruitment to the bureaucracy based on merit rather than personal ties or patronage. We also test the average GDP level over the 1946-2018 period and the average Polyarchy score over the same period.   
+
+Although each of these variables represents a potential alternative mediator, we only show the first-stage equations here. None of these measures of state weakness are highly correlated with the number of ISD states between 1816-1920 and thus do not represent strong contenders for mediators. Overall, we see this as an indication that the links between ISD states and modern internal conflict rates are not well explained by the state weakness mechanism, at least on the country level. 
+
+ \clearpage     
+
+\input{img/mediation_robustness_models}
+    
+ \clearpage     
+
+\subsection{Secessionism}
+
+Here we explore the extent to which the main results reflect an increase in the risk of secessionist movements. The UCDP data differentiates between conflicts with ``governmental'' and ``territorial'' incompatibilities, but does not specifically identify secessionist movements (although these are a subset of territorial conflicts). We use data from Griffiths (2016) on secessionist movements active in independent states after 1946 to unpack the relationship between HSEs and secessionism further.  
+
+
+    \input{img/secession_table_hses}
+
+Table \ref{Tab: Sec_Desc} shows how the onset and incidence rate vary across levels of HSE presence. The patterns are similar to the main results and those for territorial conflicts in the main paper. The onset rate is low for 0 HSEs, rising for 1 HSE (again, largely because of Myanmar), before dropping and then rising to the highest onset (and incidence) rate for states with more than 10 HSEs. Although the number of observations is small in the category of 10+ HSEs, secessionist movements in these states tend also to be more violent. 
+
+ 
+Table \ref{SecTable} re-runs the main models, but using the onset rate of violent secessionist movements from \cite{Griffiths2016} as the dependent variable. Increasing numbers of HSEs are still positively associated with the onset rate of secessionist movements, but the coefficient is smaller than in the main models (for territorial conflicts) and generally less precisely estimated. We think this supports the idea that the HSE-conflict link is not only a story of secession, but also challenges over government. 
+    
+        \input{img/secession_robustness_models}
+
+ \clearpage   
+ 
+\subsection{Historical Conflict}
+
+Historical conflict is an important alternative explanation for two reasons. First, historical conflict may lower trust between groups and increase the chances of modern conflict \citep{Besley2014}. On the other hand, historical conflict may reflect successful state-building, where states with higher levels of historical conflict are more stable and peaceful today because they have already eliminated rivals and established themselves as the most capable state in that territory. This latter explanation is a form of survivorship bias, where modern states with few HSEs are the product of past competition and conflict that has selected out less capable states, leaving more capable states in their wake. To an extent this latter process is a part of our argument. States that emerged after the Second World War were not formed through a more ``organic'' process of conflict and competition, but through a combination of relatively arbitrary colonial border drawing and decolonization movements. Moreover, these states entered an international system where borders were hard to revise \citep{Herbst2014}. Unlike European states that had competed with rivals for centuries prior, new states such as Nigeria, the Democratic Republic of Congo or Indonesia were established with many potential rivals, which we argue raises the probability of conflict. 
+
+Nonetheless, we wish to separate our study about the conflict inducing effects of HSEs from a story whereby modern conflict is simply reflective of past conflict, whether in the sense that past conflict created more peaceful states, or more conflict-prone states. The variable we use in the main models to control for historical conflict come from the data produced by \citet{Dincecco2019} who link conflicts in Brecke's (1999) conflict catalogue to modern states. \citet{Dincecco2019}'a work has several advantages. First, they record conflicts going back to 1400 meaning we can measure conflict levels before the number of HSEs (which we measure in the 1816-1939 period), although many HSEs do have deeper roots in time and post-treatment bias may still be an issue with this variable. Second, the intensity threshold for inclusion in Brecke's catalogue is lower than for other datasets (The Correlates of War, Project Mars) which we think means that these data capture more conflicts in Africa and South Asia, which tend to be under-reported in other sources. 
+
+Figure \ref{Fig: BreckeMap} shows the distribution of the historical conflict variable. 
+
+   \begin{figure}[H] \hspace{-0,5cm} 
+   \includegraphics[width=\textwidth,
+    height=\textheight, keepaspectratio]{img/historical_conflict_map.png} \caption{Historical Conflict (logged), 1400-1799} \label{Fig: BreckeMap} \end{figure}
+
+In the main models we use the percentage of years between 1400 and 1700 as the main control, but here we test additional specifications. First, we use the raw number of conflicts in a country between 1400-1700. Second, we test the square root transformation of this variable to reduce the impact of outliers. Third, we test the square root transformed percentage of years between 1400-1700 and fourth we test the percentage of conflict years between 1400-\textbf{1799} to assess whether adding 18th century conflicts changes the results. Finally, we interact our main historical conflict control with the region fixed effects, to allow the impacts of war to vary across regions, as \citet{Dincecco2019} find in relation to state capacity. Table \ref{Tab: Hist_Conflict_Rob} shows the results of these models. Our main results are largely unchanged. Similar to \citet{Dincecco2019}, we find that historical conflict in Africa has has a significantly different association with modern conflict than in other regions. 
+
+     \input{img/historical_conflict_robustness}
+
+\clearpage
+
+\subsubsection{Using Project Mars}
+
+Systematically collected data on historical conflict with global coverage are rare, and Brecke's conflict catalogue and \citet{Dincecco2019}'s adaptation are the only source that we are aware of with coverage before 1800. Coverage in the 19th century is better where there are several sources that record wars during this period. Here we draw upon Project Mars (v1.1, \citep{Lyall2020}) to construct an alternative measure of historical conflict. The Project Mars data provide information on 826 different participants in conventional wars from 1800-2011. First, we subsetted the data, including only participants in wars from 1800-1900 and only participants within 1000km of the staring battle. Put differently, we are only including wars in the 19th century and only ``local'' participants in those wars.\footnote{The results are very similar if we use smaller distance thresholds, specifically, 500km and 100km} This excludes cases that would attribute a historical conflict to the United Kingdom when it was fighting in sub-Saharan Africa, for example. We then matched these participating states in Project Mars with states in the ISD data using the Statename variable. Then, we have coded the modern ``destination states'' for each participant using the information in ISD on the modern locations of ISD states. For states in \citet{Lyall2020} without a matching ISD state, we have coded the modern state in which the participant was located. For each modern state, we then calculated the total number of historical wars that involved a state on that territory. For example, if all participants in a historical war (as indicated by \textit{warnum} in \citet{Lyall2020}) were within the territory of a single modern state, that territory is attributed with one historical war. For example, the Tukolor-Bambara war of 1855 (\textit{warnum} 75) involves the Tukolor empire and the kingdom of Kaarta, both primarily based in modern day-Mali. This conflict started 425km from the capital of Tukolor and 1km from Kaarta and therefore both are retained as ``local'' participants. Since both participants are located in modern Mali, Mali is attributed with the historical conflict. Some conflicts involve ``local'' participants located in different modern states. For example the Durrani Empire and the Sikh Kingdom fought several wars between 1813 and 1822. The Durrani Empire is in modern day Afghanistan and the Sikh empire in modern-day Pakistan. Both of these states were ``local'' participants, located less than 1000km from the starting battle, and in this case, both Afghanistan and Pakistan are attributed with a historical conflict.       
+
+This approach to measuring historical conflict has some advantages. Primarily, wars in Project Mars are linked to specific states in the ISD, meaning that if our results are best explained by historical states fighting wars then there is a closer conceptual link between states and wars using these data. Brecke, for example, includes wars that may not involve states and are less relevant to explaining the HSE-conflict link we outline in the paper. 
+
+The main downside is that this measure introduces post-treatment bias because the wars are measured contemporaneously to statehood (i.e between 1800-1900). More wars probably occur in territories with more states to fight them and to the extent that states cause wars we are controlling for part of the association between HSEs and modern conflict. Empirically this appears to be the case as both the historical conflict indicator from \citet{Dincecco2019} and the measure based on \citet{Lyall2020} are highly correlated with the number of HSEs. Table \ref{Tab: Hist_Conf_Models} shows some simple associations between the levels of historical conflict and the number of HSEs, controlling for population density in 1500, the timing of the neolithic revolution, land area, latitude and slave exports by land area. 
+
+     \input{img/hses_hist_conf}
+
+Symbols and institutions, for example, could be more potent or established when historical states have a history of fighting conventional wars. Nonetheless, the historical conflict- modern conflict link is an alternative mechanism to our proposed mechanism and this approach represents an alternative method to account for the impacts of historical conflict that complements the analyses with the Brecke data. 
+
+Figure \ref{Fig: Mars_Map} shows the spatial distribution of wars in the 19th century, using the data from \citet{Lyall2020}. 
+
+   \begin{figure}[H] \hspace{-0,5cm} 
+   \includegraphics[width=\textwidth,
+    height=\textheight, keepaspectratio]{img/historical_conflict_pm_map.png} \caption{Historical Conflict in Project Mars (logged), 1800-1900} \label{Fig: Mars_Map} \end{figure}
+
+
+Table \ref{Tab: Hist_Conflict_Rob_Pm} shows the main results replacing the historical conflict indicator used in the main analysis with the indicator of 19th century wars from \citet{Lyall2020}. 
+
+     \input{img/historical_conflict_robustness_pm}
+
+\clearpage
+
+\subsubsection{Conclusions}
+
+The preceding discussion leads us to conclude that historical conflict does not confound our main results, at least as far as we can empirically test that with the measures available. More historical states \textit{are} correlated with more historical conflicts, but historical conflicts do not appear to be strongly correlated with modern armed conflicts. This is likely because wars in the past have conditional effects on state-building and future peace. Some wars, especially those in Europe, probably helped create cohesive, modern states that had overcome important state-building challenges prior to the 20th century. Here, past wars may be associated with future peace. But in other regions, primarily Africa, historical wars may have eroded trust between social groups that transmits into the modern world as weaker states and higher conflict risks \citep{Besley2014, Dincecco2019}. Our results reflect this - only in Africa do we find that historical conflict is correlated with modern conflict. Historical states may be correlated with historical wars, but they don't appear to be strongly correlated with modern wars. Nonetheless, when we do allow the impacts of war to vary by region, our main results hold up, suggesting that even in Africa, historical warfare and historical statehood may have different impacts on the propensity to modern conflict. 
+
+
+
+
+\subsection{Table of cases}
+ 
+ \input{anecdotesWithActors}
+ 
+ \pagebreak \bibliographystyle{agsm_mod} \bibliography{ArtificialBorders.bib}
+ 
+\end{document}

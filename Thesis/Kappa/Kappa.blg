@@ -7,43 +7,43 @@ Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 You've used 132 entries,
             2874 wiz_defined-function locations,
-            1529 strings with 26514 characters,
-and the built_in function-call counts, 492359 in all, are:
-= -- 80596
-> -- 4969
+            1528 strings with 26493 characters,
+and the built_in function-call counts, 487916 in all, are:
+= -- 79843
+> -- 4896
 < -- 4
-+ -- 37171
-- -- 1825
-* -- 41565
-:= -- 99397
++ -- 36785
+- -- 1802
+* -- 41141
+:= -- 98571
 add.period$ -- 529
 call.type$ -- 132
 change.case$ -- 1717
 chr.to.int$ -- 130
 cite$ -- 134
-duplicate$ -- 2054
-empty$ -- 4446
-format.name$ -- 2001
-if$ -- 88320
+duplicate$ -- 2050
+empty$ -- 4438
+format.name$ -- 1980
+if$ -- 87513
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 150
-newline$ -- 624
-num.names$ -- 1450
-pop$ -- 566
+missing$ -- 149
+newline$ -- 623
+num.names$ -- 1446
+pop$ -- 573
 preamble$ -- 1
 purify$ -- 1980
 quote$ -- 0
-skip$ -- 1669
+skip$ -- 1667
 stack$ -- 0
-substring$ -- 113344
-swap$ -- 314
+substring$ -- 112237
+swap$ -- 313
 text.length$ -- 1852
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 474
 warning$ -- 2
-while$ -- 3061
+while$ -- 3056
 width$ -- 0
-write$ -- 1875
+write$ -- 1871
 (There were 2 warnings)

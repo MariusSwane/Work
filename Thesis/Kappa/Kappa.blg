@@ -5,45 +5,46 @@ The style file: apsr.bst
 Database file #1: ../lib.bib
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
+Warning--empty author and editor in 1967Psav
 You've used 135 entries,
             2874 wiz_defined-function locations,
-            1547 strings with 26987 characters,
-and the built_in function-call counts, 496389 in all, are:
-= -- 81202
-> -- 4979
+            1547 strings with 27071 characters,
+and the built_in function-call counts, 500300 in all, are:
+= -- 81975
+> -- 4928
 < -- 4
-+ -- 37388
-- -- 1834
-* -- 41834
-:= -- 100331
-add.period$ -- 541
++ -- 37760
+- -- 1816
+* -- 42209
+:= -- 100957
+add.period$ -- 540
 call.type$ -- 135
-change.case$ -- 1756
+change.case$ -- 1751
 chr.to.int$ -- 133
-cite$ -- 137
-duplicate$ -- 2096
+cite$ -- 138
+duplicate$ -- 2098
 empty$ -- 4539
-format.name$ -- 2016
-if$ -- 89025
+format.name$ -- 1998
+if$ -- 89769
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 153
-newline$ -- 638
-num.names$ -- 1478
-pop$ -- 587
+missing$ -- 152
+newline$ -- 636
+num.names$ -- 1466
+pop$ -- 583
 preamble$ -- 1
-purify$ -- 2025
+purify$ -- 2020
 quote$ -- 0
-skip$ -- 1700
+skip$ -- 1703
 stack$ -- 0
-substring$ -- 114113
-swap$ -- 318
-text.length$ -- 1894
+substring$ -- 115268
+swap$ -- 324
+text.length$ -- 1884
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 484
-warning$ -- 2
-while$ -- 3125
+warning$ -- 3
+while$ -- 3106
 width$ -- 0
-write$ -- 1914
-(There were 2 warnings)
+write$ -- 1913
+(There were 3 warnings)

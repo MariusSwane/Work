@@ -39,7 +39,7 @@ Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
-Reallocated field_info (elt_size=8) to 13904 items from 5000.
+Reallocated field_info (elt_size=8) to 13928 items from 5000.
 Database file #1: ../lib.bib
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
@@ -138,46 +138,47 @@ Warning--I didn't find a database entry for "Tuminez2007"
 Warning--I didn't find a database entry for "OFahey2008"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
+Warning--empty author and editor in 1967Psav
 Warning--can't use both author and editor fields in tilly_1985
-You've used 276 entries,
+You've used 277 entries,
             2874 wiz_defined-function locations,
-            2566 strings with 51520 characters,
-and the built_in function-call counts, 1007710 in all, are:
-= -- 164595
+            2571 strings with 51757 characters,
+and the built_in function-call counts, 1015123 in all, are:
+= -- 165933
 > -- 10435
 < -- 12
-+ -- 75956
++ -- 76592
 - -- 3829
-* -- 84730
-:= -- 203999
-add.period$ -- 1107
-call.type$ -- 276
-change.case$ -- 3592
-chr.to.int$ -- 270
-cite$ -- 279
-duplicate$ -- 4272
-empty$ -- 9164
+* -- 85393
+:= -- 205347
+add.period$ -- 1110
+call.type$ -- 277
+change.case$ -- 3600
+chr.to.int$ -- 271
+cite$ -- 281
+duplicate$ -- 4290
+empty$ -- 9194
 format.name$ -- 4203
-if$ -- 180687
+if$ -- 182060
 int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 326
-newline$ -- 1296
+missing$ -- 327
+newline$ -- 1300
 num.names$ -- 3040
-pop$ -- 1294
+pop$ -- 1299
 preamble$ -- 1
-purify$ -- 4140
+purify$ -- 4150
 quote$ -- 0
-skip$ -- 3408
+skip$ -- 3419
 stack$ -- 0
-substring$ -- 231050
-swap$ -- 613
-text.length$ -- 3876
+substring$ -- 232979
+swap$ -- 620
+text.length$ -- 3880
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 958
-warning$ -- 3
-while$ -- 6355
+type$ -- 960
+warning$ -- 4
+while$ -- 6359
 width$ -- 0
-write$ -- 3933
+write$ -- 3947
 (There were 8 error messages)

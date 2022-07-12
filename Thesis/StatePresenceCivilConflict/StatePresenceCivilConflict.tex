@@ -599,9 +599,9 @@ covering the period 1800 to 1914 for continental Africa and Madagascar.
 
 %\end{multicols}
 
-\begin{figure}[h!tpb]
+\begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{img/Arrowsmith.jpg}
+	\includegraphics[width=\linewidth]{img/Arrowsmith.jpg}
 	\caption{Example of georeferenced map}%
 	\label{Arrowsmith}
 \end{figure}
@@ -728,7 +728,7 @@ Chad.
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=\textwidth,keepaspectratio]{../R/Output/nigeria.pdf}
+	\includegraphics[width=\textwidth]{../R/Output/nigeria.pdf}
 	\caption{Pre-colonial state presence in Nigeria (1800-1914).}
 	\label{nigeria}
 \end{figure}
@@ -985,14 +985,17 @@ of fatalities, for both negative binomial and ZINB models (see tables
 
 \begin{figure}[htpb] \centering
 	\includegraphics[width=\linewidth]{"../R/Output/deathsInterPlot.pdf"}
-	\caption{}
+	\caption{Marginal effect of pre-colonial state presence, conditioned on
+	distance to capital.}
 	\label{interdeaths}
 \end{figure}
 
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=\linewidth]{"../R/Output/interdeathszinbplot.pdf"}
-	\caption{}
+	\caption{Marginal effect of pre-colonial state presence, conditioned on
+	distance to capital, in cells with at least one fatality (second stage
+ZINB model).}
 	\label{deaths_zinb}
 \end{figure}
 

@@ -39,7 +39,7 @@ Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
-Reallocated field_info (elt_size=8) to 13928 items from 5000.
+Reallocated field_info (elt_size=8) to 13952 items from 5000.
 Database file #1: ../lib.bib
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
@@ -140,45 +140,45 @@ Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--empty author and editor in 1967Psav
 Warning--can't use both author and editor fields in tilly_1985
-You've used 277 entries,
+You've used 278 entries,
             2874 wiz_defined-function locations,
-            2571 strings with 51757 characters,
-and the built_in function-call counts, 1015123 in all, are:
-= -- 165933
-> -- 10435
+            2576 strings with 51920 characters,
+and the built_in function-call counts, 1019891 in all, are:
+= -- 166725
+> -- 10486
 < -- 12
-+ -- 76592
-- -- 3829
-* -- 85393
-:= -- 205347
-add.period$ -- 1110
-call.type$ -- 277
-change.case$ -- 3600
-chr.to.int$ -- 271
-cite$ -- 281
-duplicate$ -- 4290
-empty$ -- 9194
-format.name$ -- 4203
-if$ -- 182060
++ -- 76964
+- -- 3847
+* -- 85805
+:= -- 206293
+add.period$ -- 1114
+call.type$ -- 278
+change.case$ -- 3613
+chr.to.int$ -- 272
+cite$ -- 282
+duplicate$ -- 4305
+empty$ -- 9230
+format.name$ -- 4221
+if$ -- 182919
 int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 327
-newline$ -- 1300
-num.names$ -- 3040
-pop$ -- 1299
+missing$ -- 328
+newline$ -- 1304
+num.names$ -- 3052
+pop$ -- 1302
 preamble$ -- 1
-purify$ -- 4150
+purify$ -- 4165
 quote$ -- 0
-skip$ -- 3419
+skip$ -- 3432
 stack$ -- 0
-substring$ -- 232979
-swap$ -- 620
-text.length$ -- 3880
+substring$ -- 234102
+swap$ -- 622
+text.length$ -- 3894
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 960
+type$ -- 964
 warning$ -- 4
-while$ -- 6359
+while$ -- 6384
 width$ -- 0
-write$ -- 3947
+write$ -- 3960
 (There were 8 error messages)

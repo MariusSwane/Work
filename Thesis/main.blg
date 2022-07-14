@@ -31,11 +31,11 @@ Illegal, another \bibdata command---line 162 of file CommunalViolence/OMT.aux
  :         {../lib.bib}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
-Illegal, another \bibstyle command---line 157 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+Illegal, another \bibstyle command---line 155 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
  : \bibstyle
  :          {apsr}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+Illegal, another \bibdata command---line 156 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command

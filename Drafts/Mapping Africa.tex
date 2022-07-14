@@ -43,41 +43,52 @@
 \section{Introduction}
 \subsection{What has been done}
 \subsection{Contribution}
+
 A dynamic measure of historical state presence in Africa.
 Records changes of borders over time, in a period before modern, more or less static, boundaries.
 Records the \emph{extent} and \emph{penetration/deapth} of state presence.
 Identifies zones of overlapping sovereignty.
 
 This allows testing of a number of existing theories and hypotheses.
+
 \subsection{Strengths and weaknesses}
 
 \section{Procedure and technicalities}
 \subsection{Why David Rumsey?}
 \subsection{Georeferencing}
-Most maps were already georeference, however we found that they were usually  done so too roughly for our purposes. 
-Most maps were above 100 kilometers off in one place or another. 
-We therefor elected to georeference all maps ourselves. 
+
+Most maps were already georeference, however we found that they were usually
+done so too roughly for our purposes. Most maps were above 100 kilometers off in
+one place or another. We therefor elected to georeference all maps ourselves.
 This work was done in QGIS using the Georeferencer plug-in.
 
 Once georeferenced we drew polygons of the states present on the map \emph{and}
-in the ISD V2 for the year in question. 
-This means that sometimes maps would contain states that not yet, or no longer, were in the ISD.
-In some instances this probably reflected lags in the transmission of knowledge about the local conditions back to Western cartographers. 
-Either in cases of states not yet discovered by Westerns, or cases of states no longer existing and Western observes not yet knowing.
-While in other cases it reflects changes in the ISD, for example related to changes of de facto rule (while maps still reflect the de jure situation).
-We also only drew polygons for states that we could positively tie to the ISD.
-This means that even if a state is drawn in a map, unless it had a name that was either included in in the ISD or could be positively identified as one through some additional research.
-Examples of the latter would be when the map names a state by its ruler, or the name is not included in the ISD, but nonetheless refers to one of the states in the ISD.
-If a state was drawn, but not named at all, we did not draw a polygon for it.
-Even when there was a state in the ISD in that territory and year, however we would not able to \emph{positively} identify the state.
-We therefor adopted the conservative approach of not coding such cases.
-When states are named in maps, but do not include borders (i.e. when the map only contains the name of a state), we also did not draw any polygons.
-We could have drawn polygons based on the placement and size of the name in the map. 
-In some instances this certainly seems to be an intentional indication of where the states ruled. 
-However, the uncertainty related to this are obvious, and we considered them too sever.
-When states drawn in the maps were named in ethnic terms, we did not code them as states.
-For example, we did not code the kingdom of Jolof when the map said `Jolofs'. 
-Another example is the Sokoto Caliphate, which is often named in Western maps as Hausa. 
+in the ISD V2 for the year in question. This means that sometimes maps would
+contain states that not yet, or no longer, were in the ISD. In some instances
+this probably reflected lags in the transmission of knowledge about the local
+conditions back to Western cartographers. Either in cases of states not yet
+discovered by Westerns, or cases of states no longer existing and Western
+observes not yet knowing. While in other cases it reflects changes in the ISD,
+for example related to changes of de facto rule (while maps still reflect the de
+jure situation). We also only drew polygons for states that we could positively
+tie to the ISD. This means that even if a state is drawn in a map, unless it had
+a name that was either included in in the ISD or could be positively identified
+as one through some additional research. Examples of the latter would be when
+the map names a state by its ruler, or the name is not included in the ISD, but
+nonetheless refers to one of the states in the ISD. If a state was drawn, but
+not named at all, we did not draw a polygon for it. Even when there was a state
+in the ISD in that territory and year, however we would not able to
+\emph{positively} identify the state. We therefor adopted the conservative
+approach of not coding such cases. When states are named in maps, but do not
+include borders (i.e. when the map only contains the name of a state), we also
+did not draw any polygons. We could have drawn polygons based on the placement
+and size of the name in the map. In some instances this certainly seems to be an
+intentional indication of where the states ruled. However, the uncertainty
+related to this are obvious, and we considered them too sever. When states drawn
+in the maps were named in ethnic terms, we did not code them as states. For
+example, we did not code the kingdom of Jolof when the map said `Jolofs'.
+Another example is the Sokoto Caliphate, which is often named in Western maps as
+Hausa. 
 
 At times part of the border would be missing.
 Usually because it would be cut off by the end of the map, or because the border would disappear into low population areas like deserts, mountains or jungles.

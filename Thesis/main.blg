@@ -39,15 +39,14 @@ Illegal, another \bibdata command---line 158 of file StatePresenceCivilConflict/
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
-Reallocated field_info (elt_size=8) to 13952 items from 5000.
+Reallocated field_info (elt_size=8) to 13976 items from 5000.
 Database file #1: ../lib.bib
+Warning--I didn't find a database entry for "Larson_2018"
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
 Warning--I didn't find a database entry for "Cunningham2017a"
 Warning--I didn't find a database entry for "McAdam2010"
 Warning--I didn't find a database entry for "Tarrow2011"
-Warning--I didn't find a database entry for "Bethke2019a"
-Warning--I didn't find a database entry for "Brancati2016"
 Warning--I didn't find a database entry for "Chenoweth2011"
 Warning--I didn't find a database entry for "Celestino2013"
 Warning--I didn't find a database entry for "Huang2016"
@@ -105,7 +104,6 @@ Warning--I didn't find a database entry for "maves2013"
 Warning--I didn't find a database entry for "Aksoy2012"
 Warning--I didn't find a database entry for "Butcher2016a"
 Warning--I didn't find a database entry for "Coppedge2019"
-Warning--I didn't find a database entry for "Dahlum2019"
 Warning--I didn't find a database entry for "Boix2003a"
 Warning--I didn't find a database entry for "Abbs2020"
 Warning--I didn't find a database entry for "Chang2008"
@@ -140,45 +138,45 @@ Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--empty author and editor in 1967Psav
 Warning--can't use both author and editor fields in tilly_1985
-You've used 278 entries,
+You've used 281 entries,
             2874 wiz_defined-function locations,
-            2576 strings with 51920 characters,
-and the built_in function-call counts, 1019891 in all, are:
-= -- 166725
-> -- 10486
+            2585 strings with 52264 characters,
+and the built_in function-call counts, 1028159 in all, are:
+= -- 168052
+> -- 10572
 < -- 12
-+ -- 76964
-- -- 3847
-* -- 85805
-:= -- 206293
-add.period$ -- 1114
-call.type$ -- 278
-change.case$ -- 3613
-chr.to.int$ -- 272
-cite$ -- 282
-duplicate$ -- 4305
-empty$ -- 9230
-format.name$ -- 4221
-if$ -- 182919
++ -- 77563
+- -- 3880
+* -- 86461
+:= -- 208027
+add.period$ -- 1126
+call.type$ -- 281
+change.case$ -- 3652
+chr.to.int$ -- 275
+cite$ -- 285
+duplicate$ -- 4343
+empty$ -- 9314
+format.name$ -- 4260
+if$ -- 184390
 int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 328
-newline$ -- 1304
-num.names$ -- 3052
-pop$ -- 1302
+missing$ -- 330
+newline$ -- 1316
+num.names$ -- 3084
+pop$ -- 1327
 preamble$ -- 1
-purify$ -- 4165
+purify$ -- 4210
 quote$ -- 0
-skip$ -- 3432
+skip$ -- 3465
 stack$ -- 0
-substring$ -- 234102
-swap$ -- 622
-text.length$ -- 3894
+substring$ -- 235935
+swap$ -- 625
+text.length$ -- 3936
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 964
+type$ -- 974
 warning$ -- 4
-while$ -- 6384
+while$ -- 6448
 width$ -- 0
-write$ -- 3960
+write$ -- 4000
 (There were 8 error messages)

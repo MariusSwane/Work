@@ -3,48 +3,49 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Kappa/Kappa.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
+Warning--I didn't find a database entry for "Larson_2018"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--empty author and editor in 1967Psav
-You've used 136 entries,
+You've used 140 entries,
             2874 wiz_defined-function locations,
-            1553 strings with 27236 characters,
-and the built_in function-call counts, 505068 in all, are:
-= -- 82767
-> -- 4979
+            1574 strings with 27888 characters,
+and the built_in function-call counts, 519798 in all, are:
+= -- 85194
+> -- 5116
 < -- 4
-+ -- 38132
-- -- 1834
-* -- 42621
-:= -- 101903
-add.period$ -- 544
-call.type$ -- 136
-change.case$ -- 1764
-chr.to.int$ -- 134
-cite$ -- 139
-duplicate$ -- 2113
-empty$ -- 4575
-format.name$ -- 2016
-if$ -- 90628
++ -- 39257
+- -- 1885
+* -- 43843
+:= -- 104891
+add.period$ -- 560
+call.type$ -- 140
+change.case$ -- 1816
+chr.to.int$ -- 138
+cite$ -- 143
+duplicate$ -- 2166
+empty$ -- 4695
+format.name$ -- 2073
+if$ -- 93266
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 153
-newline$ -- 640
-num.names$ -- 1478
-pop$ -- 586
+missing$ -- 156
+newline$ -- 656
+num.names$ -- 1522
+pop$ -- 614
 preamble$ -- 1
-purify$ -- 2035
+purify$ -- 2095
 quote$ -- 0
-skip$ -- 1716
+skip$ -- 1762
 stack$ -- 0
-substring$ -- 116391
-swap$ -- 326
-text.length$ -- 1898
+substring$ -- 119809
+swap$ -- 331
+text.length$ -- 1954
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 488
+type$ -- 502
 warning$ -- 3
-while$ -- 3131
+while$ -- 3220
 width$ -- 0
-write$ -- 1926
-(There were 3 warnings)
+write$ -- 1979
+(There were 4 warnings)

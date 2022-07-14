@@ -5,42 +5,42 @@ The style file: apsr.bst
 Database file #1: jpr_bibliography_final.bib
 You've used 76 entries,
             2874 wiz_defined-function locations,
-            1084 strings with 17192 characters,
-and the built_in function-call counts, 362847 in all, are:
-= -- 59970
+            1086 strings with 17241 characters,
+and the built_in function-call counts, 362604 in all, are:
+= -- 59933
 > -- 4099
 < -- 1
 + -- 28531
 - -- 1453
-* -- 31291
-:= -- 72062
+* -- 31305
+:= -- 72053
 add.period$ -- 304
 call.type$ -- 76
 change.case$ -- 988
 chr.to.int$ -- 76
 cite$ -- 76
-duplicate$ -- 1183
-empty$ -- 2547
+duplicate$ -- 1151
+empty$ -- 2538
 format.name$ -- 1538
-if$ -- 65223
+if$ -- 65140
 int.to.chr$ -- 5
 int.to.str$ -- 0
 missing$ -- 99
-newline$ -- 334
+newline$ -- 335
 num.names$ -- 865
-pop$ -- 371
+pop$ -- 368
 preamble$ -- 1
 purify$ -- 1140
 quote$ -- 0
-skip$ -- 940
+skip$ -- 892
 stack$ -- 0
-substring$ -- 85356
-swap$ -- 154
+substring$ -- 85349
+swap$ -- 122
 text.length$ -- 1065
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 250
 warning$ -- 0
-while$ -- 1771
+while$ -- 1772
 width$ -- 0
-write$ -- 1078
+write$ -- 1079

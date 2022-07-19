@@ -7,45 +7,45 @@ Warning--I didn't find a database entry for "Larson_2018"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--empty author and editor in 1967Psav
-You've used 140 entries,
+You've used 141 entries,
             2874 wiz_defined-function locations,
-            1574 strings with 27888 characters,
-and the built_in function-call counts, 519798 in all, are:
-= -- 85194
-> -- 5116
+            1580 strings with 28062 characters,
+and the built_in function-call counts, 524566 in all, are:
+= -- 85986
+> -- 5167
 < -- 4
-+ -- 39257
-- -- 1885
-* -- 43843
-:= -- 104891
-add.period$ -- 560
-call.type$ -- 140
-change.case$ -- 1816
-chr.to.int$ -- 138
-cite$ -- 143
-duplicate$ -- 2166
-empty$ -- 4695
-format.name$ -- 2073
-if$ -- 93266
++ -- 39629
+- -- 1903
+* -- 44255
+:= -- 105837
+add.period$ -- 564
+call.type$ -- 141
+change.case$ -- 1829
+chr.to.int$ -- 139
+cite$ -- 144
+duplicate$ -- 2181
+empty$ -- 4731
+format.name$ -- 2091
+if$ -- 94125
 int.to.chr$ -- 7
 int.to.str$ -- 0
-missing$ -- 156
-newline$ -- 656
-num.names$ -- 1522
-pop$ -- 614
+missing$ -- 157
+newline$ -- 660
+num.names$ -- 1534
+pop$ -- 617
 preamble$ -- 1
-purify$ -- 2095
+purify$ -- 2110
 quote$ -- 0
-skip$ -- 1762
+skip$ -- 1775
 stack$ -- 0
-substring$ -- 119809
-swap$ -- 331
-text.length$ -- 1954
+substring$ -- 120932
+swap$ -- 333
+text.length$ -- 1968
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 502
+type$ -- 506
 warning$ -- 3
-while$ -- 3220
+while$ -- 3245
 width$ -- 0
-write$ -- 1979
+write$ -- 1992
 (There were 4 warnings)

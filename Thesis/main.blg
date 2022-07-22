@@ -41,7 +41,6 @@ Illegal, another \bibdata command---line 156 of file StatePresenceCivilConflict/
 I'm skipping whatever remains of this command
 Reallocated field_info (elt_size=8) to 13976 items from 5000.
 Database file #1: ../lib.bib
-Warning--I didn't find a database entry for "Larson_2018"
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
 Warning--I didn't find a database entry for "Cunningham2017a"
@@ -136,47 +135,46 @@ Warning--I didn't find a database entry for "Tuminez2007"
 Warning--I didn't find a database entry for "OFahey2008"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
-Warning--empty author and editor in 1967Psav
 Warning--can't use both author and editor fields in tilly_1985
-You've used 281 entries,
+You've used 282 entries,
             2874 wiz_defined-function locations,
-            2585 strings with 52264 characters,
-and the built_in function-call counts, 1028159 in all, are:
-= -- 168052
-> -- 10572
+            2591 strings with 52349 characters,
+and the built_in function-call counts, 1028827 in all, are:
+= -- 168037
+> -- 10674
 < -- 12
-+ -- 77563
-- -- 3880
-* -- 86461
-:= -- 208027
-add.period$ -- 1126
-call.type$ -- 281
-change.case$ -- 3652
-chr.to.int$ -- 275
++ -- 77545
+- -- 3916
+* -- 86483
+:= -- 208313
+add.period$ -- 1131
+call.type$ -- 282
+change.case$ -- 3670
+chr.to.int$ -- 276
 cite$ -- 285
-duplicate$ -- 4343
-empty$ -- 9314
-format.name$ -- 4260
-if$ -- 184390
+duplicate$ -- 4356
+empty$ -- 9350
+format.name$ -- 4296
+if$ -- 184471
 int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 330
-newline$ -- 1316
-num.names$ -- 3084
-pop$ -- 1327
+missing$ -- 332
+newline$ -- 1322
+num.names$ -- 3108
+pop$ -- 1331
 preamble$ -- 1
-purify$ -- 4210
+purify$ -- 4230
 quote$ -- 0
-skip$ -- 3465
+skip$ -- 3476
 stack$ -- 0
-substring$ -- 235935
-swap$ -- 625
-text.length$ -- 3936
+substring$ -- 235849
+swap$ -- 621
+text.length$ -- 3960
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 974
-warning$ -- 4
-while$ -- 6448
+type$ -- 978
+warning$ -- 3
+while$ -- 6492
 width$ -- 0
-write$ -- 4000
+write$ -- 4016
 (There were 8 error messages)

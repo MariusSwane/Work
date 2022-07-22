@@ -9,7 +9,7 @@
 \contentsline {table}{\numberline {2.2}{\ignorespaces Comparison of ARC and NAVCO 2.1: Egypt 2003-2015\relax }}{58}{table.caption.11}%
 \contentsline {table}{\numberline {2.3}{\ignorespaces Features of Organization-Years in Resistance by Type\relax }}{62}{table.caption.14}%
 \contentsline {table}{\numberline {2.4}{\ignorespaces Correlates of Organizational Participation\relax }}{65}{table.caption.15}%
-\contentsline {table}{\numberline {2.5}{\ignorespaces Correlates of Organizational Participation, Media Variables\relax }}{76}{table.caption.16}%
+\contentsline {table}{\numberline {2.5}{\ignorespaces Correlates of Organizational Participation, Media Variables\relax }}{77}{table.caption.16}%
 \contentsline {table}{\numberline {2.6}{\ignorespaces Organization Size Estimate\relax }}{78}{table.caption.17}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-3}
@@ -20,37 +20,41 @@
 \contentsline {table}{\numberline {3.4}{\ignorespaces Armed conflict onset rate, 1946-1988\relax }}{131}{table.caption.34}%
 \contentsline {table}{\numberline {3.5}{\ignorespaces Armed conflict onset: 1989-2000\relax }}{133}{table.caption.35}%
 \contentsline {table}{\numberline {3.6}{\ignorespaces Armed conflict onset rate, 2001-2019\relax }}{135}{table.caption.36}%
-\contentsline {table}{\numberline {3.7}{\ignorespaces Alternative explenations\relax }}{137}{table.caption.37}%
-\contentsline {table}{\numberline {3.8}{\ignorespaces ISD states and civil war onsets by regional subsets\relax }}{139}{table.caption.38}%
-\contentsline {table}{\numberline {3.13}{\ignorespaces Descriptive Statistics: HSEs and secessionist movements\relax }}{145}{table.caption.44}%
-\contentsline {table}{\numberline {3.14}{\ignorespaces Results: HSEs and secessionist movement onset rates\relax }}{146}{table.caption.45}%
-\contentsline {table}{\numberline {3.15}{\ignorespaces Historical conflict controls\relax }}{150}{table.caption.47}%
-\contentsline {table}{\numberline {3.16}{\ignorespaces Historical conflict and historical states\relax }}{152}{table.caption.48}%
-\contentsline {table}{\numberline {3.17}{\ignorespaces Historical conflict controls (using Project Mars)\relax }}{154}{table.caption.50}%
+\contentsline {table}{\numberline {3.7}{\ignorespaces Alternative explenations\relax }}{136}{table.caption.37}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces ISD states and civil war onsets by regional subsets\relax }}{138}{table.caption.38}%
+\contentsline {table}{\numberline {3.9}{\ignorespaces First stage mediation equations\relax }}{140}{table.caption.39}%
+\contentsline {table}{\numberline {3.10}{\ignorespaces Second stage mediation equations\relax }}{142}{table.caption.40}%
+\contentsline {table}{\numberline {3.11}{\ignorespaces Alternative dependent variables\relax }}{144}{table.caption.41}%
+\contentsline {table}{\numberline {3.12}{\ignorespaces First stage equations\relax }}{147}{table.caption.43}%
+\contentsline {table}{\numberline {3.13}{\ignorespaces Descriptive Statistics: HSEs and secessionist movements\relax }}{148}{table.caption.44}%
+\contentsline {table}{\numberline {3.14}{\ignorespaces Results: HSEs and secessionist movement onset rates\relax }}{149}{table.caption.45}%
+\contentsline {table}{\numberline {3.15}{\ignorespaces Historical conflict controls\relax }}{153}{table.caption.47}%
+\contentsline {table}{\numberline {3.16}{\ignorespaces Historical conflict and historical states\relax }}{155}{table.caption.48}%
+\contentsline {table}{\numberline {3.17}{\ignorespaces Historical conflict controls (using Project Mars)\relax }}{157}{table.caption.50}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-4}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Summary Statistics\relax }}{197}{table.caption.60}%
-\contentsline {table}{\numberline {4.2}{\ignorespaces Communal violence events\relax }}{202}{table.caption.65}%
-\contentsline {table}{\numberline {4.3}{\ignorespaces Non-state conflict events\relax }}{203}{table.caption.66}%
-\contentsline {table}{\numberline {4.4}{\ignorespaces Communal violence events (count-model)\relax }}{204}{table.caption.67}%
-\contentsline {table}{\numberline {4.5}{\ignorespaces Non-state conflict events (count-model)\relax }}{205}{table.caption.68}%
-\contentsline {table}{\numberline {4.6}{\ignorespaces ACLED events (count-model)\relax }}{206}{table.caption.69}%
-\contentsline {table}{\numberline {4.7}{\ignorespaces Communal vizlence events (zero-model)\relax }}{207}{table.caption.70}%
-\contentsline {table}{\numberline {4.8}{\ignorespaces Non-state conflict events (zero-model)\relax }}{208}{table.caption.71}%
-\contentsline {table}{\numberline {4.9}{\ignorespaces ACLED events (zero-model)\relax }}{209}{table.caption.72}%
-\contentsline {table}{\numberline {4.10}{\ignorespaces Ethnic fractionalization\relax }}{210}{table.caption.73}%
+\contentsline {table}{\numberline {4.1}{\ignorespaces Summary Statistics\relax }}{201}{table.caption.60}%
+\contentsline {table}{\numberline {4.2}{\ignorespaces Communal violence events\relax }}{206}{table.caption.65}%
+\contentsline {table}{\numberline {4.3}{\ignorespaces Non-state conflict events\relax }}{207}{table.caption.66}%
+\contentsline {table}{\numberline {4.4}{\ignorespaces Communal violence events (count-model)\relax }}{208}{table.caption.67}%
+\contentsline {table}{\numberline {4.5}{\ignorespaces Non-state conflict events (count-model)\relax }}{209}{table.caption.68}%
+\contentsline {table}{\numberline {4.6}{\ignorespaces ACLED events (count-model)\relax }}{210}{table.caption.69}%
+\contentsline {table}{\numberline {4.7}{\ignorespaces Communal vizlence events (zero-model)\relax }}{211}{table.caption.70}%
+\contentsline {table}{\numberline {4.8}{\ignorespaces Non-state conflict events (zero-model)\relax }}{212}{table.caption.71}%
+\contentsline {table}{\numberline {4.9}{\ignorespaces ACLED events (zero-model)\relax }}{213}{table.caption.72}%
+\contentsline {table}{\numberline {4.10}{\ignorespaces Ethnic fractionalization\relax }}{214}{table.caption.73}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-5}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Summary Statistics\relax }}{250}{table.caption.79}%
-\contentsline {table}{\numberline {5.2}{\ignorespaces Fatalities\relax }}{251}{table.caption.80}%
-\contentsline {table}{\numberline {5.3}{\ignorespaces Internal and internationalized conflict events\relax }}{252}{table.caption.81}%
-\contentsline {table}{\numberline {5.4}{\ignorespaces List of maps from historical atlases used in the Geo-ISD\relax }}{253}{table.caption.82}%
-\contentsline {table}{\numberline {5.5}{\ignorespaces ZINB models (count)\relax }}{254}{table.caption.83}%
-\contentsline {table}{\numberline {5.6}{\ignorespaces ZINB models (zero)\relax }}{255}{table.caption.84}%
-\contentsline {table}{\numberline {5.7}{\ignorespaces Spatial lag models (count)\relax }}{256}{table.caption.85}%
-\contentsline {table}{\numberline {5.8}{\ignorespaces Spatial lag models (zero)\relax }}{257}{table.caption.86}%
-\contentsline {table}{\numberline {5.9}{\ignorespaces Additional models (count)\relax }}{258}{table.caption.87}%
-\contentsline {table}{\numberline {5.10}{\ignorespaces Additional models (zero)\relax }}{259}{table.caption.88}%
+\contentsline {table}{\numberline {5.1}{\ignorespaces Summary Statistics\relax }}{254}{table.caption.79}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces Fatalities\relax }}{255}{table.caption.80}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces Internal and internationalized conflict events\relax }}{256}{table.caption.81}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces List of maps from historical atlases used in the Geo-ISD\relax }}{257}{table.caption.82}%
+\contentsline {table}{\numberline {5.5}{\ignorespaces ZINB models (count)\relax }}{258}{table.caption.83}%
+\contentsline {table}{\numberline {5.6}{\ignorespaces ZINB models (zero)\relax }}{259}{table.caption.84}%
+\contentsline {table}{\numberline {5.7}{\ignorespaces Spatial lag models (count)\relax }}{260}{table.caption.85}%
+\contentsline {table}{\numberline {5.8}{\ignorespaces Spatial lag models (zero)\relax }}{261}{table.caption.86}%
+\contentsline {table}{\numberline {5.9}{\ignorespaces Additional models (count)\relax }}{262}{table.caption.87}%
+\contentsline {table}{\numberline {5.10}{\ignorespaces Additional models (zero)\relax }}{263}{table.caption.88}%
 \gdef \the@ipfilectr {}

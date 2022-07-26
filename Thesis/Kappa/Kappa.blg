@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Kappa/Kappa.aux
+The style file: apsr.bst
+Database file #1: ../lib.bib
+Warning--can't use both author and editor fields in barth1969
+Warning--can't use both author and editor fields in Gennaioli2007a
+You've used 143 entries,
+            2874 wiz_defined-function locations,
+            1591 strings with 28300 characters,
+and the built_in function-call counts, 528736 in all, are:
+= -- 86536
+> -- 5320
+< -- 4
++ -- 39875
+- -- 1957
+* -- 44565
+:= -- 106845
+add.period$ -- 573
+call.type$ -- 143
+change.case$ -- 1860
+chr.to.int$ -- 141
+cite$ -- 145
+duplicate$ -- 2210
+empty$ -- 4797
+format.name$ -- 2145
+if$ -- 94835
+int.to.chr$ -- 7
+int.to.str$ -- 0
+missing$ -- 161
+newline$ -- 672
+num.names$ -- 1570
+pop$ -- 630
+preamble$ -- 1
+purify$ -- 2145
+quote$ -- 0
+skip$ -- 1794
+stack$ -- 0
+substring$ -- 121620
+swap$ -- 330
+text.length$ -- 2006
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 512
+warning$ -- 2
+while$ -- 3312
+width$ -- 0
+write$ -- 2023
+(There were 2 warnings)

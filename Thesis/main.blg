@@ -43,7 +43,7 @@ Illegal, another \bibdata command---line 156 of file StatePresenceCivilConflict/
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
-Reallocated field_info (elt_size=8) to 13976 items from 5000.
+Reallocated field_info (elt_size=8) to 14000 items from 5000.
 Database file #1: ../lib.bib
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
@@ -140,45 +140,45 @@ Warning--I didn't find a database entry for "OFahey2008"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--can't use both author and editor fields in tilly_1985
-You've used 282 entries,
+You've used 283 entries,
             2874 wiz_defined-function locations,
-            2591 strings with 52349 characters,
-and the built_in function-call counts, 1028827 in all, are:
-= -- 168037
-> -- 10674
+            2598 strings with 52521 characters,
+and the built_in function-call counts, 1031016 in all, are:
+= -- 168380
+> -- 10690
 < -- 12
-+ -- 77545
-- -- 3916
-* -- 86483
-:= -- 208313
-add.period$ -- 1131
-call.type$ -- 282
-change.case$ -- 3670
-chr.to.int$ -- 276
-cite$ -- 285
-duplicate$ -- 4356
-empty$ -- 9350
-format.name$ -- 4296
-if$ -- 184471
++ -- 77686
+- -- 3923
+* -- 86659
+:= -- 208778
+add.period$ -- 1135
+call.type$ -- 283
+change.case$ -- 3683
+chr.to.int$ -- 277
+cite$ -- 286
+duplicate$ -- 4371
+empty$ -- 9386
+format.name$ -- 4305
+if$ -- 184859
 int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 332
-newline$ -- 1322
-num.names$ -- 3108
-pop$ -- 1331
+missing$ -- 333
+newline$ -- 1327
+num.names$ -- 3118
+pop$ -- 1334
 preamble$ -- 1
-purify$ -- 4230
+purify$ -- 4245
 quote$ -- 0
-skip$ -- 3476
+skip$ -- 3488
 stack$ -- 0
-substring$ -- 235849
-swap$ -- 621
-text.length$ -- 3960
+substring$ -- 236319
+swap$ -- 623
+text.length$ -- 3974
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 978
+type$ -- 982
 warning$ -- 3
-while$ -- 6492
+while$ -- 6515
 width$ -- 0
-write$ -- 4016
+write$ -- 4030
 (There were 9 error messages)

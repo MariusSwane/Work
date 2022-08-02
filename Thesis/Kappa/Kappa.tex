@@ -1125,35 +1125,42 @@ state presence for Africa. To construct this measure, the Geo-ISD primarily
 relies on historical maps from the David Rumsey project, covering the 1800-1914
 period, complimented by historical atlases compiled by later historians. The
 maps from the David Rumsey project typically depict the `current' political
-[situation] to the best of European map makers knowledge. The Geo-ISD leverages
-the variations in this knowledge and the differences in the conceptualisations
-of statehood that led the map makers to draw the political lines on the map
-exactly where they did. For example, one might include vassal states as part of
-a kingdom, while other would not, and yet others would include some vassals, but
-not others. The pre Westphalian international system had ample grey areas for
-such variation to manifest. Indeed there is an almost continuous range of
-possible degrees of sub state sovereignty/independence, from fully subordinated,
-core areas of states to being subjugated only in name while receiving tribute
-from the nominal overlord. Nevertheless, all maps should agree on where the core
-areas of states were, and moving away from the core, gradually fewer maps would
-consider these peripheries as part of the state. Similarly, the cases where
-mapmakers disagree on whether or not some realm qualified as a state, it
-reflects that it lacked the institutions or political centralization to have
-much presence as a state. By aggregating we leverage both these variations in
-conceptualizations of statehood as well as variations in \textit{actual state
-presence} over time, as kingdoms and empires influence [ebbed and flowed].
+state of affairs to the best of European map makers knowledge. We would then use
+QGIS to trace the borders of any states that were included in the ISD V2 for the
+year that the map depicted. We then summed the resulting polygons per PRIO-GRID
+cell.\footnote{Potential issues with the accuracy of the historical maps, such
+as the potential biases of mapmakers, technical ability to produce reliable
+maps, as well as alternative methods for aggregating to grid cell level are
+covered in Paper IV.} In this way the Geo-ISD leverages the variations in this
+knowledge and the differences in the conceptualisations of statehood that led
+the map makers to draw the political lines on the map exactly where they did.
+For example, one might include vassal states as part of a kingdom, while other
+would not, and yet others would include some vassals, but not others depending
+on the relationship to their liege. The pre-Westphalian international system had
+ample grey areas for such variation to manifest. Indeed, there is an almost
+continuous range of possible degrees of sub state autonomy, from core areas of
+states, to being subjugated in name only. Nevertheless, all maps should agree on
+where the core areas of states were, and moving away from the core, gradually
+fewer maps would consider these peripheries as part of the state. Similarly, the
+cases where mapmakers disagree on whether or not some realm qualified as a
+state, reflects that it lacked the institutions or political centralization to
+have much presence as a state. By aggregating, we leverage both these variations
+in conceptualizations of statehood as well as variations in \textit{actual state
+presence} over time, as kingdoms' and empires' influence waxed and waned.
 
-The end result is a three dimensional,\footnote{Latitude, longitude and `depth'}
-continual measure that I argue more accurately [tracks/depicts] the
-pre-Westphalian international system in Africa from 1800 to 1914. Figure 5.3 in
-Paper IV displays the resulting data. 
+The end result is a three dimensional,\footnote{Latitude, longitude and `depth'.}
+continuous measure that I argue more accurately depicts the pre-Westphalian
+international system in Africa from 1800 to 1914. Figure 5.3 in Paper IV
+displays the resulting data. 
 
-However, the Geo-ISD also provides information on borders that I do not analyze
-further in this thesis. For example, a measure of `frontierness', the degree to
+Additionally, the Geo-ISD also provides information on borders that I do not analyze
+in this thesis. For example, a measure of `frontierness', the degree to
 which an area has had one or more border crossing it (Figure \ref{fig:borders}),
 or a measure of `borderlandness', the degree of overlapping sovereignty (how
 often \textit{more than one} state's borders cross an area)(Figure
-\ref{fig:overlaps}). 
+\ref{fig:overlaps}). Both of these measures represents potential avenues for
+future research, together with other potential uses of the raw polygon
+(state-shape) data, all of which I plan to publish along with Paper IV.
 
 \begin{figure}[hpbt]
 	\centering
@@ -1189,9 +1196,9 @@ I is a data release paper for the Anatomy of Resistance Campaigns project
 it we present detailed data on 1,426 organizations that engaged in maximalist
 dissent in Africa during the 1990-2015 period. The data covers 17 organization
 features including type, goals, leadership, origin and social base, in addition
-to ties to other groups (see \ref{Tab: Table 1} for full list of features). This
-allows the mapping of inter organizational networks of alliances (horizontal) and
-fronts (vertical).
+to ties to other groups (see Table \ref{Tab: Table 1} for full list of
+features). This allows the mapping of inter organizational networks of alliances
+(horizontal) and fronts (vertical).
 
 The paper also tests correlates of organizational participation, and finds that
 rebel groups tend to mobilize in poor countries while trade unions, student
@@ -1215,23 +1222,24 @@ organisations.
 Published in: \textbf{European Journal of International Relations}\\
 Co-authored with: \textbf{Charles Butcher}
 
-In Paper II we argue that the more historical states are confined within the
-boundaries of a country the more likely civil conflict onsets become. This is
-because each historical state entity has four potential mechanisms leading to
+In Paper II we argue that the more historical states that are confined within
+the boundaries of a country, the more likely civil conflict onsets become. This
+is because each historical state entity has four potential mechanisms leading to
 civil conflict, and the more there are, the more likely it is that one or more
 mechanism triggers. First, historical states created elite networks useful for
-insurrection. Second, they provide likewise useful symbols of past sovereignty.
-Third, states generated and spread modern ethnic groups that, once part of a
-larger state, activated dynamics of ethnic inclusion and exclusion. Fourth,
-states were typically more able to resist colonization than non-state areas.
-While most of the was colonized, states were more likely to be so indirectly.
-The stronger the state the more autonomy they were able to hold on to. However,
-resisting colonization also meant resisting western ideas of government,
-enlightenment and democracy, which in the long run have had peace inducing
-effects. We also find that conflict onsets are more likely when historical state
-capitals are located far from the current capital, and the effects are stronger
-in less developed countries. We argue that the latter is due to more developed
-state being better able to incorporate other states.
+insurrection. Second, they provide symbols of past sovereignty that are likewise
+useful for overcoming collective action problems. Third, states generated and
+spread modern ethnic groups that, once part of a larger state, activated
+dynamics of ethnic inclusion and exclusion. Fourth, states were typically more
+able to resist colonization than non-state areas. While most of the was
+colonized, states were more likely to be so indirectly. The stronger the state
+the more autonomy they were able to hold on to. However, resisting colonization
+also meant resisting the forced introduction of basic western institutions,
+which in the long run have had peace inducing effects. We also find that
+conflict onsets are more likely when historical state capitals are located far
+from the current capital, and the effects are stronger in less developed
+countries. We argue that the latter is due to more developed state being better
+able to incorporate other states.
 
 For the analysis we used the ISD version 2 which records independent states
 between 1816 and 1939, where `independent state' is defined as polities that
@@ -1248,7 +1256,7 @@ studies in the field do not have.
 \subsection{Paper III: Communal Violence and the Legacy of Pre-colonial States}
 \label{Paper 3}
 
-Co-authored with: \textbf{Ole Magnus Theisen}
+Co-authored with: \textbf{Ole Magnus Theisen}\\
 
 Paper III addresses how pre-colonial state presence affects communal conflicts.
 Unlike for civil conflict, we find that state legacies have a conflict reducing
@@ -1258,14 +1266,14 @@ intergroup violence and acting as a third party enforcer of contracts. This
 initial reduction of violence allowed for virtuous cycles of increased
 interaction and trade between groups, which reduced information problems and
 increased the long term pay off of cooperation relative to the short term pay
-off of defection. We find empirical evidence of this mechanism in increased
-ethnic fractionalization in areas with more pre-colonial state presence.
-Indicating that pre-colonial states, despite their shallow presence relative to
-modern states, did allow for a greater degree if interaction between groups. The
-finding that pre-colonial states reduce communal violence is also consistent
-with the argument in the literature that conflict reducing institutions have
-been persistent in many cases \citep{Wig2018}. This is the first paper to use
-the Geo-ISD data on pre-colonial state presence.
+off of defection. We find empirical evidence of this mechanism in the form of
+increased ethnic fractionalization in areas with more pre-colonial state
+presence. This indicates that pre-colonial states, despite their shallow
+presence relative to modern states, did allow for a greater degree if
+interaction between groups. The finding that pre-colonial states reduce communal
+violence is also consistent with the argument in the literature that conflict
+reducing institutions have been persistent in many cases \citep{Wig2018}. This
+is the first paper to use the Geo-ISD data on pre-colonial state presence.
 
 \subsection{Paper IV: After Forever: Pre-colonial States and Civil Conflict}
 \label{Paper 4}
@@ -1274,52 +1282,60 @@ The last paper of the thesis is the one that most directly addresses the
 overarching research question of the thesis of how historical state legacies
 affect long term levels of organised violence. By using the pre-colonial state
 presence measure from the Geo-ISD, this paper compliments Paper II of the thesis
-in two ways. First, it re-examines the relation between pre-colonial/historical
-states and civil conflict, but at a grid cell level, as opposed to country
-level, and by using a continuous measure of state presence, rather than a count.
-Second, like in Paper II I emphasize the distance to the current state capital.
-However, Paper IV goes beyond that by examining how distance to the capital and
+in two ways. First, it re-examines the relation between pre-colonial states and
+civil conflict, but at a grid cell level, as opposed to country level, and by
+using a continuous measure of state presence (rather than a count). Second, like
+in Paper II, I emphasize the distance to the current state capital. However,
+Paper IV goes beyond that by examining how distance to the capital and
 pre-colonial state presence \textit{interact} to affect civil conflict both to
 reduce and induce violence. I argue that pre-colonial state presence has a
 conflict reducing effect when close to the post-independence capital because the
-short distance means that traditions, elite networks/elite cohesion and
-institutions are at the disposal of the central state. The paper finds that the
-conflict reducing effect of pre-colonial state presence in and around capitals
-is particularly strong when it comes to minimizing violence when it breaks out.
-On the other hand, far from the capital I argue along the lines of Paper II that
-the networks, symbols, ethnic group dynamics and institutions left by
-pre-colonial states are more likely to use these resources to oppose the central
-government and launch campaigns for increased autonomy or outright secession
-claiming a right to self determination based on past sovereignty. Distance to
-the post-independence capital also makes rebellion more feasible as the
-governments ability to project force deteriorates over distance [opportunity
-based argument]. The more even relative capabilities also make miscalculations
-more likely, especially given that information asymmetries likewise increase
-with distance [bargaining based arguments].
+short distance means that traditions, elite networks and elite cohesion and
+institutions can more easily be integrated into the central state. The paper
+finds that the conflict reducing effect of pre-colonial state presence in and
+around capitals is particularly strong when it comes to minimizing violence when
+it breaks out. On the other hand, far from the capital, I argue along the lines
+of Paper II, that the networks, symbols, ethnic group dynamics, and institutions
+left by pre-colonial states are more likely to be used to oppose the central
+government. Typically in the form of campaigns for increased autonomy or
+outright secession claiming the right to self determination based on past
+sovereignty. Distance to the post-independence capital also makes rebellion more
+feasible as the governments ability to project force deteriorates over distance.
+The more even relative capabilities also make miscalculations more likely,
+especially given that information asymmetries likewise increase with distance. I
+find that higher levels of pre-colonial state presence, is indeed associated
+with higher levels of conflict (as measured by number of combat related deaths
+or number of conflict events per cell), far from the capital and with lower
+levels close to the capital. Moreover, I find that higher levels of pre-colonial
+state presence drastically reduce the level of violence near the capital after
+an initial combat related fatality. In other words, when violence breaks out in
+capitals with no pre-colonial state presence, it can cause fatalities in the
+tens of thousands, perhaps indicating that pre-colonial provides states with
+some resilience to such events.
 
 \section{Concluding remarks} \label{Concluding remarks}
 
 This thesis addresses the question of how organized violence is shaped by the
-underlying topographies of statehood. Specifically, under which circumstances
-are state legacies peace inducing and under which circumstances are they
-conflict inducing. I find that historical state legacies are civil conflict
-inducing when there are multiple such legacies in one country and particularly
-in poor countries and when they are far from the central state capital. On the
-other hand, pre-colonial state presence reduces civil conflict in and around
-central capital areas. Especially when violence does break out in the capital,
-pre-colonial state presence acts as a substantial violence reducing factor. I
-argue that the relationship between the central state and the historical, or
-pre-colonial state, is what determines the outcome, and that the distance only
-proxies whether or not the central state is able to benefit from a state legacy
-or whether it represents a rival claim to sovereignty. In Paper III we find that
+underlying topographies of statehood. Under which circumstances are state
+legacies peace inducing and under which circumstances are they conflict
+inducing? I find that historical state legacies are civil conflict inducing when
+there are multiple legacies in one country and particularly in poor countries
+and when they are far from the central state capital. On the other hand,
+pre-colonial state presence reduces civil conflict in and around central capital
+areas. Especially when violence does break out in the capital, pre-colonial
+state presence acts as a substantial violence reducing factor. I argue that the
+relationship between the central state and the historical, or pre-colonial
+state, is what determines the outcome, and that the distance only proxies
+whether or not the central state is able to benefit from a state legacy or
+whether it represents a rival claim to sovereignty. In Paper III we find that
 when it comes to the horizontal conflicts of communal violence on the other
 hand, pre-colonial state presence is generally peace inducing when it comes to
 communal violence.
 
 In addition to the contribution to the theoretical and empirical literature, the
-thesis also makes a considerable contribution in the form of data. Both on
-organizations engaging in maximalist dissent (ARC Project), and on the presence
-of pre-colonial states in Africa from 1800 to 1914 (Geo-ISD).
+thesis also makes a considerable contribution in the form of data, in the from
+of data on organizations engaging in maximalist dissent (ARC Project), and on
+the presence of pre-colonial states in Africa from 1800 to 1914 (Geo-ISD).
 
 Papers II - IV all present plausible causal mechanisms for the observed
 correlations between historical state legacies and organized violence, supported
@@ -1329,23 +1345,25 @@ mechanisms, and potentially discover new mechanisms as well.
 
 While Paper II uses a global sample, the literature on historical state legacies
 remains skewed toward examining the African case. This is perhaps not
-surprising, given Africa's history. For many, I suspect that it is self evident
-that areas with unique histories of independent statehood, sometimes stretching
-back over a thousand years could be hot spots of conflict. After all, some were
-ruled by a skeleton crew of colonial administrators \citep{englebert2013inside}
-for less than a century, and upon independence found themselves ruled from
-distant capitals, at times by pre-colonial adversaries or ethnic groups with who
-they had little or no previous contact. However, the same narrative fits parts
-of Asia as well (India, Myanmar, Indonesia etc.). Even in Europe, areas of
-formerly independent states has fostered movements for autonomy and
-separatism.\footnote{In the United Kingdom: Scotland and Wales. In Spain:
-	Aragon, Catalonia, Navarra (Basque), Asturia and Castille. France:
-Brittany and Corsica. Germany: Bavaria. Italy: Friuli, Trieste, Sardinia and
-Venetia. Russia: Tartaristan, Don Republic, Circassia, Tabasaranstan.
-Ukraine/Russia: Crimea (Tartan).} Although most of these have pursued their
-goals through constitutional means (as we allude to in Paper II). More research
-along the lines of Paper III and Paper IV is needed to determine if these
-results are generalizable, or of this is a uniquely African phenomenon.
+surprising, given Africa's history of colonialism, which provides a sharp, and
+highly visible, divide between the pre-colonial and post-colonial. For many, I
+suspect that it is self evident that areas with unique histories of independent
+statehood, sometimes stretching back over a thousand years could be hot spots of
+conflict. After all, some were ruled by a skeleton crew of colonial
+administrators \citep{englebert2013inside} for less than a century, and upon
+independence found themselves ruled from distant capitals, at times by
+pre-colonial adversaries or ethnic groups with who they had little or no
+previous contact. However, the same narrative fits parts of Asia as well (India,
+Myanmar, Indonesia etc.). Even in Europe, areas of formerly independent states
+have fostered movements for autonomy and separatism,\footnote{In the United
+	Kingdom: Scotland and Wales. In Spain: Aragon, Catalonia, Navarra
+	(Basque), Asturia and Castille. France: Brittany and Corsica. Germany:
+	Bavaria. Italy: Friuli, Trieste, Sardinia and Venetia. Russia:
+Tartaristan, Don Republic, Circassia, Tabasaranstan. Ukraine/Russia: Crimea
+(Tartan).} although most of these have pursued their goals through
+constitutional means (as we allude to in Paper II). More research along the
+lines of Paper III and Paper IV is needed to determine if these results are
+generalizable, or of this is a uniquely African phenomenon.
 
 % {{{ Footer \clearpage
 

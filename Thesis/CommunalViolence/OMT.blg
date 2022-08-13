@@ -1,7 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: CommunalViolence/OMT.aux
-White space in argument---line 62 of file CommunalViolence/OMT.aux
+White space in argument---line 59 of file CommunalViolence/OMT.aux
  : \citation{diamond2013world,McCabe
  :                                   1994}
 I'm skipping whatever remains of this command
@@ -9,45 +9,45 @@ The style file: apsr.bst
 Database file #1: ../lib.bib
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in tilly_1985
-You've used 66 entries,
+You've used 67 entries,
             2874 wiz_defined-function locations,
-            1100 strings with 15983 characters,
-and the built_in function-call counts, 225305 in all, are:
-= -- 36648
-> -- 2306
+            1105 strings with 16097 characters,
+and the built_in function-call counts, 226349 in all, are:
+= -- 36788
+> -- 2322
 < -- 1
-+ -- 16767
-- -- 856
-* -- 18803
-:= -- 45902
-add.period$ -- 265
-call.type$ -- 66
-change.case$ -- 859
-chr.to.int$ -- 65
-cite$ -- 68
-duplicate$ -- 1006
-empty$ -- 2183
-format.name$ -- 953
-if$ -- 40356
++ -- 16812
+- -- 863
+* -- 18870
+:= -- 46166
+add.period$ -- 269
+call.type$ -- 67
+change.case$ -- 872
+chr.to.int$ -- 66
+cite$ -- 69
+duplicate$ -- 1020
+empty$ -- 2209
+format.name$ -- 962
+if$ -- 40533
 int.to.chr$ -- 6
 int.to.str$ -- 0
-missing$ -- 78
-newline$ -- 317
-num.names$ -- 713
-pop$ -- 333
+missing$ -- 79
+newline$ -- 322
+num.names$ -- 723
+pop$ -- 337
 preamble$ -- 1
-purify$ -- 990
+purify$ -- 1005
 quote$ -- 0
-skip$ -- 782
+skip$ -- 794
 stack$ -- 0
-substring$ -- 51251
-swap$ -- 131
-text.length$ -- 925
+substring$ -- 51408
+swap$ -- 133
+text.length$ -- 939
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 226
+type$ -- 230
 warning$ -- 2
-while$ -- 1507
+while$ -- 1528
 width$ -- 0
-write$ -- 939
+write$ -- 953
 (There was 1 error message)

@@ -22,28 +22,28 @@ Illegal, another \bibdata command---line 191 of file BeyondEthnicity/hse_main.au
  :         {ArtificialBorders.bib}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: CommunalViolence/OMT.aux
-White space in argument---line 62 of file CommunalViolence/OMT.aux
+White space in argument---line 59 of file CommunalViolence/OMT.aux
  : \citation{diamond2013world,McCabe
  :                                   1994}
 I'm skipping whatever remains of this command
-Illegal, another \bibstyle command---line 159 of file CommunalViolence/OMT.aux
+Illegal, another \bibstyle command---line 160 of file CommunalViolence/OMT.aux
  : \bibstyle
  :          {apsr}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 160 of file CommunalViolence/OMT.aux
+Illegal, another \bibdata command---line 161 of file CommunalViolence/OMT.aux
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
 A level-1 auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
-Illegal, another \bibstyle command---line 155 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+Illegal, another \bibstyle command---line 156 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
  : \bibstyle
  :          {apsr}
 I'm skipping whatever remains of this command
-Illegal, another \bibdata command---line 156 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+Illegal, another \bibdata command---line 157 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
  : \bibdata
  :         {../lib.bib}
 I'm skipping whatever remains of this command
-Reallocated field_info (elt_size=8) to 14024 items from 5000.
+Reallocated field_info (elt_size=8) to 14096 items from 5000.
 Database file #1: ../lib.bib
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
@@ -140,45 +140,45 @@ Warning--I didn't find a database entry for "OFahey2008"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--can't use both author and editor fields in tilly_1985
-You've used 284 entries,
+You've used 287 entries,
             2874 wiz_defined-function locations,
-            2605 strings with 52644 characters,
-and the built_in function-call counts, 1033240 in all, are:
-= -- 168730
-> -- 10706
+            2621 strings with 53109 characters,
+and the built_in function-call counts, 1044353 in all, are:
+= -- 170538
+> -- 10842
 < -- 12
-+ -- 77831
-- -- 3930
-* -- 86838
-:= -- 209250
-add.period$ -- 1139
-call.type$ -- 284
-change.case$ -- 3696
-chr.to.int$ -- 278
-cite$ -- 287
-duplicate$ -- 4386
-empty$ -- 9421
-format.name$ -- 4314
-if$ -- 185253
++ -- 78684
+- -- 3979
+* -- 87788
+:= -- 211508
+add.period$ -- 1151
+call.type$ -- 287
+change.case$ -- 3735
+chr.to.int$ -- 281
+cite$ -- 290
+duplicate$ -- 4428
+empty$ -- 9499
+format.name$ -- 4370
+if$ -- 187233
 int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 334
-newline$ -- 1332
-num.names$ -- 3128
-pop$ -- 1337
+missing$ -- 337
+newline$ -- 1347
+num.names$ -- 3159
+pop$ -- 1348
 preamble$ -- 1
-purify$ -- 4260
+purify$ -- 4305
 quote$ -- 0
-skip$ -- 3500
+skip$ -- 3537
 stack$ -- 0
-substring$ -- 236798
-swap$ -- 625
-text.length$ -- 3988
+substring$ -- 239332
+swap$ -- 631
+text.length$ -- 4030
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 986
+type$ -- 998
 warning$ -- 3
-while$ -- 6538
+while$ -- 6601
 width$ -- 0
-write$ -- 4044
+write$ -- 4088
 (There were 9 error messages)

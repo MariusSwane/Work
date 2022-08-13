@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
-You've used 88 entries,
+You've used 90 entries,
             2874 wiz_defined-function locations,
-            1246 strings with 19724 characters,
-and the built_in function-call counts, 335367 in all, are:
-= -- 54766
-> -- 3732
+            1257 strings with 20075 characters,
+and the built_in function-call counts, 345436 in all, are:
+= -- 56434
+> -- 3852
 < -- 9
-+ -- 25510
-- -- 1348
-* -- 28340
-:= -- 67801
-add.period$ -- 352
-call.type$ -- 88
-change.case$ -- 1146
-chr.to.int$ -- 88
-cite$ -- 88
-duplicate$ -- 1324
-empty$ -- 2879
-format.name$ -- 1458
-if$ -- 60094
++ -- 26318
+- -- 1390
+* -- 29223
+:= -- 69795
+add.period$ -- 360
+call.type$ -- 90
+change.case$ -- 1172
+chr.to.int$ -- 90
+cite$ -- 90
+duplicate$ -- 1352
+empty$ -- 2931
+format.name$ -- 1505
+if$ -- 61897
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 103
-newline$ -- 414
-num.names$ -- 996
-pop$ -- 420
+missing$ -- 105
+newline$ -- 424
+num.names$ -- 1017
+pop$ -- 427
 preamble$ -- 1
-purify$ -- 1320
+purify$ -- 1350
 quote$ -- 0
-skip$ -- 1038
+skip$ -- 1063
 stack$ -- 0
-substring$ -- 77038
-swap$ -- 160
-text.length$ -- 1241
+substring$ -- 79415
+swap$ -- 164
+text.length$ -- 1269
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 302
+type$ -- 310
 warning$ -- 0
-while$ -- 2036
+while$ -- 2078
 width$ -- 0
-write$ -- 1270
+write$ -- 1300

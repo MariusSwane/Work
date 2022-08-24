@@ -6,8 +6,8 @@
 \contentsline {figure}{\numberline {1.3}{\ignorespaces Civil conflict combat related deaths (log-transformed) after 1989.\relax }}{16}{figure.caption.6}%
 \contentsline {figure}{\numberline {1.4}{\ignorespaces The number of independent states per year.\relax }}{28}{figure.caption.8}%
 \contentsline {figure}{\numberline {1.5}{\ignorespaces Pre-colonial state presence (normalized per pre-colonial state)\relax }}{29}{figure.caption.9}%
-\contentsline {figure}{\numberline {1.6}{\ignorespaces `Frontierness', the number of borders (log).\relax }}{31}{figure.caption.10}%
-\contentsline {figure}{\numberline {1.7}{\ignorespaces `Borderlandness', the number of border overlaps (log).\relax }}{31}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.6}{\ignorespaces `Frontierness', the number of borders (square root transformed).\relax }}{31}{figure.caption.10}%
+\contentsline {figure}{\numberline {1.7}{\ignorespaces `Borderlandness', the number of border overlaps (square root transformed).\relax }}{31}{figure.caption.11}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-2}
 \addvspace {10\p@ }

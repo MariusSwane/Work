@@ -1,0 +1,7 @@
+* Emacs commands 'n stuff
+
+- SPC-. opens file manager
+- SPC-b buffer
+        -k kill
+        -i view buffers
+- SPC-h-r-r restarts doom-Emacs

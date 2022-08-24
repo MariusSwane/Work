@@ -4,6 +4,7 @@ library(ggplot2)
 library(lubridate)
 library(purrr)
 library(readxl)
+library(scales)
 library(sf)
 library(tidyr)
 library(viridis)
@@ -68,8 +69,10 @@ ccplot <- ggplot() +
 	geom_sf(data = prio_grid_isd,
             linetype = 0,
             aes(fill = log(interdeaths+1)),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
+            show.legend = T) + 
+    scale_fill_viridis_c("Fatalities",
+			 labels=trans_format("identity", function(x)
+					     round(exp(x),0)-1)) +
     theme_minimal()
 # Preview plott
 ccplot 
@@ -85,25 +88,10 @@ dev.off()
 #==============================================================================#
 
 # Loading data
-#load("../Data/GEDEvent_v21_1.RData")
 load("../Data/ucdp-prio-acd-211.rdata")
 
-# Getting state based violence type from UCDP/PRIO
-gedsb <- UcdpPrioConflict_v21_1 %>%  dplyr::select(conflict_id, type_of_conflict) %>%  
-	mutate(conflict_id = as.integer(conflict_id)) %>% 
-	mutate(sb = as.integer(type_of_conflict))
-
-# Merging
-ged <- left_join(GEDEvent_v21_1, gedsb, by = c("conflict_new_id" = 
-					       "conflict_id"))
-
-# Filtering out non relevant conflict and summing for region-year
-ged <- filter(ged, sb == 3 | sb == 4) %>% 
-	group_by(region, year) %>% 
-	summarise(deaths = sum(best))
-
 # Using UCDP/PRIO instead
-# Converting form characters
+# Converting from characters
 UcdpPrioConflict_v21_1$type_of_conflict <- as.integer(UcdpPrioConflict_v21_1$type_of_conflict)
 UcdpPrioConflict_v21_1$year <- as.integer(UcdpPrioConflict_v21_1$year)
 UcdpPrioConflict_v21_1$region <- as.factor(as.integer(UcdpPrioConflict_v21_1$region))
@@ -120,7 +108,7 @@ ucdp <- filter(UcdpPrioConflict_v21_1, type_of_conflict == 3 | type_of_conflict 
 # Plotting
 cclplot <- ggplot(ucdp, aes(x = year, y = ccount, color = region)) +
 	geom_line(size = 2) +
-	scale_color_viridis_d("Regoin") +
+	scale_color_viridis_d("Region") +
 	ylab("Number of civil conflicts") + xlab("Year") +
 	goldenScatterCAtheme
 # Preview plot
@@ -131,3 +119,79 @@ pdf("../Output/civilConflictRegion.pdf",
 	width = 10, height = 10/1.68)
 	cclplot
 dev.off()
+
+#==============================================================================#
+#	Communal violence fatalities per year				       #
+#==============================================================================#
+
+# Loading data
+load("../Data/GEDEvent_v21_1.RData")
+load("../Data/ucdp-nonstate-211.rdata")
+
+# Getting non-state based violence
+gedns <- Nonstate_v21_1 %>%  dplyr::select(conflict_id, org, year) %>%  
+	mutate(conflict_id = as.integer(conflict_id)) %>% 
+	mutate(org = as.integer(org))
+
+# Merging
+ged <- left_join(GEDEvent_v21_1, gedns, by = c("conflict_new_id" = 
+					       "conflict_id"))
+
+# Filtering out non relevant conflict and summing for region-year
+ged <- filter(ged, org == 3) %>% 
+	group_by(region, year.x) %>% 
+	summarise(deaths = sum(best))
+
+
+# Assigning names to regions
+levels(ged$region) <- ucdpregions
+
+
+# Plotting
+cvplot <- ggplot(ged, aes(x = year.x, y = deaths, color = region)) +
+	geom_line(size = 2) +
+	scale_color_viridis_d("Region") +
+	ylab("Fatalities") + xlab("Year") +
+	goldenScatterCAtheme
+# Preview plot
+cvplot
+
+# Writing plot to file
+pdf("../Output/communalViolenceRegion.pdf",
+	width = 10, height = 10/1.68)
+	cvplot
+dev.off()
+
+#==============================================================================#
+#	Borderness and frontierness	 				       #
+#==============================================================================#
+
+frontierplot <- ggplot() +
+	geom_sf(data = prio_grid_isd,
+            linetype = 0,
+            aes(fill = sqrt(sp_b_i_sum))) +
+    scale_fill_viridis_c("Number of borders",
+	labels=trans_format("identity", function(x) round(x^2,0))) +
+    theme_minimal()
+frontierplot
+
+pdf("../Output/frontierplot.pdf",
+    width = 10, height = 10/1.68)
+	frontierplot
+dev.off()
+
+borderplot <- ggplot() +
+	geom_sf(data = prio_grid_isd,
+            linetype = 0,
+            aes(fill = sqrt(sp_o))) +
+    scale_fill_viridis_c("Number of
+overlapping borders",
+	labels=trans_format("identity", function(x) round(x^2,0))) +
+    theme_minimal()
+borderplot
+
+pdf("../Output/borderplot.pdf",
+    width = 10, height = 10/1.68)
+	borderplot
+dev.off()
+

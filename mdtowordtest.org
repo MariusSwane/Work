@@ -1,0 +1,16 @@
+#+TITLE: Codesheet for the LEGACIES state identification process
+#+AUTHOR:
+#+PROPERTY: header-args
+#+OPTIONS: ^:nil
+#+bibliography: lib.bib
+
+* Part 1: statehood
+
+|             |   |
+|-------------+---|
+| Entity_Nam​e |   |
+| Other_Name  |   |
+| COWNUM      |   |
+| COWID       |   |
+
+* Location

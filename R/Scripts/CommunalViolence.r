@@ -792,7 +792,7 @@ for(i in 1:length(grid$id_cell.y)) {
 gridtestef <- ggplot() +
 		   geom_sf(data = grid,
 			   linetype = 0,
-			   aes(fill = ef))
+			   aes(fill = ef)) +
     		   scale_fill_viridis_c("Ethnic fractionalization") +
 		   theme_minimal() +
 		   theme(legend.position = "left")
@@ -800,7 +800,7 @@ gridtestef <- ggplot() +
 gridtestsp <- ggplot() +
 		   geom_sf(data = na.omit(grid),
 			   linetype = 0,
-			   aes(fill = sp))
+			   aes(fill = sp)) +
     		   scale_fill_viridis_c("Pre-colonial state presence") +
 		   theme_minimal() 
 
@@ -1068,7 +1068,7 @@ for(i in 1:length(grid$id_cell.y)) {
 gridtestef <- ggplot() +
 		   geom_sf(data = grid,
 			   linetype = 0,
-			   aes(fill = ef))
+			   aes(fill = ef)) +
     		   scale_fill_viridis_c("Ethnic fractionalization") +
 		   theme_minimal() +
 		   theme(legend.position = "left")
@@ -1076,7 +1076,7 @@ gridtestef <- ggplot() +
 gridtestsp <- ggplot() +
 		   geom_sf(data = na.omit(grid),
 			   linetype = 0,
-			   aes(fill = sp))
+			   aes(fill = sp)) +
     		   scale_fill_viridis_c("Pre-colonial state presence") +
 		   theme_minimal() 
 
@@ -1157,7 +1157,7 @@ for(i in 1:length(grid$id_cell.y)) {
 gridtestef <- ggplot() +
 		   geom_sf(data = grid,
 			   linetype = 0,
-			   aes(fill = ef))
+			   aes(fill = ef)) +
     		   scale_fill_viridis_c("Ethnic fractionalization") +
 		   theme_minimal() +
 		   theme(legend.position = "left")
@@ -1165,7 +1165,7 @@ gridtestef <- ggplot() +
 gridtestsp <- ggplot() +
 		   geom_sf(data = na.omit(grid),
 			   linetype = 0,
-			   aes(fill = sp))
+			   aes(fill = sp)) +
     		   scale_fill_viridis_c("Pre-colonial state presence") +
 		   theme_minimal() 
 

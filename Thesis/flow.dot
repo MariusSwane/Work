@@ -1,0 +1,33 @@
+digraph G {
+	 node [shape = plaintext];
+	 edge [arrowhead = vee];
+	 "Maximalist dissent" -> "Non-violent dissent";
+	 "Maximalist dissent" -> "Violent dissent";
+	 "Organized violence" -> "Violent dissent";
+	 "Organized violence" -> "Communal violence";
+	 "Non-violent dissent" -> "Paper I";
+	 "Violent dissent" -> "Paper I";
+	 "Violent dissent" -> "Paper II";
+	 "Violent dissent" -> "Paper IV";
+	 "Communal violence" -> "Paper III";
+	 subgraph cluster0{
+		 "Paper I";
+	 }
+	 subgraph cluster1{
+		 "Paper II";
+		 "Paper IV";
+		 "Paper III";
+		 label = "Effect of 
+   	 historical statehood";
+	 }	
+	 subgraph cluster2{
+		 label = "Unit of analysis"
+		 "Paper I" -> "Organizations engaging
+in maximalist dissent";
+		"Paper II" -> "Countries";
+		"Paper III" -> "Grid cells";
+		"Paper IV" -> "Grid cells";
+	 }
+}
+
+

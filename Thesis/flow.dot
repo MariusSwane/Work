@@ -1,5 +1,5 @@
 digraph G {
-	 node [shape = plaintext];
+	 node [shape = plaintext fontsize = "12pt"]; 	
 	 edge [arrowhead = vee];
 	 "Maximalist dissent" -> "Non-violent dissent";
 	 "Maximalist dissent" -> "Violent dissent";
@@ -14,14 +14,16 @@ digraph G {
 		 "Paper I";
 	 }
 	 subgraph cluster1{
+		 label = "	    Effect of historical
+	statehood" ;
+		 fontsize = "12pt";
 		 "Paper II";
 		 "Paper IV";
 		 "Paper III";
-		 label = "Effect of 
-   	 historical statehood";
 	 }	
 	 subgraph cluster2{
-		 label = "Unit of analysis"
+		 label = "Unit of analysis	"
+		 fontsize = "12pt";
 		 "Paper I" -> "Organizations engaging
 in maximalist dissent";
 		"Paper II" -> "Countries";

@@ -33,6 +33,7 @@ library(pscl)
 library(purrr)
 library(raster)
 library(readr)
+library(scales)
 library(sidedata)
 library(spdep)
 library(sf)
@@ -486,15 +487,19 @@ ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
 
 # logOrg3 Plot
 logOrg3 <- ggplot() +
-	geom_sf(data = filter(prio_grid_isd, gwno == 475),
+	geom_sf(data = prio_grid_isd,
             linetype = 0,
-            aes(fill = log(org3 + 1)),
-            show.legend = FALSE) + 
-    labs(title = "Communal violence (log)") +
-    scale_fill_viridis_c() +
+            aes(fill = log(org3 + 1))) +
+    scale_fill_viridis_c("Communal violence events",
+	labels=trans_format("identity", function(x)
+			round(exp(x),0)-1)) +
     theme_minimal()
-
 logOrg3
+
+pdf("../Output/logOrg3.pdf",
+	width = 10, height = 10/1.68)
+	logOrg3
+dev.off()
 
 # }}}
 
@@ -588,6 +593,28 @@ ugaMerged <- st_join(ugaMerged, select(prio_grid_isd, geometry, water_gc), join
 
 #ugaMerged <- grid %>% mutate(water = st_within(ugaMerged, prio_grid_isd$water_gc))
 
+# Plotting
+gridtestef <- ggplot() +
+		   geom_sf(data = ugaMerged,
+			   linetype = 0,
+			   aes(fill = ef)) +
+    		   scale_fill_viridis_c("Ethnic fractionalization") +
+		   theme_minimal() +
+		   theme(legend.position = "left")
+
+gridtestsp <- ggplot() +
+		   geom_sf(data = na.omit(ugaMerged),
+			   linetype = 0,
+			   aes(fill = sp)) +
+    		   scale_fill_viridis_c("Pre-colonial state presence") +
+		   theme_minimal() 
+
+ugaplots <- grid.arrange(gridtestef,gridtestsp, ncol = 2)
+
+ggsave("../Output/ugaplots.tiff", ugaplots,
+       device = "tiff", width = 10, height = 10/1.68, units = "in", dpi = 300,
+       compression = "lzw")
+
 #==============================================================================#
 # Burkina Faso
 
@@ -658,6 +685,28 @@ for(i in 1:length(grid$id_cell.y)) {
 		grid$samo[i]^2 +
 		grid$senoufo[i]^2))
 }
+
+# Plotting
+gridtestef <- ggplot() +
+		   geom_sf(data = grid,
+			   linetype = 0,
+			   aes(fill = ef)) +
+    		   scale_fill_viridis_c("Ethnic fractionalization") +
+		   theme_minimal() +
+		   theme(legend.position = "left")
+
+gridtestsp <- ggplot() +
+		   geom_sf(data = na.omit(grid),
+			   linetype = 0,
+			   aes(fill = sp)) +
+    		   scale_fill_viridis_c("Pre-colonial state presence") +
+		   theme_minimal() 
+
+brkplots <- grid.arrange(gridtestef,gridtestsp, ncol = 2)
+
+ggsave("../Output/brkplots.tiff", brkplots,
+       device = "tiff", width = 10, height = 10/1.68, units = "in", dpi = 300,
+       compression = "lzw")
 
 #==============================================================================#
 # Nigeria
@@ -738,6 +787,28 @@ for(i in 1:length(grid$id_cell.y)) {
 		grid$wurkum[i]^2 +
 		grid$other[i]^2))
 }
+
+# Plotting
+gridtestef <- ggplot() +
+		   geom_sf(data = grid,
+			   linetype = 0,
+			   aes(fill = ef))
+    		   scale_fill_viridis_c("Ethnic fractionalization") +
+		   theme_minimal() +
+		   theme(legend.position = "left")
+
+gridtestsp <- ggplot() +
+		   geom_sf(data = na.omit(grid),
+			   linetype = 0,
+			   aes(fill = sp))
+    		   scale_fill_viridis_c("Pre-colonial state presence") +
+		   theme_minimal() 
+
+nigplots <- grid.arrange(gridtestef,gridtestsp, ncol = 2)
+
+ggsave("../Output/nigplots.tiff", nigplots,
+       device = "tiff", width = 10, height = 10/1.68, units = "in", dpi = 300,
+       compression = "lzw")
 
 #==============================================================================#
 # Congo (DRC)
@@ -993,6 +1064,28 @@ for(i in 1:length(grid$id_cell.y)) {
 		grid$other.akan[i]^2))
 }
 
+# Plotting
+gridtestef <- ggplot() +
+		   geom_sf(data = grid,
+			   linetype = 0,
+			   aes(fill = ef))
+    		   scale_fill_viridis_c("Ethnic fractionalization") +
+		   theme_minimal() +
+		   theme(legend.position = "left")
+
+gridtestsp <- ggplot() +
+		   geom_sf(data = na.omit(grid),
+			   linetype = 0,
+			   aes(fill = sp))
+    		   scale_fill_viridis_c("Pre-colonial state presence") +
+		   theme_minimal() 
+
+ghaplots <- grid.arrange(gridtestef,gridtestsp, ncol = 2)
+
+ggsave("../Output/ghaplots.tiff", ghaplots,
+       device = "tiff", width = 10, height = 10/1.68, units = "in", dpi = 300,
+       compression = "lzw")
+
 #==============================================================================#
 # Kenya
 
@@ -1060,26 +1153,21 @@ for(i in 1:length(grid$id_cell.y)) {
 		grid$turkana[i]^2))
 }
 
-#==============================================================================#
-# Test plot
-
+# Plotting
 gridtestef <- ggplot() +
-		   geom_sf(data = ugaMerged,
+		   geom_sf(data = grid,
 			   linetype = 0,
-			   aes(fill = ef),
-			   show.legend = F) +
-    		   scale_fill_viridis_c() +
+			   aes(fill = ef))
+    		   scale_fill_viridis_c("Ethnic fractionalization") +
 		   theme_minimal() +
-		   theme(plot.background = element_rect(fill = "white")) 
+		   theme(legend.position = "left")
 
 gridtestsp <- ggplot() +
 		   geom_sf(data = na.omit(grid),
 			   linetype = 0,
-			   aes(fill = sp),
-			   show.legend = F) +
-    		   scale_fill_viridis_c() +
-		   theme_minimal() +
-		   theme(plot.background = element_rect(fill = "white")) 
+			   aes(fill = sp))
+    		   scale_fill_viridis_c("Pre-colonial state presence") +
+		   theme_minimal() 
 
 
 kenplots <- grid.arrange(gridtestef,gridtestsp, ncol = 2)
@@ -1298,9 +1386,9 @@ ethplot <- ggplot() +
 			      sideprio, gwno != 565,
 			      ef != 1, ef >= 0),
 		linetype = 0, aes(fill = ef), show.legend = T) +
-	scale_fill_viridis_c() +
-	theme_minimal() + 
-	theme(plot.background = element_rect(fill = "white")) 
+	scale_fill_viridis_c("Ethnic fractionalization") +
+	theme_minimal() 
+	#theme(plot.background = element_rect(fill = "white")) 
 
 pdf(file = "../Output/ethplot.pdf", 
     width = 10, height = 10/1.68)

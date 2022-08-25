@@ -27,6 +27,7 @@ library(rayshader)
 library(RColorBrewer)
 library(readr)
 library(raster)
+library(scales)
 library(spdep)
 library(sf)
 library(sidedata)
@@ -69,7 +70,7 @@ prio_grid_isd <- prio_grid_isd %>% filter( (gwno >= 404 & gwno <= 626) | gwno ==
 				sqrtSpNoInt = sqrt(sp_os_sum),
 				sqrtCapdist = sqrt(capdist),
 				sqrtBDist = sqrt(bdist3),
-				sqrtPopd = sqrt(popd),
+				#sqrtPopd = sqrt(popd),
 				logDeaths = log(deaths + 1),
 				logState_based = log(state_based + 1),
 				logSpAll = log(sp_os_i_sum + 1),
@@ -77,7 +78,7 @@ prio_grid_isd <- prio_grid_isd %>% filter( (gwno >= 404 & gwno <= 626) | gwno ==
 				logCapdist = log(capdist),
 				logBDist = log(bdist3 + 1),
 				logCDist = log(distcoast +1),
-				logPopd = log(popd + 1),
+				#logPopd = log(popd + 1),
 				logOrg3 = log(org3 +1),
 				sqrtorg3 = sqrt(org3),
 				sqrtNonstate = sqrt(non_state),
@@ -233,6 +234,70 @@ stargazer(sumStats, median = FALSE, iqr = T, digits=1, title = "Summary Statisti
 			       "Distance to coast", "Population density 1600"),
 	  float.env = "sidewaystable",
 	  out = "../Output/summaryStats.tex")
+
+# Nigeriaplot
+
+geoisd <- st_read('../../QGIS/Geo-ISD.shp')
+
+gisdnig <- filter(geoisd, COWID == 4798 | COWID == 4752 | COWID == 4521 | COWID
+		  == 4327 | COWID == 4831 | COWID == 4776 | COWID == 4763 | COWID ==
+434 | COWID == 4362 | COWID == 4768 | COWID == 4769 | COWID == 4751 | COWID == 4771 |
+COWID == 4742 | COWID == 4773 | COWID == 4765 | COWID == 4775 | COWID == 4832)
+
+gisdnig <- st_make_valid(gisdnig)
+
+borders <- read_sf(dsn = "../Data/Shapes/Africa.shp") %>% 
+	filter(ID == 626)
+
+borders <- st_set_crs(borders, 4326)
+
+ext <- extent(borders)
+
+ext2 <- extent(2.17, 15.1, 3.7, 14.4)
+
+grid <- st_bbox(ext2) %>% 
+  st_make_grid(cellsize = (0.05), what = "polygons", flat_topped = T) %>%
+  st_set_crs(4326)
+grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
+notify(msg = c("Done!")) # Comment this out if larger cell size
+
+centroids <- st_centroid(grid)
+
+grid$lon <- st_coordinates(centroids)[,1]
+grid$lat <- st_coordinates(centroids)[,2]
+
+#grid$sp1 <- lengths(st_intersects(grid, gisdnig))
+
+#grid <- filter(grid, sp > 0)
+
+grid <- grid %>% mutate(sp2 = lengths(st_within(grid, gisdnig)))
+notify(msg = c("Done!")) # Comment this out if larger cell size
+
+#grid <- na.omit(grid)
+#notify(msg = c("Done!")) # Comment this out if larger cell size
+
+# setNames(data.frame(coords[[1]], 
+#                     matrix(unlist(coords[2]), ncol=2, byrow=TRUE)), 
+#          c("ID", "lon", "lat"))
+
+gridtest <- ggplot() +
+		   geom_sf(data = grid,
+			   linetype = 0,
+			   aes(fill = sp2)) +
+    		   scale_fill_viridis_c("Pre-colonial
+state presence") +
+		   geom_contour(data = filter(grid, sp2 > 1),
+				aes(x = round(lon, 1), y = round(lat, 1), z = sp2)) +
+		   geom_sf(data = borders, color = "gray", size = 2, fill = NA) +
+		   xlab("") + ylab("") +
+		   theme_minimal()
+gridtest 
+
+pdf("../Output/nigeria.pdf",
+    width = 10, height = 10/1.683)
+gridtest 
+dev.off()
+
 # }}}
 
 # {{{ First analysis
@@ -696,52 +761,20 @@ summary(testmodel)
 
 # Just plotting the main independent variable
 
-sqrtSpAllPlot <- ggplot() +
+spPlot <- ggplot() +
 	geom_sf(data = prio_grid_isd,
             linetype = 0,
-            aes(fill = sqrtSpAll*logCapdist),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
+            aes(fill = sqrt(sp_os_i_sum))) +
+    scale_fill_viridis_c("Pre-colonial
+state presence",
+			 labels = trans_format("identity", function(x) x^2)) +
     theme_minimal()
+spPlot
 
-pdf("../Output/sqrtSpAll.pdf",
+pdf("../Output/spPlot.pdf",
 	width = 10, height = 10/1.68)
-  	sqrtSpAllPlot
+  	spPlot
 dev.off()
-
-logSpAllPlot <- ggplot() +
-	geom_sf(data = prio_grid_isd,
-            linetype = 0,
-            aes_string(fill = "logSpAll"),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
-    theme_minimal()
-
-pdf("../Output/logSpAll.pdf",
-	width = 10, height = 10/1.68)
-  	logSpAllPlot
-dev.off()
-
-logOrg3 <- ggplot() +
-	geom_sf(data = prio_grid_isd,
-            linetype = 0,
-            aes_string(fill = "logOrg3"),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
-    theme_minimal()
-
-pdf("../Output/logOrg3.pdf",
-    width = 10, height = 10/1.68)
-logOrg3
-dev.off()
-
-ggplot() +
-	geom_sf(data = prio_grid_isd,
-            linetype = 0,
-            aes_string(fill = "dumOrg3"),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
-    theme_minimal()
 
 # Alternative measure of state presece
 
@@ -791,73 +824,13 @@ ggAltDPlot <- ggplot(ggAltD, aes(x^2, predicted, color = group)) +
 
 ggAltDPlot 
 
-# 3D plot experiment
-
-geoisd <- st_read('../../QGIS/Geo-ISD.shp')
-
-gisdnig <- filter(geoisd, COWID == 4798 | COWID == 4752 | COWID == 4521 | COWID
-		  == 4327 | COWID == 4831 | COWID == 4776 | COWID == 4763 | COWID ==
-434 | COWID == 4362 | COWID == 4768 | COWID == 4769 | COWID == 4751 | COWID == 4771 |
-COWID == 4742 | COWID == 4773 | COWID == 4765 | COWID == 4775 | COWID == 4832)
-
-gisdnig <- st_make_valid(gisdnig)
-
-borders <- read_sf(dsn = "../Data/Shapes/Africa.shp") %>% 
-	filter(ID == 626)
-
-borders <- st_set_crs(borders, 4326)
-
-ext <- extent(borders)
-
-ext2 <- extent(2.17, 15.1, 3.7, 14.4)
-
-grid <- st_bbox(ext2) %>% 
-  st_make_grid(cellsize = (0.05), what = "polygons", flat_topped = T) %>%
-  st_set_crs(4326)
-grid <- grid %>% st_sf() %>% mutate(id_cell = seq_len(nrow(.)))
-notify(msg = c("Done!")) # Comment this out if larger cell size
-
-centroids <- st_centroid(grid)
-
-grid$lon <- st_coordinates(centroids)[,1]
-grid$lat <- st_coordinates(centroids)[,2]
-
-#grid$sp1 <- lengths(st_intersects(grid, gisdnig))
-
-#grid <- filter(grid, sp > 0)
-
-grid <- grid %>% mutate(sp2 = lengths(st_within(grid, gisdnig)))
-notify(msg = c("Done!")) # Comment this out if larger cell size
-
-#grid <- na.omit(grid)
-#notify(msg = c("Done!")) # Comment this out if larger cell size
-
-# setNames(data.frame(coords[[1]], 
-#                     matrix(unlist(coords[2]), ncol=2, byrow=TRUE)), 
-#          c("ID", "lon", "lat"))
-
-gridtest <- ggplot() +
-		   geom_sf(data = grid,
-			   linetype = 0,
-			   aes(fill = sp2),
-			   show.legend = F) +
-    		   scale_fill_viridis_c() +
-		   geom_contour(data = filter(grid, sp2 > 1),
-				aes(x = round(lon, 1), y = round(lat, 1), z = sp2)) +
-		   geom_sf(data = borders, color = "gray", size = 2, fill = NA) +
-		   theme_minimal()
-
-pdf("../Output/nigeria.pdf",
-    width = 10, height = 10/1.683)
-gridtest 
-dev.off()
-
-plot_gg(gridtest, pointcontract = 1, scale = 100, offset_edges = F, triangulate = F, verbose = T, zoom = 0.5, multicore = T)
-notify(msg = c("Done!"))
-
-render_snapshot("../Output/3DNigeria")
-
-render_movie(filename = "../Output/Libyathemovie.gif")
+# Attempt at 3D plot
+#plot_gg(gridtest, pointcontract = 1, scale = 100, offset_edges = F, triangulate = F, verbose = T, zoom = 0.5, multicore = T)
+#notify(msg = c("Done!"))
+#
+#render_snapshot("../Output/3DNigeria")
+#
+#render_movie(filename = "../Output/Libyathemovie.gif")
 
 #render_snapshot("../Output/3DLibya.html", webshot = T)
 

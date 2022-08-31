@@ -195,3 +195,40 @@ pdf("../Output/borderplot.pdf",
 	borderplot
 dev.off()
 
+#==============================================================================#
+#	Per state- state presence					       #
+#==============================================================================#
+
+gisd <- read.csv('../../QGIS/Geo-ISD.csv')
+
+# SP Charles version
+
+gisd <- gisd %>% 
+  mutate(state_presence = 1) %>%
+  group_by(gid, COWID, year) %>%
+  summarise(state_presence_max = max(na.omit(state_presence)),
+            no_unique_states = length(unique(COWID)),
+            state_presence_all = sum(na.omit(state_presence))
+  )
+
+gisd <- gisd %>% 
+  group_by(gid, COWID) %>%
+  # Summing years with any state presence
+  summarise(sp_sum_any_cb = sum(na.omit(state_presence_max)),
+            # Summing state presence from all maps over years
+            sp_sum_cb = sum(na.omit(state_presence_all)))
+
+prio_grid_isd <- left_join(prio_grid_isd, gisd, by = c("gid")) %>% 
+	mutate(state_presence = 1)
+
+prio_grid_isd <- prio_grid_isd %>% group_by(COWID) %>% mutate(sp_sum_adj=sp_sum_cb/max(sp_sum_cb))
+
+ggplot() +
+	geom_sf(data = filter(prio_grid_isd, sp_sum_cb > 0),
+            linetype = 0,
+            aes(fill = sp_sum_adj, alpha = sp_sum_adj)) +
+    scale_fill_viridis_c("State presence
+per pre-colonial state") +
+    scale_alpha_continuous(guide = 'none') +
+    theme_minimal()
+

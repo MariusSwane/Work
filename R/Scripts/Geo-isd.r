@@ -411,7 +411,7 @@ rm(coastline)
 ggplot() +
 	geom_sf(data = prio_grid_isd,
             linetype = 0,
-            aes(fill = esdeaths),
+            aes(fill = popd),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()
@@ -430,7 +430,7 @@ popdr  <- raster_to_pg(popdr, aggregation_function = "mean")
 popdr  <- raster_to_tibble(popdr, add_pg_index = TRUE)
 
 # Tidying 
-popdr  <- popdr %>% rename(popd = popd_1600AD, gid = pgid) %>% dplyr::select(popd, gid)
+popdr  <- popdr %>% rename(popd = layer, gid = pgid) %>% dplyr::select(popd, gid)
 
 # Merging
 prio_grid_isd <- left_join(prio_grid_isd, popdr, by = c("gid"))

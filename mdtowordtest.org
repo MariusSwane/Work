@@ -6,11 +6,16 @@
 
 * Part 1: statehood
 
-|             |   |
-|-------------+---|
-| Entity_Nam​e |   |
-| Other_Name  |   |
-| COWNUM      |   |
-| COWID       |   |
+| *Entity_Nam​e* |   |
+|---------------+---|
+| *Other_Name*  |   |
+|---------------+---|
+| *COWNUM*      |   |
+|---------------+---|
+| *COWID*       |   |
 
 * Location
+
+| *Cap*                                                                                                                     |                                   |   |
+| Please provide the latitude and longitude coordinates here for the capital cities (or most important city, or center) of the entity. Separate the coordinates with a comma, and different cities with a semi-colon. Please use Degrees Minutes Seconds format, with each element separated by a space (i.e. Sydney would be 33 52 04 S, 151 12 36 E) |                                   |   |
+| *Cap_Name*                                                                                                                | test citing[cite:@Arrowsmith1802] |   |

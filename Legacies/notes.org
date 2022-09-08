@@ -1,0 +1,13 @@
+#+title: Notes
+#+author: Marius Swane
+
+* Questions for weekly meetings
+
+- Mamprussi is in Ghana. Kari-Anne has adopted it. Do we edit the candidates
+  file? It should probably get a new COWNUM? And should it not be ISDID and
+  ISDNUM? It is only based on COW but we apply changes, and extend.
+
+- Tenkodo gets incorporated into Ouagadougou by the French. Is this indirect
+  rule? Yes! For a very short period.
+
+TODO: Add coding instructions for ethno/national variable in the codebook.

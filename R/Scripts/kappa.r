@@ -223,12 +223,19 @@ prio_grid_isd <- left_join(prio_grid_isd, gisd, by = c("gid")) %>%
 
 prio_grid_isd <- prio_grid_isd %>% group_by(COWID) %>% mutate(sp_sum_adj=sp_sum_cb/max(sp_sum_cb))
 
-ggplot() +
-	geom_sf(data = filter(prio_grid_isd, sp_sum_cb > 0),
+prio_grid_isd$sp_sum_adj[is.na(prio_grid_isd$sp_sum_adj) == T] <- 0
+
+gisd_all <- ggplot() +
+	geom_sf(data = prio_grid_isd,
             linetype = 0,
             aes(fill = sp_sum_adj, alpha = sp_sum_adj)) +
     scale_fill_viridis_c("State presence
 per pre-colonial state") +
     scale_alpha_continuous(guide = 'none') +
     theme_minimal()
+
+pdf("../../Thesis/img/geo_isd_all.pdf",
+    width = 10, height = 10/1.68)
+	gisd_all
+dev.off()
 

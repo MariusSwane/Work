@@ -11,3 +11,7 @@
   rule? Yes! For a very short period.
 
 TODO: Add coding instructions for ethno/national variable in the codebook.
+
+* Notes from weekly meetings
+
+- When states are fully indipendent we code "not applicable" -9.

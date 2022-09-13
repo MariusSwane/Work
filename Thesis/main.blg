@@ -1,0 +1,190 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: Kappa/Kappa.aux
+The style file: apsr.bst
+A level-1 auxiliary file: ARC/main_text_jpr_final.aux
+Illegal, another \bibstyle command---line 70 of file ARC/main_text_jpr_final.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 71 of file ARC/main_text_jpr_final.aux
+ : \bibdata
+ :         {jpr_bibliography_final.bib}
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: BeyondEthnicity/hse_main.aux
+Illegal, another \bibstyle command---line 190 of file BeyondEthnicity/hse_main.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 191 of file BeyondEthnicity/hse_main.aux
+ : \bibdata
+ :         {ArtificialBorders.bib}
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: CommunalViolence/OMT.aux
+Illegal, another \bibstyle command---line 160 of file CommunalViolence/OMT.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 161 of file CommunalViolence/OMT.aux
+ : \bibdata
+ :         {../lib.bib}
+I'm skipping whatever remains of this command
+A level-1 auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+Illegal, another \bibstyle command---line 156 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+ : \bibstyle
+ :          {apsr}
+I'm skipping whatever remains of this command
+Illegal, another \bibdata command---line 157 of file StatePresenceCivilConflict/StatePresenceCivilConflict.aux
+ : \bibdata
+ :         {../lib.bib}
+I'm skipping whatever remains of this command
+Reallocated field_info (elt_size=8) to 14168 items from 5000.
+Database file #1: ../lib.bib
+"{" immediately follows a field part---line 2020 of file ../lib.bib
+ :   address = 
+ :              {New York},
+I'm skipping whatever remains of this entry
+Repeated entry---line 6142 of file ../lib.bib
+ : @article{Holzinger_2020
+ :                        ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Haggard2016"
+Warning--I didn't find a database entry for "Metternich2013"
+Warning--I didn't find a database entry for "Cunningham2017a"
+Warning--I didn't find a database entry for "McAdam2010"
+Warning--I didn't find a database entry for "Tarrow2011"
+Warning--I didn't find a database entry for "Chenoweth2011"
+Warning--I didn't find a database entry for "Celestino2013"
+Warning--I didn't find a database entry for "Huang2016"
+Warning--I didn't find a database entry for "Schaftenaar2017"
+Warning--I didn't find a database entry for "Thurber2019"
+Warning--I didn't find a database entry for "Sutton2014"
+Warning--I didn't find a database entry for "Svensson2011"
+Warning--I didn't find a database entry for "Belgioioso2018"
+Warning--I didn't find a database entry for "Schock2005"
+Warning--I didn't find a database entry for "Osa2003"
+Warning--I didn't find a database entry for "Pearlman2011"
+Warning--I didn't find a database entry for "Nepstad2011"
+Warning--I didn't find a database entry for "Collier1999"
+Warning--I didn't find a database entry for "Bayer2016"
+Warning--I didn't find a database entry for "Siegel2009"
+Warning--I didn't find a database entry for "Pinckney2020"
+Warning--I didn't find a database entry for "Gleditsch2014"
+Warning--I didn't find a database entry for "North1990"
+Warning--I didn't find a database entry for "Daft1992"
+Warning--I didn't find a database entry for "Tilly1978"
+Warning--I didn't find a database entry for "Wilkenfeld2011"
+Warning--I didn't find a database entry for "Cunningham2020"
+Warning--I didn't find a database entry for "Pettersson2020a"
+Warning--I didn't find a database entry for "Harbom2008"
+Warning--I didn't find a database entry for "Stewart2018"
+Warning--I didn't find a database entry for "Cunningham2013"
+Warning--I didn't find a database entry for "Svensson2018"
+Warning--I didn't find a database entry for "Cunningham2009a"
+Warning--I didn't find a database entry for "Chenoweth2018"
+Warning--I didn't find a database entry for "Chenoweth2019b"
+Warning--I didn't find a database entry for "Salehyan2012"
+Warning--I didn't find a database entry for "Clark2021"
+Warning--I didn't find a database entry for "Raleigh2010"
+Warning--I didn't find a database entry for "Acosta2019"
+Warning--I didn't find a database entry for "Kalyvas2004"
+Warning--I didn't find a database entry for "Eck2012"
+Warning--I didn't find a database entry for "Day2015"
+Warning--I didn't find a database entry for "Weidmann2018"
+Warning--I didn't find a database entry for "Nicholls2008"
+Warning--I didn't find a database entry for "Miller2013"
+Warning--I didn't find a database entry for "Weidmann2016"
+Warning--I didn't find a database entry for "Goodwin2001"
+Warning--I didn't find a database entry for "Klein2018"
+Warning--I didn't find a database entry for "Boone2003"
+Warning--I didn't find a database entry for "Branch2015"
+Warning--I didn't find a database entry for "Bratton1997"
+Warning--I didn't find a database entry for "Mueller2018"
+Warning--I didn't find a database entry for "Chenoweth2019a"
+Warning--I didn't find a database entry for "Lewis2020"
+Warning--I didn't find a database entry for "Acemoglu2005"
+Warning--I didn't find a database entry for "Ansell2014"
+Warning--I didn't find a database entry for "Ross2001"
+Warning--I didn't find a database entry for "BuenoDeMesquita2010"
+Warning--I didn't find a database entry for "maves2013"
+Warning--I didn't find a database entry for "Aksoy2012"
+Warning--I didn't find a database entry for "Butcher2016a"
+Warning--I didn't find a database entry for "Coppedge2019"
+Warning--I didn't find a database entry for "Boix2003a"
+Warning--I didn't find a database entry for "Abbs2020"
+Warning--I didn't find a database entry for "Chang2008"
+Warning--I didn't find a database entry for "Kreutz2010"
+Warning--I didn't find a database entry for "Goemans2009"
+Warning--I didn't find a database entry for "Djuve2020"
+Warning--I didn't find a database entry for "Mazzuca2021"
+Warning--I didn't find a database entry for "Wimmer2018"
+Warning--I didn't find a database entry for "Acemoglu2011"
+Warning--I didn't find a database entry for "Grosjean2011"
+Warning--I didn't find a database entry for "Grosfeld2013"
+Warning--I didn't find a database entry for "Banerjee2005"
+Warning--I didn't find a database entry for "Nunn2011"
+Warning--I didn't find a database entry for "Richards1995"
+Warning--I didn't find a database entry for "Gordon1993"
+Warning--I didn't find a database entry for "Gleditsch1999"
+Warning--I didn't find a database entry for "Teorell2017"
+Warning--I didn't find a database entry for "Grewal1998"
+Warning--I didn't find a database entry for "Ying2020"
+Warning--I didn't find a database entry for "Ziblatt2008"
+Warning--I didn't find a database entry for "Lewis2001"
+Warning--I didn't find a database entry for "Cinelli2020"
+Warning--I didn't find a database entry for "Coppedge2021"
+Warning--I didn't find a database entry for "Lyall2020"
+Warning--I didn't find a database entry for "Pettersson2021"
+Warning--I didn't find a database entry for "Soloshcheva2017"
+Warning--I didn't find a database entry for "Barkindo2016"
+Warning--I didn't find a database entry for "Zenn2013"
+Warning--I didn't find a database entry for "Tuminez2007"
+Warning--I didn't find a database entry for "OFahey2008"
+Warning--can't use both author and editor fields in barth1969
+Warning--can't use both author and editor fields in Gennaioli2007a
+Warning--can't use both author and editor fields in tilly_1985
+Warning--empty author and editor in Reid2012
+Warning--empty publisher in Reid2012
+You've used 290 entries,
+            2874 wiz_defined-function locations,
+            2641 strings with 53658 characters,
+and the built_in function-call counts, 1058458 in all, are:
+= -- 172862
+> -- 10982
+< -- 10
++ -- 79738
+- -- 4027
+* -- 89019
+:= -- 214210
+add.period$ -- 1161
+call.type$ -- 290
+change.case$ -- 3771
+chr.to.int$ -- 284
+cite$ -- 295
+duplicate$ -- 4566
+empty$ -- 9672
+format.name$ -- 4418
+if$ -- 189867
+int.to.chr$ -- 11
+int.to.str$ -- 0
+missing$ -- 363
+newline$ -- 1368
+num.names$ -- 3185
+pop$ -- 1327
+preamble$ -- 1
+purify$ -- 4345
+quote$ -- 0
+skip$ -- 3599
+stack$ -- 0
+substring$ -- 242531
+swap$ -- 672
+text.length$ -- 4060
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 986
+warning$ -- 5
+while$ -- 6656
+width$ -- 0
+write$ -- 4177
+(There were 10 error messages)

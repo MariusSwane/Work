@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Kappa/Kappa.aux
+The style file: apsr.bst
+Database file #1: ../lib.bib
+"{" immediately follows a field part---line 2020 of file ../lib.bib
+ :   address = 
+ :              {New York},
+I'm skipping whatever remains of this entry
+Warning--can't use both author and editor fields in barth1969
+Warning--can't use both author and editor fields in Gennaioli2007a
+You've used 152 entries,
+            2874 wiz_defined-function locations,
+            1649 strings with 29649 characters,
+and the built_in function-call counts, 560618 in all, are:
+= -- 91711
+> -- 5645
+< -- 4
++ -- 42247
+- -- 2077
+* -- 47233
+:= -- 113338
+add.period$ -- 609
+call.type$ -- 152
+change.case$ -- 1978
+chr.to.int$ -- 150
+cite$ -- 154
+duplicate$ -- 2387
+empty$ -- 5130
+format.name$ -- 2277
+if$ -- 100565
+int.to.chr$ -- 7
+int.to.str$ -- 0
+missing$ -- 188
+newline$ -- 722
+num.names$ -- 1670
+pop$ -- 661
+preamble$ -- 1
+purify$ -- 2280
+quote$ -- 0
+skip$ -- 1880
+stack$ -- 0
+substring$ -- 128847
+swap$ -- 344
+text.length$ -- 2132
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 526
+warning$ -- 2
+while$ -- 3516
+width$ -- 0
+write$ -- 2185
+(There was 1 error message)

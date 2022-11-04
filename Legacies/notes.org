@@ -12,6 +12,13 @@
 
 TODO: Add coding instructions for ethno/national variable in the codebook.
 
+- Polity end is difficult... the French gradually undercut Mossi institutions,
+  preferring to create new institutinos that effectively subplanted them, and
+  thus gradually stripped them of official political power. However, they are
+  still politically influential to this day.
+
 * Notes from weekly meetings
 
 - When states are fully indipendent we code "not applicable" -9.
+
+  - Dagomba does not pay tribute for 30 ish years. Does it revert to state? No

@@ -3,55 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: StatePresenceCivilConflict/StatePresenceCivilConflict.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
-"{" immediately follows a field part---line 2020 of file ../lib.bib
- :   address = 
- :              {New York},
-I'm skipping whatever remains of this entry
-Repeated entry---line 6142 of file ../lib.bib
- : @article{Holzinger_2020
- :                        ,
-I'm skipping whatever remains of this entry
-Warning--empty author and editor in Reid2012
-Warning--empty publisher in Reid2012
 You've used 91 entries,
             2874 wiz_defined-function locations,
-            1265 strings with 20316 characters,
-and the built_in function-call counts, 348600 in all, are:
-= -- 56977
-> -- 3852
-< -- 7
-+ -- 26529
-- -- 1390
-* -- 29491
-:= -- 70325
-add.period$ -- 362
+            1266 strings with 20332 characters,
+and the built_in function-call counts, 348623 in all, are:
+= -- 56941
+> -- 3868
+< -- 8
++ -- 26516
+- -- 1397
+* -- 29471
+:= -- 70404
+add.period$ -- 364
 call.type$ -- 91
-change.case$ -- 1180
+change.case$ -- 1185
 chr.to.int$ -- 91
-cite$ -- 93
-duplicate$ -- 1411
+cite$ -- 91
+duplicate$ -- 1409
 empty$ -- 2994
-format.name$ -- 1505
-if$ -- 62538
+format.name$ -- 1514
+if$ -- 62510
 int.to.chr$ -- 5
 int.to.str$ -- 0
-missing$ -- 109
-newline$ -- 426
-num.names$ -- 1017
-pop$ -- 427
+missing$ -- 110
+newline$ -- 428
+num.names$ -- 1027
+pop$ -- 423
 preamble$ -- 1
-purify$ -- 1360
+purify$ -- 1365
 quote$ -- 0
-skip$ -- 1113
+skip$ -- 1115
 stack$ -- 0
-substring$ -- 80118
-swap$ -- 202
-text.length$ -- 1271
+substring$ -- 80080
+swap$ -- 197
+text.length$ -- 1282
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 310
-warning$ -- 2
-while$ -- 2085
+warning$ -- 0
+while$ -- 2102
 width$ -- 0
-write$ -- 1318
-(There were 2 error messages)
+write$ -- 1324

@@ -3,10 +3,6 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: CommunalViolence/OMT.aux
 The style file: apsr.bst
 Database file #1: ../lib.bib
-"{" immediately follows a field part---line 2020 of file ../lib.bib
- :   address = 
- :              {New York},
-I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in tilly_1985
 You've used 67 entries,
@@ -50,4 +46,4 @@ warning$ -- 2
 while$ -- 1528
 width$ -- 0
 write$ -- 963
-(There was 1 error message)
+(There were 2 warnings)

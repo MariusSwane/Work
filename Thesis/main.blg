@@ -41,14 +41,6 @@ Illegal, another \bibdata command---line 157 of file StatePresenceCivilConflict/
 I'm skipping whatever remains of this command
 Reallocated field_info (elt_size=8) to 14168 items from 5000.
 Database file #1: ../lib.bib
-"{" immediately follows a field part---line 2020 of file ../lib.bib
- :   address = 
- :              {New York},
-I'm skipping whatever remains of this entry
-Repeated entry---line 6142 of file ../lib.bib
- : @article{Holzinger_2020
- :                        ,
-I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "Haggard2016"
 Warning--I didn't find a database entry for "Metternich2013"
 Warning--I didn't find a database entry for "Cunningham2017a"
@@ -144,47 +136,45 @@ Warning--I didn't find a database entry for "OFahey2008"
 Warning--can't use both author and editor fields in barth1969
 Warning--can't use both author and editor fields in Gennaioli2007a
 Warning--can't use both author and editor fields in tilly_1985
-Warning--empty author and editor in Reid2012
-Warning--empty publisher in Reid2012
 You've used 290 entries,
             2874 wiz_defined-function locations,
-            2641 strings with 53658 characters,
-and the built_in function-call counts, 1058458 in all, are:
-= -- 172862
-> -- 10982
-< -- 10
-+ -- 79738
-- -- 4027
-* -- 89019
-:= -- 214210
-add.period$ -- 1161
+            2642 strings with 53674 characters,
+and the built_in function-call counts, 1058481 in all, are:
+= -- 172826
+> -- 10998
+< -- 11
++ -- 79725
+- -- 4034
+* -- 88999
+:= -- 214289
+add.period$ -- 1163
 call.type$ -- 290
-change.case$ -- 3771
+change.case$ -- 3776
 chr.to.int$ -- 284
-cite$ -- 295
-duplicate$ -- 4566
+cite$ -- 293
+duplicate$ -- 4564
 empty$ -- 9672
-format.name$ -- 4418
-if$ -- 189867
+format.name$ -- 4427
+if$ -- 189839
 int.to.chr$ -- 11
 int.to.str$ -- 0
-missing$ -- 363
-newline$ -- 1368
-num.names$ -- 3185
-pop$ -- 1327
+missing$ -- 364
+newline$ -- 1370
+num.names$ -- 3195
+pop$ -- 1323
 preamble$ -- 1
-purify$ -- 4345
+purify$ -- 4350
 quote$ -- 0
-skip$ -- 3599
+skip$ -- 3601
 stack$ -- 0
-substring$ -- 242531
-swap$ -- 672
-text.length$ -- 4060
+substring$ -- 242493
+swap$ -- 667
+text.length$ -- 4071
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 986
-warning$ -- 5
-while$ -- 6656
+warning$ -- 3
+while$ -- 6673
 width$ -- 0
-write$ -- 4177
-(There were 10 error messages)
+write$ -- 4183
+(There were 8 error messages)

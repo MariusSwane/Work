@@ -13,50 +13,50 @@
 \gdef \the@ipfilectr {@-2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces ARC ties example\relax }}{62}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Egypt 2011$^g$ \footnotesize {$^g$Node sizes are proportional to degree centrality. Ideological positions were generated with text-matching on the organization-goals variable (see Appendix). Named organizations have a centrality score over $>0.6$ or an estimated membership size of more than 100,000} \relax }}{66}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces ARC organizations over time and space\relax }}{67}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Visualizations: Main Results in the Text, Structural Variables\relax }}{86}{figure.caption.23}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Visualizations: Clustering of Organization Types in Country-Years\relax }}{87}{figure.caption.24}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Egypt 2011$^g$ \footnotesize {$^g$Node sizes are proportional to degree centrality. Ideological positions were generated with text-matching on the organization-goals variable (see Appendix). Named organizations have a centrality score over $>0.6$ or an estimated membership size of more than 100,000} \relax }}{65}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces ARC organizations over time and space\relax }}{66}{figure.caption.18}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Visualizations: Main Results in the Text, Structural Variables\relax }}{85}{figure.caption.23}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Visualizations: Clustering of Organization Types in Country-Years\relax }}{86}{figure.caption.24}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-3}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Historical states in Nigeria and Surrounds, 1816-1939\relax }}{94}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Causal diagram\relax }}{99}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Number of historical state entities per country\relax }}{103}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces HSEs and Armed Conflict, Bivariate Association\relax }}{109}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Onset rates across HSEs and conflict types\relax }}{110}{figure.caption.29}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces HSEs and Armed Conflict, Main Results\relax }}{111}{figure.caption.30}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces HSEs and Armed Conflict, Regional Sub-samples\relax }}{112}{figure.caption.31}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces HSEs and Armed Conflict, Alternative explanations\relax }}{114}{figure.caption.32}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Mediation Analysis, Main Results\relax }}{116}{figure.caption.33}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces HSEs and Conflict by mean distance from modern capital\relax }}{117}{figure.caption.34}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces HSEs and Conflict by GDP per capita\relax }}{118}{figure.caption.35}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Sensitivity test\relax }}{152}{figure.caption.47}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Historical Conflict (logged), 1400-1799\relax }}{157}{figure.caption.51}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Historical Conflict in Project Mars (logged), 1800-1900\relax }}{162}{figure.caption.54}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Historical states in Nigeria and Surrounds, 1816-1939\relax }}{92}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Causal diagram\relax }}{97}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Number of historical state entities per country\relax }}{101}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces HSEs and Armed Conflict, Bivariate Association\relax }}{107}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Onset rates across HSEs and conflict types\relax }}{108}{figure.caption.29}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces HSEs and Armed Conflict, Main Results\relax }}{109}{figure.caption.30}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces HSEs and Armed Conflict, Regional Sub-samples\relax }}{110}{figure.caption.31}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces HSEs and Armed Conflict, Alternative explanations\relax }}{112}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Mediation Analysis, Main Results\relax }}{114}{figure.caption.33}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces HSEs and Conflict by mean distance from modern capital\relax }}{115}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces HSEs and Conflict by GDP per capita\relax }}{116}{figure.caption.35}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Sensitivity test\relax }}{150}{figure.caption.47}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Historical Conflict (logged), 1400-1799\relax }}{155}{figure.caption.51}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Historical Conflict in Project Mars (logged), 1800-1900\relax }}{160}{figure.caption.54}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Causal diagram\relax }}{178}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Main model predictions\relax }}{191}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Communal violence events (log)\relax }}{191}{figure.caption.58}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces ZINB count model excluding Nigeria\relax }}{192}{figure.caption.59}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Ethnic fractionalization\relax }}{194}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Uganda\relax }}{195}{figure.caption.61}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Nigeria\relax }}{195}{figure.caption.62}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Ghana\relax }}{196}{figure.caption.63}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Kenya\relax }}{197}{figure.caption.64}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Communal violence ZINB-count models\relax }}{208}{figure.caption.66}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Non-state violence ZINB-count models\relax }}{209}{figure.caption.67}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Communal violence ZINB-count models (excluding Christian-Muslim dyad in Nigeria)\relax }}{210}{figure.caption.68}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Communal violence ZINB-count models (ACLED events)\relax }}{211}{figure.caption.69}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Causal diagram\relax }}{176}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Main model predictions\relax }}{189}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Communal violence events (log)\relax }}{189}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces ZINB count model excluding Nigeria\relax }}{190}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Ethnic fractionalization\relax }}{192}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Uganda\relax }}{193}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Nigeria\relax }}{193}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Ghana\relax }}{194}{figure.caption.63}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Ethnic fractionalization (left) and state presence (right) in Kenya\relax }}{195}{figure.caption.64}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Communal violence ZINB-count models\relax }}{206}{figure.caption.66}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Non-state violence ZINB-count models\relax }}{207}{figure.caption.67}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Communal violence ZINB-count models (excluding Christian-Muslim dyad in Nigeria)\relax }}{208}{figure.caption.68}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Communal violence ZINB-count models (ACLED events)\relax }}{209}{figure.caption.69}%
 \gdef \the@ipfilectr {}
 \gdef \the@ipfilectr {@-5}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of georeferenced map\relax }}{235}{figure.caption.79}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Pre-colonial state presence in Nigeria (1800-1914).\relax }}{239}{figure.caption.80}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces State presence (sqrt transformed) with interpolated years based on historical atlases.\relax }}{240}{figure.caption.81}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Marginal effect of pre-colonial state presence, conditioned on distance to capital.\relax }}{246}{figure.caption.82}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Marginal effect of pre-colonial state presence, conditioned on distance to capital, in cells with at least one fatality (second stage ZINB model).\relax }}{247}{figure.caption.83}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Predicted conflict events per state presence, grouped by distance to capital, in cells with at least one conflict event.\relax }}{259}{figure.caption.94}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Example of georeferenced map\relax }}{233}{figure.caption.79}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Pre-colonial state presence in Nigeria (1800-1914).\relax }}{237}{figure.caption.80}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces State presence (sqrt transformed) with interpolated years based on historical atlases.\relax }}{238}{figure.caption.81}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Marginal effect of pre-colonial state presence, conditioned on distance to capital.\relax }}{244}{figure.caption.82}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Marginal effect of pre-colonial state presence, conditioned on distance to capital, in cells with at least one fatality (second stage ZINB model).\relax }}{245}{figure.caption.83}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Predicted conflict events per state presence, grouped by distance to capital, in cells with at least one conflict event.\relax }}{257}{figure.caption.94}%
 \gdef \the@ipfilectr {}

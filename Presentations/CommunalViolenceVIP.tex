@@ -2,8 +2,10 @@
 \documentclass{beamer}
 
 \usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
 \usepackage{tabularx}
-\usepackage[light]{FiraSans}
+%\usepackage[light]{FiraSans}
 \usepackage[british]{datetime2}
 \usetheme{default}
 \setbeamertemplate{navigation symbols}{} % No navigation symbols
@@ -12,7 +14,12 @@
 \setbeamercolor{frame title}{fg=ntnu}
 \setbeamercolor{title}{fg=ntnu}
 \setbeamercolor{subtitle}{fg=ntnu}
-\setbeamercovered{transparent}
+
+\usecolortheme[named=white]{structure} % White titles and such
+\setbeamercolor{normal text}{fg=white} % White text
+\setbeamercolor{background canvas}{bg=black} % Black background
+
+%\setbeamercovered{transparent}
 
 %\setbeamertemplate{itemize item}{\color{white}$\bullet$} 
 % Include above line to remove bullet indicators
@@ -27,7 +34,7 @@
   	 >{\centering\arraybackslash}X}
 	
 	\raisebox{-0.3cm}
-	{\includegraphics[width=2cm, keepaspectratio]{img/logo_ntnu_u-slagord.pdf}} &
+	{\includegraphics[width=2cm, keepaspectratio]{img/ntnu_uten_slagord_neg.pdf}} &
 	\insertshortauthor & 
 	\insertshorttitle &
 	\insertdate &
@@ -49,32 +56,49 @@
 
 \author[Wishman]{Marius Swane Wishman} 
 \author[Theisen]{Ole Magnus Theisen}
-\author[Wishman \& Theisen]{Marius Swane Wishman \inst{1} \and Ole Magnus Theisen \inst{2}}
-\institute[]{\inst{1} Department of Sociology and Political Science, NTNU \and %
-                      \inst{2} Independent PhD researcher}
-\date{VIP presentation} 
+\author[Wishman \& Theisen]{Marius Swane Wishman \inst{$\dagger$} \and Ole
+Magnus Theisen \inst{$\ddagger$}}
+\institute[]{\inst{$\dagger$} Department of Sociology and Political Science, NTNU \and %
+                      \inst{$\ddagger$} Independent PhD researcher}
+\date{SecVic presentation} 
 
 \begin{document}
 
 \begin{frame}[plain]
 \titlepage 
 \centering
-\includegraphics[width=5cm]{img/logo_ntnu_u-slagord.pdf} 
+\includegraphics[width=5cm]{img/ntnu_uten_slagord_neg.pdf} 
 \end{frame}
 
 \section{Communal violence}
 
 \begin{frame}
 \frametitle{Communal violence}
+
+\begin{columns}
+	\column{.5\textwidth}
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{img/communal-Voilence-750x500.jpg}
+	\includegraphics[width=\linewidth]{img/communal-Voilence-750x500.jpg}
 	\label{cv}
 \end{figure}
+
+	\column{.5\textwidth}
+
+\begin{itemize}
+	\item[-] Competition over resources \citep{Detges_2017, D_ring_2020,
+		Fjelde2012, van_Weezel_2019, Petrova_2022} \pause
+	\item[-] Horizontal inequalities \citep{Fjelde2014} \pause
+	\item[-] Historical factors and institutions \citep{Ali_2018, Eck2014,
+		Wig2018}
+\end{itemize}
+
+\end{columns}
+
 \end{frame}
 
 \begin{frame}
-\frametitle{Communal violence}
+\frametitle{Communal violence in Africa}
 \begin{figure}[htpb]
 	\centering
 	\includegraphics[width=\linewidth]{../R/Output/logOrg3.pdf}
@@ -87,8 +111,6 @@
 
 \begin{frame}{Why are communities prone to conflict}
 
-\begin{columns}
-\column{0.5\textwidth}
 \begin{itemize}
 	\item[-] Information problems \pause
 		% Individual reputations
@@ -104,16 +126,31 @@
 		% posturing and preemptive strikes are the result.
 \end{itemize}	
 
-\column{.5\textwidth}
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=\linewidth]{img/xenophobia.jpeg}
-	\label{xeno}
-\end{figure}
-\end{columns}
 \end{frame}
 
-% Slide here on IGP and so on?
+\begin{frame}{Non-state solutions}
+
+	\begin{itemize}
+		\item[-] Fear of feuding \pause
+		\item[-] In-group policing \pause
+		\item[-] Politeness and hospitality norms
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Non-state solutions}
+
+	\begin{block}{}
+		Augo du bruke \\
+		fyrr inn du gjeng, \\
+		i kot og kråom,\\
+		i kot og i krokom.\\
+		For d'er uvist å vita \\
+		kvar uvener sit\\
+		fyre din fot.
+	\end{block}
+
+\end{frame}
 
 \section{Leviathan}
 
@@ -121,7 +158,7 @@
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{img/ap.png}
+	\includegraphics[width=\linewidth]{img/ap.png}
 	\caption{Muslims protesting against local Hindu insult to Islam...}%
 	\label{ap}
 \end{figure}	
@@ -132,11 +169,24 @@
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{img/AP.png}
+	\includegraphics[width=\linewidth]{img/AP.png}
 	\caption{...being stopped by police}%
 	\label{AP}
 \end{figure}	
 
+\end{frame}
+
+\section{Inheritance of precolonial states}
+
+\begin{frame}
+\frametitle{Precolonial states} 
+
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=.8\linewidth]{img/OMTcausal.png}
+	\caption{Causal diagram}%
+	\label{causal}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -150,75 +200,75 @@
 \end{figure}
 \end{frame}
 
-%\begin{frame}
-%\frametitle{Precolonial states} 
-%
-%\begin{figure}[htpb]
-%	\centering
-%	\includegraphics[width=0.9\linewidth]{img/Causal diagram.pdf}
-%	\caption{Causal diagram}%
-%	\label{causal}
-%\end{figure}
-%\end{frame}
+\begin{frame}{Precolonial states}
+\begin{figure}[htpb]
+	\centering
+	\includegraphics[width=\linewidth]{img/geo_isd_all.png}
+	\caption{Precolonial state presence per pre-colonial state}%
+\end{figure}
+\end{frame}
 
-\section{Inheritance of precolonial states}
+\begin{frame}{Precolonial states}
 
-\begin{frame}{Lasting footprints}
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=\linewidth]{img/libya.pdf}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Colonial states}
 
 \begin{itemize}
-	\item[-] Left over effects \pause
-	\item[-] Ease of integration \pause
-	\item[-] Institutions
+	\item[-] The practical nature of colonial regimes \pause 
+		% Outside administrative capitals colonial administration relied
+		% on EMPOWERING existing local rulers.
+	\item[-] Institutions persist \pause
+	\item[-] Inter-ethnic traditions of trade and interaction
 \end{itemize}	
 
 \end{frame}
 
-\section{Preliminary results}
+\section{Results}
 
 \begin{frame}{Main results}
 
 	\begin{figure}[htpb]
 		\centering
-		\includegraphics[width=0.8\linewidth]{../R/Output/CommunalViolenceMargins.pdf}
-		\label{Margins}
+		\includegraphics[width=\linewidth]{img/org3plots.pdf}
 	\end{figure}
 
-	% Positive for other forms of violence, even non-state as a whole
-
 \end{frame}
 
-\section{What's next}
+\begin{frame}{East African phenomenon? Or just Nigeria?}
+
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=\linewidth]{img/acledplots.pdf}
+	\end{figure}	
+
+\end{frame}
+\section{Settlement patterns}
+
+\begin{frame}{Settlement patterns}
+
+	\begin{figure}[htpb]
+		\centering
+		\includegraphics[width=\linewidth]{img/ethplot.pdf}
+	\end{figure}
+
+\end{frame}
 
 \begin{frame}{SIDE}
 
 \begin{figure}[htpb]
 	\centering
-	\includegraphics[width=0.8\linewidth]{img/UGA illustration1.pdf}
-	\caption{Ethnic groups in Uganda}%
-	\label{SIDE1}
+	\includegraphics[width=\linewidth]{img/ugaplots.png}
 \end{figure}	
 
 \end{frame}
 
-\begin{frame}{SIDE}
-
-\begin{figure}[htpb]
-	\centering
-	\includegraphics[width=0.8\linewidth]{img/UGA illustration2.pdf}
-	\caption{Ethnic groups and precolonial states in Uganda}%
-	\label{SIDE2}
-\end{figure}	
-
-\end{frame}
-
-\begin{frame}{Afrobarometer}
-
-	\begin{itemize}
-		\item[-] Trust (general, intraethinc and interethnic) \pause
-		\item[-] Identity (national or ethnic) \pause
-		\item[-] Support for use of violence in politics
-	\end{itemize}
-
-\end{frame}
+\bibliographystyle{apalike}
+\bibliography{../lib.bib}
 
 \end{document}	

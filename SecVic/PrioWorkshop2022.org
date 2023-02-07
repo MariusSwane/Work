@@ -1,0 +1,34 @@
+
+* Workshop at PRIO 2022
+
+** Youth bulges as an instrument - Kristian & Mauricio
+
+Mobilization still matters.
+
+** “Power personalization and specialists in violence in dictatorships"
+
+Why do only *some* dictators create parallel institutions of violence?
+
+** What happens to women after civil resistance campaigns?
+
+Under what conditions do legislatures become a source of instability?
+    - When legislative exclusion *reinforces* exsisting ethnoreligious cleavages
+      1. Relative deprevation (if there is no legislature, then "everyone" is
+         excluded)
+      2. Increased repression (the regime can be selective, and increase the
+         repression of excluded groups)
+      3. Fewer alternatives for peaceful dissent
+
+** Chris grant proposal
+
+Page 4 was lovely! Graphviz? dot? tikz packages
+
+** Feedback on my paper
+
+Try different resolutions! If the mechanism works on lower resolution, then that
+is better.
+
+Chris suggested voronoi-shapes, but they run into post-treatment bias issues
+
+Interact with triggers identified in the litterature, for example environmental
+shocks. This allows us to use panel analysis!

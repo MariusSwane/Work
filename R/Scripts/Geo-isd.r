@@ -119,12 +119,14 @@ prio_grid_shp <- st_read('../Data/PRIO-Grid/priogrid_cell.shp')
 #	group_by(gid) %>% 
 #	summarise(nightlights = mean(na.omit(nlights_calib_mean)))
 
-prio_grid <- read_csv('../Data/PRIO-Grid/priogridyv50-10.csv') %>% 
+prio_grid <- read_csv('../Data/PRIO-Grid/PRIO-GRID Yearly Variables for 1946-2014 - 2023-02-26.csv') %>% 
   as_tibble() %>% filter( (gwno >= 404 & gwno <= 626) | gwno == 651) %>% 
   group_by(gid) %>% 
   summarise(bdist3 = mean(bdist3),
   capdist = mean(capdist), excluded = mean(excluded), 
-  	  temp_sd = sd(temp), gwno = last(gwno), temp = mean(temp), 
+  	  #temp_sd = sd(temp), 
+  gwno = last(gwno), 
+ # temp = mean(temp), 
 	  prec_sd = sd(prec_gpcc, na.rm = TRUE), prec_gpcc = mean(prec_gpcc))
 
 gpcp <- read_csv('../Data/PRIO-Grid/gpcp.csv') %>% 
@@ -409,9 +411,9 @@ rm(coastline)
 #==============================================================================#
 
 ggplot() +
-	geom_sf(data = prio_grid_isd,
+	geom_sf(data = prio_grid,
             linetype = 0,
-            aes(fill = popd),
+            aes(fill = gwno),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()
@@ -475,8 +477,39 @@ ged <- left_join(GEDEvent_v21_1, gedns, by = c("conflict_new_id" =
 
 ged <- left_join(ged, gedsb, by = c("conflict_new_id" = "conflict_id"))
 
-nigrel = filter(ged, conflict_new_id == 4895) %>% group_by(priogrid_gid) %>%
-	summarise(nigrel = sum(org == 3))
+ged <- ged %>% 	mutate(relig = ifelse((dyad_name == 
+			"Afisare, Anaguta, Birom - Fulani, Hausa" |
+			dyad_name == "Hausa - Tarok" |
+			dyad_name == "Fulani - Mambila" |
+			dyad_name == "Gamai - Pan" |
+			dyad_name == "Azara - Tiv" |
+			dyad_name == "Fulani - Karimjo" |
+			dyad_name == "Kwala - Tiv" |
+			dyad_name == "Bwatiye - Fulani" | 
+			dyad_name == "Atakar - Fulani" |
+			dyad_name == "Atyap - Fulani" |
+			dyad_name == "Atyap - Hausa" |
+			dyad_name == "Bini - Urhobo" |
+			dyad_name == "Birom - Fulani" | 
+			dyad_name == "Birom - Hulani, Hausa" |
+			dyad_name == "Christians (Nigeria) - Muslims (Nigeria)" |
+			dyad_name == "Fulani - Jukun" |
+			dyad_name == "Fulani - Kadara" |
+			dyad_name == "Fulani - Tarok" |
+			dyad_name == "Fulani - Tiv" |
+			dyad_name == "Fulani - Wurukum" |
+			dyad_name == "Fulani - Yoruba" |
+			dyad_name == "Fulani - Izzi (Igbo)" |
+			dyad_name == "Hausa - Igbo" |
+			dyad_name == "Hausa - Igbo, Yoruba" |
+			dyad_name == "Hausa - Jukun" |
+			dyad_name == "Hausa - Kadara" |
+			dyad_name == "Hausa - Ninzam" |
+			dyad_name == "Hausa - Yoruba"), 1, 0))
+
+nonreligdev <- filter(ged, org == 3 & relig == 0) %>% group_by(priogrid_gid) %>% 
+	summarise(noReligDevDeaths = sum(best),
+	noReligDevEvents = sum(org))
 
 # Summarising
 gede  <- ged %>% group_by(priogrid_gid) %>% 
@@ -493,7 +526,6 @@ gede  <- ged %>% group_by(priogrid_gid) %>%
 	both = sum(sb == 3 | sb == 4),
 	deaths = sum(best))
 
-# TODO: add org3 deaths as well
 extrastate <-  ged %>% group_by(priogrid_gid) %>% filter(sb == 1) %>% 
 	summarise(esdeaths = sum(best))
 
@@ -506,6 +538,9 @@ gedid <-  ged %>% group_by(priogrid_gid) %>% filter(sb == 3 | sb ==4) %>%
 gedd <-  ged %>% group_by(priogrid_gid) %>% filter(type_of_violence == 1) %>% 
 	summarise(statebaseddeaths = sum(best))
 
+gedo <- ged %>% group_by(priogrid_gid) %>% filter(org == 3) %>% 
+	summarise(org3deaths = sum(best))
+
 ged <- left_join(gede, gedd)
 
 ged <- left_join(ged, gedid)
@@ -514,10 +549,16 @@ ged <- left_join(ged, interstate)
 
 ged <- left_join(ged, extrastate)
 
-ged <- left_join(ged, nigrel)
+ged <- left_join(ged, gedo)
+
+ged <- left_join(ged, nonreligdev)
 
 # Merging
 prio_grid_isd  <- left_join(prio_grid_isd, ged, by = c("gid" = "priogrid_gid"))
+
+#prio_grid_isd  <- left_join(prio_grid_isd, gedo, by = c("gid" = "priogrid_gid"))
+
+#prio_grid_isd  <- left_join(prio_grid_isd, nonreligdev, by = c("gid" = "priogrid_gid"))
 
 # NA's should be 0 for conflict events
 prio_grid_isd  <- prio_grid_isd %>% 
@@ -531,6 +572,11 @@ prio_grid_isd  <- prio_grid_isd %>%
 	mutate(esdeaths = ifelse(is.na(esdeaths), 0, esdeaths)) %>% 
 	mutate(interdeaths = ifelse(is.na(interdeaths), 0, interdeaths)) %>% 
 	mutate(both = ifelse(is.na(both), 0, both)) %>% 
+	mutate(org3deaths = ifelse(is.na(org3deaths), 0, org3deaths)) %>% 
+	mutate(noReligDevDeaths = ifelse(is.na(noReligDevDeaths), 0, 
+					 noReligDevDeaths)) %>% 
+	mutate(noReligDevEvents = ifelse(is.na(noReligDevEvents), 0, 
+					 noReligDevEvents)) %>% 
 	mutate(interstate = ifelse(is.na(interstate), 0, interstate)) %>% 
 	mutate(extrastate = ifelse(is.na(extrastate), 0, extrastate)) %>% 
 	mutate(internationalized = ifelse(is.na(internationalized), 0, 
@@ -547,7 +593,7 @@ rm(ged, gedd, gede, nigrel)
 
 #==============================================================================#
 #	Adding region dummies						       #
-#==============================================================================#	
+#==============================================================================#
 
 # Removing Seychelles for lack of region (and relevance in general)
 prio_grid_isd <- prio_grid_isd %>% filter(prio_grid_isd$gwno != 591)
@@ -654,6 +700,8 @@ names(shpPrep)
 # Rdata
 save(prio_grid_isd, file = "../Data/GeoISDControls.Rdata")
 
+save(prio_grid_isd, file = "../Data/UntestedGeoISDControls.Rdata")
+
 load("../Data/GeoISDControls.Rdata")
 
 # Shape file
@@ -674,4 +722,64 @@ nig <- filter(Nonstate_v21_1, location == "Nigeria")
 nigEpr <- filter(epr, to > 1988, statename == "Nigeria")
 
 ed <- read_csv("../Data/ED-2021.csv")
+
+# Examining Nigeria closer
+
+nigrel = filter(ged, conflict_new_id == 4895) %>% group_by(priogrid_gid) %>%
+	summarise(nigrel = sum(org == 3))
+
+nigeria <- filter(ged, country_id == 475 & org == 3)
+
+# I could apply the below to ged instead of nigeria, skipping the code above,
+# summarize it and merge it back into the geoISD.Rdata
+
+ged <- ged %>% 	mutate(relig = ifelse((dyad_name == 
+			"Afisare, Anaguta, Birom - Fulani, Hausa" |
+			dyad_name == "Hausa - Tarok" |
+			dyad_name == "Fulani - Mambila" |
+			dyad_name == "Gamai - Pan" |
+			dyad_name == "Azara - Tiv" |
+			dyad_name == "Fulani - Karimjo" |
+			dyad_name == "Kwala - Tiv" |
+			dyad_name == "Bwatiye - Fulani" | 
+			dyad_name == "Atakar - Fulani" |
+			dyad_name == "Atyap - Fulani" |
+			dyad_name == "Atyap - Hausa" |
+			dyad_name == "Bini - Urhobo" |
+			dyad_name == "Birom - Fulani" | 
+			dyad_name == "Birom - Hulani, Hausa" |
+			dyad_name == "Christians (Nigeria) - Muslims (Nigeria)" |
+			dyad_name == "Fulani - Jukun" |
+			dyad_name == "Fulani - Kadara" |
+			dyad_name == "Fulani - Tarok" |
+			dyad_name == "Fulani - Tiv" |
+			dyad_name == "Fulani - Wurukum" |
+			dyad_name == "Fulani - Yoruba" |
+			dyad_name == "Fulani - Izzi (Igbo)" |
+			dyad_name == "Hausa - Igbo" |
+			dyad_name == "Hausa - Igbo, Yoruba" |
+			dyad_name == "Hausa - Jukun" |
+			dyad_name == "Hausa - Kadara" |
+			dyad_name == "Hausa - Ninzam" |
+			dyad_name == "Hausa - Yoruba"), 1, 0))
+
+# Summarising
+nonreligdev <- filter(nigeria, relig == 0) %>% group_by(priogrid_gid) %>% 
+	summarise(communal_deaths = sum(best),
+		  events = sum(org))
+
+# Merge
+nonreligdev <- left_join(prio_grid, nonreligdev, by = c("gid" = "priogrid_gid"))
+
+nonreligdev <- filter(nonreligdev, gwno == 475)
+
+# Plotting non-religious devide communal violence in Nigeria
+ggplot() +
+	geom_sf(data = filter(prio_grid_isd, gwno == 475),
+            linetype = 0,
+            aes(fill = org3deaths),
+            show.legend = FALSE) + 
+    scale_fill_viridis_c() +
+    theme_minimal()
+
 

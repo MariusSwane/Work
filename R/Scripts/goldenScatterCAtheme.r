@@ -18,9 +18,9 @@ goldenScatterCAtheme <- theme(
   ## All axes changes
   axis.ticks.length = unit(0.5, "char"),  # longer ticks
   ## Horizontal axis changes
-  axis.line.x.top = element_line(size = 0.2),    # thinner axis lines
-  axis.line.x.bottom = element_line(size = 0.2), # thinner axis lines
-  axis.ticks.x = element_line(size = 0.2),       # thinner ticks
+  axis.line.x.top = element_line(linewidth = 0.2),    # thinner axis lines
+  axis.line.x.bottom = element_line(linewidth = 0.2), # thinner axis lines
+  axis.ticks.x = element_line(linewidth = 0.2),       # thinner ticks
   axis.text.x = element_text(color = "black", size = 12),
   ## match type of axis labels and titles
   axis.title.x = element_text(size = 12,
@@ -39,7 +39,7 @@ goldenScatterCAtheme <- theme(
   ## Remove unhelpful gray background
   ## Gridlines (in this case, horizontal from left axis only
   panel.grid.major.x = element_blank(),
-  panel.grid.major.y = element_line(color = "gray45", size = 0.2),
+  panel.grid.major.y = element_line(color = "gray45", linewidth = 0.2),
   ## Faceting (small multiples)
   strip.background = element_blank(),
   ## Remove unhelpful trellis-like shading of titles

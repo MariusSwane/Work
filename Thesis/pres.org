@@ -1,4 +1,27 @@
 #+title: Presentation
 #+author: Marius Swane Wishman
 
-* Heading
+* Part 1 - "Goal"
+** Starting with "Artificial states" and the experience of coding ARC
+** Overal legacies
+** Puzzel of seemingly opposing theoretical expectations
+*** "We" "remembered" our independence after the 200 year night
+*** In the setting of weak and artificial states
+
+*** Institutions make for more credible commitments
+*** States monopolieses violence
+**** Legacies of internal peace (between groups)
+***** Arbiter (commitments), resolving the security dilemma and mediator (information problems)
+**** Built up capacity to supress violent challenges (from the perpective of the state)
+** "What determines when and where historical statehood is conflict inducing or peace inducing?"
+** "How is organized violence shaped by the underlying topography of historical statehood?"
+
+* Part 2 - "Findings/Results"
+** Theory (VIZ)
+*** Ethiopia (Aussa and current status and environment of lots of potential challengers)
+** Data (VIZ)
+*** ARC
+*** Geo-ISD
+** Empirical results (VIZ)
+*** Mogadishu vs Ouagoudogou
+*** Uganda (VIZ)

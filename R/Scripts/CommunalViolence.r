@@ -47,6 +47,7 @@ library(viridis)
 #==============================================================================#
 
 load("../Data/GeoISDControls.Rdata")
+load("../Data/UntestedGeoISDControls.Rdata")
 source("goldenScatterCAtheme.r")
 geoisd <- st_read('../../QGIS/Geo-ISD.shp')
 
@@ -102,7 +103,11 @@ prio_grid_isd <- prio_grid_isd %>% mutate(
 				region2 = as.numeric(factor(region)==2),
 				region3 = as.numeric(factor(region)==3),
 				region4 = as.numeric(factor(region)==4),
-				region5 = as.numeric(factor(region)==5))
+				region5 = as.numeric(factor(region)==5),
+				sqrtNoReligDevDeaths = sqrt(noReligDevDeaths),
+				sqrtNoReligDevEvents = sqrt(noReligDevEvents),
+				sqrtOrg3deaths = sqrt(org3deaths)
+)
 
 #==============================================================================#
 #	Functions				    	             	       #
@@ -218,9 +223,14 @@ coefs_cv <- list('logSpAll' = 'Precolonial state presence (log)',
 
 control_names_cv <-c('Baseline', 'North Africa', 'Population density')
 
-cv_dvs <- c('non_state', 'org3')
+cv_dvs <- c('non_state', 'org3', 'org3deaths', 'noReligDevEvents',
+	    'noReligDevDeaths')
 
-cv_captions <- c('Non-state conflict events', 'Communal violence events')
+cv_captions <- c('Non-state conflict events', 'Communal violence events',
+		 'Communal violence fatalities', 'Communal violence events
+		 (excluding events across the religious faultline in Nigeria)', 
+		 'Communal violence fatalities (excluding events across the 
+		 religious faultline in Nigeria)')
 
 ivs <- c('sqrtSpAll')
 
@@ -323,7 +333,7 @@ summary(zinb_spatial_non_state)
 
 # Part 1: models
 
-zdvs <- c("org3", "non_state", "acledev", "org3nigreldif")
+zdvs <- c("org3", "non_state", "acledev", "noReligDevEvents", "noReligDevDeaths")
 
 ziv <- "sqrtSpAll"
 
@@ -342,13 +352,19 @@ zccaptions <- c('Communal violence events (count-model)',
 		'Non-state conflict events (count-model)',
 		'ACLED events (count-model)', 
 		'Communal violence events excluding 
-		religious violence in Nigeria (count-model)')
+		religious violence in Nigeria (count-model)',
+		'Communal violence fatalities excluding 
+		religious violence in Nigeria (count-model)'
+)
 
 zzcaptions <- c('Communal violence events (zero-model)', 
 		'Non-state conflict events (zero-model)',
 		'ACLED events (zero-model)', 
-		'Communal violence events excluding 
-		religious violence in Nigeria (zero-model)')
+		'Communal violence events excluding
+		religious violence in Nigeria (zero-model)',
+		'Communal violence fatalities excluding 
+		religious violence in Nigeria (zero-model)'
+)
 
 zinbanalysis <- function(zdvs, zivs, zcontrols, data, test_label){
   models_out <- NULL
@@ -477,6 +493,11 @@ ggsave("../Output/acledplots.pdf", acledplots, width = 15, height = 15/1.68)
 noreligioninnigplots <- do.call("grid.arrange", c(plots[[4]], ncol = 3))
 
 ggsave("../Output/noreligioninnigplots.pdf", noreligioninnigplots, width = 15,
+       height = 15/1.68)
+
+noreligioninnigDeathplots <- do.call("grid.arrange", c(plots[[5]], ncol = 3))
+
+ggsave("../Output/noreligioninnigDeathplots.pdf", noreligioninnigDeathplots, width = 15,
        height = 15/1.68)
 
 mainplots <-  grid.arrange(org3plot, plots[[1]][[1]], ncol = 2)
@@ -1194,15 +1215,28 @@ plot_gg(gridtest, multicore = T)
 
 
 ###################################
-Org3 <- ggplot() +
-	geom_sf(data = filter(prio_grid_isd, gwno != 452),
-            linetype = 0,
-            aes(fill = logOrg3),
-            show.legend = FALSE) + 
-    scale_fill_viridis_c() +
-    theme_minimal()
 
-Org3
+test <- glm.nb(sqrtNoReligDevEvents ~ sqrtSpAll + mountains_mean + water_gc + barren_gc + 
+		  nopastor + logCDist + logPopd + region3, data =
+			  filter(prio_grid_isd, popd > 0)) 
+summary(test)
+
+ggtest <- ggpredict(test, terms = "sqrtSpAll [0:15 by = .5]", condition =
+		    c(nopastor = 1, region3 = 0))
+
+testplot <- ggplot(ggtest, aes(x^2, predicted)) +
+  geom_ribbon(aes(ymin = conf.low, ymax = conf.high),
+	      fill = pastels[1]) +
+  geom_line(color = cols[1]) +
+  labs(title = '', 
+       x = 'Precolonial state presence', y = 'Communial violence events') +
+  goldenScatterCAtheme
+
+# Printing to file
+pdf("../Output/testplot.pdf",
+    width = 10, height = 10/1.68)
+testplot
+dev.off()
 
 # Burkina Faso
 

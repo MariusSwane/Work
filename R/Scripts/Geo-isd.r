@@ -777,7 +777,7 @@ nonreligdev <- filter(nonreligdev, gwno == 475)
 ggplot() +
 	geom_sf(data = filter(prio_grid_isd, gwno == 475),
             linetype = 0,
-            aes(fill = org3deaths),
+            aes(fill = noReligDevEvents),
             show.legend = FALSE) + 
     scale_fill_viridis_c() +
     theme_minimal()

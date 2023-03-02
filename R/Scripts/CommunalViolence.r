@@ -506,6 +506,11 @@ ggsave("../Output/mainplots.pdf", mainplots, width = 15, height = 15/1.68)
 
 ggsave("../Output/znigeria.pdf", plots[[1]][[2]], width = 15, height = 15/1.68)
 
+nigeriaUpdate <- grid.arrange(plots[[4]][[1]], plots[[4]][[4]], 
+			plots[[5]][[1]], plots[[5]][[4]])
+
+ggsave("../Output/nigeriaUpdate.pdf", nigeriaUpdate, width = 15, height =15/1.68)
+
 # logOrg3 Plot
 logOrg3 <- ggplot() +
 	geom_sf(data = prio_grid_isd,

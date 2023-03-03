@@ -3,10 +3,10 @@
 
 * Part 1 - "Goal"
 ** Starting with "Artificial states" and the experience of coding ARC
-** Overal legacies
-** Puzzel of seemingly opposing theoretical expectations
 *** "We" "remembered" our independence after the 200 year night
+** Puzzel of seemingly opposing theoretical expectations
 *** In the setting of weak and artificial states
+*** Institutions and networks
 
 *** Institutions make for more credible commitments
 *** States monopolieses violence

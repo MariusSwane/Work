@@ -23,5 +23,5 @@
 *** ARC
 *** Geo-ISD
 ** Empirical results (VIZ)
-*** Mogadishu vs Ouagoudogou
 *** Uganda (VIZ)
+*** Mogadishu vs Ouagoudogou

@@ -1,125 +1,133 @@
-\documentclass{beamer}
+
+\documentclass[professionalfont]{beamer}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[british]{datetime2}
 \usetheme{default}
+\usecolortheme{seagull}
+\usepackage{newtxtext}
 \setbeamertemplate{navigation symbols}{} % No navigation symbols
-\usecolortheme[named=white]{structure} % White titles and such
-\setbeamercolor{normal text}{fg=white} % White text
-\setbeamercolor{background canvas}{bg=black} % Black background
-% Comment this line for default bullet points (triangles)
+\definecolor{ntnu}{cmyk}{100,75,0,5}
+%\setbeamercolor{alerted text}{fg=ntnu}
+%\setbeamercolor{frame title}{fg=black}
+%\setbeamercolor{title}{fg=black}
+%\setbeamercolor{subtitle}{fg=black}
+%\setbeamercolor{section in head/foot}{fg=black} % Not working
+%\setbeamercovered{transparent}
+
 \setbeamertemplate{itemize item}{\color{white}$\bullet$} 
+% Include above line to remove bullet indicators
+
+\setbeamertemplate{footline}{
+\begin{tabularx}{\textwidth} {
+	 >{\raggedright\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X}
+	
+	\insertshortauthor & 
+	\insertshorttitle &
+	\insertdate &
+	\insertsection &
+	$\big|$ \insertframenumber /\inserttotalframenumber
+\end{tabularx}
+}
+
+\makeatletter
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Trial Lecture]{The Effects of Slavery and Colonialism on Contemporary
+African Politics}
+
+\subtitle{Trial Lecture}
+
+\author[Wishman]{Marius Swane Wishman} 
+\date{\today} 
+\institute{NTNU}
 
 \begin{document}
 
-% {{{ Thoughts
-
-% The Effects of Slavery and Colonialism on Contemporary African Politics
-
-% What I will cover
-
-% Nathan Nunn on the effects of the Atlantic African slave trade
-	% Not just Atlantic Africa, try to find some numbers on the East African
-	% slave trade.
-
-% Colonialism on the number of states, initial dead drop, only partial
-% restoration in 60s -> our paper, Englebert and Paine, 
-% BUT, lots of *polities* survived.
-% Surprisingly light (institutional/administrative/manpower) imprint of
-% colonialism. Strengthening the influence/prerogative/internal "power" of local
-% rulers. (Why many were willing subjects). THIS has a big impact locally.
-% Nationally, western *ideas* and the opening of the world is key, and in
-% opposition to the development at the local level. Often excluding traditional
-% leaders from power. Most/many regimes upon independence were led by the
-% resistance to the colonial regime, of which traditional leaders were a key
-% part. Resurgence of traditional leaders (reference Florians work)
-
-% Institutions from their respective colonizers, some research on the outcomes
-% of French and English systems in particular.
-
-% Slavery all bad? Centralization of states
-% Slaves where bought in Africa
-
-% You might think colonialism changed everything!
-
-% Result is a mix of traditional and western (colonialism is not a tabula rasa)
-
-% Ideas of democracy or at least modernization along western lines. Efforts to
-% industrialize based on importing equipment, subsidizing urban areas (food and
-% fuel) by exporting raw materials and agricultural products (infrastructure in
-% place from colonialism). Effective way of taxing population at low political
-% cost and with minimal administration involved. Also massive loans. Everything
-% collapsed in the 80s and 90s when food prices collapsed.
-% Industrialisation/development projects were in large part ill conceived and
-% their proximity to the political process and systems of subsidies, made for a
-% system rife with corruption. "Neo-colonialism" and IMF/World Bank austerity is
-% not to blame. If anything IMF/World Bank should probably have had/demanded
-% even more control. All of this has of course led to the familiar political
-% legacy of (1) African states on the brink of bankruptcy, spending considerable
-% part of their budget to service dept, (2) governments being a surprisingly
-% large (corrupt, and inefficient) part of the (official) economy, (3) expensive
-% subsidy systems that create black markets and smuggling across boundaries.
-
-% Impact on missionaries and stuff and DEMOCRACY
-
-% Recap outcomes! 
-% 	- 
-
-% }}}
-
-\begin{frame}
+\begin{frame}[plain]
+\titlepage 
 \end{frame}
 
-\setbeamercolor{background canvas}{bg=white}
+\section{Introduction} 
 
-\begin{frame}
-	\begin{figure}
-		\includegraphics[width=\linewidth]{../R/Output/logOrg3.pdf}
-	\end{figure}
+\begin{frame}{This lecture will cover}
+\begin{itemize}
+	\item The slave trade 
+\begin{itemize}
+	\item[-] Scope and effects 
+\end{itemize}
+	\item Colonialism 
+		\begin{itemize}
+			\item[-] Effects on the number of states 
+			\item[-] Local and national level effects 
+			
+		\end{itemize}
+	\item Outcomes (dependent variables)
+		\begin{itemize}
+			\item[-] Conflict
+			\item[-] Economic development
+			\item[-] Democracy
+		\end{itemize}
+\end{itemize}	
 \end{frame}
 
-\setbeamercolor{background canvas}{bg=black}
+\section{The Slave Trade}
+
+\begin{frame}{The African slave trade(s)}
+
+\begin{figure}
+	\includegraphics[width=.7\linewidth]{img/africa.png}
+\end{figure}
+
+\end{frame}
+
+\section{Colonialism}
 
 \begin{frame}
+	\centering 
+	\begin{Large}
+		Colonialism
+	\end{Large}
 \end{frame}
 
 \begin{frame}
 	\begin{figure}
-		\includegraphics[width=\textwidth]{../R/Output/statesPerYear.pdf}
-		\caption{The number of independent states per year.}
-		\label{statesperyear}
-	\end{figure}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=black}
-
-\begin{frame}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=white}
-
-\begin{frame}
-	\begin{figure}
-		\includegraphics[width=\textwidth]{img/geo_isd_all.pdf}
-		\caption{Pre-colonial state presence (normalized per pre-colonial state)}
-	\end{figure}
-
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=black}
-
-\begin{frame}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=white}
-
-\begin{frame}
-	\begin{figure}
-		\includegraphics[width=1\linewidth]{R/Output/mainplots.pdf}
+		\includegraphics[width=\linewidth]{img/N_States_Only_Over_Time.png}
 	\end{figure}
 \end{frame}
 
 \begin{frame}
 	\begin{figure}
-		\includegraphics[width=1\linewidth]{img/ugaplots.png}
+		\includegraphics[width=\textwidth]{img/N_States_Over_Time.png}
 	\end{figure}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+	\begin{table}
+	\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
+		\textbf{The slave trade} & & \\
+					 & $\rightarrow$ Ethnic fractionalization & $\rightarrow$ Conflict (?) \& Retarded economic
+		development \\	
+					 & $\rightarrow$ Retarded political development (with
+		some exceptions) & $\rightarrow$ Retarded economic development \\
+		\textbf{Colonialism} & & \\
+				     & $\rightarrow$ Conflict & \\
+			& Retarded economic development & \\
+			& $\rightarrow$ Democracy (demand for/seeds of) \\
+	\end{tabularx}
+	\end{table}
 \end{frame}
 
 \end{document}

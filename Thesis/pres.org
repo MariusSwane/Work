@@ -14,14 +14,12 @@
 ***** Arbiter (commitments), resolving the security dilemma and mediator (information problems)
 **** Built up capacity to supress violent challenges (from the perpective of the state)
 ** "What determines when and where historical statehood is conflict inducing or peace inducing?"
-** "How is organized violence shaped by the underlying topography of historical statehood?"
 
 * Part 2 - "Findings/Results"
-** Theory (VIZ)
-*** Ethiopia (Aussa and current status and environment of lots of potential challengers)
-** Data (VIZ)
-*** ARC
-*** Geo-ISD
-** Empirical results (VIZ)
-*** Uganda (VIZ)
-*** Mogadishu vs Ouagoudogou
+** It depends...
+*** On the number of entities and their distance from national capital
+**** Ethiopia (Aussa and current status and environment of lots of potential challengers)
+**** Data: Old maps, and later scholars/historians Ajayi
+**** Mogadishu vs Ouagoudogou (Eizenga 2021) (VIZ)
+*** On the type of violence
+**** Uganda (VIZ)

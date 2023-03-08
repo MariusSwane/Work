@@ -1,57 +1,80 @@
 \documentclass{beamer}
 
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage[british]{datetime2}
+\usetheme{default}
+\usecolortheme{seagull}
+\usepackage{newtxtext}
+\setbeamertemplate{navigation symbols}{} % No navigation symbols
 \usetheme{default}
 \setbeamertemplate{navigation symbols}{} % No navigation symbols
-\usecolortheme[named=white]{structure} % White titles and such
-%\setbeamercolor{normal text}{fg=white} % White text
-\setbeamercolor{background canvas}{bg=black} % Black background
 % Comment this line for default bullet points (triangles)
 \setbeamertemplate{itemize item}{\color{white}$\bullet$} 
 
+\setbeamertemplate{footline}{
+\begin{tabularx}{\textwidth} {
+	 >{\raggedright\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X}
+	
+	\insertshortauthor & 
+	\insertshorttitle &
+	\insertdate &
+	\insertsection &
+	\insertframenumber /\inserttotalframenumber
+\end{tabularx}
+}
+
+\makeatletter
+\makeatother
+
+\title[Janus-Faced]{Historical Statehood and Organized Violence}
+
+\subtitle{Public defense presentation}
+
+\author[Wishman]{Marius Swane Wishman} 
+\date{\today} 
+\institute{NTNU}
+
 \begin{document}
 
-\begin{frame}
+\begin{frame}[plain]
+\titlepage 
 \end{frame}
 
-\setbeamercolor{background canvas}{bg=white}
-
-\begin{frame} % Potential pathways from historical states to conflict
-	\begin{figure}
-		\includegraphics[width=\linewidth]{img/graf.pdf}
-	\end{figure}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=black}
+\section{The Goal}
 
 \begin{frame}
+	\centering
+	\Large The Puzzle
 \end{frame}
 
-\setbeamercolor{background canvas}{bg=white}
+\begin{frame} 
+	\centering
+	\Large ``What determines when and where historical
+	statehood is conflict inducing or peace inducing?"
 
-\begin{frame} % OMT Causal
-	\begin{figure}
-		\includegraphics[width=\linewidth]{img/OMTcausal.pdf}
-	\end{figure}
 \end{frame}
 
-\setbeamercolor{background canvas}{bg=black}
+\section{Findings and Results}
+
+\begin{frame} 
+	\centering
+	\Large It depends...
+\end{frame}
+
+\begin{frame}{It depends...}
+	\centering
+	\Large On the number of states, and their distance from the capital
+\end{frame}
 
 \begin{frame}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=white}
-
-\begin{frame} % ARC
 	\begin{figure}
-		\includegraphics[width=.9\textwidth]{img/figure_2_revised.jpg}
-		\caption{ARC organizations over time and space}
-	\end{figure}
-\end{frame}
-
-\begin{frame} % Geo-ISD
-	\begin{figure}
-		\includegraphics[width=\textwidth]{img/geo_isd_all.pdf}
-		\caption{Pre-colonial state presence (normalized per pre-colonial state)}
+		\includegraphics[width=.7\linewidth]{img/aussa.png}
 	\end{figure}
 \end{frame}
 
@@ -61,45 +84,21 @@
 	\end{figure}
 \end{frame}
 
-\setbeamercolor{background canvas}{bg=black}
-
 \begin{frame}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=white}
-
-\begin{frame} % Beyond Ethnicity
 	\begin{figure}
-		\includegraphics[width=\linewidth]{img/hse_onset_rates.pdf}
+		\includegraphics[width=\linewidth]{"../R/Output/interdeathszinbplot.pdf"}
 	\end{figure}
 \end{frame}
 
-\setbeamercolor{background canvas}{bg=black}
 
-\begin{frame}
+\begin{frame}{It depends...}
+	\centering
+	\Large On the type of violence
 \end{frame}
-
-\setbeamercolor{background canvas}{bg=white}
 
 \begin{frame} % Uganda
 	\begin{figure}
-		\includegraphics[width=1\linewidth]{img/ugaplots.png}
-	\end{figure}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=black}
-
-\begin{frame}
-\end{frame}
-
-\setbeamercolor{background canvas}{bg=white}
-
-\begin{frame} % After Forever
-	\begin{figure}
-		\includegraphics[width=\linewidth]{"../R/Output/interdeathszinbplot.pdf"}
-		\caption{Marginal effect of pre-colonial state presence, conditioned on
-		distance to capital, in cells with at least one fatality (second stage
-		ZINB model).}
+		\includegraphics[width=\linewidth]{img/ugaplots.png}
 	\end{figure}
 \end{frame}
 

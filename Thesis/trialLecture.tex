@@ -1,7 +1,9 @@
 
 \documentclass{beamer}
 
+\usepackage{booktabs}
 \usepackage{graphicx}
+\usepackage{multirow}
 \usepackage{tabularx}
 \usepackage[british]{datetime2}
 \usetheme{default}
@@ -75,6 +77,24 @@ African Politics}
 \end{itemize}	
 \end{frame}
 
+\begin{frame}{Conflict}
+\begin{figure}
+	\includegraphics[width=\linewidth]{img/gedplot.pdf}
+\end{figure}	
+\end{frame}
+
+\begin{frame}{Economic development}
+	\begin{figure}
+		\includegraphics[width=\linewidth]{img/gdpplot.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Democracy}
+	\begin{figure}
+		\includegraphics[width=\linewidth]{img/vdemplot.pdf}
+	\end{figure}
+\end{frame}
+
 \section{The Slave Trade}
 
 \begin{frame}{The African slave trade(s)}
@@ -87,11 +107,10 @@ African Politics}
 
 \section{Colonialism}
 
-\begin{frame}
-	\centering 
-	\begin{Large}
-		Colonialism
-	\end{Large}
+\begin{frame}{Colonialism}
+	\begin{figure}
+		\includegraphics[width=.7\linewidth]{img/colonialAfrica.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -110,17 +129,24 @@ African Politics}
 
 \begin{frame}{Conclusion}
 	\begin{table}
+	\footnotesize	
 	\begin{tabularx}{\textwidth}{>{\centering\arraybackslash}X>{\centering\arraybackslash}X>{\centering\arraybackslash}X}
-		\textbf{The slave trade} & & \\
-					 & $\rightarrow$ Ethnic
-		fractionalization & $\rightarrow$ Conflict (?) \& Lower
-		contemporary economic development \\	
-					 & $\rightarrow$ Lower historical and contemporary political development (with
-		some exceptions) & $\rightarrow$ Lower contemporary economic development \\
-		\textbf{Colonialism} & & \\
-				     & $\rightarrow$ Conflict & \\
+		\toprule
+		\multirow{7}{=}{\centering\textbf{The slave trade}} 
+					 & Ethnic fractionalization & Conflict \\
+					 \cmidrule{3-3}
+					 & & Lower contemporary economic development \\	
+					 \cmidrule{2-3}
+					 & Lower historical and contemporary political development (with
+		some exceptions) & Lower contemporary economic development \\
+		\midrule
+		\multirow{5}{=}{\centering\textbf{Colonialism}}
+				     & Conflict & \\
+			\cmidrule{2-2}
 			& Lower contemporary economic development & \\
-			& $\rightarrow$ Democracy (demand for/seeds of) \\
+			\cmidrule{2-2}
+			& Democracy (demand for/seeds of) \\
+		\bottomrule
 	\end{tabularx}
 	\end{table}
 \end{frame}

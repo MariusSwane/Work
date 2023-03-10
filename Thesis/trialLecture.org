@@ -14,6 +14,8 @@
 *** Outcomes like female empowerment/patriarchy, postcolonial dependencies, inequality, political trust
 *** Political economy (trajectory) (unless I suddenly have time)
 
+* I will conclude
+
 * Descriptives (VIZ)
 
 * Nathan Nunn on long term effects of Atlantic slave trade (VIZ)
@@ -77,9 +79,9 @@
 
 * Recap outcomes
 ** Slavery
-*** Ethnic fractionalization -> conflict(?) and retarded economic development
+*** Ethnic fractionalization -> conflict and retarded economic development
 *** Redarded political development (with some exceptions) -> retarded economic development
-*** Interethnic emnities -> conflict(?), group based politics(?)
+*** Emnities between ethnic groups -> conflict, group based politics
 ** Colonialism
 *** Conflict
 *** Retarded economic development

@@ -1,6 +1,8 @@
 #+title: Committee Comments
 #+author: Marius Swane Wishman
 
+*
+
 * Conceaptualization/Terminology
 ** Historical/pre-colonial
 *** "Much" colonization before 1800
@@ -52,3 +54,5 @@
 ** Again, I wish I had it...
 ** This is a whole separate data project..
 ** The *proxy* of distance to capital was the best I could come up with. I am open to suggestions! :)
+
+* Use large grid cells (average size of pcs) or regions

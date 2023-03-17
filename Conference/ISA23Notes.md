@@ -151,6 +151,8 @@ Relatively peaceful region and period? Overlooks China vs nomads as well as
 internal conflicts (excluded by "definitional fiat", dismissed as nonstate
 actors).
 
+Chinese military compiled data on Chinese conflict!
+
 Yuanchong Wang (University of Delaware)
 ---------------------------------------
 

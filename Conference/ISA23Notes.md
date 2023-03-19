@@ -144,7 +144,7 @@ Yuan-Kang Wang (Western Michigan University)
 
 Historians caution against the use of the concept of "the tributary system". No
 such coherent system and a western invention. Does not account for alternative
-reginoal world orders like the Mongol or Tibetan. Qing world order encompassed
+regional world orders like the Mongol or Tibetan. Qing world order encompassed
 all three.
 
 Relatively peaceful region and period? Overlooks China vs nomads as well as
@@ -156,13 +156,178 @@ Chinese military compiled data on Chinese conflict!
 Yuanchong Wang (University of Delaware)
 ---------------------------------------
 
-Kangxi Atlas 1718 (first european style map produced by the Qing) work of
-decades, collaberation between Jesuits, Qing, Mongols and others
+Kangxi Atlas 1718 (first European style map produced by the Qing) work of
+decades, collaboration between Jesuits, Qing, Mongols and others
 
-Michael Varnay (Australian Na onal University)
+Michael Varnay (Australian National University)
 ----------------------------------------------
 
 "Emperor at home, king abroad", at the levels of State, region and village.
 
+Legacies and Conflict
+=====================
 
+Feedback
+--------
+
+From Scott Abramson:
+	- Think of the mechanisms and find evidence for them (-)
+	- Look at other measures of conflict as well (specifically onset) or
+	  move more clearly to intensity, linking closer to theory
+	- PCS areas at valuable (worth fighting over), But this does not add
+	  thaat well to the no state + capital (?)
+	- Try country fixed effects (knowing it incurs PTB)
+	- Jack Paine and others paper on the non-randomness of African borders
+
+	- Do I control for who inherits the state? NO, but I will try
+
+
+Liana Eustacia Reyes (University of Pennsylvania)
+-------------------------------------------------
+
+Are rebel institutions a means to an end, or an end in itself? Certainly for
+revolutionary rebels (religious or political). 
+
+Formal legal institutions of rebels are formalized if the rebels win
+(h1)
+
+Rebel governance is a good indication of future rule.
+
+	- Chinese (counter)example of land redistribution
+
+Alex Avery (Washington University in St. Louis)
+-----------------------------------------------
+
+The long term effect of Habsburg rule on gender attitudes
+
+Emphasises historical borders. 
+
+Nationalism within Habsburg empire was more inclusive than German and Russian
+nationalisms.
+
+Supervisor David seems like someone to check out
+
+Popular Support for Violence
+============================
+
+Aiden Millif (MIT)
+------------------
+
+Majoritarian violence, "lynchings" etc collective vigilantism
+
+State capacity? Status threat? Strength of majoritarian organizations (Hindu
+nationalist)! Vidhya Bharti schools and alumni
+
+So, is it grassroots or organized?
+
+Reported as spontaneous events, but also small groups looking for trouble.
+
+	- If courts are not working, vigilantism seems more reasonable.
+
+---
+
+Cow vigilantism? Cow protection groups, target alleged cow smugglers
+
+------
+
+	- But what is the political motive? Unite Hindus.
+
+Unruly politics
+===============
+
+Catherine Hirst (Australian National University)
+-----------------------------------------------
+
+Strategic acquiescence - when revolutionary movements self-sensor their goals
+for international change to preempt counterrevolution/great power backlash.
+Fewer great powers, means less chance of a great power to support/protect ->
+less strategic acquiescence.
+
+	- Is this just a case of the size/power of the revolutionary state?
+
+Josh Allen (Georgia State University)
+-------------------------------------
+
+Collective memory -> political attitudes
+
+	- The collective memory of holocaust in France, consisted? If you
+	  remember it as "not so bad" vs more realistic (probably follows
+	  right/left devide)
+
+Charles
+-------
+
+Even distribution/many pre-colonial states/polity density -> early democratic 
+
+	- Which capital in Nigeria?
+	- International systems with and without a center
+	- Why only West Africa? 
+
+Potential network analysis.
+
+Authoritarianism & Democratic Backsliding
+=========================================
+
+Moritz Schmoll (Mohammed VI Polytechnic University)
+---------------------------------------------------
+
+Predictive power of parliamentary violence. FISTS data set :)
+Indication of democratic decline? Run up to civil conflict?
+Predictor of change? Weak results.
+
+Yilin Su 
+---------
+ 
+	- Do these laws target regular citizens/voters, or opposition figures
+	  journalists and candidates? If the latter, is it a show for the
+	  audience or a useful tool of selective law enforcement? 
+
+	  	- If it is for show, why do opposition bend? Are they playing to
+		  different audiences?
+
+		- Parallell to false/coerced confessions? Or is it even more
+		  than a parallell.
+
+Fabio
+-----
+
+	- Is this a case of equilibrium of benefits of membership and number of
+	  members?
+
+Understanding the Role of Actors in Mass Mobilization and Protest
+=================================================================
+
+Anna-Lena & Roman Krtsch
+------------------------
+
+What is the effect of public figures being present at protest events? (in
+autocracies)
+
+	- Effects on the protests themselves or on the goals of the movement?
+		- H1 increased "mobilization"
+	- Repression on t0 or t+x?
+	- Gender of the public figure
+
+Increased visibility, "resonance" and legitimacy of protests	
+
+Victoria
+--------
+
+Sudden weather crises trigger protest events in autocracies when they impact
+areas inhabited by excluded ethnic groups.
+
+	- I like your summary of a chaotic literature, and buy your theoretical
+	  argument!
+	- How to improve the selection matching? Two step Heckman correction?
+
+Johnathan et al.
+----------------
+
+Survey experiment on the presence of women in protest. Getting past (some of) 
+the endogeneity. How are they perceived? Shield against repression? "You put
+women on the front line". 
+
+	- What were the results on repression? Trigger for the success -> would
+	  join cycle?
+	- Repression perceived as less appropriate, or less likely?
 

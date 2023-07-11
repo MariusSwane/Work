@@ -20,7 +20,7 @@ library(ggeffects)
 library(Hmisc)
 library(margins)
 library(MASS)
-library(notifier)
+#library(notifier)
 library(pscl)
 library(purrr)
 library(rayshader)
@@ -39,14 +39,14 @@ library(xtable)
 
 #==============================================================================#
 #	Loading Data and functions					       #
-#==============================================================================#	
+#==============================================================================#
 
 load("../Data/GeoISDControls.Rdata") 
 source("goldenScatterCAtheme.r")
 
 #==============================================================================#
 #	Resolving conflicts 						       #
-#==============================================================================#		
+#==============================================================================#
 
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")

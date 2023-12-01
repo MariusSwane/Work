@@ -42,3 +42,28 @@ make a more general "over estimated" dummy.
 
 8) Write better... Or find co-author? Charles? Help me re-write it and get
 co-authorship?
+
+9) Add fixed effects to appendix even though it does not make sense.
+
+10) Add the sensitivity plot to appendix and make reference to it.
+
+11) Binned scatter plot to visualize results?
+
+12) Add the stupid regression equation for the stupid economists.
+
+13) Additional controls: Alsan's tsetse variable. Nunn and Puga's ruggedness
+variable. Sach's malaria index.
+
+14) Explain queen-pattern better.
+
+15) Deal with potential spatial correlation in the error term. Conley standard
+errors or an alternative.
+
+16) Cluster standard errors on country, even though it is a terrible idea
+(guarantied post-treatment bias).
+
+17) What did I do with alternative measure?
+
+18) Create weighted by year PCSP variable.
+
+19) ACLED data, did not converge?

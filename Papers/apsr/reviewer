@@ -1,0 +1,112 @@
+As an economist, I find this paper baffling. The author has put incredible
+effort into documenting historical state presence in Africa. And almost no
+effort into anything else.
+
+The Geo-ISD sounds like a massive undertaking. Almost 300 maps have been
+digitized and converted into a measure of pre-colonial state presence. Then the
+author counts the number of state polygons that intersect a grid cell. This
+count is a measure of historical state presence. These data are a welcome
+contribution that many economists and political scientists will be eager to get
+their hands on.
+
+And then the author shows a couple of figures representing the correlation
+between modern conflict and historic state presence, with the sample split by
+distance from the capital. In this section of the paper, all tables are
+relegated to the appendix, there is no concern for endogeneity or omitted
+variables bias, there is no assessment of sensitivity to controls, there are no
+fixed effects, there is no attempt to assess whether these relationships held in
+the past as well… Basically, the paper devotes a heroic amount of work into
+constructing a variable that everyone who works on African states will want to
+use, and then uses it for an careless empirical exercise that could not be
+published in an economics journal in the top 100. 
+
+My confusion may simply reflect a clash of disciplines. In economics, it is not
+enough to introduce a new variable. You have to do something credible with it. I
+think this paper would have much more impact if the author were to redo the
+second half of the paper from scratch. Take work like Michalopoulos and
+Papaioannou (2013) or Moscona et al. (2020) and apply your new measure of states
+to an outcome like conflict or development with the same level of rigor and care
+as in these published papers. If you simply made a "to do" list from the
+sequence of main tables and appendix tables in these papers, you might be able
+to get a high impact publication out of this project. Right now, I simply don't
+believe your main results because you have no identification strategy and seem
+unconcerned with omitted variables. But there's no need for your paper to be
+like this.
+
+Figures 3 and 4 lack transparency. These are representations of regression
+results. They are not representations of the data itself. Show binscatters or
+similar data descriptions.
+
+Indeed: we are simply never shown an equation describing the main regression
+specification.
+
+Several standard controls are missing. Alsan's tsetse variable. Nunn and Puga's
+ruggedness variable. Sach's malaria index. This is only a partial list.
+
+The only discussion of standard errors is an aside about "queen pattern" (a term
+I don't know) autocorrelation. The appendix table itself suggests spatial lags
+are used. Spatial lags are about spillovers. I worry instead about p values
+being overstated because of spatial correlation in the error term. Show me
+Conley standard errors or an alternative. But… in the baseline… are standard
+errors even clustered?
+
+I do also worry about the construction of the states variable, even if I am
+quite impressed with the undertaking. First, the variable should be normalized
+in some way - "number of polygons" is, for example, sensitive to the number of
+underlying sources. Second, should recent polygons count more than older
+polygons? Long defunct states may no longer matter. Louis Putterman's index has
+this feature. Third, should three polygons from three maps in 1850 count the
+same as polygons measured in 1100, 1400, and 1600? The former measures the
+availability of maps, while the latter measures the presence of states over
+several centuries. Fourth, the measure will overstate state presence in
+locations that are documented well by European cartographers.
+
+I think the theory on why distance from the capital should matter is
+underdeveloped. For example, rural elites distant from the capital may be drawn
+from the same ethnic group that dominates the state and may be its allies, not
+its rivals. Katsina is far from Abuja, but Buhari is president.
+
+I also have several minor concerns:
+
+It is not clear what "beyond the two dimensional representation" means. The
+paper still only reports one value for any x,y grid cell. There are no more
+dimensions here than e.g. in Depetris-Chauvin's work.
+
+It doesn't make sense to say that Lagos is in the borders of the Benin Empire,
+or of Ibadan, or of Ife. And the Nigerian example on page 4 is very
+time-dependent. Would you make the same claim during the time of MEND or Ojukwu?
+
+The sentence spanning p5 and p6 is almost incomprehensible. Belinda Archibong
+has relevant work that isn't cited.
+
+I find the title of the paper baffling as well. Is the author a big fan of Floor
+Jansen?
+
+P9: "coup"
+
+Why use a cutoff of 10,000 people?
+
+Why not use all 109 states?
+
+The paper meanders at length. 14 pages in, and I have no idea what the data will
+end up looking like, what the identification strategy will be, etc…
+
+Alesina is mis-cited: his paper is about borders, not capitals.
+
+It would be nice to see robustness to the use of ACLED or UCDP data.
+
+The claim on page 26 is simply wrong. Right hand side measurement error can bias
+coefficient estimates. See for example section 9.4 of the 2012 edition of
+Wooldridge's undergraduate textbook.
+
+The discussion on page 27 goes on at length. I often find it hard to separate
+out a description of the underlying sources from a description of what the
+author has actually done and why.
+
+No-one takes the square root of x in a regression. Even the inverse hyperbolic
+sine is preferable.
+
+The whole paper meanders. 
+
+Page 38 throws out some hypotheses only to immediately reject them. The writing
+is not structured effectively.

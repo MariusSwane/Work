@@ -20,7 +20,7 @@ library(ggeffects)
 library(Hmisc)
 library(margins)
 library(MASS)
-library(notifier)
+#library(notifier)
 library(pscl)
 library(purrr)
 library(rayshader)
@@ -39,14 +39,14 @@ library(xtable)
 
 #==============================================================================#
 #	Loading Data and functions					       #
-#==============================================================================#	
+#==============================================================================#
 
 load("../Data/GeoISDControls.Rdata") 
 source("goldenScatterCAtheme.r")
 
 #==============================================================================#
 #	Resolving conflicts 						       #
-#==============================================================================#		
+#==============================================================================#
 
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")
@@ -310,6 +310,7 @@ main_models <- analysis(dvs = dvs, ivs = ivs, controls = controls, data =
 			filter(prio_grid_isd, popd > 0), test_label = 'Linear
 		Models')
 
+# Does converge
 interaction_models <- analysis(dvs = dvs, ivs = interactions, controls =
 			       controls, data = filter(prio_grid_isd, popd > 0),
 		       test_label = 'Interaction Models')
@@ -522,14 +523,15 @@ dev.off()
 #==============================================================================#		
 
 zinb_deaths <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
-			region3 + water_gc + logCDist + logPopd + logBDist, data
+			region3 + water_gc + barren_gc + logCDist + logPopd + 
+			logBDist, data
 		= filter(prio_grid_isd, popd > 0), dist = "negbin")
 summary(zinb_deaths)
 
 
 zinb_both <- zeroinfl(both ~ sqrtSpAll * logCapdist + mountains_mean +
- 			water_gc + logCDist + logPopd + logBDist, data =
-			filter(prio_grid_isd, popd > 0), dist = "negbin")
+ 			water_gc + barren_gc + logCDist + logPopd + logBDist,
+		data = filter(prio_grid_isd, popd > 0), dist = "negbin")
 summary(zinb_both)
 
 ggzinb <- ggpredict(zinb_deaths, terms = c("sqrtSpAll [0:15]", "logCapdist
@@ -702,6 +704,38 @@ gisd_cntry %>% prio_grid_isd %>% group_by(gwno) %>%
 zinbepr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
 		     region3 + logCDist + logPopd + logBDist + excluded, data =
 		     filter(prio_grid_isd, popd > 0), dist = "negbin")
+
+# Square root transformation
+sqrtmod <- lm(sqrt(interdeaths) ~ sqrtSpAll * logCapdist + mountains_mean + 
+	      water_gc + barren_gc + region3 + logCDist + logPopd + logBDist,
+      data = filter(prio_grid_isd, popd > 0))
+summary(sqrtmod)
+
+sqrtpred <- ggeffect(sqrtmod, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 7.817]"))
+
+sqrtplot <- ggplot(sqrtpred, aes(x^2, predicted^2, color = group)) +
+	geom_ribbon(aes(ymin = conf.low^2, ymax = conf.high^2, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
+					 geom_line() + goldenScatterCAtheme
+sqrtplot
+
+
+# Sensitivity plots
+
+senseanalysis <- sensemakr(sqrtmod, "sqrtSpAll:logCapdist", benchmark_covariates
+= "logPopd", kd = 1:2)
+
+summary(senseanalysis)
+
+
+pdf("../Output/senseplot.pdf",
+    width = 10, height = 10/1.68)
+plot(senseanalysis, sensitivity.of = "t-value")
+dev.off()
+
 # }}}
 
 # {{{ Histogram
@@ -709,8 +743,8 @@ zinbepr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + wate
 #	Histogram							       #
 #==============================================================================#
 
-histplot <- ggplot(filter(prio_grid_isd, statebaseddeaths < 20),
-		   aes(statebaseddeaths)) + geom_histogram(binwidth = 1) +
+histplot <- ggplot(filter(prio_grid_isd, interdeaths < 20),
+		   aes(interdeaths)) + geom_histogram(binwidth = 1) +
 					   goldenScatterCAtheme
 
 histplot
@@ -719,6 +753,7 @@ pdf("../Output/histplot.pdf",
     width = 10, height = 10/1.68)
 histplot
 dev.off()
+
 # }}}
 
 # {{{ Table of atlas maps
@@ -855,22 +890,6 @@ logplot <- ggplot(logpred, aes(x^2, exp(predicted), color = group)) +
 					ylab('Predicted fatalities') +
 					 geom_line() + goldenScatterCAtheme
 logplot
-
-sqrtmod <- lm(sqrt(interdeaths) ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
-		     region3 + logCDist + logPopd + logBDist, data =
-		     filter(prio_grid_isd, popd > 0))
-summary(sqrtmod)
-
-sqrtpred <- ggeffect(sqrtmod, terms = c("sqrtSpAll [0:15]", "logCapdist
-						 [1.309, 7.817]"))
-
-sqrtplot <- ggplot(sqrtpred, aes(x^2, predicted^2, color = group)) +
-	geom_ribbon(aes(ymin = conf.low^2, ymax = conf.high^2, fill = group,
-			linetype = NA)) + scale_fill_manual(values = pastels) +
-					xlab('State presence') +
-					ylab('Predicted fatalities') +
-					 geom_line() + goldenScatterCAtheme
-sqrtplot
 
 # }}}
 

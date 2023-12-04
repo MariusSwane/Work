@@ -70,6 +70,12 @@ h2 {
 	font-family: "Times New Roman";
 	text-transform: uppercase;
 }
+* {
+    font-family: "Times New Roman";
+  }
+p {
+	font-family: "Times New Roman";
+}
 a {
 	font-family: "Times New Roman";
 }
@@ -98,6 +104,7 @@ hr.new2 {
 	width: 40%;
 	text-align:justify;
 	vertical-align: top;
+	font-family: "Times New Roman";
 }
 .info a {
 	font-size:inherit;

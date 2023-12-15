@@ -50,6 +50,7 @@ source("goldenScatterCAtheme.r")
 
 conflict_prefer("filter", "dplyr")  
 conflict_prefer("select", "dplyr")
+
 # }}}
 
 # {{{ Pre-analysis
@@ -72,6 +73,7 @@ prio_grid_isd <- prio_grid_isd %>% filter( (gwno >= 404 & gwno <= 626) | gwno ==
 				sqrtBDist = sqrt(bdist3),
 				sqrtPopd = sqrt(popd),
 				logDeaths = log(deaths + 1),
+				logInterDeaths = log(interdeaths + 1),
 				logState_based = log(state_based + 1),
 				logSpAll = log(sp_os_i_sum + 1),
 				logSpAny = log(sp_i_sum_any + 1),
@@ -606,9 +608,12 @@ texreg(zinblist, file = "../Output/zinbz.tex",
 
 # }}}
 
+#==============================================================================#
 # {{{ Robustness checks
+#==============================================================================#
 
 # EPR groups
+#==============================================================================#
 
 zinbepr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
 		     region3 + logCDist + logPopd + logBDist + excluded, data =
@@ -616,6 +621,7 @@ zinbepr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + wate
 summary(zinbepr)
 
 # Alternative IV
+#==============================================================================#
 
 zinbaiv <- zeroinfl(interdeaths ~ sqrtSpAny * logCapdist + mountains_mean + water_gc +
 		     region3 + logCDist + logPopd + logBDist, data =
@@ -640,6 +646,7 @@ ggzinbaivPlot <- ggplot(ggaivzinb, aes(x^2, predicted)) +
 ggzinbaivPlot
 
 # Subsamples for france and gbr
+#==============================================================================#
 
 zinbgbr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
 		     region3 + logCDist + logPopd + logBDist, data =
@@ -652,39 +659,8 @@ zinbfra <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + wate
 		     filter(prio_grid_isd, popd > 0 & fra == 0), dist = "negbin")
 summary(zinbfra)
 
-robustlist <- list(zinbepr, zinbaiv, zinbgbr, zinbfra)
-
-texreg(robustlist, file = "../Output/robust.tex", 
-       stars = c(0.001, 0.01, 0.05, 0.1), 
-       use.packages = F, 
-       sideways = T,
-       scalebox = .9,
-       custom.coef.map = coefs,
-       include.zero = F,
-       label = "robustc", 
-       table = T,
-       caption = "Additional models (count)",
-       custom.model.names = c('EPR groups', 'Alternativ IV', 
-			      'Excluding former British colonies', 
-			      'Excluding former French colonies'),
-       booktabs = T)
-
-texreg(robustlist, file = "../Output/robustz.tex", 
-       stars = c(0.001, 0.01, 0.05, 0.1), 
-       use.packages = F, 
-       sideways = T,
-       scalebox = .9,
-       custom.coef.map = coefs,
-       include.count = F,
-       label = "robustz", 
-       table = T,
-       caption = "Additional models (zero)",
-       custom.model.names = c('EPR groups', 'Alternativ IV', 
-			      'Excluding former British colonies', 
-			      'Excluding former French colonies'),
-       booktabs = T)
-
 # Prior conflict (🚧 WIP 🚧)
+#==============================================================================#
 
 conf <- read_tsv("../Data/dfo_historical_conflict_data_ehdr.tab")
 
@@ -701,11 +677,8 @@ gisd_cntry %>% prio_grid_isd %>% group_by(gwno) %>%
 		  sps = sum(sqrrtSpAll),
 
 
-zinbepr <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean + water_gc +
-		     region3 + logCDist + logPopd + logBDist + excluded, data =
-		     filter(prio_grid_isd, popd > 0), dist = "negbin")
-
 # Square root transformation
+#==============================================================================#
 sqrtmod <- lm(sqrt(interdeaths) ~ sqrtSpAll * logCapdist + mountains_mean + 
 	      water_gc + barren_gc + region3 + logCDist + logPopd + logBDist,
       data = filter(prio_grid_isd, popd > 0))
@@ -724,6 +697,7 @@ sqrtplot
 
 
 # Sensitivity plots
+#==============================================================================#
 
 senseanalysis <- sensemakr(sqrtmod, "sqrtSpAll:logCapdist", benchmark_covariates
 = "logPopd", kd = 1:2)
@@ -735,6 +709,65 @@ pdf("../Output/senseplot.pdf",
     width = 10, height = 10/1.68)
 plot(senseanalysis, sensitivity.of = "t-value")
 dev.off()
+
+# Country fixed effcts
+#==============================================================================#
+
+zinbfxe <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
+		     water_gc + region3 + logCDist + logPopd + logBDist +
+		     factor(State),
+	     data = filter(prio_grid_isd, popd > 0), dist = "negbin")
+summary(zinbfxe)
+
+# Log-transformed IV
+zinblog <- zeroinfl(interdeaths ~ logSpAll * logCapdist + mountains_mean +
+		     water_gc + region3 + logCDist + logPopd + logBDist,
+	     data = filter(prio_grid_isd, popd > 0), dist = "negbin")
+summary(zinblog)
+
+# Non-transformed IV (produces NaN's)
+zinbnt <- zeroinfl(interdeaths ~ sp_os_i_sum * logCapdist + mountains_mean +
+		     water_gc + region3 + logCDist + logPopd + logBDist,
+	     data = filter(prio_grid_isd, popd > 0), dist = "negbin")
+summary(zinbnt)
+
+# Robustness tables
+#==============================================================================#
+
+robustlist <- list(zinbepr, zinbaiv, zinbgbr, zinbfra, sqrtmod, zinbfxe, zinblog)
+
+texreg(robustlist, file = "../Output/robust.tex", 
+       stars = c(0.001, 0.01, 0.05, 0.1), 
+       use.packages = F, 
+       sideways = T,
+       scalebox = .9,
+       custom.coef.map = coefs,
+       include.zero = F,
+       label = "robustc", 
+       table = T,
+       caption = "Additional models (count)",
+       custom.model.names = c('EPR groups', 'Alternativ IV', 
+			      'Excluding former British colonies', 
+			      'Excluding former French colonies',
+       			'Squar root traansformed linear model',
+			'Country fixed effects'),
+       booktabs = T)
+
+texreg(robustlist, file = "../Output/robustz.tex", 
+       stars = c(0.001, 0.01, 0.05, 0.1), 
+       use.packages = F, 
+       sideways = T,
+       scalebox = .9,
+       custom.coef.map = coefs,
+       include.count = F,
+       label = "robustz", 
+       table = T,
+       caption = "Additional models (zero)",
+       custom.model.names = c('EPR groups', 'Alternativ IV', 
+			      'Excluding former British colonies', 
+			      'Excluding former French colonies',
+			'Country fixed effects'),
+       booktabs = T)
 
 # }}}
 

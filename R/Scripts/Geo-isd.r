@@ -13,7 +13,7 @@
 #	Loading packages 						       # 
 #==============================================================================#
 
-library(acled.api)
+#library(acled.api)
 library(conflicted)
 library(dplyr)
 library(ggplot2)
@@ -611,7 +611,7 @@ col <- select(col, "State", "ColRuler")
 
 # Merging
 
-col$gwno <- (countrycode(col$State, "cown", "gwn"))
+col$gwno <- countrycode(col$State, "cown", "gwn")
 
 prio_grid_isd <- left_join(prio_grid_isd, col, by = c('gwno'))
 

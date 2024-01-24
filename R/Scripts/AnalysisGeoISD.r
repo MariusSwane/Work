@@ -14,9 +14,11 @@
 
 library(corrplot)
 library(conflicted)
+library(countrycode)
 library(dplyr)
 library(ggplot2)
 library(ggeffects)
+library(haven)
 library(Hmisc)
 library(margins)
 library(MASS)
@@ -710,26 +712,88 @@ pdf("../Output/senseplot.pdf",
 plot(senseanalysis, sensitivity.of = "t-value")
 dev.off()
 
-# Country fixed effcts
+# Country fixed effcts (not converging, "non finite value supplied by oprim")
 #==============================================================================#
 
 zinbfxe <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
 		     water_gc + region3 + logCDist + logPopd + logBDist +
-		     factor(State),
+		     factor(gwno),
 	     data = filter(prio_grid_isd, popd > 0), dist = "negbin")
 summary(zinbfxe)
 
+nbfxe <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
+		     water_gc + region3 + logCDist + logPopd + logBDist +
+		     factor(gwno),
+	     data = filter(prio_grid_isd, popd > 0))
+summary(nbfxe)
+
 # Log-transformed IV
 zinblog <- zeroinfl(interdeaths ~ logSpAll * logCapdist + mountains_mean +
-		     water_gc + region3 + logCDist + logPopd + logBDist,
+		     water_gc + region3 + logCDist + logPopd + logBDist + 
+		     factor(gwno),
 	     data = filter(prio_grid_isd, popd > 0), dist = "negbin")
 summary(zinblog)
 
 # Non-transformed IV (produces NaN's)
 zinbnt <- zeroinfl(interdeaths ~ sp_os_i_sum * logCapdist + mountains_mean +
-		     water_gc + region3 + logCDist + logPopd + logBDist,
+		     water_gc + region3 + logCDist + logPopd + logBDist +
+		     factor(gwno),
 	     data = filter(prio_grid_isd, popd > 0), dist = "negbin")
 summary(zinbnt)
+
+# Tse-tse fly
+#==============================================================================#
+
+tsetse <- read_dta("../Data/Alsan tse-tse/precolonial.dta", col_select =
+		   c("TSI", "isocode", "malaria_index"))
+
+tsetse$gwno <- countrycode(tsetse$isocode, "iso3c", "gwn")
+
+prio_grid_isd <- left_join(prio_grid_isd, tsetse, by = "gwno")
+
+#tsesubnat <- read_dta("../Data/Alsan tse-tse/subnational.dta")
+
+zinbsick <- zeroinfl(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
+		     water_gc + region3 + logCDist + logPopd + logBDist +
+		     TSI + malaria_index,
+	     data = filter(prio_grid_isd, popd > 0), dist = "negbin")
+summary(zinbsick)
+
+sickpred <- ggpredict(zinbsick, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 7.817]"))
+
+sickplot <- ggplot(sickpred, aes(x^2, predicted^2, color = group)) +
+	geom_ribbon(aes(ymin = conf.low^2, ymax = conf.high^2, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
+					 geom_line() + goldenScatterCAtheme
+sickplot
+
+nbsick <- glm.nb(interdeaths ~ sqrtSpAll * logCapdist + mountains_mean +
+		     water_gc + region3 + logCDist + logPopd + logBDist +
+		     TSI + malaria_index,
+	     data = filter(prio_grid_isd, popd > 0))
+summary(nbsick)
+
+nbsickpred <- ggpredict(nbsick, terms = c("sqrtSpAll [0:15]", "logCapdist
+						 [1.309, 7.817]"))
+
+nbsickplot <- ggplot(nbsickpred, aes(x^2, predicted^2, color = group)) +
+	geom_ribbon(aes(ymin = conf.low^2, ymax = conf.high^2, fill = group,
+			linetype = NA)) + scale_fill_manual(values = pastels) +
+					xlab('State presence') +
+					ylab('Predicted fatalities') +
+					 geom_line() + goldenScatterCAtheme
+sickplot
+
+# Nunn ruggedness
+#==============================================================================#
+
+ruggednunn <- read.csv("../Data/Nunn ruggedness/rugged_data.csv")
+
+ruggednunn <- st_as_sf(ruggednunn, coords = c('lon', 'lat'), crs =
+		       st_crs(prio_grid_shp))
 
 # Robustness tables
 #==============================================================================#

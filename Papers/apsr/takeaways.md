@@ -16,7 +16,7 @@ poor institutions -> Longer and more intense conflicts**
 3) Explain (better) why controls for "the obvious [country level] factors who
 normally associate with civil wars" cannot be used.
 
-4) Control for local rather country level colonizer.
+~~4) Control for local rather country level colonizer.
 
 5) Discussion on generalizability? America is different because of smallpox.
 Europe and some parts of Asia are different because they have the resources to
@@ -67,3 +67,5 @@ errors or an alternative.
 18) Create weighted by year PCSP variable.
 
 19) ACLED data, did not converge?
+
+20) New title?

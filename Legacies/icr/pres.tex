@@ -1,0 +1,156 @@
+\documentclass{beamer}
+
+\usepackage{graphicx}
+\usepackage{tabularx}
+%\usetheme{default}
+\usecolortheme{seagull}
+\setbeamertemplate{navigation symbols}{} % No navigation symbols
+%\definecolor{ntnu}{cmyk}{100,75,0,5}
+\setbeamercovered{transparent}
+\usefonttheme{serif}
+
+\setbeamertemplate{itemize item}{\color{white}$\bullet$} 
+% Include above line to remove bullet indicators
+
+\setbeamertemplate{footline}{
+\begin{tabularx}{\textwidth} {
+	 >{\raggedright\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X 
+  	 >{\centering\arraybackslash}X}
+	\insertshortauthor & 
+	\insertshorttitle &
+	\insertdate &
+	\insertsection &
+	$\big|$ \insertframenumber
+\end{tabularx}
+}
+
+\makeatletter
+\makeatother
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[ICR Test]{Inter Coder Reliability Test}
+
+\subtitle{Legacies}
+
+\author[Wishman]{Marius Swane Wishman} 
+\date{\today} 
+\institute{ISS}
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage 
+\centering
+%\includegraphics[width=5cm]{img/ntnu_uten_slagord_svart.pdf}
+\end{frame}
+
+\section{Overall impressions} 
+
+\begin{frame}
+\frametitle{Overall impressions}
+	
+What did you find difficult? What did you spend a lot of time on?
+
+\end{frame}
+
+\begin{frame}{Overall impressions}
+
+Good, but room for improvement
+
+\end{frame}
+
+\section{Georeferencing} \label{Georeferencing}
+
+\begin{frame}{}
+
+\begin{figure}[htpb]{Qviller}
+	\centering
+	\includegraphics[width=\linewidth]{img/MicrosoftTeams-image (1).png}
+	\label{Qviller}
+\end{figure}		
+
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{figure}[htpb]{Berghaus}
+		\centering
+		\includegraphics[width=\linewidth]{img/MicrosoftTeams-image.png}
+		\label{Berghaus}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Bellin}
+
+You can't save every map from itself...
+
+\end{frame}
+
+\begin{frame}{}
+
+\include{img/icr.tex}
+
+\end{frame}
+
+\begin{frame}{Conclusion}
+
+\begin{figure}[htpb]{}
+	\centering
+	\includegraphics[width=.7\linewidth]{img/goodnews.png}
+	\label{}
+\end{figure}		
+
+\end{frame}
+
+\section{Polities} \label{Polities}
+
+\begin{frame}{}
+
+	\begin{figure}[htpb]{Qviller}
+		\centering
+		\includegraphics[width=\linewidth]{img/MicrosoftTeams-image (2).png}
+		\label{Qviller}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{}
+
+	\begin{figure}[htpb]{Berghaus}
+		\centering
+		\includegraphics[width=\linewidth]{img/MicrosoftTeams-image (3).png}
+		\label{Berghaus}
+	\end{figure}
+
+\end{frame}
+
+\section{Discussions} \label{Discussions}
+
+\begin{frame}{}
+
+Some example cases?	
+
+\end{frame}
+
+\begin{frame}{}
+
+Should we code districts?	
+
+\end{frame}
+
+\begin{frame}{}
+
+To core or not to core...	
+
+\end{frame}
+
+\end{document}
+

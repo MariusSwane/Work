@@ -1,0 +1,55 @@
+<PAMDataset>
+  <Metadata>
+    <MDI key="COLORSPACE">RGB</MDI>
+    <MDI key="COMPRESSION_RATE_TARGET">23</MDI>
+  </Metadata>
+  <Metadata domain="JPEG2000">
+    <MDI key="CODE_BLOCK_SIZE_X">32</MDI>
+    <MDI key="CODE_BLOCK_SIZE_Y">32</MDI>
+    <MDI key="GML_JP2_DATA">FALSE</MDI>
+    <MDI key="PRECINCT_SIZE_X">128,128,128,256,256</MDI>
+    <MDI key="PRECINCT_SIZE_Y">128,128,128,256,256</MDI>
+    <MDI key="PRECISION">8,8,8</MDI>
+    <MDI key="PROFILE">2</MDI>
+    <MDI key="PROGRESSION_ORDER">RPCL</MDI>
+    <MDI key="QUALITY_LAYERS">6</MDI>
+    <MDI key="RESOLUTION_LEVELS">5</MDI>
+    <MDI key="TILES_X">43</MDI>
+    <MDI key="TILES_Y">28</MDI>
+    <MDI key="TILE_HEIGHT">256</MDI>
+    <MDI key="TILE_WIDTH">256</MDI>
+    <MDI key="TRANSFORMATION_TYPE">5x3</MDI>
+    <MDI key="USE_EPH">FALSE</MDI>
+    <MDI key="USE_SOP">FALSE</MDI>
+  </Metadata>
+  <PAMRasterBand band="1">
+    <Description>Red</Description>
+    <Metadata>
+      <MDI key="STATISTICS_APPROXIMATE">YES</MDI>
+      <MDI key="STATISTICS_MAXIMUM">255</MDI>
+      <MDI key="STATISTICS_MEAN">208.17251461988</MDI>
+      <MDI key="STATISTICS_MINIMUM">0</MDI>
+      <MDI key="STATISTICS_STDDEV">52.157705246815</MDI>
+    </Metadata>
+  </PAMRasterBand>
+  <PAMRasterBand band="2">
+    <Description>Green</Description>
+    <Metadata>
+      <MDI key="STATISTICS_APPROXIMATE">YES</MDI>
+      <MDI key="STATISTICS_MAXIMUM">255</MDI>
+      <MDI key="STATISTICS_MEAN">190.08503898635</MDI>
+      <MDI key="STATISTICS_MINIMUM">0</MDI>
+      <MDI key="STATISTICS_STDDEV">53.552610744158</MDI>
+    </Metadata>
+  </PAMRasterBand>
+  <PAMRasterBand band="3">
+    <Description>Blue</Description>
+    <Metadata>
+      <MDI key="STATISTICS_APPROXIMATE">YES</MDI>
+      <MDI key="STATISTICS_MAXIMUM">255</MDI>
+      <MDI key="STATISTICS_MEAN">172.24290664934</MDI>
+      <MDI key="STATISTICS_MINIMUM">0</MDI>
+      <MDI key="STATISTICS_STDDEV">48.752036228541</MDI>
+    </Metadata>
+  </PAMRasterBand>
+</PAMDataset>

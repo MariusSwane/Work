@@ -2,7 +2,7 @@
 
 library(tidyverse)
 library(sf)
-library(stargazer)
+library(xtable)
 library(gridExtra)
 
 ch <- st_read("christoffer/OneDrive_1_1-29-2024/icr_cwa.shp")
@@ -40,18 +40,19 @@ icr
 gcpp <- read.csv("points.csv")
 
 gcpp <- gcpp %>% group_by(coder) %>% 
-		summarise(gcpp = mean(points))
+		summarise(points = mean(points))
 
 icr <- merge(icr, gcpp)
 
-icr <- icr %>% mutate(rate = (coasterror+cityerror)*gcpp,
-		mean_error = (coasterror + cityerror)/2)
+icr <- icr %>% mutate( mean_error = (coasterror + cityerror)/2,
+rate = mean_error*points)
 
-stargazer(select(icr, coder, mean_error, rate))
-
-png("icr.png") 
-grid.table(icr)
+png("img/icr.png") 
+grid.table(select(icr, coder, mean_error, points, rate))
 dev.off()
+
+print(xtable(select(icr,coder,mean_error,points,rate),
+	     type = "latex"), file = "img/icr.tex")
 
 png("jh-city.png") 
 hist(jh$cityerror)

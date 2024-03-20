@@ -1,0 +1,23 @@
+COWID,COWNUM,name,year,source,delete,why
+AIR,4361,Air ou Asben,1886,Driuox1886,0,
+AIR,4361,Air ou Asben,1892,Desbuissons1892,0,
+AIR,4361,Agades,1790,Schreiber1790II,1,Misplaced and ambiguities in the map
+KUB,4910,Kuba,1800,Kasule1998,0,
+BRG,4798,Borgu or Borku,1871,Bartholomew1871,1,Confused with an entity not in state list
+BRG,4798,Borgo,1892,Desbuissons1892,1,Confused with an entity not in state list
+BRG,4798,Borku,1883,Diercke1883,1,Confused with an entity not in state list
+BRG,4798,Borku,1896,Dierke1896,1,Confused with an entity not in state list
+DJA,4381,Fouta,1862,Garnier1862a,1,Confused with ethnic group
+DJA,4381,Futa Jallon,,TimesAtlas_I,1,Misplaced
+DJA,4381,Futa Jallon,1789,Hausa1789_1,1,Misplaced
+EGY,651,Egypte,1892,Desbuissons1892,0
+FDU,4045,Foladoo,1810,Rennel1810,1,Misplaced and probably confused with ethnic group
+FDU,4045,Fuladugu,1895,Sokoto_caliphate_1895_I,1,Misplaced and probably confused with ethnic group
+FTO,4331,Futa Toro,,TimesAtlas_I,1,Misplaced
+FTO,4331,Futa Toro,1789,Hausa1789_1,1,Misplaced
+MOR,600,Marocco,1878,Arrowsmith1878,1,Duplicate
+MOR,600,Marocco,1878,Arrowsmith1878,1,Duplicate
+MOR,600,Marocco,1878,Arrowsmith1878,1,Duplicate
+MOR,600,Marocco,1880,Arrowsmith1880,1,Duplicate
+MOR,600,Marocco,1880,Arrowsmith1880,1,Duplicate
+MOR,600,Marocco,1880,Arrowsmith1880,1,Duplicate
